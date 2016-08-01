@@ -1,27 +1,25 @@
 package com.bitrubio.prototipoebitrubio;
 
 import android.app.Fragment;
-import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.ComentarioActivity;
 import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
-import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileActivity;
+import com.bitrubio.prototipoebitrubio.Bitrubian.ContactoAdapter;
+import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,23 +30,22 @@ import butterknife.ButterKnife;
 public class FragmentAmigos extends Fragment {
     private ListView listViewSolicitudes;
     private ListView listViewAmigos;
-    private ArrayList<Comunidad> comunidadList;
-    private SolicitudesAdapter listSolicitudes;
+
+    private SolicitudesAdapter listSolicitudes; // revisar
     private AmigosAdapter listAmigos;
+
     Typeface tf;
+    String TAG = getClass().getSimpleName();
 
-    @Bind(R.id.section_sol)
-    TextView txtSectionSolicitudes;
-
-    @Bind(R.id.section_ami)
-    TextView txtSectionAmigos;
 
     @Bind(R.id.edit_comentario)
     EditText edit_comentrio;
 
-    RecyclerView recyclerView ;
 
+    private RecyclerView mRecyclerView;
+    private ContactoAdapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private ArrayList<Comunidad> comunidadList;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parentViewGroup,
@@ -56,9 +53,6 @@ public class FragmentAmigos extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_amigos, parentViewGroup, false);
         ButterKnife.bind(this, rootView);
-
-        txtSectionSolicitudes.setText("Solictudes pendientes");
-        txtSectionAmigos.setText("Mis amigos");
 
         comunidadList = new ArrayList<Comunidad>();
         comunidadList.add(new Comunidad(1, "Alberto Rodriguez", 50));
@@ -72,51 +66,29 @@ public class FragmentAmigos extends Fragment {
         comunidadList.add(new Comunidad(9, "Vanessa Hernandez", 2));
         comunidadList.add(new Comunidad(10, "Marisol Jimenez", 1));
 
-/*        // TODO REVISAR con stycky headers
-        recyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_expertos);
-        final ContactoAdapter adapter = new ContactoAdapter();
-        adapter.add("Animals below!");
-       // adapter.addAll(getDummyDataSet());
-        recyclerView.setAdapter(adapter);
-        // Set layout manager
+        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_contactoComunidad);
+        mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
-        recyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.setLayoutManager(mLayoutManager);
+        mRecyclerView.addItemDecoration(new DividerItemDecoration(getActivity(),LinearLayoutManager.VERTICAL));
+        mAdapter = new ContactoAdapter(getActivity(),comunidadList);
 
-        // Add the sticky headers decoration
-        final StickyRecyclerHeadersDecoration headersDecor = new StickyRecyclerHeadersDecoration(adapter);
-        recyclerView.addItemDecoration(headersDecor);
+        //This is the code to provide a sectioned list
+        List<SimpleSectionedRecyclerViewAdapter.Section> sections =new ArrayList<>();
 
-        // Add decoration for dividers between list items
-       // recyclerView.addItemDecoration(new DividerDecoration(this));
-
-        // Add touch listeners
-        StickyRecyclerHeadersTouchListener touchListener =
-                new StickyRecyclerHeadersTouchListener(recyclerView, headersDecor);
-        touchListener.setOnHeaderClickListener(
-                new StickyRecyclerHeadersTouchListener.OnHeaderClickListener() {
-                    @Override
-                    public void onHeaderClick(View header, int position, long headerId) {
-                        Toast.makeText(getActivity(), "Header position: " + position + ", id: " + headerId,
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
-        recyclerView.addOnItemTouchListener(touchListener);
-        recyclerView.addOnItemTouchListener(new RecyclerItemClickListener(getActivity(), new RecyclerItemClickListener.OnItemClickListener() {
-            @Override
-            public void onItemClick(View view, int position) {
-                adapter.remove(adapter.getItem(position));
-            }
-        }));
-        adapter.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
-            @Override
-            public void onChanged() {
-                headersDecor.invalidateHeaders();
-            }
-        });*/
+        //Sections
+        sections.add(new SimpleSectionedRecyclerViewAdapter.Section(0,"Mis Solicitudes "));
+        sections.add(new SimpleSectionedRecyclerViewAdapter.Section(3,"Mis Contactos"));
+        //Add your adapter to the sectionAdapter
+        SimpleSectionedRecyclerViewAdapter.Section[] dummy = new SimpleSectionedRecyclerViewAdapter.Section[sections.size()];
+        Log.e(TAG,"sections "+dummy);
+        SimpleSectionedRecyclerViewAdapter mSectionedAdapter = new SimpleSectionedRecyclerViewAdapter(getActivity(),R.layout.contacto_header,R.id.section_text,mAdapter);
+        mSectionedAdapter.setSections(sections.toArray(dummy));
 
 
+        mRecyclerView.setAdapter(mSectionedAdapter);
 
-        listViewSolicitudes = (ListView) rootView.findViewById(R.id.list_soliciitudes);
+/*        listViewSolicitudes = (ListView) rootView.findViewById(R.id.list_soliciitudes);
         listSolicitudes = new SolicitudesAdapter(getActivity(), comunidadList);
         listViewSolicitudes.setAdapter(listSolicitudes);
 
@@ -161,7 +133,7 @@ public class FragmentAmigos extends Fragment {
             listViewSolicitudes.setNestedScrollingEnabled(true);
             listViewAmigos.setNestedScrollingEnabled(true);
 
-        }
+        }*/
         return rootView;
     }
     private int getLayoutManagerOrientation(int activityOrientation) {
