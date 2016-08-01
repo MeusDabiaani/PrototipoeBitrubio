@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/letraVerde1"
+        android:elevation="0dp"
+        android:minHeight="?attr/actionBarSize"
+        android:navigationIcon="@drawable/ic_menu_new"
+        app:layout_collapseMode="pin"
+        app:layout_scrollFlags="scroll|exitUntilCollapsed"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linerScroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/lnr_peso"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/relativeLayout2"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_peso_actual"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:hint="@string/peso_actual"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"/>
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="6dp"
+                            android:text="74 kg"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/colorAccent">
+
+                        </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_objetivo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:hint="@string/peso_objetivo"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"/>
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="6dp"
+                            android:text="70 kg"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/colorAccent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_tiempo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:hint="@string/tiempo_meta"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"/>
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="6dp"
+                            android:text="3 semanas"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/colorAccent" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_retarAmigos"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/reta_amigos"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_armarEquipo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/armar_equipo"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"/>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_privacidad"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/estatus_privacidad"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Público"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp"
+                            android:textColor="@color/colorAccent">
+
+                        </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:src="@drawable/ic_alerta_pop" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            style="@style/MyTextViewAvenir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3dp"
+            android:text="@string/popAlerta"
+            android:textSize="14sp" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+            style="@style/MyEditTextAvenir"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="@string/ingresaContraseña" />
+
+        <View style="@style/MyView" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_marginTop="24dp">
+
+            <ImageButton
+                android:id="@+id/btn_cancelarPop"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="left"
+                android:background="@drawable/cancelar" />
+
+            <ImageButton
+                android:id="@+id/btn_acepatarPop"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="right"
+                android:background="@drawable/aceptar" />
+
+        </FrameLayout>
+    </LinearLayout>
+</RelativeLayout>

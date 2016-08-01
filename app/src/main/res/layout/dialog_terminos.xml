@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_terminos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="24dp"
+                android:text="Términos y política de privacidad"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="6dp"
+            android:background="@color/iron"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:text="I"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_term1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/txt_1"
+                    android:lineSpacingExtra="2dp"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat vulputate orcinec porttitor."
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:text="II"
+                    android:textColor="@color/textColorPrimary"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_term2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/txt_2"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat vulputate orcinec porttitor."
+                    android:textColor="@color/textColorPrimary" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:layout_marginLeft="24dp"
+                    android:text="III"
+                    android:textColor="@color/textColorPrimary" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_term3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/txt_3"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat vulputate orcinec porttitor."
+                    android:textColor="@color/textColorPrimary" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:layout_marginLeft="24dp"
+                    android:text="I"
+                    android:textColor="@color/textColorPrimary" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_term4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/txt_4"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat vulputate orcinec porttitor."
+                    android:textColor="@color/textColorPrimary" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:layout_marginLeft="24dp"
+                    android:text="V"
+                    android:textColor="@color/textColorPrimary" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_term5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@+id/txt_5"
+                    android:lineSpacingExtra="2dp"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec feugiat vulputate orcinec porttitor."
+                    android:textColor="@color/textColorPrimary" />
+            </RelativeLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnr_opciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="36dp"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_acpetoTermino"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_border_white"
+            android:gravity="center"
+            android:text="Acepto"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:borderWidth="0dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_canceloTermino"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/btn_border_white"
+            android:gravity="center"
+            android:text="No acepto"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:borderWidth="0dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/lnr_cerrar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="36dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_cerrar"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/lnr_opciones"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_border_white"
+            android:gravity="center"
+            android:text="Cerrar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:borderWidth="0dp" />
+    </LinearLayout>
+
+
+</RelativeLayout>

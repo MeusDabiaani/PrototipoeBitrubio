@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <android.support.v7.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="@color/colorAccent"
+                    android:minHeight="?attr/actionBarSize"
+                    android:navigationIcon="@drawable/ic_menu_new"
+                    app:layout_collapseMode="pin"
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_titleToolbar"
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textColor="@color/white">
+
+                    </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
+                </android.support.v7.widget.Toolbar>
+
+            </LinearLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="56dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                style="@style/MyTextViewAvenir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/tuPlan" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                style="@style/MyTextViewAvenir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/basico"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+
+        <View
+            style="@style/MyView"
+            android:layout_marginTop="12dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <HorizontalScrollView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="175dp"
+                            android:src="@drawable/promo_1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_puntos_a" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                            style="@style/MyTextViewAvenir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/cambiatePremium"
+                            android:textColor="@color/colorAccent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="@string/opcionPremium1"
+                                android:textSize="14sp" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12dp"
+                                android:text="@string/opcionPremium2"
+                                android:textSize="14sp" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="12sp"
+                                android:text="@string/opcionPremium3"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal">
+
+                                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/costoPremium"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="24sp" />
+
+                                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/monedaNacional"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mensual"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/button_contratar"
+                            android:layout_width="175dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:layout_marginBottom="12dp"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/btn_close_session"
+                            android:text="@string/contratar"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginRight="12dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="175dp"
+                            android:src="@drawable/promo_1" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/ic_puntos_b" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                            style="@style/MyTextViewAvenir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/protegerPersona"
+                            android:textColor="@color/colorAccent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:gravity="center"
+                                android:layout_gravity="center"
+                                android:text="@string/opcionPremium4"
+                                android:lines="2"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="16dp"
+                                android:orientation="horizontal">
+
+                                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/costoPorteger"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="24sp" />
+
+                                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/monedaNacional"
+                                    android:textColor="@color/colorAccent"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/mensualpersona"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <Button
+                            android:id="@+id/button_agregar_mas"
+                            android:layout_width="175dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/btn_close_session"
+                            android:text="@string/agregarPersona"
+                            android:textAllCaps="false" />
+                        <Button
+                            android:id="@+id/button_no_agregar"
+                            android:layout_width="175dp"
+                            android:layout_height="36dp"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="20dp"
+                            android:background="@drawable/btn_close_session"
+                            android:text="@string/noAgregar"
+                            android:textAllCaps="false" />
+                    </LinearLayout>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>

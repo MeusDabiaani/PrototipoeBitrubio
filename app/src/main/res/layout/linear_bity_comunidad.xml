@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="110dp"
+    android:background="@color/white"
+    android:gravity="top"
+    android:orientation="horizontal">
+
+    <LinearLayout
+        android:id="@+id/lnr_princiapal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/linear_bity"
+            android:layout_width="match_parent"
+            android:layout_height="75dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@color/colorAccent"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:baselineAligned="false">
+
+
+            <LinearLayout
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_comunidad_dependientes"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/btn_comunidad_dependientes"
+                    android:clickable="true" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dependientes"
+                    style="@style/MyTextViewAvenir"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_comunidad_familiares"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/btn_comunidad_familiares"
+                    android:clickable="true" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Familiares "
+                    style="@style/MyTextViewAvenir"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageButton
+                    android:id="@+id/btn_comunidad_amigos"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:background="@drawable/btn_amigos_comunidad_on"
+                    android:clickable="true" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="   Amigos   "
+                    style="@style/MyTextViewAvenir"
+                    android:textColor="@color/white" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bity_curvo"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/lnr_princiapal"
+        android:background="@drawable/banner_curvo_1024"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+</RelativeLayout>

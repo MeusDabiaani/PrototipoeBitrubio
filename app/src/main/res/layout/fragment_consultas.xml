@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/lnr_imgPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_PerfilMedico"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/doctor_2"
+                        app:border_color="@color/white"
+                        app:border_width="2dp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toRightOf="@id/lnr_imgPerfil"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_nomMedico"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dra.Ximena Olvera"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="14sp"
+                        app:font="avenir-light.ttf"
+                        />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_especialidad"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Pediatra"
+                            android:textColor="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="14sp" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_fecha"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="12dp"
+                            android:text="24/Feb/2016"
+                            android:textColor="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_diagnostico"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:text="Diagnostico"
+                        android:textColor="@color/textColorPrimary"
+                        app:font="avenir-light.ttf"
+                        android:textSize="14sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_tratamiento"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginTop="6dp"
+                        android:text="Vacuna contra la rubiola,sarampíon y tétanos"
+                        android:textColor="@color/textColorPrimary"
+                        app:font="avenir-light.ttf"
+                        android:textSize="14sp" />
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/iron">
+
+        </View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_observaciones"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="6dp"
+                    android:layout_weight="1"
+                    android:text="Observaciones"
+                    android:textColor="@color/textColorPrimary"
+                    app:font="avenir-light.ttf"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:layout_width="26dp"
+                    android:layout_height="26dp"
+                    android:layout_marginRight="12dp"
+                    android:background="@android:color/transparent"
+                    android:src="@drawable/ic_adjuntar" />
+            </LinearLayout>
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_conceptoObs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:text="Falta Poner refuerzo"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/iron">
+
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="60dp"
+            android:orientation="vertical">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_tittleTratamiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="Tratmiento"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_conceptpTratamiento"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="2 ml de bla bla bla y guardar reposos por 6 meses"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/iron">
+
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="60dp"
+            android:orientation="horizontal">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_costoConsulta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="Costo por consulta"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_montoConsulta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="12dp"
+                android:text=" $ 500"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/iron">
+
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="60dp"
+            android:orientation="horizontal">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_forma_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_weight="1"
+                android:text="Forma de pago"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_tipo_pago"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_marginRight="12dp"
+                android:text=" Tarjeta ...1234"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/iron">
+
+        </View>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="36dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="16dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_calificacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="Calificación"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+            <RatingBar
+                android:id="@+id/ratingBar"
+                android:layout_width="250dp"
+                android:layout_height="fill_parent"
+                android:numStars="5"
+                android:progressDrawable="@drawable/rating_bar_selector"
+                android:rating="2.5"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:stepSize="1.0" />
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:background="@color/iron">
+
+        </View>
+        <LinearLayout
+            android:id="@+id/lnr_consultas_relacionadas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginLeft="60dp"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_vertical"
+            >
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_consultas_realcionadas"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:layout_marginTop="6dp"
+                android:layout_marginBottom="6dp"
+                android:text="Consultas Relacionadas"
+                android:textColor="@color/textColorPrimary"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

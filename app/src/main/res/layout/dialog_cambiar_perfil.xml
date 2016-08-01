@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_cambiar_parentesco" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_cambiar_parentesco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:text="Cambiar de parentesco"
+            android:textSize="16sp"
+            app:font="avenir-light.ttf"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/iron">
+
+    </View>
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/ic_dejar_amigo" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_dejar_amigo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:text="Dejar de ser amigo de Alan"
+            android:textSize="16sp"
+            app:font="avenir-light.ttf"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/iron">
+
+    </View>
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:src="@drawable/ic_reportar" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_reportar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:text="Reportar"
+            android:textSize="16sp"
+            app:font="avenir-light.ttf"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="12dp"
+        android:background="@color/iron">
+
+    </View>
+
+    <LinearLayout
+        android:layout_margin="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@color/white"
+            android:src="@drawable/ic_bloquear_contacto" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_bloquear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="14dp"
+            android:text="Bloquear"
+            android:textSize="16sp"
+            app:font="avenir-light.ttf"
+            android:textColor="@color/textColorPrimary" />
+    </LinearLayout>
+
+</LinearLayout>

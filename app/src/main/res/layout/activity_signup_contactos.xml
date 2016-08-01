@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorAccent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:layout_width="105dp"
+            android:layout_height="110dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:src="@drawable/bity_pop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_selecciona_quehacer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:gravity="center"
+                android:text="@string/bitrubio"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:font="avenir-medium.ttf" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:lines="2"
+                android:text="@string/bitrubio"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+        </LinearLayout>
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_salud"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="75dp"
+            android:background="@drawable/btn_border_white"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Cuidar mi salud"
+            android:textAllCaps="false" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_otros"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/btn_border_white"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Cuidar la de otros"
+            android:textAllCaps="false"
+            app:borderWidth="0dp" />
+
+        <android.support.v7.widget.AppCompatButton
+            android:id="@+id/btn_perfil_medico"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="35dp"
+            android:background="@drawable/btn_border_white"
+            android:gravity="center"
+            android:padding="6dp"
+            android:text="Llenar tu perfil médico"
+            android:textAllCaps="false"
+            app:borderWidth="0dp" />
+
+    </LinearLayout>
+</LinearLayout>

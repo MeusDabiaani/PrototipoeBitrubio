@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeLayout2"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
+        <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/linerScroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:id="@+id/lnr_peso"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/relativeLayout2"
+                android:orientation="vertical">
+
+                <LinearLayout
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:id="@+id/txt_medicamento"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/medicamento"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:text="Diclofenaco"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/letraRojo">
+
+                        </com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:id="@+id/txt_dosis"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/disis"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:text="1 pastilla"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/letraRojo"/>
+
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_tiempo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/cuanto_tiempo"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:text="8 horas"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/letraRojo" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:id="@+id/txt_porTiempo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:layout_weight="1"
+                            android:hint="@string/porTiempo"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="20dp"
+                            android:text="5 dias"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf"
+                            android:textColor="@color/letraRojo" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_incluyeMedico"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/incluyeMedico"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </ScrollView>
+
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="16dp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="left|bottom"
+            android:layout_margin="30px"
+            android:background="@drawable/cancelar" />
+
+        <ImageButton
+            android:id="@+id/btn_guardar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="30px"
+            android:background="@drawable/aceptar" />
+    </FrameLayout>
+
+</LinearLayout>

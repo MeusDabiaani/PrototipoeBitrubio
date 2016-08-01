@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Próxima cita disponible"
+            android:textColor="@color/white"
+            android:textSize="22sp"
+            app:font="avenir-light.ttf" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Junio"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:font="avenir-light.ttf" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="23 "
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            app:font="avenir-light.ttf" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="2016"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            app:font="avenir-light.ttf" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_close_session"
+            android:stateListAnimator="@null"
+            android:text="Seleccionar Fecha"
+            android:textAllCaps="false" />
+
+        <Button
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/btn_close_session"
+            android:stateListAnimator="@null"
+            android:text="Seleccionar Hora"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+</LinearLayout>

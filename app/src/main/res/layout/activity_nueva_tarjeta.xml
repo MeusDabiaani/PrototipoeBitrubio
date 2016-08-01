@@ -1,0 +1,329 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background_login">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_titleToolbar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="@color/colorAccent"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                app:font="avenir-light.ttf" />
+        </android.support.v7.widget.Toolbar>
+    </android.support.design.widget.AppBarLayout>
+
+    <!--<include layout="@layout/activity_signup" />-->
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_nva_tarjeta" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Agregar Tarjeta"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+        </LinearLayout>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/card_view_tarjeta"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            app:cardElevation="0dp"
+            card_view:cardElevation="1dp">
+
+            <ImageView
+                android:id="@+id/img_fondo_card"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                 />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:id="@+id/txtTarjeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="3"
+                        android:background="@drawable/edit_text_tarjeta"
+                        android:hint="@string/Personal"
+                        android:paddingLeft="12dp"
+                        android:textStyle="italic"
+                        style="@style/MyEditTextAvenir" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@drawable/ic_scan_tarjeta" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="40dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="24dp"
+                    android:gravity="center_horizontal"
+                    android:orientation="horizontal">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:id="@+id/edit_num1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_tarjeta"
+                        android:gravity="center"
+                        android:hint="0000"
+                        android:textStyle="italic"
+                        android:maxLength="4"
+                        style="@style/MyEditTextAvenir"/>
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:id="@+id/edit_num2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="2dp"
+                        android:maxLength="4"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_tarjeta"
+                        android:gravity="center"
+                        android:hint="0000"
+                        android:textStyle="italic"
+                        style="@style/MyEditTextAvenir"/>
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:id="@+id/edit_num3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="2dp"
+                        android:maxLength="4"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_tarjeta"
+                        android:gravity="center"
+                        android:hint="0000"
+                        android:textStyle="italic"
+                        style="@style/MyEditTextAvenir" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:id="@+id/edit_num4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:layout_marginLeft="2dp"
+                        android:maxLength="4"
+                        android:layout_weight="1"
+                        android:background="@drawable/edit_text_tarjeta"
+                        android:gravity="center"
+                        android:hint="0000"
+                        android:textStyle="italic"
+                        style="@style/MyEditTextAvenir" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginRight="20dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="0"
+                        android:src="@drawable/ic_mexico" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="38dp"
+                        android:layout_weight="1"
+                        android:gravity="center|left"
+                        android:orientation="vertical">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:id="@+id/edit_vigencia"
+                            android:layout_width="65dp"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="2dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/edit_text_tarjeta"
+                            android:gravity="center"
+                            android:hint="01/19"
+                            android:maxLength="5"
+                            android:textStyle="italic"
+                            style="@style/MyEditTextAvenir"/>
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Vigencia"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            app:font="avenir-light.ttf" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="42dp"
+                        android:layout_height="42dp"
+                        android:layout_weight="0"
+                        android:src="@drawable/ic_master_logo" />
+                </LinearLayout>
+            </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_cvv_" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="10"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/transparent"
+                        android:hint="@string/Cvv"
+                        android:textColor="@color/textColorPrimary"
+                        android:textColorHint="@color/textColorPrimary"
+                        android:textSize="16sp"
+                        app:font="avenir-light.ttf" />
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/iron"/>
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ic_info" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_cambiarColor"
+                android:layout_width="200dp"
+                android:layout_height="32dp"
+                android:background="@drawable/btn_close_session"
+                android:text="Cambiar color"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="left|bottom"
+                android:layout_marginBottom="12dp"
+                android:layout_marginLeft="12dp"
+                android:background="@drawable/cancelar" />
+
+            <ImageButton
+                android:id="@+id/btn_signup"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginBottom="12dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/aceptar" />
+        </FrameLayout>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linerScroll"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:id="@+id/formulario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp">
+        <!-- Name Label -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_usuario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_usuario" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/input_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/perfilNombre"
+                    android:inputType="textCapWords"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHint="@color/textColorhint"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/iron" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                android:id="@+id/input_apePat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="13dp"
+                android:background="@android:color/transparent"
+                android:hint="@string/perfilApePat"
+                android:inputType="textCapWords"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorhint"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="36dp"
+                android:layout_marginTop="6dp"
+                android:background="@color/iron" />
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/rad_group"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
+
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/rad_mujer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/radio_button"
+                android:checked="true"
+                android:paddingLeft="6dp"
+                android:text="@string/Mujer"
+                android:textColor="@color/textColorPrimary" />
+
+            <android.support.v7.widget.AppCompatCheckBox
+                android:id="@+id/rad_hombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:button="@drawable/radio_button"
+                android:paddingLeft="6dp"
+                android:text="@string/Hombre"
+                android:textColor="@color/textColorPrimary" />
+
+
+        </RadioGroup>
+
+
+        <LinearLayout
+            android:id="@+id/lnt_fecha_registro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_fechaNac"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ic_nacimiento" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                        android:id="@+id/input_fechaNac"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/FechaNac"
+                        android:background="@android:color/transparent"
+                        android:textColor="@color/textColorPrimary"
+                        android:textColorHint="@color/textColorhint"
+                        android:textSize="16sp"
+                        app:font="avenir-light.ttf" />
+
+                    <View
+                        android:layout_marginTop="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/iron" />
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+        <!--  Email Label -->
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_celular"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_cel" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/input_celular"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/transparent"
+                    android:hint="@string/Celular"
+                    android:inputType="number"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHint="@color/textColorhint"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginTop="6dp"
+                    android:background="@color/iron" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_mail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_action_correo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/input_email"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/Email"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHint="@color/textColorhint"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+
+                <View
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/iron" />
+            </LinearLayout>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:layout_marginTop="13dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_parentesco"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_cambiar_parentesco" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/input_parentesco"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/parentesco"
+                    android:inputType="textEmailAddress"
+                    android:textColor="@color/textColorPrimary"
+                    android:textColorHint="@color/textColorhint"
+                    android:background="@android:color/transparent"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+
+                <View
+                    android:layout_marginTop="8dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/iron" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="20dp"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/btn_cancel"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_margin="30px"
+                android:layout_gravity="left|bottom"
+                android:background="@drawable/cancelar" />
+
+            <ImageButton
+                android:id="@+id/btn_signup"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="30px"
+                android:background="@drawable/aceptar" />
+        </FrameLayout>
+
+
+    </LinearLayout>
+
+
+</ScrollView>

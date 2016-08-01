@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+        android:id="@+id/edit_companiaVida"
+        style="@style/MyEditTextAvenir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/compañia"
+        android:singleLine="true" />
+
+    <View style="@style/MyView" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+        android:id="@+id/edit_polizaVida"
+        style="@style/MyEditTextAvenir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/poliza"
+        android:singleLine="true" />
+
+    <View style="@style/MyView" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+        android:id="@+id/edit_vigenciaVida"
+        style="@style/MyEditTextAvenir"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:hint="@string/vigencia"
+        android:singleLine="true" />
+
+    <View style="@style/MyView" />
+
+</LinearLayout>

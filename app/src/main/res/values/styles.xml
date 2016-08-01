@@ -1,0 +1,113 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="AppTheme.Bitrubio" parent="Theme.AppCompat.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="colorButtonNormal">@color/iron</item>
+        <item name="android:colorBackground">@color/white</item>
+        <item name="android:colorButtonNormal" tools:targetApi="lollipop">@color/white</item>
+
+    </style>
+    <style name="AppTheme.Dark.Dialog" parent="Theme.AppCompat.Dialog">
+        <item name="colorAccent">@color/white</item>
+        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:background">@color/white</item>
+        <item name="android:windowMinWidthMajor">@android:dimen/dialog_min_width_minor</item>
+        <item name="android:windowMinWidthMinor">@android:dimen/dialog_min_width_minor</item>
+    </style>
+
+    <style name="TextAppearence.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+    <style name="MyCustomTabLayout" parent="Widget.Design.TabLayout">
+        <item name="tabIndicatorColor">?attr/colorAccent</item>
+        <item name="tabIndicatorHeight">3dp</item>
+        <item name="tabPaddingStart">4dp</item>
+        <item name="tabPaddingEnd">4dp</item>
+        <item name="tabBackground">?attr/selectableItemBackground</item>
+        <item name="tabSelectedTextColor">?android:textColorPrimary</item>
+    </style>
+
+    <style name="MyEditTextAvenir">
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textColorHint">@color/textColorhint</item>
+    </style>
+
+    <style name="MyTextViewAvenir">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="android:textColorHint">@color/textColorhint</item>
+    </style>
+
+
+    <style name="MyView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/iron</item>
+        <item name="android:layout_marginTop">6dp</item>
+    </style>
+
+    <style name="MyCheckBoxAvenir">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <style name="EditTextComentario">
+        <!-- Used for the bottom line when not selected / focused -->
+        <item name="colorControlNormal">@android:color/transparent</item>
+        <item name="colorControlActivated">@android:color/darker_gray</item>
+        <item name="colorControlHighlight">@android:color/transparent</item>
+
+    </style>
+
+
+
+    <!-- Application Dialgo. -->
+    <style name="DialogTheme" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppTheme.Bitrubio">
+        <!-- All customizations that are NOT specific to a particular API-level can go here. -->
+        <item name="android:windowNoTitle">true</item> <!-- Hides the Action Bar -->
+        <item name="android:windowFullscreen">true</item> <!-- Hides the status bar -->
+    </style>
+
+    <!-- elemntos del push Popup-->
+    <style name="Item" parent="">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Item.Path">
+        <item name="android:layout_width">@dimen/item_circle_size_path</item>
+        <item name="android:layout_height">@dimen/item_circle_size_path</item>
+        <item name="android:textSize">@dimen/item_font_size_path</item>
+        <item name="android:background">@drawable/path_white_oval</item>
+    </style>
+    <!-- Spinner style -->
+    <style name="spinner_style">
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+    </style>
+    <!--- Raiting Bar -->
+    <style name="RatingBar" parent="android:style/Widget.Material.RatingBar">
+        <item name="colorControlNormal">@color/colorCalidoB</item>
+        <item name="colorControlActivated">@color/iron</item>
+    </style>
+
+    <!-- DatePiker-->
+
+    <style name="MyDatePiker" parent="@android:style/Widget.Holo.Light">
+    </style>
+</resources>

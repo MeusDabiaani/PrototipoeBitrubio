@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="2dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/circle_num"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/opcion_off" />
+            <TextView
+                android:id="@+id/txt_id_orden"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/colorAccent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+
+            <RelativeLayout
+                android:id="@+id/text_titulo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/circle_num"
+                android:layout_toEndOf="@+id/circle_num">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_nom_servicio"
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:text="Texto"
+                    android:layout_marginLeft="12dp"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"
+                    android:textColor="@color/textColorPrimary"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true" />
+
+                <ImageButton
+                    android:id="@+id/img_move_item"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:background="@drawable/ic_menu_lateral"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true" />
+            </RelativeLayout>
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <View
+        android:id="@+id/line"
+        android:layout_below="@id/text_titulo"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/textColorPrimary"/>
+</LinearLayout>

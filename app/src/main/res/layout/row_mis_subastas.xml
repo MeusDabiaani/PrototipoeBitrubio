@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/card_view_subasta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="6dp"
+        app:cardCornerRadius="6dp"
+        app:cardElevation="0dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardViewMensaje"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/img_subastas"
+                    android:layout_width="24dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_height="wrap_content"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    android:src="@drawable/ic_subasta" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                        android:id="@+id/txtOperacion"
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Operacion"
+                        android:textSize="14sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txtCirugia"
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:hint="Cirugia"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:layout_marginRight="12dp"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/vence"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="12sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                        android:id="@+id/txtVence"
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="10 dias"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txtComentario"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_marginTop="6dp"
+                    android:text="Mensaje"
+                    android:textSize="14sp" />
+
+                <ImageView
+                    android:id="@+id/img_post"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:scaleType="center"
+                     />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/cardViewMensaje"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_verPujas"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_num_pujas" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txtNumvotos"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="2"
+                    android:textSize="12sp" />
+
+                <ImageView
+                    android:id="@+id/img_Detalle"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    android:layout_marginRight="12dp"
+                    android:src="@drawable/mas_circulos_off" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

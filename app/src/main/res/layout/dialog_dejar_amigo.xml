@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_height="match_parent">
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+        android:layout_margin="8dp"
+        android:id="@+id/txt_pregunta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        app:font="avenir-light.ttf"
+        android:textColor="@color/textColorPrimary"
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_marginTop="13dp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="left|bottom"
+            android:layout_margin="30px"
+            android:background="@drawable/cancelar" />
+
+        <ImageButton
+            android:id="@+id/btn_aceptar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="30px"
+            android:background="@drawable/aceptar" />
+    </FrameLayout>
+
+
+
+</LinearLayout>

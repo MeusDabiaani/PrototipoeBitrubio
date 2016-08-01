@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_login">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <VideoView
+            android:id="@+id/video_in"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true" />
+
+
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/btn_logeo"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:background="@drawable/btn_intro"
+            android:text="@string/iniciaSesion"
+            android:textColor="@color/white"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/btn_registro"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/btn_intro"
+            android:textColor="@color/white"
+            android:text="@string/iniciaRegistro"
+            android:textAllCaps="false"
+            android:textSize="16sp" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/tv_Terminos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_gravity="center_horizontal"
+            android:text="@string/terminos"
+            android:textColor="@color/colorAccent"
+            android:textSize="14sp"
+            app:font="avenir-medium.ttf"
+            />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="69dp"
+        android:paddingLeft="10dp"
+        android:src="@drawable/logo_bitrunio_inicio" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+        android:layout_below="@+id/logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/intro"
+        android:textColor="@color/colorAccent"
+        android:textSize="16sp"
+        app:font="avenir-light.ttf"
+        android:layout_gravity="center" />
+
+</RelativeLayout>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="false"
+    tools:context="com.bitrubio.prototipoebitrubio.MetaDetalle">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/letraVerde1"
+            android:elevation="0dp"
+            android:minHeight="?attr/actionBarSize"
+            android:navigationIcon="@drawable/ic_menu_new"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/txt_titleToolbar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/fondo_bity"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+                android:background="@color/letraVerde1"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_siento"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginRight="24dp"
+                    android:layout_marginTop="36dp"
+                    android:background="@drawable/btn_transparente_borde_blanco"
+                    android:clickable="true"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:text="-3 Kg"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf"/>
+
+                <LinearLayout
+                    android:layout_marginTop="80dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="39dp"
+                    android:background="@drawable/curva_blanca"
+                    android:layout_marginBottom="-1dp"
+                    android:layout_alignParentBottom="true">
+
+                </LinearLayout>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/relativeLayout2"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="45dp"
+                android:paddingLeft="15dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/image_foto"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/foto_alimentos"
+                    app:border_color="@color/white"
+                    app:border_width="2dp" />
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/btn_foto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentRight="true"
+                    android:padding="0dp"
+                    android:src="@drawable/ic_subir_foto" />
+            </RelativeLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fondo_bity"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:gravity="center_vertical"
+                    android:layout_gravity="center">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/edit_nomMeta"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_above="@+id/fragment_detalle_metas"
+                        android:layout_centerHorizontal="true"
+                        android:text="Bajar de Peso"
+                        android:textColor="@color/textColorPrimary"
+                        android:textSize="16sp"
+                        app:font="avenir-light.ttf"
+                        android:textStyle="italic">
+
+                    </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_porcentaje"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="16dp"
+                        android:layout_toEndOf="@+id/edit_nomMeta"
+                        android:layout_toRightOf="@+id/edit_nomMeta"
+                        android:text="25%"
+                        android:textSize="16sp"
+                        app:font="avenir-light.ttf"
+                        android:textColor="@color/letraVerde1" />x
+
+                    <ImageView
+                        android:id="@+id/img_opciones"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignRight="@+id/txt_porcentaje"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="24dp"
+                        android:src="@drawable/mas_circulos_off"></ImageView>
+                </RelativeLayout>
+            </LinearLayout>
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewpagerMetaFisica"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+</android.support.design.widget.CoordinatorLayout>
+
+
+

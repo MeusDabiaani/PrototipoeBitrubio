@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_medicamento"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:src="@drawable/promo_1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    android:id="@+id/txt_nomMedicamento"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Medicamento" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_nomActivo"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="activo"
+                    android:textSize="14sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_nomLaboratorio"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="laboratorio"
+                    android:textSize="14sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_dosis"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="dosis"
+                    android:textSize="14sp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <View
+        style="@style/MyView"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp" />
+
+</LinearLayout>

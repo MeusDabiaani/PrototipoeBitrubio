@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:baselineAligned="false">
+
+        <RelativeLayout
+            android:layout_width="62dp"
+            android:layout_height="62dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_experto_perfil"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="8dp"
+                android:src="@drawable/foto_test_medico"
+                app:border_color="@color/white"
+                app:border_width="1dp" />
+
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_beat"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentEnd="true"
+                android:id="@+id/imageView5">
+
+            </ImageView>
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                app_font="avenir-light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="50"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                android:layout_marginStart="10dp"
+                android:layout_alignTop="@+id/imageView5"
+                android:layout_alignStart="@+id/imageView5"
+                android:layout_marginTop="10dp">
+
+            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_experto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                android:id="@+id/txt_experto_nombre"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Dr.Fernando Rojas"
+                android:textSize="14sp"
+                style="@style/MyTextViewAvenir"  />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_exp_experto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_experto_amigo"
+                android:hint="Medicina General "
+                style="@style/MyTextViewAvenir"
+                android:textSize="14sp"/>
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_dir_experto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_experto_amigo"
+                android:hint="Ciudad de México"
+                style="@style/MyTextViewAvenir"
+                android:textSize="14sp"  />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_num_amigos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_experto_amigo"
+                android:hint="2 amigos en comun"
+                style="@style/MyTextViewAvenir"
+                android:textSize="14sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginRight="12dp"
+            android:orientation="horizontal">
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/ic_llamar" />
+
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/ic_cita" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

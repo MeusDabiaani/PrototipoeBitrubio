@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:animateLayoutChanges="true"
+    android:background="@color/white"
+    tools:context="com.bitrubio.prototipoebitrubio.Bitrubian.DetalleCompletoSubasta">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/collapsing_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:expandedTitleMarginEnd="64dp"
+            app:expandedTitleMarginStart="48dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/colorAccent"
+                android:minHeight="?attr/actionBarSize"
+                android:navigationIcon="@drawable/ic_menu_new"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="scroll|enterAlways">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_titleToolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp"
+                    app:font="avenir-light.ttf" />
+            </android.support.v7.widget.Toolbar>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/imgMedico"
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    app:border_color="@color/white"
+                    app:border_width="1dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="14dp"
+                    android:orientation="vertical">
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                        style="@style/MyTextViewAvenir"
+                        android:id="@+id/txtNombre"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dr.nombre"
+                        android:textSize="14sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        style="@style/MyTextViewAvenir"
+                        android:id="@+id/txtEspecialidad"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Especialidad"
+                        android:textSize="12sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/fechaPuja"
+                        android:textSize="13sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        style="@style/MyTextViewAvenir"
+                        android:id="@+id/txtFecha"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="12/12/12"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/colorAccent"
+                        android:text="@string/puja"
+                        android:textSize="13sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        style="@style/MyTextViewAvenir"
+                        android:id="@+id/txtmonto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="$ 000.00"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:layout_marginTop="12dp"
+                        android:text="@string/negociar"
+                        android:textSize="13sp" />
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Si"
+                        android:textSize="13sp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginLeft="12dp">
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/modoPago"
+                    android:textSize="13sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:id="@+id/txtModoPago"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tarjetas"
+                    android:textSize="12sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/colorAccent"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/aseguradoras"
+                    android:textSize="13sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:id="@+id/txtAseguradoras"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="axxa"
+                    android:textSize="12sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/incluye"
+                    android:textSize="13sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:id="@+id/txtIncluye"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Material"
+                    android:textSize="12sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/pasosAseguir"
+                    android:textSize="13sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:id="@+id/txtSeguimiento"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1."
+                    android:textSize="12sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/tecnologia"
+                    android:textSize="13sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:id="@+id/txtTecnologia"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lasser"
+                    android:textSize="12sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:textColor="@color/colorAccent"
+                    android:text="@string/referencias"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lnr_referencias"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:orientation="vertical">
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
+
+

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp">
+
+        <LinearLayout
+            android:id="@+id/rl_recylcer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recycler_detalle_recetas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginBottom="200dp">
+
+            </android.support.v7.widget.RecyclerView>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lnr_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:layout_alignParentBottom="true"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="75dp"
+                android:background="@drawable/codigo_barras" />
+
+            <Button
+                android:id="@+id/btn_cotizar"
+                android:layout_width="140dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="42dp"
+                android:background="@drawable/btn_close_session"
+                android:text="@string/cotizar"
+                android:textAllCaps="false" />
+        </LinearLayout>
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@drawable/background_login">
+
+    <LinearLayout
+        android:id="@+id/linear_bity"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp">
+
+        <ImageView
+            android:id="@+id/btn_cerrar_bity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/bity_pop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:orientation="vertical">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_bienvenida"
+                app_font="avenir-light.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="32dp"
+                android:hint="Bienvenido"
+                android:textColor="@color/white"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_medium"
+                app_font="avenir-light.ttf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="32dp"
+                android:hint="bitrubio"
+                android:textColor="@color/white"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_low"
+                    app_font="avenir-light.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:hint="bitrubio"
+                    android:textColor="@color/white"
+                    app:font="avenir-light.ttf"
+                    android:textSize="14sp" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_bitrubio"
+                    app_font="avenir-light.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="bitrubio"
+                    android:textColor="@color/white"
+                    app:font="avenir-medium.ttf"
+                    android:textSize="14sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bity_curvo"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/linear_bity"
+        android:background="@drawable/banner_curvo_1024"
+        android:orientation="horizontal"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_below="@+id/bity_curvo"
+        android:layout_marginTop="45dp"
+        android:orientation="vertical">
+
+        <VideoView
+            android:id="@+id/videoview"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearLayout4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img_repetir"
+            android:layout_width="92dp"
+            android:layout_height="92dp"
+            android:layout_below="@id/videoview"
+            android:layout_gravity="bottom|center"
+            android:layout_marginTop="36dp"
+            android:background="@drawable/ic_repetir_video" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|top"
+            android:layout_marginBottom="15dp"
+            android:src="@drawable/ic_pasos_b" />
+
+        <ImageView
+            android:id="@+id/btn_siguiente"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|center"
+            android:layout_marginBottom="14dp"
+            android:background="@drawable/ic_arrow_siguiente"
+            android:clickable="true"
+            android:gravity="center"
+
+            />
+
+    </LinearLayout>
+
+</RelativeLayout>

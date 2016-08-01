@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:gravity="top"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:id="@+id/fondo_bity"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:background="@color/letraVerde1"
+        android:orientation="horizontal">
+
+
+        <LinearLayout
+            android:layout_marginTop="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:background="@drawable/curva_blanca"
+            android:layout_marginBottom="-1dp"
+            android:layout_alignParentBottom="true">
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout2"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="50dp"
+        android:paddingLeft="15dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_foto"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/foto_alimentos"
+            app:border_color="@color/white"
+            app:border_width="2dp" />
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/btn_foto"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:padding="0dp"
+            android:src="@drawable/ic_subir_foto" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/fondo_bity"
+        android:layout_centerHorizontal="true"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                android:id="@+id/edit_nomMeta"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/nombra_tu_meta"
+                android:textColorHint="@color/textColorhint"
+                app:font="avenir-light.ttf"
+                android:textStyle="italic">
+
+            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir>
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/fragment_detalle_metas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeLayout2">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager_detalle_metas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:background="@color/white"
+            android:textAllCaps="false">
+
+        </android.support.v4.view.ViewPager>
+
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:gravity="center|top"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp">
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_tituloContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ingresaContraseña"
+            style="@style/MyTextViewAvenir"
+            android:textSize="14sp"
+            android:textColor="@color/colorAccent"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="vertical">
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+            android:id="@+id/edit_confirmaContraseña"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Contraseña"
+            android:lines="1"
+            android:textSize="14sp"
+            style="@style/MyEditTextAvenir"
+            />
+        <View
+            android:layout_marginTop="6dp"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/iron"/>
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/chk_verPass"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ver contraseña"
+            android:buttonTint="@color/colorAccent"
+            android:textSize="12sp"
+            android:textColor="@color/colorAccent"
+            />
+        <ImageButton
+            android:id="@+id/btn_confirmarContraseña"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="30px"
+            android:layout_gravity="bottom|center"
+            android:background="@drawable/aceptar" />
+    </LinearLayout>
+</LinearLayout>

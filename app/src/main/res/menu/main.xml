@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_beety"
+        android:icon="@drawable/ic_beats_normal"
+        android:title="@string/action_beets"
+        android:orderInCategory="1"
+        app:showAsAction="always" />
+    <item
+        android:id="@+id/action_helpBeety"
+        android:icon="@drawable/ic_bity_comentario"
+        android:title="@string/action_helpBeety"
+        android:orderInCategory="1"
+        app:showAsAction="always" />
+</menu>

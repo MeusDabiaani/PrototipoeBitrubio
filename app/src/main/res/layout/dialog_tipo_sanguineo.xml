@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="200dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginLeft="6dp"
+            android:text="Tipo sanguíneo"
+            android:textColor="@color/colorAccent"
+            android:textSize="18sp"
+            app:font="avenir-light.ttf" />
+
+        <NumberPicker
+            android:id="@+id/numberPicker1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:showDividers="middle"
+            android:divider="@color/colorAccent" />
+
+        <ImageButton
+            android:id="@+id/button1"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_margin="30px"
+            android:layout_gravity="center"
+            android:background="@drawable/aceptar" />
+    </LinearLayout>
+</LinearLayout>

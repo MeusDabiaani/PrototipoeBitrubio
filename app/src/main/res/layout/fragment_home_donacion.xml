@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="12dp"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/ic_logo_bitrubio_new"
+                    android:scaleType="fitXY" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/fundacion"
+                    android:textColor="@color/colorAccent" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/text_fundacion"
+                    android:textSize="14sp" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_donar"
+                    android:layout_width="200dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/btn_close_session"
+                    android:text="@string/quiero_donar"
+                    android:textAllCaps="false" />
+
+                <android.support.v7.widget.AppCompatButton
+                    android:id="@+id/btn_donarme"
+                    android:layout_width="200dp"
+                    android:layout_height="32dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="24dp"
+                    android:background="@drawable/btn_close_session"
+                    android:text="@string/me_donen"
+                    android:textAllCaps="false" />
+            </LinearLayout>
+        </LinearLayout>
+</LinearLayout>

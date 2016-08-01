@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/linerScroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_objetivo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:hint="@string/ayudar_objetivo"
+                        android:textColor="@color/letraVerde1"
+                        android:textColorHint="@color/textColorPrimary"
+                        app:font="avenir-light.ttf"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_tiempo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:hint="@string/ayudar_tiempo"
+                        android:textColor="@color/letraVerde1"
+                        android:textColorHint="@color/textColorPrimary"
+                        app:font="avenir-light.ttf"
+                        android:textSize="16sp" />
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_personaCausa"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/personas_misCausa"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_incluirPersona"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/incluir_persona"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:orientation="horizontal">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_sumateGrupo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/sumateGrupo"
+                            android:textColor="@color/letraVerde1"
+                            android:textColorHint="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@drawable/flecha_derecha"></ImageView>
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="fill_parent"
+                        android:layout_height="0.7dp"
+                        android:layout_marginTop="6dp"
+                        android:background="@color/textColorPrimary" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:layout_marginTop="16dp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/btn_cancel"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="left|bottom"
+            android:layout_margin="30px"
+            android:background="@drawable/cancelar" />
+
+        <ImageButton
+            android:id="@+id/btn_guardar"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="30px"
+            android:background="@drawable/aceptar" />
+    </FrameLayout>
+</LinearLayout>

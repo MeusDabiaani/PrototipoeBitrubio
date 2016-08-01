@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_marginTop="12dp">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/ic_codigo"
+                android:gravity="center"
+                android:text="@string/codigoPromocion"
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="12dp">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+
+                android:id="@+id/edit_codigo_promocion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginRight="12dp"
+                android:hint="@string/AgregarCodigo"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorhint"
+                app:font="avenir-light.ttf"
+                android:textSize="14sp"/>
+
+            <View android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="6dp"
+                android:background="@color/iron"></View>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:text="Condiciones de uso de las tarjetas de regalo y los codigo de promociones"
+                android:textColor="@color/textColorPrimary"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                app:font="avenir-light.ttf" />
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_codigo"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="30px"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/aceptar" />
+    </LinearLayout>
+</RelativeLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+    <!-- BARRA Bity-->
+    <LinearLayout
+        android:id="@+id/linear_bity"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/colorAccent"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:paddingLeft="25dp">
+
+        <ImageView
+            android:id="@+id/btn_cerrar_bity"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="16dp"
+            android:src="@drawable/bity_pop" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="24dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_elijeAmigos"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/bitrubio"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:font="avenir-light.ttf" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_bitrubio"
+                    app_font="avenir-light.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="bitrubio"
+                    android:text="@string/bitrubio"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:font="avenir-medium.ttf" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_part"
+                    app_font="avenir-light.ttf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="bitrubio"
+                    android:text="@string/bitrubio"
+                    android:textColor="@color/white"
+                    android:textSize="14sp"
+                    app:font="avenir-light.ttf" />
+
+            </LinearLayout>
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_medium"
+                app_font="avenir-light.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="bitrubio"
+                android:text="@string/bitrubio"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_low"
+                app_font="avenir-light.ttf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="bitrubio"
+                android:text="@string/bitrubio"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/bity_curvo"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_below="@+id/linear_bity"
+        android:background="@drawable/banner_curvo_1024"
+        android:orientation="vertical">
+
+    </LinearLayout>
+
+    <!-- REcycler View -->
+    <LinearLayout
+        android:id="@+id/idrecycler"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingTop="10dp">
+
+        <com.bitrubio.prototipoebitrubio.Slidetabs.SlidingTabLayout
+            android:id="@+id/tabs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="1dp" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/pager"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+        </android.support.v4.view.ViewPager>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.bitrubio.prototipoebitrubio.Bitrubian.AlertaActvity"
+    tools:showIn="@layout/app_bar_alerta">
+    <Button
+        android:id="@+id/btn_cancel_alerta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_cancelar"
+        android:textColor="@color/white"
+        android:text="Detener"
+        android:layout_marginBottom="100dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/btn_ayudar_otro"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/btn_borde_cancelar"
+        android:textColor="@color/colorCalidoA"
+        android:text="Ayudar a otro"
+        android:layout_marginTop="30dp"
+        android:layout_below="@+id/txt_Alerta"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+        android:layout_marginTop="100dp"
+        android:id="@+id/txt_Alerta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColorPrimary"
+        android:gravity="center"
+        android:textSize="18sp"
+        app:font="avenir-light.ttf"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+</RelativeLayout>

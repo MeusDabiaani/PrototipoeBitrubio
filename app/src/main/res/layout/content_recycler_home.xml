@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        app:cardBackgroundColor="@color/cardViewMensaje"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="0dp"
+        card_view:cardElevation="1dp">
+
+        <RelativeLayout
+            android:id="@+id/comentario_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/person_foto"
+                android:layout_width="46dp"
+                android:layout_height="46dp"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:src="@drawable/foto_test"
+                app:border_width="0dp" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                android:id="@+id/person_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="12dp"
+                android:layout_marginTop="12dp"
+                android:layout_toEndOf="@+id/person_foto"
+                android:layout_toRightOf="@+id/person_foto"
+                android:hint="Contacto "
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorPrimary"
+                android:textSize="16sp" />
+
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/person_fecha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/person_name"
+                android:layout_alignStart="@+id/person_name"
+                android:layout_below="@+id/person_name"
+                android:layout_marginTop="4dp"
+                android:hint="Tiempo"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorPrimary"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+
+                android:id="@+id/person_ubicacion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/person_fecha"
+                android:layout_toEndOf="@+id/person_name"
+                android:layout_toRightOf="@+id/person_name"
+                android:hint="Ubicacion"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorPrimary"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/person_msg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignLeft="@+id/person_foto"
+                android:layout_alignStart="@+id/person_foto"
+                android:layout_below="@+id/person_foto"
+                android:layout_marginRight="20dp"
+                android:hint="Mensaje "
+                android:lineSpacingExtra="2dp"
+                android:textColor="@color/textColorPrimary"
+                android:textColorHint="@color/textColorPrimary"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <ImageView
+                android:id="@+id/img_btn_comentario"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_below="@+id/person_msg"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:src="@drawable/ic_comentario_aplauso" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+
+                android:id="@+id/txt_aplauso"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/agregar_comentario"
+                android:layout_toEndOf="@+id/img_btn_comentario"
+                android:layout_toRightOf="@+id/img_btn_comentario"
+                android:text="3"
+                android:textColor="@color/aluminum"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <ImageView
+                android:id="@+id/img_btn_aplauso"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignTop="@+id/img_btn_comentario"
+                android:layout_marginLeft="6dp"
+                android:layout_toEndOf="@+id/txt_aplauso"
+                android:layout_toRightOf="@+id/txt_aplauso"
+                android:src="@drawable/ic_comentario_mensaje" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_comentario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_aplauso"
+                android:layout_alignBottom="@+id/txt_aplauso"
+                android:layout_toEndOf="@+id/img_btn_aplauso"
+                android:layout_toRightOf="@+id/img_btn_aplauso"
+                android:text="12"
+                android:textColor="@color/aluminum"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <ImageView
+                android:id="@+id/img_btn_beat"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignTop="@+id/img_btn_comentario"
+                android:layout_marginLeft="6dp"
+                android:layout_toEndOf="@+id/txt_comentario"
+                android:layout_toRightOf="@+id/txt_comentario"
+                android:src="@drawable/ic_comentario_beat" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_numBeats"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/txt_aplauso"
+                android:layout_alignBottom="@+id/img_btn_beat"
+                android:layout_toEndOf="@+id/img_btn_beat"
+                android:layout_toRightOf="@+id/img_btn_beat"
+                android:text="5"
+                android:textColor="@color/aluminum"
+                android:textSize="14sp"
+                app:font="avenir-light.ttf" />
+
+            <FrameLayout
+                android:id="@+id/menu_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/scrim"
+                android:visibility="invisible">
+
+                <com.ogaclejapan.arclayout.ArcLayout
+                    android:id="@+id/arc_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:arc_axisRadius="60dp"
+                    app:arc_freeAngle="true"
+                    app:arc_origin="bottom"
+                    app:arc_radius="100dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@android:drawable/ic_delete"
+                        android:gravity="center"
+                        android:text="opcion A"
+                        android:textColor="@color/white"
+                        app:arc_angle="10" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@android:drawable/ic_delete"
+                        android:gravity="center"
+                        android:text="opcion B"
+                        android:textColor="@color/white"
+                        app:arc_angle="37" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@android:drawable/ic_delete"
+                        android:gravity="center"
+                        android:text="opcion c"
+                        android:textColor="@color/white"
+                        app:arc_angle="63" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:drawableRight="@android:drawable/ic_delete"
+                        android:gravity="center"
+                        android:text="opcion d"
+                        android:textColor="@color/white"
+                        app:arc_angle="90" />
+                </com.ogaclejapan.arclayout.ArcLayout>
+
+            </FrameLayout>
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/agregar_comentario"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/img_btn_comentario"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="4dp"
+                android:layout_marginRight="6dp"
+                android:gravity="center"
+                android:text="+"
+                android:textColor="@color/aluminum"
+                android:textSize="24sp"
+                app:font="avenir-light.ttf"
+
+                />
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

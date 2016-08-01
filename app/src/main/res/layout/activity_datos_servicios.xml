@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:id="@+id/expandable_historial_medicos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_titulo_servicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/tittle_servicio"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp"
+            app:font="avenir-light.ttf"
+             />
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/expandable_historial_medicos"
+        android:layout_above="@+id/frameLayout">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycler_datos_servicios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        </android.support.v7.widget.RecyclerView>
+    </RelativeLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_gravity="bottom|end"
+        android:background="@color/white"
+        android:id="@+id/frameLayout">
+
+
+        <ImageButton
+            android:id="@+id/btn_acepatarG"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:layout_gravity="bottom|center"
+            android:layout_margin="30px"
+            android:background="@drawable/aceptar" />
+    </FrameLayout>
+
+</RelativeLayout>

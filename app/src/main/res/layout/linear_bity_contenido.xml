@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:gravity="top"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:background="@drawable/fondo_bity">
+
+        <ImageView
+            android:id="@+id/img_fondo_new"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            android:src="@null" />
+
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_siento"
+            android:layout_width="150dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="24dp"
+            android:layout_marginRight="24dp"
+            android:layout_marginTop="96dp"
+            android:background="@drawable/btn_transparente_borde_blanco"
+            android:clickable="true"
+            android:gravity="center"
+            android:text="Hoy me siento.."
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:font="avenir-light.ttf" />
+
+        <LinearLayout
+            android:id="@+id/linear_bity"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="@color/colorAccent"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingLeft="25dp">
+
+            <ImageView
+                android:id="@+id/btn_cerrar_bity"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/bity_pop" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="12dp"
+                android:paddingRight="12dp"
+                android:text="Te invito a completar tu perfil"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/bity_curvo"
+            android:layout_width="match_parent"
+            android:layout_height="39dp"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/banner_curvo_1024"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_foto"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="105dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_foto_new"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:src="@drawable/ic_sin_foto"
+            app:border_color="@color/white"
+            app:border_width="2dp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/lnr_miperfil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/rl_fondo"
+        android:layout_toEndOf="@+id/rl_foto"
+        android:layout_toRightOf="@+id/rl_foto"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lnr_miperfil_datos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_miperfil"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:text="Mi Perfil "
+                android:textColor="@color/textColorPrimary"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_porcentaje"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=" 10 % "
+                android:textColor="@color/colorAccent"
+                android:textSize="16sp"
+                app:font="avenir-light.ttf" />
+
+
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/ibtn_miperfil"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="16dp"
+            android:background="@drawable/mas_circulos_off" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

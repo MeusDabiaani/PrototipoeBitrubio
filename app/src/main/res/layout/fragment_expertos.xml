@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+<RelativeLayout
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+</RelativeLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+        <!-- BUSCAR -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_buscar"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_centerVertical="true"
+                    android:src="@drawable/ic_lupa" />
+                <View
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="24dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_below="@id/img_buscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/iron"/>
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/editBuscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/img_buscar"
+                    android:hint="Buscar expertos"
+                    android:textStyle="italic"
+                    android:textColorHint="@color/textColorhint"
+                    android:textColor="@color/textColorPrimary"
+                    android:focusableInTouchMode="false"
+                    app:font="avenir-light.ttf"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <!-- Amigos -->
+
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:layout_marginLeft="16dp"
+        android:text="Mis Expertos"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="14sp" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_expertos"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</LinearLayout>

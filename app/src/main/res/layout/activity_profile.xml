@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:animateLayoutChanges="true">
+
+        <android.support.design.widget.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:theme="@style/ThemeOverlay.AppCompat.ActionBar">
+
+            <android.support.design.widget.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:fitsSystemWindows="true"
+                app:expandedTitleMarginEnd="64dp"
+                app:expandedTitleMarginStart="48dp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.Toolbar
+                        android:id="@+id/toolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="?attr/actionBarSize"
+                        android:background="@color/colorAccent"
+                        android:minHeight="?attr/actionBarSize"
+                        android:navigationIcon="@drawable/ic_menu_new"
+                        app:layout_collapseMode="pin"
+                        app:layout_scrollFlags="scroll|enterAlways" />
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/white"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+                        <RelativeLayout
+                            android:id="@+id/fondo_bity"
+                            android:layout_width="match_parent"
+                            android:layout_height="120dp"
+                            android:background="@drawable/fondo_bity"
+                            android:orientation="horizontal">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_siento"
+                                android:layout_width="110dp"
+                                android:layout_height="30dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignParentTop="true"
+                                android:layout_marginEnd="24dp"
+                                android:layout_marginRight="24dp"
+                                android:layout_marginTop="36dp"
+                                android:background="@drawable/btn_transparente_borde_blanco"
+                                android:clickable="true"
+                                android:drawableRight="@drawable/ic_bien_blanco"
+                                android:gravity="center"
+                                android:padding="4dp"
+                                android:text="Fisico"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_marginTop="70dp"
+                            android:id="@+id/relativeLayout2"
+                            android:layout_width="match_parent"
+                            android:layout_height="110dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/img_fotoPerfil"
+                                android:layout_width="90dp"
+                                android:layout_height="90dp"
+                                android:src="@drawable/ic_sin_foto"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                                android:id="@+id/txt_nomUsuario"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignBottom="@+id/img_fotoPerfil"
+                                android:layout_centerHorizontal="true"
+                                android:gravity="bottom|center"
+                                android:text="Alan Contreras"
+                                android:textSize="16sp"
+                                android:textColor="@color/textColorPrimary" />
+
+                            <ImageButton
+                                android:id="@+id/ibtn_miperfil"
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_alignParentEnd="true"
+                                android:layout_alignParentRight="true"
+                                android:layout_alignTop="@+id/txt_nomUsuario"
+                                android:layout_marginEnd="30dp"
+                                android:layout_marginRight="30dp"
+                                android:background="@drawable/mas_circulos_off" />
+                        </RelativeLayout>
+                    </RelativeLayout>
+
+                </LinearLayout>
+            </android.support.design.widget.CollapsingToolbarLayout>
+
+        </android.support.design.widget.AppBarLayout>
+
+        <include layout="@layout/content_profile" />
+
+
+    </android.support.design.widget.CoordinatorLayout>
+
+    <include layout="@layout/navigation_menu"></include>
+
+</android.support.v4.widget.DrawerLayout>

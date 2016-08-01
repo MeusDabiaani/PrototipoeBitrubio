@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.bitrubio.prototipoebitrubio">
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <permission
+        android:name="info.androidhive.googlemapsv2.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature" />
+
+    <uses-permission android:name="info.androidhive.googlemapsv2.permission.MAPS_RECEIVE" />
+
+    <application
+        android:allowBackup="true"
+        android:configChanges="orientation|keyboardHidden"
+        android:icon="@drawable/ic_logo_bitrubio"
+        android:label="@string/app_name"
+        android:largeHeap="true"
+        android:screenOrientation="portrait"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme.Bitrubio">
+
+
+        <activity
+            android:name=".IntroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".LoginActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MainActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SignupActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".SignupVideo"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+
+        <activity
+            android:name=".SignupElige"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".SignupContactos"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".Bitrubian.ComunidadActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            tools:ignore="InnerclassSeparator" />
+        <activity
+            android:name=".Bitrubian.AlertaActvity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".Bitrubian.ExpertosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.ServiciosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".Bitrubian.AlertaLlamandoActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+
+        <activity
+            android:name=".Bitrubian.AyudarOtroActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".CompletaPerfilActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".Bitrubian.ComentarioActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="adjustResize|stateHidden" />
+
+        <activity
+            android:name=".Bitrubian.ComentarioOpciones"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".Bitrubian.ProfileActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".Bitrubian.ProfileExpertosActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".DetalleConsultas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+
+        <activity
+            android:name=".MetaFisica"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MetaDetalle"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MetaResultado"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".MetaSocial"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MetaEnfermedad"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MenuLateral.Ayuda"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio" />
+        <activity
+            android:name=".Bitrubian.Reportar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MenuLateral.Promociones"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MenuLateral.Tarjeta"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".NuevaTarjeta"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".PagarCompra"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.FarmaciaActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.DetalleReceta"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.SubastasActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.DetalleCompletoSubasta"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+
+        <activity
+            android:name=".Bitrubian.Especifica"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.ComentarioAyudarme"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.ComentarioAdicional"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.DonacionActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.DetalleSubastas"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.QuieroDonar"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Bitrubian.DonarSangre"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".MenuLateral.Premium"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".AgregaContacto"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".PagarPersona"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+        <activity
+            android:name=".Prueba"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.Bitrubio"
+            android:windowSoftInputMode="stateHidden" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyBmjrCpx1S9Ticd1GG2V_G5kDUcZSoJz2Y" />
+    </application>
+
+</manifest>

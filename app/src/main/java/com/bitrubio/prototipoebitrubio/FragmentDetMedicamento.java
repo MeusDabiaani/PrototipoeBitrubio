@@ -1,0 +1,25 @@
+package com.bitrubio.prototipoebitrubio;
+import android.support.v4.app.Fragment;
+
+import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+
+import butterknife.ButterKnife;
+
+/**
+ * Created by Orion on 01/06/2016.
+ */
+public class FragmentDetMedicamento extends Fragment  {
+
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View rootView = inflater.inflate(R.layout.fragment_meta_enfermedad_medicamento, container, false);
+        ButterKnife.bind(this, rootView);
+
+        return rootView;
+    }
+}

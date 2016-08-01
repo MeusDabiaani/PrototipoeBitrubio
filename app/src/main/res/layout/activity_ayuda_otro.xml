@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.bitrubio.prototipoebitrubio.Bitrubian.AlertaActvity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/colorAccent"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="@style/ThemeOverlay.AppCompat.Light"
+            app:layout_collapseMode="pin"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_noBitrubian"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:background="@drawable/btn_borde_cancelar"
+        android:text="No Bitrubian"
+        android:textAllCaps="false"
+        android:textColor="@color/colorCalidoA"
+        android:textSize="16sp"
+        android:layout_centerVertical="true"
+        android:layout_alignLeft="@+id/btn_otroBitrubias"
+        android:layout_alignStart="@+id/btn_otroBitrubias" />
+
+    <Button
+        android:id="@+id/btn_otroBitrubias"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/btn_borde_cancelar"
+        android:text="Bitrubian"
+        android:textAllCaps="false"
+        android:textColor="@color/colorCalidoA"
+        android:textSize="16sp"
+        android:layout_above="@+id/btn_noBitrubian"
+        android:layout_centerHorizontal="true" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+        android:id="@+id/txt_Alerta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="100dp"
+        android:gravity="center"
+        android:text="La ayuda es para un"
+        android:textColor="@color/textColorPrimary"
+        android:textSize="20sp"
+        app:font="avenir-light.ttf"/>
+
+</RelativeLayout>

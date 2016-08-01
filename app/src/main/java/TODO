@@ -1,0 +1,46 @@
+Anotaciones
+24 de julio
+
+PROGRAMACION
+Revisar Sliding Drawer
+
+
+YO
+
+* revisar la tamaño y orientacion de las fotos , fotos muy grandes no suben , camarac con widht muy grande pla invierte
+
+
+             int height = myBitmap.getHeight();
+            int width = myBitmap.getWidth();
+            int bounding = dpToPx(250);
+            Log.i("Test", "original width = " + Integer.toString(width));
+            Log.i("Test", "original height = " + Integer.toString(height));
+            float xScale = ((float) bounding) / width;
+            float yScale = ((float) bounding) / height;
+            float scale = (xScale <= yScale) ? xScale : yScale;
+            Log.i("Test", "xScale = " + Float.toString(xScale));
+            Log.i("Test", "yScale = " + Float.toString(yScale));
+            Log.i("Test", "scale = " + Float.toString(scale));
+            // Create a matrix for the scaling and add the scaling data
+            Matrix matrix = new Matrix();
+            matrix.postScale(scale, scale);
+            Bitmap scaledBitmap = Bitmap.createBitmap(myBitmap, 0, 0, width, height, matrix, true);
+            width = scaledBitmap.getWidth(); // re-use
+            height = scaledBitmap.getHeight(); // re-use
+            BitmapDrawable result = new BitmapDrawable(scaledBitmap);
+            Log.i("Test", "scaled result = " + result);
+            Log.i("Test", "scaled width = " + Integer.toString(width));
+            Log.i("Test", "scaled height = " + Integer.toString(height));
+
+                private int dpToPx(int dp) {
+                    float density = getApplicationContext().getResources().getDisplayMetrics().density;
+                    return Math.round((float)dp * density);
+                }
+
+* agragar funciones de galeria y fotos al cambio de fondo
+
+
+* borrar
+
+xml -  row_campo_edit , layout_extra_seguros
+

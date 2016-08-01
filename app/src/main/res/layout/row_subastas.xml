@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/lnr_imgPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/img_PerfilMedico"
+                        android:layout_width="46dp"
+                        android:layout_height="46dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/doctor_2"
+                        app:border_color="@color/white"
+                        app:border_width="2dp" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_toRightOf="@id/lnr_imgPerfil"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                                android:id="@+id/txt_nomMedico"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="Dra.Ximena Olvera"
+                                android:textColor="@color/textColorPrimary"
+                                android:textSize="14sp"
+                                app:font="avenir-light.ttf" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_especialidad"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Pediatra"
+                                android:textSize="14sp" />
+                        </LinearLayout>
+
+                        <ImageView
+                            android:id="@+id/mas_detalle"
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:layout_marginRight="12dp"
+                            android:background="@drawable/mas_circulos_off" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/fechaPuja"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="13sp"
+                            app:font="avenir-light.ttf" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_fechaPuja"
+                            style="@style/MyTextViewAvenir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:layout_marginRight="12dp"
+                            android:hint="0/0/0000"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textColor="@color/colorAccent"
+                                android:text="@string/puja"
+                                android:textSize="13sp" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txtmontoPuja"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="1dp"
+                                android:hint="$ 86.000 sin IVA"
+                                android:textSize="14sp" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:orientation="vertical">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                            style="@style/MyTextViewAvenir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text= "@string/comentarioMedico"
+                            android:textColor="@color/colorAccent"
+                            android:textSize="13sp" />
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txtComentarioMedico"
+                            style="@style/MyTextViewAvenir"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="1dp"
+                            android:hint="Comentario del médico"
+                            android:textSize="14sp" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View
+            style="@style/MyView"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="12dp" />
+    </LinearLayout>
+
+</LinearLayout>

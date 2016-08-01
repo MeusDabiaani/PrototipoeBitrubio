@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/lnr_dialog_sentir"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+        android:id="@id/title_dialog"
+        style="@style/MyTextViewAvenir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Hoy me siento:"
+        android:textColor="@color/colorAccent" />
+
+    <RelativeLayout
+        android:id="@+id/rl_fisico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="24dp"
+        android:layout_marginTop="24dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    android:id="@+id/txt_fisico"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center"
+                    android:text="@string/fisicamente"
+                    android:textColor="@color/colorAccent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_menos_fisicamente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/ic_manita_abajo" />
+
+                <SeekBar
+
+                    android:id="@+id/seek_fisico"
+                    android:layout_width="170dp"
+                    android:layout_height="34dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imageView6"
+                    android:layout_toRightOf="@+id/imageView6"
+                    android:thumbTint="@color/colorAccent"
+                    android:max="2"
+                    android:maxHeight="0dp"
+                    android:minHeight="0dp" />
+
+                <ImageView
+                    android:id="@+id/img_mas_fisicamente"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/seek_fisico"
+                    android:layout_toRightOf="@+id/seek_fisico"
+                    android:background="@drawable/ic_manita_arriba" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_estadoFisico"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textSize="14sp"
+                    android:textColor="@color/colorAccent"
+                    android:layout_weight="1" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rl_emocional"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="6dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+                    android:id="@+id/txt_emocional"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:gravity="center"
+                    android:text="@string/emocional"
+                    android:textColor="@color/colorAccent" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center">
+
+                <ImageView
+                    android:id="@+id/img_menosEmocinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:background="@drawable/ic_manita_abajo" />
+
+                <SeekBar
+                    android:id="@+id/seek_emocional"
+                    android:layout_width="170dp"
+                    android:layout_height="34dp"
+                    android:layout_centerVertical="true"
+                    android:layout_toEndOf="@+id/imageView6"
+                    android:layout_toRightOf="@+id/imageView6"
+                    android:thumbTint="@color/colorAccent"
+                    android:thumbOffset="8dip"
+                    android:max="2"
+                    android:maxHeight="0dp"
+                    android:minHeight="0dp" />
+
+                <ImageView
+                    android:id="@+id/img_masEmocinal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_toEndOf="@+id/seek_fisico"
+                    android:layout_toRightOf="@+id/seek_fisico"
+                    android:background="@drawable/ic_manita_arriba" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_estadoEmocional"
+                        style="@style/MyTextViewAvenir"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/colorAccent"
+                        android:textSize="14sp"
+                        android:gravity="center" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btn_aceptar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="center"
+        android:layout_margin="30px"
+        android:background="@drawable/aceptar" />
+</LinearLayout>

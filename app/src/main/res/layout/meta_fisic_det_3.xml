@@ -1,0 +1,443 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:id="@+id/linerScroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:background="@color/white">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="2dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:gravity="center">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:id="@+id/edit_comentario"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_toLeftOf="@+id/img_comentario"
+                            android:layout_toStartOf="@+id/img_comentario"
+                            android:focusable="false"
+                            android:hint="@string/mensaje_agradecimiento"
+                            style="@style/MyEditTextAvenir"
+                            android:textStyle="italic"
+                            />
+
+                        <View style="@style/MyView"
+                            android:layout_marginRight="24dp"/>
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:id="@+id/img_comentario"
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_alignParentEnd="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/agregar_comentario02" />
+                </RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_graphic_1"
+                android:layout_width="match_parent"
+                android:layout_height="240dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical">
+
+                <com.github.mikephil.charting.charts.HorizontalBarChart
+                    android:id="@+id/chart1"
+                    android:layout_width="match_parent"
+                    android:layout_height="230dp"
+                    android:background="@android:color/white" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/lnr_position"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/btn_rendirse"
+                    android:layout_width="250dp"
+                    android:layout_height="42dp"
+                    android:background="@drawable/btn_transparente_rojo"
+                    android:drawableLeft="@drawable/ic_beats"
+                    android:paddingLeft="45dp"
+                    android:paddingRight="45dp"
+                    android:stateListAnimator="@null"
+                    android:text="Agradecer"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="12dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/lnr_position"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/txt_agregar_otros"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="24dp"
+                    android:text="Agregar otros a tu porra"
+                    android:textAllCaps="false"
+                    android:textColor="@color/letraVerde1"
+                    app:font="avenir-light.ttf"
+                    android:textSize="16sp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                            android:id="@+id/txt_bitrubiansPorra"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:text="Bitrubian que ya lo lograron "
+                            android:textAllCaps="false"
+                            android:textColor="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout1"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto1"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto1"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto1"
+                                android:layout_alignEnd="@+id/image_foto1" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout2"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto2"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto2"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto2"
+                                android:layout_alignEnd="@+id/image_foto2" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout3"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto3"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto3"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto3"
+                                android:layout_alignEnd="@+id/image_foto3" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout4"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto4"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto4"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto4"
+                                android:layout_alignEnd="@+id/image_foto4" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="6dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/txt_expertosPorra"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="24dp"
+                            android:text="Expertos y coaches"
+                            android:textAllCaps="false"
+                            android:textColor="@color/textColorPrimary"
+                            app:font="avenir-light.ttf"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout5"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto5"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto5"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_centerHorizontal="true" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout6"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto6"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto6"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto6"
+                                android:layout_alignEnd="@+id/image_foto6" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout7"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto7"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto7"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto7"
+                                android:layout_alignEnd="@+id/image_foto7" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_weight="1"
+                            android:id="@+id/relativeLayout8"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:paddingLeft="15dp">
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/image_foto8"
+                                android:layout_width="56dp"
+                                android:layout_height="56dp"
+                                android:layout_centerVertical="true"
+                                android:src="@drawable/foto_test_medico"
+                                app:border_color="@color/white"
+                                app:border_width="2dp" />
+
+                            <de.hdodenhof.circleimageview.CircleImageView
+                                android:id="@+id/btn_foto8"
+                                android:layout_width="36dp"
+                                android:layout_height="36dp"
+                                android:layout_gravity="bottom"
+                                android:padding="0dp"
+                                android:src="@drawable/ic_agregar_mas"
+                                android:layout_alignParentBottom="true"
+                                android:layout_alignRight="@+id/image_foto8"
+                                android:layout_alignEnd="@+id/image_foto8" />
+
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/lnr_position"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/puntos"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_puntos_c">
+
+        </ImageView>
+    </LinearLayout>
+
+
+</LinearLayout>

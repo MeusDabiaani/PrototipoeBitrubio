@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <!-- Segunda parte Fin-->
+    <LinearLayout
+        android:id="@+id/header_seguros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_seguros"
+            style="@style/MyTextViewAvenir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:text="Seguros" />
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_porcentajeSeguros"
+            style="@style/MyTextViewAvenir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_weight="0.10"
+            android:gravity="center"
+            android:text="%"
+            android:textColor="@color/textColorhint" />
+
+        <ImageView
+            android:id="@+id/img_seguros"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/ic_flecha_abajo" />
+    </LinearLayout>
+
+    <View
+        style="@style/MyView"
+        android:layout_marginTop="20dp" />
+
+    <LinearLayout
+        android:id="@+id/expandable_seguros"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="56dp"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/lnr_header_segMedico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_seguroMedico"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_seguro"
+                    android:gravity="center"
+                    android:text="@string/segMed" />
+
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_expand_segMedico"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/num_imss"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:hint="@string/numImss"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/num_isste"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/numIsste"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/num_seg_popular"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/numSegPop"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/num_seg_pemex"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/numSedPemex"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_otroSeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_otroSeguro"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="36dp"
+                    android:layout_weight="1"
+                    android:text="@string/otroSeg" />
+
+                <ImageView
+                    android:id="@+id/img_otroSeguro"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_agregar_mas" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:id="@+id/lnr_extraSeguro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="12dp"
+                android:orientation="vertical"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_expandOtroSeg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="24dp"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_compania"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/compañia"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_poliza"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/poliza"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_vigencia"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/vigencia"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="13dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                    android:id="@+id/txt_seguroVida"
+                    style="@style/MyTextViewAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:drawableLeft="@drawable/ic_seguro_vida"
+                    android:gravity="center_vertical"
+                    android:text="@string/seguroVida" />
+
+                <ImageView
+                    android:id="@+id/img_otroSeguroNormal"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_agregar_mas" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/lnr_agregaSeguroVida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="26dp"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_companiaVida"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/compañia"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_polizaVida"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/poliza"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_vigenciaVida"
+                    style="@style/MyEditTextAvenir"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:hint="@string/vigencia"
+                    android:singleLine="true" />
+
+                <View style="@style/MyView" />
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/lnr_segurosVida"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="12dp"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/contenidoExtraSeguro"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+        <FrameLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:layout_marginTop="24dp"
+            android:background="@color/white">
+
+            <ImageButton
+                android:id="@+id/btn_cancelS"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="left|bottom"
+                android:layout_margin="30px"
+                android:background="@drawable/cancelar" />
+
+            <ImageButton
+                android:id="@+id/btn_acepatarS"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="30px"
+                android:background="@drawable/aceptar" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="220dp"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:background="@color/white">
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_marginTop="12dp"
+        style="@style/MyTextViewAvenir"
+        android:textSize="16sp"
+        android:textColor="@color/colorAccent"
+         />
+
+    <NumberPicker
+        android:id="@+id/numberPicker1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="12dp"
+        android:layout_alignTop="@+id/numberPicker2"
+        android:layout_toLeftOf="@+id/button1"
+        android:layout_toStartOf="@+id/button1" />
+
+    <NumberPicker
+        android:id="@+id/numberPicker2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="12dp"
+        android:layout_alignParentTop="true"
+        android:layout_toRightOf="@+id/button1"
+        android:layout_toEndOf="@+id/button1" />
+
+    <ImageButton
+        android:id="@+id/button1"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="center"
+        android:background="@drawable/aceptar"
+        android:layout_below="@+id/numberPicker1"
+        android:layout_centerHorizontal="true"/>
+
+</RelativeLayout>

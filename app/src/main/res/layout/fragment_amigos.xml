@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:swipe="http://schemas.android.com/tools"
+    android:id="@+id/contendor_comunidada"
+    android:layout_width="match_parent"
+    android:layout_height="fill_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_anchor="@id/appbarLayout"
+        app:layout_anchorGravity="bottom">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/img_buscar"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="12dp"
+                android:src="@drawable/ic_buscar_persona" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                    android:id="@+id/edit_comentario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="12dp"
+                    android:layout_toLeftOf="@+id/imageView2"
+                    android:layout_toStartOf="@+id/imageView2"
+                    android:focusable="false"
+                    android:hint="Anima a tus amigos"
+                    style="@style/MyEditTextAvenir" />
+
+                <View style="@style/MyView"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginRight="36dp"/>
+            </LinearLayout>
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="16dp"
+                android:layout_marginRight="16dp"
+                android:src="@drawable/agregar_comentario02" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lnr_section_sol"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:orientation="vertical">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+            android:id="@+id/section_sol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:textSize="14sp"
+            style="@style/MyTextViewAvenir" />
+
+        <ListView
+            android:id="@+id/list_soliciitudes"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp">
+
+        </ListView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/lnr_section_ami"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="6dp"
+        android:orientation="vertical">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TextViewMedium
+            android:id="@+id/section_ami"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:textSize="14sp"
+            style="@style/MyTextViewAvenir" />
+
+        <ListView
+            android:id="@+id/list_amigos"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+        </ListView>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_premium"
+            android:icon="@drawable/ic_premium_scl"
+            android:title="@string/drawer_premium" />
+        <item
+            android:id="@+id/nav_agenda"
+            android:icon="@drawable/ic_agenda_scl"
+            android:title="@string/drawer_agenda" />
+        <item
+            android:id="@+id/nav_tarjeta"
+            android:icon="@drawable/ic_tarjeta_scl"
+            android:title="@string/drawer_tarjeta" />
+        <item
+            android:id="@+id/nav_promociones"
+            android:icon="@drawable/ic_promociones_scl"
+            android:title="@string/drawer_promociones" />
+        <item
+            android:id="@+id/nav_facturas"
+            android:icon="@drawable/ic_facturas_scl"
+            android:title="@string/drawer_facturas" />
+        <item
+            android:id="@+id/nav_configuracion"
+            android:icon="@drawable/ic_configuracion_scl"
+            android:title="@string/drawer_configuracion" />
+        <item
+            android:id="@+id/nav_ayuda"
+            android:icon="@drawable/ic_ayuda_scl"
+            android:title="@string/drawer_ayuda" />
+    </group>
+
+</menu>
