@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -38,6 +39,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -493,7 +495,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }.start();
 
-
     }
 
 
@@ -823,6 +824,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 findViewById(R.id.action_helpBeety).setVisibility(View.VISIBLE);
                 imgFondoNueva.setBackground(null);
                 mContainerView.addView(oldView);
+
+
+
+                newView.setOnTouchListener( new View.OnTouchListener(){
+                    @Override
+                    public boolean onTouch(View v, MotionEvent event) {
+                        Log.d(TAG, "onTouch  " + "");
+                      /*  if (newView!=null) {
+                            mContainerView.removeView(newView);
+                            return true;
+                        }*/
+                        return false;
+                    }
+                });
+
+      /*          RelativeLayout rl_bity = (RelativeLayout) newView.findViewById(R.id.rl_belowBity);
+                rl_bity.setOnClickListener(new View.OnClickListener(){
+                    @Override
+                    public void onClick(View v) {
+
+                        mContainerView.removeView(newView);
+                        findViewById(R.id.action_helpBeety).setVisibility(View.VISIBLE);
+                        imgFondoNueva.setBackground(null);
+                        mContainerView.addView(oldView);
+                    }
+                });*/
             }
         });
 

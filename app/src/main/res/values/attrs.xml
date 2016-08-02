@@ -6,4 +6,34 @@
     </declare-styleable>
 
 
+    <declare-styleable name="HorizontalPicker">
+        <attr name="android:textColor" />
+        <attr name="android:textSize" />
+        <attr name="values" format="reference" />
+        <attr name="android:ellipsize" />
+        <attr name="android:marqueeRepeatLimit" />
+        <attr name="dividerSize" format="dimension" />
+        <attr name="sideItems" format="integer" />
+        <attr name="horizontalPickerStyle" format="reference" />
+    </declare-styleable>
+
+
+
+    <declare-styleable name="SegmentedButton">
+    <attr name="btnText1" format="string"/>
+    <attr name="btnText2" format="string"/>
+    <attr name="gradientColorOnStart" format="color"/>
+    <attr name="gradientColorOnEnd" format="color"/>
+    <attr name="gradientColorOffStart" format="color"/>
+    <attr name="gradientColorOffEnd" format="color"/>
+    <attr name="gradientColorSelectedStart" format="color"/>
+    <attr name="gradientColorSelectedEnd" format="color"/>
+    <attr name="strokeColor" format="color"/>
+    <attr name="strokeWidth" format="dimension"/>
+    <attr name="cornerRadius" format="dimension"/>
+    <attr name="textStyle" format="reference"/>
+    <attr name="btnPaddingTop" format="dimension"/>
+    <attr name="btnPaddingBottom" format="dimension"/>
+    </declare-styleable>
+
 </resources>

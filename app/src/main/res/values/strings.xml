@@ -219,6 +219,8 @@
     <string name="avisoPerfil" >Tu perfil básico podrá ser visto por diferentes médicos</string>
     <string name="iniciaLogin">Iniciar sesión</string>
     <string name="todo">Seleccionar todas</string>
+    <string name="dia">día</string>
+    <string name="semana">semana(s)</string>
 
 </resources>
 

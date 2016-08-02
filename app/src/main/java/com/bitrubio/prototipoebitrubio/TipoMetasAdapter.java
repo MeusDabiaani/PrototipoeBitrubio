@@ -57,35 +57,35 @@ public class TipoMetasAdapter extends RecyclerView.Adapter<TipoMetasAdapter.View
         //final String idMeta = String.valueOf(data.get(position).getId());
      //   holder.getTxt_titulo().setText(registros.getTitulo());
         if(registros.getTitulo().equals("Peso")){
-            Picasso.with(context).load(R.drawable.fondo_peso).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_peso));
         }else if (registros.getTitulo().equals("Alimentacion")){
-            Picasso.with(context).load(R.drawable.fondo_alimentacion).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_alimentacion));
         }else if(registros.getTitulo().equals("Ejercicio")){
-            Picasso.with(context).load(R.drawable.fondo_ejercicio).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_ejercicio));
         }else if(registros.getTitulo().equals("Tomar agua")){
-            Picasso.with(context).load(R.drawable.fondo_agua).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_agua));
         }else if(registros.getTitulo().equals("Sueño")){
-            Picasso.with(context).load(R.drawable.fondo_sueno).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_sueno));
         }else if(registros.getTitulo().equals("Quitar Vicios")){
-            Picasso.with(context).load(R.drawable.fondo_vicios).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_vicios));
         }else if(registros.getTitulo().equals("Ayudar")){
-            Picasso.with(context).load(R.drawable.fondo_ayudar).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_ayudar));
         }else if(registros.getTitulo().equals("Desarrollarme")){
-            Picasso.with(context).load(R.drawable.fondo_desarrollarme).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_desarrollarme));
         }else if(registros.getTitulo().equals("Reflexionar")){
-            Picasso.with(context).load(R.drawable.fondo_reflexionar).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_reflexionar));
         }else if(registros.getTitulo().equals("Divertirme")){
-            Picasso.with(context).load(R.drawable.divertirme).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.divertirme));
         }else if(registros.getTitulo().equals("Estar con otros")){
-            Picasso.with(context).load(R.drawable.fondo_otros).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_otros));
         }else if(registros.getTitulo().equals("Medicamentos")){
-            Picasso.with(context).load(R.drawable.fondo_medicamentos).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_medicamentos));
         }else if(registros.getTitulo().equals("Laboratorio")){
-            Picasso.with(context).load(R.drawable.fondo_laboratorios).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_laboratorios));
         }else if(registros.getTitulo().equals("Niveles")){
-            Picasso.with(context).load(R.drawable.fondo_terapias).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_terapias));
         }else if(registros.getTitulo().equals("Chequeo")){
-            Picasso.with(context).load(R.drawable.fondo_chequeo).into(holder.getFondo_card());
+            holder.fondo_card.setBackgroundDrawable(context.getResources().getDrawable(R.drawable.fondo_chequeo));
         }
     }
 

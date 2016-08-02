@@ -100,9 +100,11 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         _input_tiempoMeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String[] array = {"día", "semana"};
+               /* final String[] array = {"día", "semana"};
                 String title = "Elije tu tiempo de meta";
-                showDialog(title, R.layout.dialog_tiempo_piker, _input_tiempoMeta, "Tiempo para lograrlo", 50, 0, 1, array);
+                showDialog(title, R.layout.dialog_tiempo_piker, _input_tiempoMeta, "Tiempo para lograrlo", 50, 0, 1, array);*/
+                Intent intentTiempo = new Intent(getActivity(),Prueba.class);
+                getActivity().startActivity(intentTiempo);
             }
         });
         _input_privacidad.setOnClickListener(new View.OnClickListener() {
