@@ -221,6 +221,9 @@
     <string name="todo">Seleccionar todas</string>
     <string name="dia">día</string>
     <string name="semana">semana(s)</string>
+    <string name="cantidad_deseada">Cantidad deseada</string>
+    <string name="vasos">vasos</string>
+    <string name="litros">litros</string>
 
 </resources>
 

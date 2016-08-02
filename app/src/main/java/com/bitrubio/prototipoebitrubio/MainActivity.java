@@ -9,7 +9,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -69,6 +68,7 @@ import com.bitrubio.prototipoebitrubio.MenuLateral.Ayuda;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Premium;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Promociones;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Tarjeta;
+import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.squareup.picasso.Picasso;
 
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FragDialogSiento.ComoMesientoListener, FragDialogSiento.ComoMeSientoEmocianlListener {
 
     boolean dirX = true;
-    boolean dirY = true;
+
 
     String TAG = getClass().getName();
     SessionManager session;
@@ -130,7 +130,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     TextView txt_mi_perfil;
     TextView txt_condiciones;
     ImageView _btncerrarBity;
-    TextView txt_com_compartir;
     @Bind(R.id.edit_comentario)
     EditText edit_comentario;
     ImageView _image_foto, imagePerfil, _image_foto_new, _btnfoto, _btncomentario;
@@ -351,7 +350,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onClick(View v) {
                 //Creamos el Intent para llamar a la Camara
                 // final CharSequence[] items = {"Captura una foto nueva", "Seleccionar de tu galería", "Cancelar"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, AlertDialog.THEME_HOLO_LIGHT);
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.DialogTheme);
 
                 builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
 
@@ -365,7 +364,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         } else if (items[position].text.equals("Seleccionar de tu galería")) {
 
-                            Intent intent = null;
+                            Intent intent ;
                             if (Build.VERSION.SDK_INT < 19) {
                                 // android jelly bean 4.3
                                 intent = new Intent();
@@ -404,10 +403,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         } else if (items[position].text.equals("Seleccionar de tu galería")) {
                             Log.e(TAG, "item-2 CLICK " + items[position]);
-                            Intent intent = null;
+                            Intent intent ;
                             if (Build.VERSION.SDK_INT < 19) {
                                 // android jelly bean 4.3
-                                intent = new Intent();
+                               intent = new Intent();
                                 intent.setAction(Intent.ACTION_GET_CONTENT);
                             } else {
                                 // andoid 4.4 o superioir

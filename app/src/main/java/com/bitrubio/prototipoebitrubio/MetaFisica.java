@@ -1,6 +1,7 @@
 package com.bitrubio.prototipoebitrubio;
 
 import android.annotation.TargetApi;
+import android.app.FragmentManager;
 import android.content.Intent;
 
 import android.nfc.Tag;
@@ -100,8 +101,6 @@ public class MetaFisica extends AppCompatActivity {
             fragmentListMEtas.setArguments(args);
             FT.commit();
         }
-
-
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

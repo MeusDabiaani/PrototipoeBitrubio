@@ -4,7 +4,6 @@ package com.bitrubio.prototipoebitrubio;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Resources;
-import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
@@ -14,6 +13,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 
 import android.support.annotation.Nullable;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,6 +24,9 @@ import android.widget.ImageButton;
 import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.bitrubio.prototipoebitrubio.Metas.AguaMeta;
+import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 
 import java.lang.reflect.Field;
 
@@ -60,6 +63,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
     @Bind(R.id.btn_cancel)
     ImageButton _btn_cancelar;
     FragmentTransaction FT;
+    Toolbar toolbar;
 
     public FragmentDetalle_A() {
 
@@ -71,6 +75,10 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         View rootView = inflater.inflate(R.layout.fragment_meta_fisica_uno, parentViewGroup, false);
         ButterKnife.bind(this, rootView);
 
+        toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
+        final TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
+        mTitle.setTextSize(16);
+        mTitle.setTypeface(tf);
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
 
         _input_pesoActual.setTypeface(tf);
@@ -103,8 +111,20 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                /* final String[] array = {"día", "semana"};
                 String title = "Elije tu tiempo de meta";
                 showDialog(title, R.layout.dialog_tiempo_piker, _input_tiempoMeta, "Tiempo para lograrlo", 50, 0, 1, array);*/
-                Intent intentTiempo = new Intent(getActivity(),TiempoMeta.class);
-                getActivity().startActivity(intentTiempo);
+
+                mTitle.setText("salto");
+                mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+
+
+                final Fragment fragment = new AguaMeta();
+                FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                FT.replace(R.id.fragment_tipoMetas, fragment);
+                FT.addToBackStack(null);
+                FT.commit();
+
+              /*  Intent intentTiempo = new Intent(getContext(),TiempoMeta.class);
+                getActivity().startActivity(intentTiempo);*/
             }
         });
         _input_privacidad.setOnClickListener(new View.OnClickListener() {

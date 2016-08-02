@@ -252,7 +252,7 @@
             android:theme="@style/AppTheme.Bitrubio"
             android:windowSoftInputMode="stateHidden" />
         <activity
-            android:name=".Prueba"
+            android:name=".Metas.TiempoMeta"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.Bitrubio"
             android:windowSoftInputMode="stateHidden" />
