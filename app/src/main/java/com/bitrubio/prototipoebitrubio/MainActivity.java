@@ -568,7 +568,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.nav_agenda:
                 Toast.makeText(getBaseContext(), "Agenda", Toast.LENGTH_LONG).show();
-                Intent intentAgenda = new Intent(MainActivity.this, Prueba.class);
+                Intent intentAgenda = new Intent(MainActivity.this, TiempoMeta.class);
                 startActivity(intentAgenda);
                 //Your Operation
                 break;

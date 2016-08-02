@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="12dp"
         android:layout_marginRight="12dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="6dp"
         android:orientation="vertical">
 
         <ScrollView
@@ -44,9 +44,7 @@
                             android:layout_marginTop="6dp"
                             android:hint="@string/peso_actual"
                             android:textColor="@color/letraVerde1"
-                            android:textColorHint="@color/textColorPrimary"
-                            android:textSize="16sp"
-                            app:font="avenir-light.ttf" />
+                            style="@style/MyTextViewAvenir" />
 
                         <View style="@style/MyView" />
                     </LinearLayout>
@@ -63,9 +61,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/peso_objetivo"
                             android:textColor="@color/letraVerde1"
-                            android:textColorHint="@color/textColorPrimary"
-                            android:textSize="16sp"
-                            app:font="avenir-light.ttf" />
+                            style="@style/MyTextViewAvenir" />
 
                         <View style="@style/MyView" />
                     </LinearLayout>
@@ -82,9 +78,7 @@
                             android:layout_height="wrap_content"
                             android:hint="@string/tiempo_meta"
                             android:textColor="@color/letraVerde1"
-                            android:textColorHint="@color/textColorPrimary"
-                            android:textSize="16sp"
-                            app:font="avenir-light.ttf" />
+                            style="@style/MyTextViewAvenir" />
 
                         <View style="@style/MyView" />
                     </LinearLayout>
@@ -108,9 +102,7 @@
                                 android:layout_weight="1"
                                 android:hint="@string/reta_amigos"
                                 android:textColor="@color/letraVerde1"
-                                android:textColorHint="@color/textColorPrimary"
-                                android:textSize="16sp"
-                                app:font="avenir-light.ttf" />
+                                style="@style/MyTextViewAvenir" />
 
                             <ImageView style="@style/MyView" />
                         </LinearLayout>
@@ -137,9 +129,7 @@
                                 android:layout_weight="1"
                                 android:hint="@string/armar_equipo"
                                 android:textColor="@color/letraVerde1"
-                                android:textColorHint="@color/textColorPrimary"
-                                android:textSize="16sp"
-                                app:font="avenir-light.ttf" />
+                                style="@style/MyTextViewAvenir" />
 
                             <ImageView style="@style/MyView" />
                         </LinearLayout>
@@ -166,17 +156,14 @@
                                 android:layout_weight="1"
                                 android:hint="@string/estatus_privacidad"
                                 android:textColor="@color/letraVerde1"
-                                android:textColorHint="@color/textColorPrimary"
-                                android:textSize="16sp"
-                                app:font="avenir-light.ttf" />
+                                style="@style/MyTextViewAvenir" />
 
                             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="Público"
                                 android:textColor="@color/colorAccent"
-                                android:textSize="16sp"
-                                app:font="avenir-light.ttf">
+                                style="@style/MyTextViewAvenir">
 
                             </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
 

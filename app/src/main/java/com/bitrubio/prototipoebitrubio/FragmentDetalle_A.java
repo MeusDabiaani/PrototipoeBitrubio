@@ -103,7 +103,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                /* final String[] array = {"día", "semana"};
                 String title = "Elije tu tiempo de meta";
                 showDialog(title, R.layout.dialog_tiempo_piker, _input_tiempoMeta, "Tiempo para lograrlo", 50, 0, 1, array);*/
-                Intent intentTiempo = new Intent(getActivity(),Prueba.class);
+                Intent intentTiempo = new Intent(getActivity(),TiempoMeta.class);
                 getActivity().startActivity(intentTiempo);
             }
         });

@@ -37,7 +37,7 @@ import java.lang.reflect.Field;
 /**
  * Created by Orion on 25/07/2016.
  */
-public class Prueba extends AppCompatActivity implements HorizontalPicker.OnItemSelected , HorizontalPicker.OnItemClicked {
+public class TiempoMeta extends AppCompatActivity implements HorizontalPicker.OnItemSelected , HorizontalPicker.OnItemClicked {
     Toolbar toolbar;
     private SlidingDrawer drawer;
     String TAG = getClass().getName();
@@ -103,9 +103,9 @@ public class Prueba extends AppCompatActivity implements HorizontalPicker.OnItem
             @Override
             public void onClick(int index) {
                 if (index == 0) {
-                    Toast.makeText(Prueba.this, "dia", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TiempoMeta.this, "dia", Toast.LENGTH_SHORT).show();
                 } else {
-                    Toast.makeText(Prueba.this, "semana", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(TiempoMeta.this, "semana", Toast.LENGTH_SHORT).show();
                 }
             }
         });
