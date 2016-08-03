@@ -6,66 +6,53 @@
     android:layout_gravity="center">
 
     <LinearLayout
-        android:id="@+id/linearLayout6"
+        android:layout_marginTop="12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout6">
 
         <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
-            style="@style/MyTextViewAvenir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cantidad_deseada"
+            android:text="@string/tiempo_meta"
+            style="@style/MyTextViewAvenir"
+            android:textSize="16sp"
             android:textColor="@color/textColorPrimary"
-            android:textSize="16sp" />
+            />
 
 
         <com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton
             android:id="@+id/segmented"
+            android:layout_marginTop="24dp"
             android:layout_width="190dp"
             android:layout_height="40dp"
-            android:layout_marginTop="24dp"
-            app:cornerRadius="20dip"
-            app:gradientColorOffEnd="@color/letraVerde1"
-            app:gradientColorOffStart="@color/letraVerde1"
-            app:gradientColorOnEnd="@color/white"
             app:gradientColorOnStart="@color/white"
-            app:gradientColorSelectedEnd="@color/iron"
+            app:gradientColorOnEnd="@color/white"
+            app:gradientColorOffStart="@color/letraVerde1"
+            app:gradientColorOffEnd="@color/letraVerde1"
             app:gradientColorSelectedStart="@color/iron"
+            app:gradientColorSelectedEnd="@color/iron"
+            app:textStyle="@style/TextViewStyleSegmentButton"
             app:strokeColor="@color/iron"
             app:strokeWidth="1dip"
-            app:textStyle="@style/TextViewStyleSegmentButton"
+            app:cornerRadius="20dip"
 
             />
     </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/img_fondo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_centerVertical="true"
-        android:gravity="center">
-
+        android:gravity="center"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_alignParentStart="true">
         <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="270dp"
-            android:layout_height="350dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/vasos_agua" />
-
-        <NumberPicker
-            android:id="@+id/np_agua"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="90dp">
-
-        </NumberPicker>
+            android:background="@drawable/videojuegos"
+            android:id="@+id/imageView8" />
     </RelativeLayout>
 
 
@@ -73,10 +60,26 @@
         android:id="@+id/btn_aceptar"
         android:layout_width="56dp"
         android:layout_height="56dp"
+        android:background="@drawable/aceptar"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/aceptar" />
+        android:layout_marginBottom="30dp" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
+        android:id="@+id/np"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="@color/textColorhint"
+        android:textSize="35sp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="2"
+        app:dividerSize="10dp"
+        app:sideItems="1"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/img_fondo"
+        android:layout_centerHorizontal="true" />
 
 
 </RelativeLayout>

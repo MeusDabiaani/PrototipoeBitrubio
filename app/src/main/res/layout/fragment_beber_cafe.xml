@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout6">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tiempo_meta"
+            style="@style/MyTextViewAvenir"
+            android:textSize="16sp"
+            android:textColor="@color/textColorPrimary"
+            />
+
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/img_fondo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_centerVertical="true"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tazas"
+            android:id="@+id/imageView8" />
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
+            android:id="@+id/np"
+            android:layout_width="165dp"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="@color/textColorhint"
+            android:textSize="35sp"
+            android:ellipsize="marquee"
+            android:marqueeRepeatLimit="2"
+            app:dividerSize="10dp"
+            app:sideItems="1"
+            android:layout_alignBottom="@+id/imageView8"
+            android:layout_alignEnd="@+id/imageView8"
+            android:layout_marginEnd="47dp"
+            android:layout_marginBottom="85dp" />
+    </RelativeLayout>
+
+
+    <ImageButton
+        android:id="@+id/btn_aceptar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/aceptar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+
+
+
+</RelativeLayout>

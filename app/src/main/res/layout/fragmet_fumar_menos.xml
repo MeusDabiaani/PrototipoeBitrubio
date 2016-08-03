@@ -17,7 +17,7 @@
             style="@style/MyTextViewAvenir"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/cantidad_deseada"
+            android:text="@string/cantidad_limite"
             android:textColor="@color/textColorPrimary"
             android:textSize="16sp" />
 
@@ -49,25 +49,7 @@
         android:layout_centerVertical="true"
         android:gravity="center">
 
-        <ImageView
-            android:id="@+id/imageView8"
-            android:layout_width="270dp"
-            android:layout_height="350dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:background="@drawable/vasos_agua" />
-
-        <NumberPicker
-            android:id="@+id/np_agua"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="90dp">
-
-        </NumberPicker>
     </RelativeLayout>
-
 
     <ImageButton
         android:id="@+id/btn_aceptar"
@@ -76,7 +58,33 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="30dp"
-        android:background="@drawable/aceptar" />
+        android:background="@drawable/aceptar"
+        android:contentDescription="@string/btnaceptar" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
+        android:id="@+id/np"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:ellipsize="marquee"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:marqueeRepeatLimit="2"
+        android:textColor="@color/textColorhint"
+        android:textSize="35sp"
+        app:dividerSize="10dp"
+        app:sideItems="1"
+        android:layout_below="@+id/imgFondo"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:id="@+id/imgFondo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cigarro"
+        android:contentDescription="@string/imgfondo"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp" />
 
 
 </RelativeLayout>

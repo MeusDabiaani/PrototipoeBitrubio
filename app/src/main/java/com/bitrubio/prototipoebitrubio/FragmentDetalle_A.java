@@ -26,7 +26,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.Metas.AguaMeta;
+import com.bitrubio.prototipoebitrubio.Metas.BeberMeta;
+import com.bitrubio.prototipoebitrubio.Metas.FumarMeta;
+import com.bitrubio.prototipoebitrubio.Metas.PastelMeta;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
+import com.bitrubio.prototipoebitrubio.Metas.VideoJuegoMeta;
 
 import java.lang.reflect.Field;
 
@@ -116,7 +120,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
 
 
-                final Fragment fragment = new AguaMeta();
+                final Fragment fragment = new VideoJuegoMeta();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_NONE);
                 FT.replace(R.id.fragment_tipoMetas, fragment);

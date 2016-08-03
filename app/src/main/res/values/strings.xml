@@ -219,11 +219,21 @@
     <string name="avisoPerfil" >Tu perfil básico podrá ser visto por diferentes médicos</string>
     <string name="iniciaLogin">Iniciar sesión</string>
     <string name="todo">Seleccionar todas</string>
-    <string name="dia">día</string>
+    <string name="dia">día(s)</string>
     <string name="semana">semana(s)</string>
     <string name="cantidad_deseada">Cantidad deseada</string>
     <string name="vasos">vasos</string>
     <string name="litros">litros</string>
+    <string name="cantidad_limite">Cantidad limite</string>
+    <string name="imgfondo">imgFondo</string>
+    <string name="btnaceptar">btnAceptar</string>
+    <string name="pieza">pieza(s)</string>
+    <string name="cajetilla">cajetilla(s)</string>
+    <string name="copa">copa(s)</string>
+    <string name="latas">lata(s)</string>
+    <string name="paquete">paquete(s)</string>
+    <string name="minutos">minutos</string>
+    <string name="horas">hora(s)</string>
 
 </resources>
 
