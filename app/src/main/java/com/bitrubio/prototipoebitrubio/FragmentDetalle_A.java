@@ -27,6 +27,7 @@ import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.Metas.AguaMeta;
 import com.bitrubio.prototipoebitrubio.Metas.BeberMeta;
+import com.bitrubio.prototipoebitrubio.Metas.CelularMeta;
 import com.bitrubio.prototipoebitrubio.Metas.FumarMeta;
 import com.bitrubio.prototipoebitrubio.Metas.PastelMeta;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
@@ -112,15 +113,9 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         _input_tiempoMeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               /* final String[] array = {"día", "semana"};
-                String title = "Elije tu tiempo de meta";
-                showDialog(title, R.layout.dialog_tiempo_piker, _input_tiempoMeta, "Tiempo para lograrlo", 50, 0, 1, array);*/
-
-                mTitle.setText("salto");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
 
-
-                final Fragment fragment = new VideoJuegoMeta();
+                final Fragment fragment = new TiempoMeta();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_NONE);
                 FT.replace(R.id.fragment_tipoMetas, fragment);
@@ -159,6 +154,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         return rootView;
     }
 
+
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
 
@@ -167,7 +163,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
     private void showDialog(String title, int dialog_layout, final TextView textViewSalida, final String stringSalida,
                             int maxValue, int minValue, int mediumValue, final String[] arreglo) {
 
-        final Dialog d = new Dialog(getActivity(),R.style.DialogTheme);
+        final Dialog d = new Dialog(getActivity(), R.style.DialogTheme);
         d.setContentView(dialog_layout);
         TextView textView = (TextView) d.findViewById(R.id.title);
         textView.setText(title);
@@ -287,7 +283,6 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
             }
         }
     }
-
 
 
 }

@@ -30,6 +30,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -52,7 +54,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 /**
  * Created by Orion on 27/04/2016.
  */
-public class FragmentMetaPeso extends Fragment {
+public class FragmentMetaPeso extends Fragment  {
     @Bind(R.id.image_foto)
     ImageView _image_foto;
     @Bind(R.id.btn_foto)
@@ -240,6 +242,8 @@ public class FragmentMetaPeso extends Fragment {
 
         return view;
     }
+
+
 
     public void guardaFoto() {
         _btn_foto.setOnClickListener(new View.OnClickListener() {

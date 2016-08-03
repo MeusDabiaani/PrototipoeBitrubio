@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:layout_marginTop="12dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:id="@+id/linearLayout6">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cantidad_limite"
+            style="@style/MyTextViewAvenir"
+            android:textSize="16sp"
+            android:textColor="@color/textColorPrimary"
+            />
+
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton
+            android:id="@+id/segmented"
+            android:layout_marginTop="24dp"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            app:gradientColorOnStart="@color/white"
+            app:gradientColorOnEnd="@color/white"
+            app:gradientColorOffStart="@color/letraVerde1"
+            app:gradientColorOffEnd="@color/letraVerde1"
+            app:gradientColorSelectedStart="@color/iron"
+            app:gradientColorSelectedEnd="@color/iron"
+            app:textStyle="@style/TextViewStyleSegmentButton"
+            app:strokeColor="@color/iron"
+            app:strokeWidth="1dip"
+            app:cornerRadius="20dip"
+
+            />
+    </LinearLayout>
+    <RelativeLayout
+        android:id="@+id/img_fondo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_below="@+id/linearLayout6"
+        android:layout_alignParentStart="true">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/celular"
+            android:id="@+id/imageView8" />
+    </RelativeLayout>
+
+
+    <ImageButton
+        android:id="@+id/btn_aceptar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:background="@drawable/aceptar"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp" />
+
+    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
+        android:id="@+id/np"
+        android:layout_width="155dp"
+        android:layout_height="wrap_content"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:textColor="@color/textColorhint"
+        android:textSize="35sp"
+        android:ellipsize="marquee"
+        android:marqueeRepeatLimit="2"
+        app:dividerSize="10dp"
+        app:sideItems="1"
+        android:layout_below="@+id/img_fondo"
+        android:layout_centerHorizontal="true" />
+
+
+</RelativeLayout>

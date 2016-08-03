@@ -88,12 +88,12 @@ class FragDialogSiento extends DialogFragment {
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
 
         seekBarFisico = (SeekBar) view.findViewById(R.id.seek_fisico);
-        seekBarFisico.setProgressDrawable(getResources().getDrawable(R.drawable.progres_bar));
+        seekBarFisico.setProgressDrawable(getActivity().getResources().getDrawable(R.drawable.progres_bar));
         seekBarFisico.setProgress(progresoFisco);
         txtEstadoFisico.setText("normal");
 
         seekBarEmocional = (SeekBar) view.findViewById(R.id.seek_emocional);
-        seekBarEmocional.setProgressDrawable(getResources().getDrawable(R.drawable.progres_bar));
+        seekBarEmocional.setProgressDrawable(getActivity().getResources().getDrawable(R.drawable.progres_bar));
         seekBarEmocional.setProgress(progresoEmocional);
         txtEstadoEmocional.setText("normal");
 

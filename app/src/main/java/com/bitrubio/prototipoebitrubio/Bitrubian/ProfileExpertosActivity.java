@@ -106,7 +106,8 @@ public class ProfileExpertosActivity extends AppCompatActivity {
         }
         Log.e(TAG,"idmedico"+idMedico);
         int drawable[] = {R.drawable.doctor_1, R.drawable.doctor_2, R.drawable.doctor_3};
-        Picasso.with(this).load(drawable[idMedico-1]).into(imgMedico);
+
+        imgMedico.setImageDrawable(this.getResources().getDrawable(drawable[idMedico]));
         if (savedInstanceState==null) {
             Fragment fragment = new FragmentInfoExperto();
             FT = getSupportFragmentManager().beginTransaction();

@@ -33,12 +33,11 @@
                 android:layout_marginRight="24dp"
                 android:background="@drawable/btn_transparente_borde_blanco"
                 android:clickable="true"
-                android:drawableRight="@drawable/ic_bien_blanco"
                 android:gravity="center"
                 android:padding="2dp"
                 android:text="Hoy me siento.."
                 android:textColor="@color/white"
-                android:textSize="14sp"
+                android:textSize="16sp"
                 app:font="avenir-light.ttf" />
 
         </LinearLayout>
