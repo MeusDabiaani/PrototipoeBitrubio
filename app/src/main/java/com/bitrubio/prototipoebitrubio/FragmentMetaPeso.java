@@ -30,6 +30,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaAgua;
+import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaEjercicio;
+import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaSueno;
+import com.bitrubio.prototipoebitrubio.Metas.FragmentQuitarVicios;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 
 import java.io.ByteArrayOutputStream;
@@ -63,7 +67,7 @@ public class FragmentMetaPeso extends Fragment  {
     String ba1;
     public static String URL = "http://www.meustech.com:8080/bitrubio/movil/subeFoto.php";
     String idUsuario;
-    private String TAG = getClass().getName();
+    private String TAG = getClass().getSimpleName();
     ProgressDialog pd;
     int RESULT_OK = -1;
     Bitmap imagen;
@@ -76,11 +80,13 @@ public class FragmentMetaPeso extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View view = null;
-
         //recibo el id de la meta seleccionada
         Bundle bundle = this.getArguments();
+        Log.w(TAG,"Clase selecionada : " +TAG );
         fragmentoSeleccionado = bundle.getInt("position", 0);
         tipoMeta = bundle.getInt("tipoMeta",0);
+
+
         if(tipoMeta == 1 ){
              view = inflater.inflate(R.layout.fragment_meta_peso, container, false);
         }else if(tipoMeta == 2){
@@ -88,6 +94,7 @@ public class FragmentMetaPeso extends Fragment  {
         }else if(tipoMeta == 3){
             view = inflater.inflate(R.layout.fragment_meta_enfermedad, container, false);
         }
+
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setTextSize(16);
@@ -118,7 +125,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 3) {
                 mTitle.setText("Ejercicio");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                Fragment fragment = new FragmentDetalle_A();
+                Fragment fragment = new FragmentMetaEjercicio();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.add(R.id.fragment_detalle_metas, fragment);
@@ -127,7 +134,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 4) {
                 mTitle.setText("Tomar agua");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                Fragment fragment = new FragmentDetalle_A();
+                Fragment fragment = new FragmentMetaAgua();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.add(R.id.fragment_detalle_metas, fragment);
@@ -136,7 +143,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 5) {
                 mTitle.setText("Sueño");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                Fragment fragment = new FragmentDetalle_A();
+                Fragment fragment = new FragmentMetaSueno();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.add(R.id.fragment_detalle_metas, fragment);
@@ -145,7 +152,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 6) {
                 mTitle.setText("Quitar vicios");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                Fragment fragment = new FragmentDetalle_A();
+                Fragment fragment = new FragmentQuitarVicios();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.add(R.id.fragment_detalle_metas, fragment);

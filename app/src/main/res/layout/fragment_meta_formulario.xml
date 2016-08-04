@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/white"
+    tools:context=".MetaFisica"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="30dp"
+        android:orientation="vertical">
+
+        <ScrollView
+            android:id="@+id/linerScroll"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@color/white">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/lnr_peso"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/lnr_objetivo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_objetivo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/objetivo"
+                            android:textColor="@color/letraVerde1"
+                            style="@style/MyTextViewAvenir" />
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_tiempo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                            android:id="@+id/edit_tiempo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:hint="@string/tiempo_meta"
+                            android:textColor="@color/letraVerde1"
+                            style="@style/MyTextViewAvenir" />
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_reta"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/edit_retarAmigos"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="@string/reta_amigos"
+                                android:textColor="@color/letraVerde1"
+                                style="@style/MyTextViewAvenir" />
+
+                            <ImageView style="@style/MyView" />
+                        </LinearLayout>
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_red_apoyo"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/edit_armarEquipo"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="@string/armar_equipo"
+                                android:textColor="@color/letraVerde1"
+                                style="@style/MyTextViewAvenir" />
+
+                            <ImageView style="@style/MyView" />
+                        </LinearLayout>
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lnr_privacidad"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/edit_privacidad"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:hint="@string/estatus_privacidad"
+                                android:textColor="@color/letraVerde1"
+                                style="@style/MyTextViewAvenir" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Público"
+                                android:textColor="@color/colorAccent"
+                                style="@style/MyTextViewAvenir">
+
+                            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
+
+                            <ImageView style="@style/MyView" />
+                        </LinearLayout>
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|end"
+                    android:background="@color/white">
+
+                    <ImageButton
+                        android:id="@+id/btn_cancel"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="left|bottom"
+                        android:layout_margin="30px"
+                        android:background="@drawable/cancelar" />
+
+                    <ImageButton
+                        android:id="@+id/btn_guardar"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:layout_gravity="bottom|end"
+                        android:layout_margin="30px"
+                        android:background="@drawable/aceptar" />
+                </FrameLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+
+</LinearLayout>

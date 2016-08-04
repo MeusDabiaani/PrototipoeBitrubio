@@ -27,13 +27,22 @@ import java.lang.reflect.Field;
  * Created by Orion on 02/08/2016.
  */
 public class AguaMeta extends Fragment implements NumberPicker.OnValueChangeListener {
-
+    String TAG = getClass().getSimpleName();
     Typeface tf;
     int varSeleccion;
 
     NumberPicker np ;
     ImageButton imgButton;
     FragmentTransaction FT;
+    public static AguaMeta newInstance (Bundle arguments){
+        AguaMeta fragment = new AguaMeta();
+        if (arguments != null){
+            fragment.setArguments(arguments);
+        }
+        return fragment;
+    }
+
+    public AguaMeta(){}
 
     @Nullable
     @Override
@@ -43,16 +52,15 @@ public class AguaMeta extends Fragment implements NumberPicker.OnValueChangeList
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
         imgButton = (ImageButton) v.findViewById(R.id.btn_aceptar);
 
-         np = (NumberPicker) v.findViewById(R.id.np_agua);
+        np = (NumberPicker) v.findViewById(R.id.np_agua);
 
         np.setMaxValue(100); // max value 100
         np.setMinValue(0);   // min value 0
         np.setValue(10);
-
         np.setWrapSelectorWheel(false);
         np.setOnValueChangedListener(this);
         setDividerColor(np);
-        setNumberPickerTextColor(np, getResources().getColor(R.color.textColorPrimary), tf, 75);
+        setNumberPickerTextColor(np, getResources().getColor(R.color.textColorPrimary), tf, 65);
 
         SegmentedButton buttons = (SegmentedButton) v.findViewById(R.id.segmented);
         buttons.clearButtons();
@@ -102,7 +110,7 @@ public class AguaMeta extends Fragment implements NumberPicker.OnValueChangeList
                     selectorWheelPaintField.setAccessible(true);
                     // edita el valor en la casilla selecionada
                     EditText editText = (EditText) child;
-                    editText.setTextSize(textS);
+                    editText.setTextSize(textS-20);
                     editText.setTypeface(tf);
                     editText.setFocusable(false);
                     editText.setTextColor(color);
@@ -110,9 +118,9 @@ public class AguaMeta extends Fragment implements NumberPicker.OnValueChangeList
                     ((EditText) child).setTextColor(getActivity().getResources().getColor(R.color.colorAccent));
                     ((Paint) selectorWheelPaintField.get(numberPicker)).setColor(color);
                     ((Paint) selectorWheelPaintField.get(numberPicker)).setTypeface(tf);
-                    ((Paint) selectorWheelPaintField.get(numberPicker)).setTextSize(70);
+                    ((Paint) selectorWheelPaintField.get(numberPicker)).setTextSize(60);
 
-                    setDividerColor(numberPicker);
+
                     numberPicker.invalidate();
                     return true;
                 } catch (NoSuchFieldException e) {
@@ -131,9 +139,11 @@ public class AguaMeta extends Fragment implements NumberPicker.OnValueChangeList
         java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
         for (java.lang.reflect.Field pf : pickerFields) {
             if (pf.getName().equals("mSelectionDivider")) {
+                Log.d(TAG,"setDivider : " + pf);
                 pf.setAccessible(true);
                 try {
-                    pf.set(picker,getActivity().getResources().getColor(R.color.transparenteBlanco));
+                    // solo drawable , no cambia colores directos
+                    pf.set(picker, getResources().getDrawable(R.drawable.bg_circle_white));
                 } catch (IllegalArgumentException e) {
                     e.printStackTrace();
                 } catch (Resources.NotFoundException e) {

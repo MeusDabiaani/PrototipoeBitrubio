@@ -30,6 +30,7 @@ import com.bitrubio.prototipoebitrubio.Metas.BeberMeta;
 import com.bitrubio.prototipoebitrubio.Metas.CelularMeta;
 import com.bitrubio.prototipoebitrubio.Metas.FumarMeta;
 import com.bitrubio.prototipoebitrubio.Metas.PastelMeta;
+import com.bitrubio.prototipoebitrubio.Metas.PesoActualMeta;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 import com.bitrubio.prototipoebitrubio.Metas.VideoJuegoMeta;
 
@@ -41,8 +42,8 @@ import butterknife.ButterKnife;
 /**
  * Created by Orion on 09/05/2016.
  */
-public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueChangeListener {
-
+public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueChangeListener  {
+    String TAG = getClass().getSimpleName();
     Typeface tf;
     @Bind(R.id.txt_peso_actual)
     TextView _input_pesoActual;
@@ -74,16 +75,19 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
 
     }
 
+
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parentViewGroup, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_meta_fisica_uno, parentViewGroup, false);
         ButterKnife.bind(this, rootView);
-
+        Log.d(TAG,"clase selecionada ");
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         final TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setTextSize(16);
         mTitle.setTypeface(tf);
+        mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
 
         _input_pesoActual.setTypeface(tf);
@@ -97,23 +101,37 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         _input_pesoActual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String[] array = {"kg", "lb"};
+              /*  final String[] array = {"kg", "lb"};
                 String title = "Elije tu peso actual";
-                showDialog(title, R.layout.dialog_number_piker, _input_pesoActual, "Peso Actual", 200, 0, 100, array);
+                showDialog(title, R.layout.dialog_number_piker, _input_pesoActual, "Peso Actual", 200, 0, 100, array);*/
+
+                final Fragment fragment = new PesoActualMeta();
+                FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                FT.replace(R.id.fragment_tipoMetas, fragment);
+                FT.addToBackStack(null);
+                FT.commit();
             }
         });
         _input_objetivo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String[] array = {"kg", "lb"};
+
+                final Fragment fragment = new PesoActualMeta();
+                FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                FT.replace(R.id.fragment_tipoMetas, fragment);
+                FT.addToBackStack(null);
+                FT.commit();
+              /*  final String[] array = {"kg", "lb"};
                 String title = "Elije tu peso objetivo";
-                showDialog(title, R.layout.dialog_number_piker, _input_objetivo, "Objetivo", 200, 0, 100, array);
+                showDialog(title, R.layout.dialog_number_piker, _input_objetivo, "Objetivo", 200, 0, 100, array);*/
             }
         });
         _input_tiempoMeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+
 
                 final Fragment fragment = new TiempoMeta();
                 FT = getFragmentManager().beginTransaction();

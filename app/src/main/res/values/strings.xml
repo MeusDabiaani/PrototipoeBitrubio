@@ -90,7 +90,7 @@
     <string name="metasEnfermedad">Enfermedad</string>
     <string name="elige_metas">Elige la meta que te gustaría iniciar</string>
     <string name="peso_actual">Peso actual</string>
-    <string name="peso_objetivo">Objetivo</string>
+    <string name="peso_objetivo">Peso objetivo</string>
     <string name="tiempo_meta">Tiempo para lograrlo</string>
     <string name="reta_amigos">Retar a tus amigos</string>
     <string name="armar_equipo">Arma tu equipo de apoyo</string>
@@ -234,6 +234,9 @@
     <string name="paquete">paquete(s)</string>
     <string name="minutos">minutos</string>
     <string name="horas">hora(s)</string>
+    <string name="kilos">Kg</string>
+    <string name="libras">Lb</string>
+    <string name="objetivo">Objetivo</string>
 
 </resources>
 

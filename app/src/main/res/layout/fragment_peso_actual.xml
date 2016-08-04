@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center">
+
+    <LinearLayout
+        android:id="@+id/lnr_segment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            style="@style/MyTextViewAvenir"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tiempo_meta"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="16sp" />
+        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton
+            android:id="@+id/segmented"
+            android:layout_width="190dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="24dp"
+            app:cornerRadius="20dip"
+            app:gradientColorOffEnd="@color/letraVerde1"
+            app:gradientColorOffStart="@color/letraVerde1"
+            app:gradientColorOnEnd="@color/white"
+            app:gradientColorOnStart="@color/white"
+            app:gradientColorSelectedEnd="@color/iron"
+            app:gradientColorSelectedStart="@color/iron"
+            app:strokeColor="@color/iron"
+            app:strokeWidth="1dip"
+            app:textStyle="@style/TextViewStyleSegmentButton"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_below="@id/lnr_segment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_peso_actual"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/peso_actual"
+                style="@style/MyTextViewAvenir"/>
+            <ImageView
+                android:layout_below="@id/txt_peso_actual"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-50dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bascula" />
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
+                android:id="@+id/np1"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="2"
+                android:textColor="@color/textColorhint"
+                android:textSize="35sp"
+                app:dividerSize="10dp"
+                app:sideItems="1"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/txt_peso_actual"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/img_fondo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                android:id="@+id/txt_peso_objetivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/peso_objetivo"
+                style="@style/MyTextViewAvenir"/>
+            <ImageView
+                android:layout_below="@id/txt_peso_objetivo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-50dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/bascula" />
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
+                android:id="@+id/np2"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:marqueeRepeatLimit="2"
+                android:textColor="@color/textColorhint"
+                android:textSize="35sp"
+                app:dividerSize="10dp"
+                app:sideItems="1"
+                android:layout_marginTop="40dp"
+                android:layout_below="@+id/txt_peso_objetivo"
+                android:layout_centerHorizontal="true" />
+        </RelativeLayout>
+    </LinearLayout>
+
+
+    <ImageButton
+        android:id="@+id/btn_aceptar"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/aceptar" />
+
+
+</RelativeLayout>

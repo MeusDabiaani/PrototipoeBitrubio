@@ -30,7 +30,7 @@ public class FragmentListMetas extends Fragment {
     Typeface tf;
     TextView txt_cabecera;
     FragmentTransaction FT;
-    private String TAG = getClass().getName();
+    private String TAG = getClass().getSimpleName();
     private GridLayoutManager mLayoutManager;
     ArrayList<Metas> metas;
     int tipoMetas;
@@ -46,7 +46,7 @@ public class FragmentListMetas extends Fragment {
                              final Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_list_metas, parentViewGroup, false);
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
-
+        Log.w(TAG,"Clase selecionada : " +TAG );
         TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setTextSize(16);
         mTitle.setTypeface(tf);

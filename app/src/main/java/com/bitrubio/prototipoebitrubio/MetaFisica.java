@@ -23,6 +23,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -35,18 +36,18 @@ import android.widget.LinearLayout;
  * Created by Orion on 26/04/2016.
  */
 public class MetaFisica extends AppCompatActivity {
-    private String TAG = getClass().getName();
+    private String TAG = getClass().getSimpleName();
     Toolbar toolbar;
     SessionManager session;
     Typeface tf;
     FragmentTransaction FT;
-    RelativeLayout oldView, newView ,mContainerView;
-
+    FrameLayout  mContainerView;
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_metas_fisicas);
+        Log.w(TAG,"Clase selecionada : " +TAG );
         tf = Typeface.createFromAsset(this.getAssets(), "fonts/avenir-light.ttf");
         session = new SessionManager(getApplicationContext());
         //cambiamo el titulo en la toolbar
@@ -64,8 +65,6 @@ public class MetaFisica extends AppCompatActivity {
         });
         Log.e(TAG,"Lista Fisicas");
 
-
-
         TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setText(getResources().getString(R.string.metasFisicas));
         mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
@@ -81,7 +80,7 @@ public class MetaFisica extends AppCompatActivity {
         window.setStatusBarColor(this.getResources().getColor(R.color.letraVerde1));
 
 
-        mContainerView = (RelativeLayout) findViewById(R.id.fragment_tipoMetas);
+        mContainerView = (FrameLayout) findViewById(R.id.fragment_tipoMetas);
 
         Bundle extras = getIntent().getExtras();
         String value = "";

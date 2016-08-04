@@ -157,7 +157,7 @@ public class HorizontalPicker extends View {
             sideItems = a.getInt(R.styleable.HorizontalPicker_sideItems, sideItems);
 
             float textSize = a.getDimension(R.styleable.HorizontalPicker_android_textSize, -1);
-            if(textSize > -1) {
+            if(textSize > -5) {
                 setTextSize(textSize);
             }
         } finally {
@@ -561,6 +561,7 @@ public class HorizontalPicker extends View {
 
     private void selectItem() {
         // post to the UI Thread to avoid potential interference with the OpenGL Thread
+
         if (onItemClicked != null) {
             post(new Runnable() {
                 @Override

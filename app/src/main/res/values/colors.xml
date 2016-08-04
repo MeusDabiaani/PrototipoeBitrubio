@@ -41,7 +41,7 @@
     <color name="tranparenteRojo">#aaDf666c</color>
     <color name="tranparenteNaranja">#aaECA856</color>
     <color name="tranparenteAzul">#aa9dd1c7</color>
-    <color name="tranparenteWhite">#aaffffff</color>
+    <color name="tranparenteWhite">#40ffffff</color>
     <color name="scrim">#42000000</color>
     <color name="solidoVerde">#FF7dbd6b</color>
     <color name="solidoRojo">#Df666c</color>

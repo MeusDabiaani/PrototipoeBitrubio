@@ -14,6 +14,7 @@
         android:id="@+id/linearLayout6">
 
         <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+            android:id="@+id/txt_segment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/tiempo_meta"
@@ -52,7 +53,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/tiempo_fisica"
-        android:id="@+id/imageView8" />
+        android:id="@+id/imgFondo" />
     <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
         android:id="@+id/np"
         android:layout_width="155dp"
@@ -65,8 +66,8 @@
         android:marqueeRepeatLimit="2"
         app:dividerSize="10dp"
         app:sideItems="1"
-        android:layout_alignBottom="@+id/imageView8"
-        android:layout_alignEnd="@+id/imageView8"
+        android:layout_alignBottom="@+id/imgFondo"
+        android:layout_alignEnd="@+id/imgFondo"
         android:layout_marginEnd="47dp"
         android:layout_marginBottom="85dp" />
     </RelativeLayout>
