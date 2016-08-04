@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ import com.bitrubio.prototipoebitrubio.R;
 public class FragmentQuitarVicios extends Fragment implements View.OnClickListener{
     int varSeleccion ;
     LinearLayout lnrObjetivo , lnrTiempo , lnrReta, lnrRedApoyo, lnrPrivacidad;
+
+    TextView TextVicios;
     FragmentTransaction FT;
     Toolbar toolbar;
     Typeface tf;
@@ -46,6 +49,10 @@ public class FragmentQuitarVicios extends Fragment implements View.OnClickListen
 
         lnrObjetivo = (LinearLayout) v.findViewById(R.id.lnr_objetivo);
         lnrObjetivo.setOnClickListener(this);
+
+        TextVicios = (TextView) v.findViewById(R.id.edit_objetivo);
+        TextVicios.setHint("Quitar vicios");
+
 
         lnrTiempo = (LinearLayout) v.findViewById(R.id.lnr_tiempo);
         lnrTiempo.setOnClickListener(this);
@@ -76,9 +83,9 @@ public class FragmentQuitarVicios extends Fragment implements View.OnClickListen
 
                 mTitle.setTextSize(16);
                 mTitle.setTypeface(tf);
-                mTitle.setText("Sueño");
+                mTitle.setText("Quitar Vicios");
                 arguments.putInt("tipo", 1);
-                TiempoMeta fragment1 = TiempoMeta.newInstance(arguments);
+                FragmentListVicios fragment1 = FragmentListVicios.newInstance(arguments);
                 FT.replace(R.id.fragment_tipoMetas, fragment1);
                 FT.commit();
                 break;
@@ -86,7 +93,7 @@ public class FragmentQuitarVicios extends Fragment implements View.OnClickListen
 
                 mTitle.setTextSize(16);
                 mTitle.setTypeface(tf);
-                mTitle.setText("Sueño");
+                mTitle.setText("Tiempo");
                 arguments.putInt("tipo", 2);
                 TiempoMeta fragment2 = TiempoMeta.newInstance(arguments);
                 FT.replace(R.id.fragment_tipoMetas, fragment2);

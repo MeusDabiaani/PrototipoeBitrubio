@@ -95,6 +95,7 @@ public class FragmentMetaPeso extends Fragment  {
             view = inflater.inflate(R.layout.fragment_meta_enfermedad, container, false);
         }
 
+        _btn_foto = (ImageView) view.findViewById(R.id.btn_foto);
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setTextSize(16);
@@ -107,6 +108,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 1) {
                 mTitle.setText("Peso");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_peso));
                 Fragment fragment = new FragmentDetalle_A();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -116,6 +118,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 2) {
                 mTitle.setText("Alimentación");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_alimentacion));
                 Fragment fragment = new FragmentDetalle_A();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -125,6 +128,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 3) {
                 mTitle.setText("Ejercicio");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ejercicio));
                 Fragment fragment = new FragmentMetaEjercicio();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -134,6 +138,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 4) {
                 mTitle.setText("Tomar agua");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_agua));
                 Fragment fragment = new FragmentMetaAgua();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -143,6 +148,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 5) {
                 mTitle.setText("Sueño");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_sueno));
                 Fragment fragment = new FragmentMetaSueno();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -152,6 +158,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 6) {
                 mTitle.setText("Quitar vicios");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_vicios));
                 Fragment fragment = new FragmentQuitarVicios();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -162,6 +169,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 7) {
                 mTitle.setText("Ayudar");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ayudar));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -171,6 +179,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 8) {
                 mTitle.setText("Desarrollarme");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_desarrollarme));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -180,6 +189,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 9) {
                 mTitle.setText("Reflexionar");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_reflexionar));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -189,6 +199,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 10) {
                 mTitle.setText("Divertirme");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.divertirme));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -198,6 +209,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 11) {
                 mTitle.setText("Estar con otros");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_otros));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -209,6 +221,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 12) {
                 mTitle.setText("Medicamentos");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_medicamentos));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -218,6 +231,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 13) {
                 mTitle.setText("Laboratorios");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_laboratorios));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -227,6 +241,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 14) {
                 mTitle.setText("Niveles");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_terapias));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -236,6 +251,7 @@ public class FragmentMetaPeso extends Fragment  {
             if (fragmentoSeleccionado == 15) {
                 mTitle.setText("Auto Chequeo");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
+                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_chequeo));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);

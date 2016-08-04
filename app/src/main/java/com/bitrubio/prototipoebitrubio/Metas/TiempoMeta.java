@@ -150,6 +150,9 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
     }
 
 
-
+    @Override
+    public void onDetach() {
+        super.onDetach();
+    }
 
 }

@@ -237,6 +237,12 @@
     <string name="kilos">Kg</string>
     <string name="libras">Lb</string>
     <string name="objetivo">Objetivo</string>
+    <string name="cigarro">Cigarro</string>
+    <string name="bebidas">Bebidas alcoholias</string>
+    <string name="cafe">Café</string>
+    <string name="alimentos">Alimenos</string>
+    <string name="videojuego">Videojuegos</string>
+    <string name="cel">Celular</string>
 
 </resources>
 

@@ -62,6 +62,12 @@
         <item name="android:background">@color/iron</item>
         <item name="android:layout_marginTop">6dp</item>
     </style>
+    <style name="MyViewDos">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">1dp</item>
+        <item name="android:background">@color/iron</item>
+        <item name="android:layout_marginTop">12dp</item>
+    </style>
 
     <style name="MyCheckBoxAvenir">
         <item name="android:textSize">14sp</item>
