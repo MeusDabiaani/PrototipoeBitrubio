@@ -86,6 +86,7 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
         String UrlServer = servidor.getUrl();
         //String ruta = "http://www.meustech.com:8080/bitrubio/movil/fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
         String ruta = UrlServer+"fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
+
         Picasso.with(context).load(ruta).error(R.drawable.ic_sin_foto).into(holder.getImgUser());
         final String _idContacto;
         _idContacto = registros.getIdContacto();

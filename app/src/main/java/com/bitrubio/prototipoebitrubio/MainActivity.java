@@ -1003,11 +1003,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 bt_metas[metas] = new de.hdodenhof.circleimageview.CircleImageView(this);
-                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
-                int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 60, getResources().getDisplayMetrics());
+                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 70, getResources().getDisplayMetrics());
+                int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 70, getResources().getDisplayMetrics());
 
                 bt_metas[metas].setLayoutParams(new LinearLayout.LayoutParams(width, height, Gravity.CENTER_HORIZONTAL));
-
+                bt_metas[metas].setPadding(0,0,0,0);
                 bt_metas[metas].setImageResource(metasList.get(metas).getImagen());
 
                 bt_metas[metas].setId(metasList.get(metas).getId());

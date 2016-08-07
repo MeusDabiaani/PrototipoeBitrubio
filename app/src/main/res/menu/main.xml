@@ -9,7 +9,7 @@
         app:showAsAction="always" />
     <item
         android:id="@+id/action_helpBeety"
-        android:icon="@drawable/ic_bity_comentario"
+        android:icon="@drawable/bity_notificacion"
         android:title="@string/action_helpBeety"
         android:orderInCategory="1"
         app:showAsAction="always" />
