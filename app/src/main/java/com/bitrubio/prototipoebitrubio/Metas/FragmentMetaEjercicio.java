@@ -87,7 +87,9 @@ public class FragmentMetaEjercicio extends Fragment implements View.OnClickListe
                 mTitle.setTextSize(16);
                 mTitle.setTypeface(tf);
                 mTitle.setText("Objetivo");
+
                 arguments.putInt("tipo", 1);
+
                 TiempoMeta fragment1 = TiempoMeta.newInstance(arguments);
                 FT.replace(R.id.fragment_tipoMetas,fragment1);
                 FT.commit();

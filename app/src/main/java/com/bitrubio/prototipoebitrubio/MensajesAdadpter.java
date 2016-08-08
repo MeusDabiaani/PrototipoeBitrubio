@@ -52,6 +52,7 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
     private Context context;
     private Mensajes registros;
     ConectaServidor servidor ;
+    String TAG = getClass().getSimpleName();
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position);
@@ -85,6 +86,7 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
         servidor = new ConectaServidor();
         String UrlServer = servidor.getUrl();
         //String ruta = "http://www.meustech.com:8080/bitrubio/movil/fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
+        Log.e(TAG,"id"+data.get(position).getIdContacto());
         String ruta = UrlServer+"fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
 
         Picasso.with(context).load(ruta).error(R.drawable.ic_sin_foto).into(holder.getImgUser());

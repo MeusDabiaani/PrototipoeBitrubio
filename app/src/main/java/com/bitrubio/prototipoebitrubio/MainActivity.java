@@ -274,7 +274,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mensajeList.add(new Mensajes(4, "Sara Reyes", "I tried a scaleType ", "1 mes", "5"));
         mensajeList.add(new Mensajes(5, "Gustavo Lopez", "Lorem ipsum dolor sit amet, augue enim velit fusce vivamus, aliquam viverra a vestibulum tempus orci, pellentesque vitae luctus quis a amet. Elit elit euismod elementum. Vitae etiam amet ultricies. Lacinia nec quam lectus blandit. Leo dictum nascetur aliquam est. Nec eros lectus lacinia, proin sagittis montes suspendisse est, fuga maecenas, nulla quis sit eu. Occaecat non amet elit diam, lorem diam mauris, donec sit sodales laoreet in tellus, mattis aliquam id, adipiscing metus. Lectus dictum fusce massa morbi, vestibulum at pede sed ut id, cras viverra, libero at aenean quis eget. Id ullamcorper, ipsum eget erat felis faucibus etiam habitasse. ", "28 dias", "4"));
         mensajeList.add(new Mensajes(6, "Erik Garcia", "mensaje mensaje mensaje 6", "2 semanas", "12"));
-        mensajeList.add(new Mensajes(7, "Alberto Chavez", "mensaje mensaje mensaje 7", "8 dias", "12"));
+        mensajeList.add(new Mensajes(7, "Alberto Chavez", "mensaje mensaje mensaje 7", "8 dias", "13"));
 
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_home);
         mRecyclerView.setHasFixedSize(true);
@@ -483,7 +483,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
-        waitTimer = new CountDownTimer(50000, 4000) {
+        waitTimer = new CountDownTimer(90000, 4000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
@@ -992,8 +992,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 LinearLayout childLayout = new LinearLayout(this);
                 LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
-                int marginLeft = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 22, getResources().getDisplayMetrics()); // margin left para el linearLayout
-                int marginRight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()); // margin right  para el linearLayout
+                int marginLeft = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 22, getResources().getDisplayMetrics());
+                int marginRight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
 
                 linearParams.setMargins(marginLeft, 0, marginRight, 0);
 
@@ -1003,13 +1003,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 bt_metas[metas] = new de.hdodenhof.circleimageview.CircleImageView(this);
-                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 70, getResources().getDisplayMetrics());
-                int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 70, getResources().getDisplayMetrics());
-
+                int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
+                int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 75, getResources().getDisplayMetrics());
                 bt_metas[metas].setLayoutParams(new LinearLayout.LayoutParams(width, height, Gravity.CENTER_HORIZONTAL));
-                bt_metas[metas].setPadding(0,0,0,0);
-                bt_metas[metas].setImageResource(metasList.get(metas).getImagen());
-
+                if (metasList.get(metas).getId() < 0){
+                    bt_metas[metas].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_circle_white));
+                    bt_metas[metas].setImageResource(metasList.get(metas).getImagen());
+                }else{
+                    bt_metas[metas].setBackgroundDrawable(getResources().getDrawable(metasList.get(metas).getImagen()));
+                }
                 bt_metas[metas].setId(metasList.get(metas).getId());
                 bt_metas[metas].setOnClickListener(this);
 
