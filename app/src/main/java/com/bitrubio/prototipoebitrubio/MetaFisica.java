@@ -30,6 +30,8 @@ import android.widget.TextView;
 import android.widget.ImageView;
 import android.view.MenuInflater;
 import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
+import com.facebook.CallbackManager;
+
 import android.util.Log;
 import android.widget.LinearLayout;
 /**
@@ -42,6 +44,7 @@ public class MetaFisica extends AppCompatActivity {
     Typeface tf;
     FragmentTransaction FT;
     FrameLayout  mContainerView;
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -119,6 +122,7 @@ public class MetaFisica extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }

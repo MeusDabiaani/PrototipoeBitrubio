@@ -841,17 +841,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 });
 
-      /*          RelativeLayout rl_bity = (RelativeLayout) newView.findViewById(R.id.rl_belowBity);
-                rl_bity.setOnClickListener(new View.OnClickListener(){
-                    @Override
-                    public void onClick(View v) {
-
-                        mContainerView.removeView(newView);
-                        findViewById(R.id.action_helpBeety).setVisibility(View.VISIBLE);
-                        imgFondoNueva.setBackground(null);
-                        mContainerView.addView(oldView);
-                    }
-                });*/
             }
         });
 

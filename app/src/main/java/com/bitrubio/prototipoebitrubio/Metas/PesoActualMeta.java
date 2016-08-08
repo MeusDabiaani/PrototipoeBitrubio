@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -77,16 +78,20 @@ public class PesoActualMeta extends Fragment implements HorizontalPicker.OnItemC
         imgButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Log.e(TAG,"selecion 1 "+ varSeleccion);
+                Log.e(TAG,"selecion 2 "+ varSeleccion);
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
-                Bundle args = new Bundle();
+  /*              Bundle args = new Bundle();
                 final Fragment fragment = new FragmentMetaPeso();
                 FT = getFragmentManager().beginTransaction();
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 args.putInt("tipoMeta", 1);
                 args.putInt("position", 1);
+
                 fragment.setArguments(args);
-                FT.commit();
+                FT.commit();*/
 
 
             }
@@ -103,11 +108,16 @@ public class PesoActualMeta extends Fragment implements HorizontalPicker.OnItemC
 
     @Override
     public void onItemClicked(int index) {
+
+
         varSeleccion = index;
+        Log.e(TAG,"index CLICK" + index);
     }
 
     @Override
     public void onItemSelected(int index) {
+
+        Log.e(TAG,"index SELECT" + index);
         varSeleccion = index;
     }
 }

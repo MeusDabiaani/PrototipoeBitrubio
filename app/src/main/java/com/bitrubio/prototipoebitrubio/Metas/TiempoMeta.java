@@ -1,36 +1,14 @@
 package com.bitrubio.prototipoebitrubio.Metas;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.content.res.Resources;
-import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.nfc.Tag;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.NumberPicker;
-import android.widget.SlidingDrawer;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -38,11 +16,6 @@ import com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker;
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton;
 import com.bitrubio.prototipoebitrubio.FragmentMetaPeso;
 import com.bitrubio.prototipoebitrubio.R;
-import com.google.android.gms.vision.text.Line;
-
-import org.w3c.dom.Text;
-
-import java.lang.reflect.Field;
 
 /**
  * Created by Orion on 25/07/2016.
