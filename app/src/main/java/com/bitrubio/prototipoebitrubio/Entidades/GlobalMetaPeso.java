@@ -13,12 +13,33 @@ public class GlobalMetaPeso {
     private int tipoMeta;
     private int pesoActual;
     private int pesoObjetivo;
+    private int tipoTiempo;
     private int tiempoMeta;
     private int tipoPrivacidad;
+    private StringBuilder retaAmigos;
+    private int[] equipoAmigos;
+
 
 
     public static void setIntance(GlobalMetaPeso intance) {
         GlobalMetaPeso.instance = intance;
+    }
+
+
+    public StringBuilder getRetaAmigos() {
+        return retaAmigos;
+    }
+
+    public void setRetaAmigos(StringBuilder retaAmigos) {
+        this.retaAmigos = retaAmigos;
+    }
+
+    public int[] getEquipoAmigos() {
+        return equipoAmigos;
+    }
+
+    public void setEquipoAmigos(int[] equipoAmigos) {
+        this.equipoAmigos = equipoAmigos;
     }
 
     public int getTipoMeta() {
@@ -59,6 +80,14 @@ public class GlobalMetaPeso {
 
     public void setTipoPrivacidad(int tipoPrivacidad) {
         this.tipoPrivacidad = tipoPrivacidad;
+    }
+
+    public int getTipoTiempo() {
+        return tipoTiempo;
+    }
+
+    public void setTipoTiempo(int tipoTiempo) {
+        this.tipoTiempo = tipoTiempo;
     }
 
     public static synchronized GlobalMetaPeso getInstance() {

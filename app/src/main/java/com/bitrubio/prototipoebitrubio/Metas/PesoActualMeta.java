@@ -48,7 +48,7 @@ public class PesoActualMeta extends Fragment {
 
         HorizontalPicker picker = (HorizontalPicker) v.findViewById(R.id.np1);
         picker.setValues(array);
-        picker.setSelectedItem(60);
+        picker.setSelectedItem(0);
         picker.setOnItemSelectedListener(new HorizontalPicker.OnItemSelected() {
             @Override
             public void onItemSelected(int index) {
@@ -59,7 +59,7 @@ public class PesoActualMeta extends Fragment {
 
         HorizontalPicker picker2 = (HorizontalPicker) v.findViewById(R.id.np2);
         picker2.setValues(array);
-        picker2.setSelectedItem(50);
+        picker2.setSelectedItem(0);
         picker2.setOnItemSelectedListener(new HorizontalPicker.OnItemSelected() {
             @Override
             public void onItemSelected(int index) {
@@ -99,6 +99,7 @@ public class PesoActualMeta extends Fragment {
                 Bundle args = new Bundle();
                 final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 args.putInt("tipoMeta", 1);

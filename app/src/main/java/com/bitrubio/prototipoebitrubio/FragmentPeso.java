@@ -4,6 +4,7 @@ package com.bitrubio.prototipoebitrubio;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.nfc.Tag;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
@@ -73,6 +74,7 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     FragmentTransaction FT;
     Toolbar toolbar;
     int selecionPeso, pesoActual, pesoObjetivo;
+    GlobalMetaPeso globalMetaPeso ;
     public FragmentPeso() {
 
     }
@@ -90,21 +92,33 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
         mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
 
-        GlobalMetaPeso globalMetaPeso = GlobalMetaPeso.getInstance();
-
-            String tipoPeso ;
-            if (globalMetaPeso.getTipoMeta() == 0 ){
-            tipoPeso = "kg";
-            }else{
-            tipoPeso = "lb";
+         globalMetaPeso = GlobalMetaPeso.getInstance();
+        if (globalMetaPeso != null) {
+            String tipoPeso;
+            if (globalMetaPeso.getTipoMeta() == 0) {
+                tipoPeso = "kg";
+            } else {
+                tipoPeso = "lb";
             }
-            int valuePeso = Integer.valueOf(globalMetaPeso.getPesoActual()) + 1 ;
-            int valueObjetivo = Integer.valueOf(globalMetaPeso.getPesoObjetivo()) +1 ;
-            _input_pesoActual.setText("Peso actual "+ valuePeso + " " + tipoPeso);
-            _input_objetivo.setText("Mi objetio "+valueObjetivo+ " " + tipoPeso);
+            String paramTiempo;
+            if (globalMetaPeso.getTipoTiempo() == 0) {
+                paramTiempo = "dia(s)";
+            } else {
+                paramTiempo = "semana(s)";
+            }
 
 
 
+            int valuePeso = Integer.valueOf(globalMetaPeso.getPesoActual()) + 1;
+            int valueObjetivo = Integer.valueOf(globalMetaPeso.getPesoObjetivo()) + 1;
+            int tiempoObjetivo = Integer.valueOf(globalMetaPeso.getTiempoMeta()) + 1;
+            _input_pesoActual.setText("Peso actual " + valuePeso + " " + tipoPeso);
+            _input_objetivo.setText("Mi objetio " + valueObjetivo + " " + tipoPeso);
+            _input_tiempoMeta.setText(" Tiempo para lograrlo " + tiempoObjetivo + " " + paramTiempo);
+            StringBuilder stringBuilder = globalMetaPeso.getRetaAmigos();
+            Log.e(TAG,"stringbuilder"+ stringBuilder);
+
+        }
         _input_pesoActual.setTypeface(tf);
         _input_objetivo.setTypeface(tf);
         _input_tiempoMeta.setTypeface(tf);
@@ -152,6 +166,19 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
                 FT.commit();
             }
         });
+        _input_retaAmigos.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                final Fragment fragment = new ArmarEquipo();
+                FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                args.putInt("tipo",1);
+                fragment.setArguments(args);
+                FT.replace(R.id.fragment_tipoMetas, fragment);
+                FT.addToBackStack(null);
+                FT.commit();
+            }
+        });
 
         _input_armaEquipo.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -160,6 +187,8 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
                 final Fragment fragment = new ArmarEquipo();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                args.putInt("tipo",0);
+                fragment.setArguments(args);
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 FT.commit();
@@ -220,7 +249,23 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                int intPrivacidad = 0 ;
+                switch (arrayDatos[np.getValue()]){
+
+                    case "Publico":
+                        intPrivacidad = 1;
+                        break;
+                    case "Personal":
+                        intPrivacidad =  2;
+                        break;
+                    case "Todos":
+                        intPrivacidad = 0;
+                        break;
+                }
+                globalMetaPeso.setTipoPrivacidad(intPrivacidad);
+
                 _input_privacidad.setText(" Privacidad " + arrayDatos[np.getValue()]); //set the value to textview
+
                 d.dismiss();
             }
         });

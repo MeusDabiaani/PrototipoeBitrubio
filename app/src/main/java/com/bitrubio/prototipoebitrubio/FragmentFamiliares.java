@@ -60,11 +60,8 @@ public class FragmentFamiliares extends Fragment {
         comunidadList.add(new Comunidad(9, "Vanessa Hernandez", 2));
         comunidadList.add(new Comunidad(10, "Marisol Jimenez", 1));
 
-
-
-
         listViewAmigos = (ListView) rootView.findViewById(R.id.list_amigos);
-        listAmigos = new AmigosAdapter(getActivity(), comunidadList);
+        listAmigos = new AmigosAdapter(getActivity(), comunidadList,0);
         listViewAmigos.setAdapter(listAmigos);
 
         edit_comentrio.setOnClickListener(new View.OnClickListener() {

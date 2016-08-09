@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker;
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton;
+import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
 import com.bitrubio.prototipoebitrubio.FragmentMetaSelecionada;
 import com.bitrubio.prototipoebitrubio.R;
 
@@ -28,7 +29,8 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
     FragmentTransaction FT;
     Toolbar toolbar;
     TextView txtSegment;
-    int miVar ;
+    int miVar ,tipoTiempo ;
+    GlobalMetaPeso globalMetaPeso;
 
     public static TiempoMeta newInstance (Bundle arguments){
         TiempoMeta fragment = new TiempoMeta();
@@ -44,6 +46,7 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.temporal_fisicos, container, false);
         txtSegment = (TextView) v.findViewById(R.id.txt_segment);
+        globalMetaPeso = GlobalMetaPeso.getInstance();
         Bundle args =  getArguments();
 
         if (args != null) {
@@ -82,9 +85,11 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
             @Override
             public void onClick(int index) {
                 if (index == 0) {
-                    Toast.makeText(getActivity(), "opcion 1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "opcion 1", Toast.LENGTH_SHORT).show();
+                    tipoTiempo = 0 ;
                 } else {
-                    Toast.makeText(getActivity(), "opcion 2", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "opcion 2", Toast.LENGTH_SHORT).show();
+                    tipoTiempo = 1 ;
                 }
             }
         });
@@ -92,18 +97,21 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
             @Override
             public void onClick(View v) {
 
-
+                globalMetaPeso.setTiempoMeta(varSeleccion);
+                globalMetaPeso.setTipoTiempo(tipoTiempo);
 
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
                 Bundle args = new Bundle();
                 final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 args.putInt("tipoMeta",1);
                 args.putInt("position", 1);
                 fragment.setArguments(args);
                 FT.commit();
+
 
 
             }

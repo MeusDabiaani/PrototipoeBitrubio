@@ -88,7 +88,7 @@ public class Tab_Bitrubians extends Fragment {
         comunidadList.add(new Comunidad(40, "Marisol Jimenez", 1));
 
         listViewAmigos = (ListView) view.findViewById(R.id.listview_amigos);
-        listAmigos = new AmigosAdapter(getActivity(), comunidadList);
+        listAmigos = new AmigosAdapter(getActivity(), comunidadList ,1);
         listViewAmigos.setAdapter(listAmigos);
 
 
