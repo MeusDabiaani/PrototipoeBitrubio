@@ -26,6 +26,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.Metas.AguaMeta;
+import com.bitrubio.prototipoebitrubio.Metas.ArmarEquipo;
 import com.bitrubio.prototipoebitrubio.Metas.BeberMeta;
 import com.bitrubio.prototipoebitrubio.Metas.CelularMeta;
 import com.bitrubio.prototipoebitrubio.Metas.FumarMeta;
@@ -57,7 +58,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
     @Bind(R.id.edit_retarAmigos)
     TextView _input_retaAmigos;
 
-    @Bind(R.id.edit_armarEquipo)
+    @Bind(R.id.txt_armarEquipo)
     TextView _input_armaEquipo;
 
     @Bind(R.id.edit_privacidad)
@@ -74,14 +75,12 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
     public FragmentDetalle_A() {
 
     }
-
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parentViewGroup, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_meta_fisica_uno, parentViewGroup, false);
         ButterKnife.bind(this, rootView);
+
         Log.d(TAG,"clase selecionada ");
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         final TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
@@ -101,9 +100,6 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         _input_pesoActual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              /*  final String[] array = {"kg", "lb"};
-                String title = "Elije tu peso actual";
-                showDialog(title, R.layout.dialog_number_piker, _input_pesoActual, "Peso Actual", 200, 0, 100, array);*/
 
                 final Fragment fragment = new PesoActualMeta();
                 FT = getFragmentManager().beginTransaction();
@@ -123,15 +119,12 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 FT.commit();
-              /*  final String[] array = {"kg", "lb"};
-                String title = "Elije tu peso objetivo";
-                showDialog(title, R.layout.dialog_number_piker, _input_objetivo, "Objetivo", 200, 0, 100, array);*/
+
             }
         });
         _input_tiempoMeta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 final Fragment fragment = new TiempoMeta();
                 FT = getFragmentManager().beginTransaction();
@@ -139,9 +132,19 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 FT.commit();
+            }
+        });
 
-              /*  Intent intentTiempo = new Intent(getContext(),TiempoMeta.class);
-                getActivity().startActivity(intentTiempo);*/
+        _input_armaEquipo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                final Fragment fragment = new ArmarEquipo();
+                FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                FT.replace(R.id.fragment_tipoMetas, fragment);
+                FT.addToBackStack(null);
+                FT.commit();
             }
         });
         _input_privacidad.setOnClickListener(new View.OnClickListener() {
@@ -161,13 +164,13 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         _btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // aqui guardamos la meta // saltamos a la vista cpn sllide
+
+                // TODO  aqui guardamos la meta // saltamos a la vista con slide
 
                 Intent intent = new Intent(getActivity(), MetaDetalle.class);
                 startActivity(intent);
             }
         });
-
 
         return rootView;
     }
@@ -178,49 +181,11 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
 
     }
 
-    private void showDialog(String title, int dialog_layout, final TextView textViewSalida, final String stringSalida,
-                            int maxValue, int minValue, int mediumValue, final String[] arreglo) {
 
-        final Dialog d = new Dialog(getActivity(), R.style.DialogTheme);
-        d.setContentView(dialog_layout);
-        TextView textView = (TextView) d.findViewById(R.id.title);
-        textView.setText(title);
-        ImageButton b1 = (ImageButton) d.findViewById(R.id.button1);
-        final NumberPicker np = (NumberPicker) d.findViewById(R.id.numberPicker1);
-
-        np.setMaxValue(maxValue); // max value 100
-        np.setMinValue(minValue);   // min value 0
-        np.setValue(mediumValue);
-        np.setWrapSelectorWheel(false);
-        np.setOnValueChangedListener(this);
-        setDividerColor(np);
-        setNumberPickerTextColor(np, getResources().getColor(R.color.textColorPrimary), tf, 22);
-
-        final NumberPicker pikM = (NumberPicker) d.findViewById(R.id.numberPicker2);
-        final String[] arrayDatos = arreglo;
-        pikM.setMinValue(minValue);
-        pikM.setMaxValue(arrayDatos.length - 1);
-        pikM.setWrapSelectorWheel(false);
-        pikM.setDisplayedValues(arrayDatos);
-        setDividerColor(pikM);
-        setNumberPickerTextColor(pikM, getResources().getColor(R.color.textColorPrimary), tf, 22);
-
-
-        b1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                textViewSalida.setText(stringSalida + " " + String.valueOf(np.getValue()) + " " + arrayDatos[pikM.getValue()]); //set the value to textview
-                d.dismiss();
-            }
-        });
-
-        d.show();
-
-    }
 
     public void showPrivacidad() {
 
-        final Dialog d = new Dialog(getActivity());
+        final Dialog d = new Dialog(getActivity(),R.style.DialogTheme);
         d.getWindow().setBackgroundDrawable(getResources().getDrawable(R.color.letraVerde1));
         d.setContentView(R.layout.dialog_privacidad);
         ImageButton b1 = (ImageButton) d.findViewById(R.id.button1);
@@ -262,6 +227,7 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                     editText.setTextSize(textS);
                     editText.setTypeface(tf);
                     editText.setTextColor(color);
+                    editText.setFocusable(false);
                     //edita el valor de los valores restantes
                     ((EditText) child).setTextColor(color);
                     ((Paint) selectorWheelPaintField.get(numberPicker)).setColor(color);

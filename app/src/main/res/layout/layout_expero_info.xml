@@ -5,10 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@color/white"
-
     android:orientation="vertical">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -289,7 +286,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="top"
                     android:background="@drawable/btn_gris"
-                    android:padding="6dp"
+                    android:padding="16dp"
                     android:stateListAnimator="@null"
                     android:text="Agregar a mi comunidad"
                     android:textAllCaps="false"
