@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,6 +32,8 @@ public class PesoActualMeta extends Fragment implements HorizontalPicker.OnItemC
     FragmentTransaction FT;
     String[] array;
 
+    int var1 , var2;
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,13 +50,23 @@ public class PesoActualMeta extends Fragment implements HorizontalPicker.OnItemC
         HorizontalPicker picker = (HorizontalPicker) v.findViewById(R.id.np1);
         picker.setValues(array);
         picker.setOnItemClickedListener(this);
-        picker.setOnItemSelectedListener(this);
+        picker.setOnItemSelectedListener(new HorizontalPicker.OnItemSelected() {
+            @Override
+            public void onItemSelected(int index) {
+                var1 = index ;
+            }
+        });
 
 
         HorizontalPicker picker2 = (HorizontalPicker) v.findViewById(R.id.np2);
         picker2.setValues(array);
         picker2.setOnItemClickedListener(this);
-        picker2.setOnItemSelectedListener(this);
+        picker2.setOnItemSelectedListener(new HorizontalPicker.OnItemSelected() {
+            @Override
+            public void onItemSelected(int index) {
+                var2 = index;
+            }
+        });
 
         SegmentedButton buttons = (SegmentedButton) v.findViewById(R.id.segmented);
         buttons.clearButtons();
@@ -78,7 +91,10 @@ public class PesoActualMeta extends Fragment implements HorizontalPicker.OnItemC
             @Override
             public void onClick(View v) {
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
-                Bundle args = new Bundle();
+
+                Log.e(TAG,"var 1" + var1);
+                Log.e(TAG,"var 2" + var2);
+              /*  Bundle args = new Bundle();
                 final Fragment fragment = new FragmentMetaPeso();
                 FT = getFragmentManager().beginTransaction();
                 FT.replace(R.id.fragment_tipoMetas, fragment);
@@ -86,19 +102,12 @@ public class PesoActualMeta extends Fragment implements HorizontalPicker.OnItemC
                 args.putInt("tipoMeta", 1);
                 args.putInt("position", 1);
                 fragment.setArguments(args);
-                FT.commit();
+                FT.commit();*/
 
 
             }
         });
         return v;
-    }
-
-    static <T> T[] append(T[] arr, T element) {
-        final int N = arr.length;
-        arr = Arrays.copyOf(arr, N + 1);
-        arr[N] = element;
-        return arr;
     }
 
     @Override
