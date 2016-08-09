@@ -25,6 +25,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
 import com.bitrubio.prototipoebitrubio.Metas.AguaMeta;
 import com.bitrubio.prototipoebitrubio.Metas.ArmarEquipo;
 import com.bitrubio.prototipoebitrubio.Metas.BeberMeta;
@@ -43,7 +44,7 @@ import butterknife.ButterKnife;
 /**
  * Created by Orion on 09/05/2016.
  */
-public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueChangeListener  {
+public class FragmentPeso extends Fragment implements NumberPicker.OnValueChangeListener  {
     String TAG = getClass().getSimpleName();
     Typeface tf;
     @Bind(R.id.txt_peso_actual)
@@ -71,8 +72,8 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
     ImageButton _btn_cancelar;
     FragmentTransaction FT;
     Toolbar toolbar;
-
-    public FragmentDetalle_A() {
+    int selecionPeso, pesoActual, pesoObjetivo;
+    public FragmentPeso() {
 
     }
     @Nullable
@@ -89,13 +90,28 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
         mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
 
+        GlobalMetaPeso globalMetaPeso = GlobalMetaPeso.getInstance();
+
+            String tipoPeso ;
+            if (globalMetaPeso.getTipoMeta() == 0 ){
+            tipoPeso = "kg";
+            }else{
+            tipoPeso = "lb";
+            }
+            int valuePeso = Integer.valueOf(globalMetaPeso.getPesoActual()) + 1 ;
+            int valueObjetivo = Integer.valueOf(globalMetaPeso.getPesoObjetivo()) +1 ;
+            _input_pesoActual.setText("Peso actual "+ valuePeso + " " + tipoPeso);
+            _input_objetivo.setText("Mi objetio "+valueObjetivo+ " " + tipoPeso);
+
+
+
         _input_pesoActual.setTypeface(tf);
         _input_objetivo.setTypeface(tf);
         _input_tiempoMeta.setTypeface(tf);
         _input_retaAmigos.setTypeface(tf);
         _input_armaEquipo.setTypeface(tf);
         _input_privacidad.setTypeface(tf);
-
+        final Bundle args = new Bundle();
 
         _input_pesoActual.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -129,6 +145,8 @@ public class FragmentDetalle_A extends Fragment implements NumberPicker.OnValueC
                 final Fragment fragment = new TiempoMeta();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                args.putInt("tipo", 2);
+                fragment.setArguments(args);
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 FT.commit();

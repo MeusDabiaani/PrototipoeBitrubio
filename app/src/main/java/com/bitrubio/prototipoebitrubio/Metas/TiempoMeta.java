@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker;
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton;
-import com.bitrubio.prototipoebitrubio.FragmentMetaPeso;
+import com.bitrubio.prototipoebitrubio.FragmentMetaSelecionada;
 import com.bitrubio.prototipoebitrubio.R;
 
 /**
@@ -44,10 +44,10 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.temporal_fisicos, container, false);
         txtSegment = (TextView) v.findViewById(R.id.txt_segment);
-        Bundle args =  this.getArguments();
+        Bundle args =  getArguments();
 
         if (args != null) {
-           miVar = args.getInt("tipo", 0);
+           miVar = args.getInt("tipo", 1);
         }
 
         final String[] array = {"1", "2","3","4","5","6","7","8","9","10", "11","12","13","14","15",
@@ -96,7 +96,7 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
 
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
                 Bundle args = new Bundle();
-                final Fragment fragment = new FragmentMetaPeso();
+                final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);

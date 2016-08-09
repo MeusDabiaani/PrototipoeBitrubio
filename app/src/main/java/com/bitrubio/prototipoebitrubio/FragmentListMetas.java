@@ -13,7 +13,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import com.bitrubio.prototipoebitrubio.Entidades.Metas;
@@ -93,7 +92,7 @@ public class FragmentListMetas extends Fragment {
             public void onItemClick(View view, int idmetas) {
 
                 Bundle args = new Bundle();
-                final Fragment fragment = new FragmentMetaPeso();
+                final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);

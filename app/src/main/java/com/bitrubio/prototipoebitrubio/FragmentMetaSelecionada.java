@@ -4,7 +4,6 @@ import android.app.AlertDialog;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -28,13 +27,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaAgua;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaEjercicio;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaSueno;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentQuitarVicios;
-import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -58,7 +55,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 /**
  * Created by Orion on 27/04/2016.
  */
-public class FragmentMetaPeso extends Fragment  {
+public class FragmentMetaSelecionada extends Fragment {
     @Bind(R.id.image_foto)
     ImageView _image_foto;
     @Bind(R.id.btn_foto)
@@ -72,26 +69,30 @@ public class FragmentMetaPeso extends Fragment  {
     int RESULT_OK = -1;
     Bitmap imagen;
     FragmentTransaction FT;
-    int fragmentoSeleccionado,tipoMeta;
+    int fragmentoSeleccionado, tipoMeta;
     Typeface tf;
     Toolbar toolbar;
-    public FragmentMetaPeso() {}
+    int selecionPeso, pesoActual, pesoObjetivo;
+
+    public FragmentMetaSelecionada() {
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
         View view = null;
         //recibo el id de la meta seleccionada
         Bundle bundle = this.getArguments();
-        Log.w(TAG,"Clase selecionada : " +TAG );
+        Log.w(TAG, "Clase selecionada : " + TAG);
         fragmentoSeleccionado = bundle.getInt("position", 0);
-        tipoMeta = bundle.getInt("tipoMeta",0);
+        tipoMeta = bundle.getInt("tipoMeta", 0);
 
 
-        if(tipoMeta == 1 ){
-             view = inflater.inflate(R.layout.fragment_meta_peso, container, false);
-        }else if(tipoMeta == 2){
+        if (tipoMeta == 1) {
+            view = inflater.inflate(R.layout.fragment_meta_peso, container, false);
+        } else if (tipoMeta == 2) {
             view = inflater.inflate(R.layout.fragment_meta_bienestar, container, false);
-        }else if(tipoMeta == 3){
+        } else if (tipoMeta == 3) {
             view = inflater.inflate(R.layout.fragment_meta_enfermedad, container, false);
         }
 
@@ -100,8 +101,6 @@ public class FragmentMetaPeso extends Fragment  {
         TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setTextSize(16);
         mTitle.setTypeface(tf);
-
-
         ButterKnife.bind(this, view);
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
         if (savedInstanceState == null) {
@@ -109,7 +108,7 @@ public class FragmentMetaPeso extends Fragment  {
                 mTitle.setText("Peso");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_peso));
-                Fragment fragment = new FragmentDetalle_A();
+                Fragment fragment = new FragmentPeso();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.add(R.id.fragment_detalle_metas, fragment);
@@ -119,11 +118,11 @@ public class FragmentMetaPeso extends Fragment  {
                 mTitle.setText("Alimentación");
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_alimentacion));
-                Fragment fragment = new FragmentDetalle_A();
+              /*  Fragment fragment = new FragmentPeso();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.add(R.id.fragment_detalle_metas, fragment);
-                FT.commit();
+                FT.commit();*/
             }
             if (fragmentoSeleccionado == 3) {
                 mTitle.setText("Ejercicio");
@@ -265,7 +264,6 @@ public class FragmentMetaPeso extends Fragment  {
 
         return view;
     }
-
 
 
     public void guardaFoto() {

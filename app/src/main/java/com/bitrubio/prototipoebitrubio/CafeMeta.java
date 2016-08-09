@@ -9,10 +9,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker;
-import com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton;
 
 /**
  * Created by Orion on 03/08/2016.
@@ -48,7 +46,7 @@ public class CafeMeta extends Fragment implements HorizontalPicker.OnItemClicked
 
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
                 Bundle args = new Bundle();
-                final Fragment fragment = new FragmentMetaPeso();
+                final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
