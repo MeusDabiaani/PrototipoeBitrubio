@@ -31,6 +31,7 @@ public class GeneraMeta extends AsyncTask<String,String,Integer> {
     ArrayList<NameValuePair> datosPost;
     String success ;
     String URL = "guardaMeta.php" ;
+
     String servidor ="";
     public GeneraMeta(Context ctx , ArrayList<NameValuePair> datos){
         this.context = ctx;
