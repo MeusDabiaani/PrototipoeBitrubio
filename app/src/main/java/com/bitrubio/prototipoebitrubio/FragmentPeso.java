@@ -2,9 +2,11 @@ package com.bitrubio.prototipoebitrubio;
 
 
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.nfc.Tag;
+import android.os.AsyncTask;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 
@@ -26,6 +28,7 @@ import android.widget.NumberPicker;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
 import com.bitrubio.prototipoebitrubio.Metas.AguaMeta;
 import com.bitrubio.prototipoebitrubio.Metas.ArmarEquipo;
@@ -39,9 +42,11 @@ import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 import com.bitrubio.prototipoebitrubio.Metas.VideoJuegoMeta;
 
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cz.msebera.android.httpclient.NameValuePair;
 
 /**
  * Created by Orion on 09/05/2016.
@@ -82,6 +87,9 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     StringBuilder stringBuilderEquipo;
 
     GlobalMetaPeso globalMetaPeso ;
+
+    ConectaServidor conectaServidor;
+    ProgressDialog progressDialog;
     public FragmentPeso() {
 
     }
@@ -242,9 +250,12 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
                 // TODO  aqui guardamos la meta // saltamos a la vista con slide
                 String valores = "peso actual  " + valuePeso + " peso Objetivo "+ valueObjetivo + " escala en "+tipoPeso +" tiempo "+tiempoObjetivo+"Mi reta : "+stringBuilder+" equipo :"+ stringBuilderEquipo;
                 Toast.makeText(getContext(),"valores "+ valores,Toast.LENGTH_SHORT).show();
+                ArrayList<NameValuePair> arrayList = new ArrayList<NameValuePair>();
 
-                Intent intent = new Intent(getActivity(), MetaDetalle.class);
-                startActivity(intent);
+                new GeneraMeta(getContext(),arrayList).execute();
+
+
+
             }
         });
 
@@ -353,6 +364,8 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
             }
         }
     }
+
+
 
 
 }
