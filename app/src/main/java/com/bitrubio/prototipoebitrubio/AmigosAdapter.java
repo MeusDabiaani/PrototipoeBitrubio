@@ -18,6 +18,7 @@ import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
 import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Orion on 26/05/2016.
@@ -26,48 +27,65 @@ public class AmigosAdapter  extends ArrayAdapter<Comunidad> {
     private final Context context;
     private final  ArrayList<Comunidad>  values;
     String TAG = getClass().getSimpleName();
-
+    LayoutInflater inflater;
     GlobalMetaPeso globalMeta;
-    int[] arrayAmigos;
+
     int pantalla ;
-    StringBuilder stringBuilder;
+
+
     public AmigosAdapter(Context context,  ArrayList<Comunidad>  values , int vista) {
         super(context, R.layout.content_amigos_comunidad, values);
+        inflater = LayoutInflater.from(context);
         this.context = context;
         this.values = values;
         this.pantalla = vista;
 
     }
 
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-        LayoutInflater inflater = (LayoutInflater) context
-                .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 
-        View rowView = inflater.inflate(R.layout.content_amigos_comunidad, parent, false);
-        ImageView imagePerson = (ImageView) rowView.findViewById(R.id.img_comunidad_amigo);
-        TextView textNombre = (TextView) rowView.findViewById(R.id.txt_amigo_nombre);
-        TextView textBeats = (TextView) rowView.findViewById(R.id.txt_beats);
-        textNombre.setText(values.get(position).getNombre());
-        textBeats.setText(""+values.get(position).getNumbeat());
-        CheckBox chk_bitrubian = (CheckBox) rowView.findViewById(R.id.chk_bitrubian);
-        if (pantalla != 1 ){
-            chk_bitrubian.setVisibility(View.GONE);
-        }
+        Comunidad comunidad = (Comunidad) this.getItem(position);
+        final CheckBox chk_bitrubian ;
 
-        stringBuilder = new StringBuilder();
-        chk_bitrubian.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+        if (convertView == null ) {
+            convertView = inflater.inflate(R.layout.content_amigos_comunidad, null);
+            ImageView imagePerson = (ImageView) convertView.findViewById(R.id.img_comunidad_amigo);
+            TextView textNombre = (TextView) convertView.findViewById(R.id.txt_amigo_nombre);
+            TextView textBeats = (TextView) convertView.findViewById(R.id.txt_beats);
+            textNombre.setText(values.get(position).getNombre());
+            textBeats.setText("" + values.get(position).getNumbeat());
+            chk_bitrubian= (CheckBox) convertView.findViewById(R.id.chk_bitrubian);
 
-                if (isChecked){
-                    stringBuilder.append(arrayAmigos[values.get(position).getId()]);
-                    Toast.makeText(getContext(), "check ID"+ values.get(position).getId(), Toast.LENGTH_SHORT).show();
-                    globalMeta.setRetaAmigos(stringBuilder);
+            convertView.setTag(new ComunidadViewHolder(chk_bitrubian));
+            if (pantalla != 1) {chk_bitrubian.setVisibility(View.GONE);}
+            chk_bitrubian.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    CheckBox cb = (CheckBox) v;
+                    values.get(position).setChecked(cb.isChecked());
                 }
-            }
-        });
-        return rowView;
+            });
+        }else{
+            ComunidadViewHolder viewHolder = (ComunidadViewHolder) convertView.getTag();
+            chk_bitrubian = viewHolder.getCheckBox();
+        }
+        chk_bitrubian.setTag(values);
+        chk_bitrubian.setChecked(values.get(position).isChecked());
+
+        return convertView;
+    }
+
+    public Object onRetainNonConfigurationInstance() {
+        return values;
+    }
+
+
+    @Override
+    public int getCount() {
+        return values.size();
     }
 
     @Override
@@ -78,6 +96,23 @@ public class AmigosAdapter  extends ArrayAdapter<Comunidad> {
     @Override
     public boolean hasStableIds() {
         return true;
+    }
+    private static class  ComunidadViewHolder{
+        private CheckBox checkBox;
+
+        public ComunidadViewHolder() {
+
+        }
+
+        public ComunidadViewHolder(CheckBox checkBox) {
+            this.checkBox = checkBox;
+        }
+
+        public CheckBox getCheckBox() {
+            return checkBox;
+        }
+
+
     }
 
 

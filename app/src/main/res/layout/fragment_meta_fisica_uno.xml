@@ -157,14 +157,6 @@
                                 android:textColor="@color/letraVerde1"
                                 style="@style/MyTextViewAvenir" />
 
-                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Público"
-                                android:textColor="@color/colorAccent"
-                                style="@style/MyTextViewAvenir">
-
-                            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
 
                             <ImageView style="@style/MyView" />
                         </LinearLayout>

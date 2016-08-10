@@ -8,11 +8,20 @@ public class Comunidad {
     private int id;
     private String nombre ;
     private int numbeat;
+    private boolean checked = false;
+
 
     public Comunidad(int id, String nombre, int numbeat) {
         this.id = id;
         this.nombre = nombre;
         this.numbeat = numbeat;
+    }
+
+    public Comunidad(int id, String nombre, int numbeat, boolean checked) {
+        this.id = id;
+        this.nombre = nombre;
+        this.numbeat = numbeat;
+        this.checked = checked;
     }
 
     public int getId() {
@@ -39,5 +48,15 @@ public class Comunidad {
         this.numbeat = numbeat;
     }
 
+    public boolean isChecked() {
+        return checked;
+    }
 
+    public void setChecked(boolean checked) {
+        this.checked = checked;
+    }
+    public void toggleChecked()
+    {
+        checked = !checked;
+    }
 }

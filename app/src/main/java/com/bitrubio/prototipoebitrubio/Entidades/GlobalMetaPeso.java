@@ -17,7 +17,8 @@ public class GlobalMetaPeso {
     private int tiempoMeta;
     private int tipoPrivacidad;
     private StringBuilder retaAmigos;
-    private int[] equipoAmigos;
+    private StringBuilder equipoAmigos;
+
 
 
 
@@ -29,16 +30,14 @@ public class GlobalMetaPeso {
     public StringBuilder getRetaAmigos() {
         return retaAmigos;
     }
+    public StringBuilder getEquipoAmigos() {
+        return equipoAmigos;
+    }
 
     public void setRetaAmigos(StringBuilder retaAmigos) {
         this.retaAmigos = retaAmigos;
     }
-
-    public int[] getEquipoAmigos() {
-        return equipoAmigos;
-    }
-
-    public void setEquipoAmigos(int[] equipoAmigos) {
+    public void setEquipoAmigos(StringBuilder equipoAmigos) {
         this.equipoAmigos = equipoAmigos;
     }
 

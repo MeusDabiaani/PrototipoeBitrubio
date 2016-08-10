@@ -34,6 +34,7 @@ import com.bitrubio.prototipoebitrubio.Metas.CelularMeta;
 import com.bitrubio.prototipoebitrubio.Metas.FumarMeta;
 import com.bitrubio.prototipoebitrubio.Metas.PastelMeta;
 import com.bitrubio.prototipoebitrubio.Metas.PesoActualMeta;
+import com.bitrubio.prototipoebitrubio.Metas.Tab_Bitrubians;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 import com.bitrubio.prototipoebitrubio.Metas.VideoJuegoMeta;
 
@@ -73,7 +74,13 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     ImageButton _btn_cancelar;
     FragmentTransaction FT;
     Toolbar toolbar;
-    int selecionPeso, pesoActual, pesoObjetivo;
+
+    // variables para Crear la meta
+    int valuePeso,valueObjetivo,tiempoObjetivo;
+    String tipoPeso,paramTiempo;
+    StringBuilder stringBuilder;
+    StringBuilder stringBuilderEquipo;
+
     GlobalMetaPeso globalMetaPeso ;
     public FragmentPeso() {
 
@@ -94,37 +101,50 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
 
          globalMetaPeso = GlobalMetaPeso.getInstance();
         if (globalMetaPeso != null) {
-            String tipoPeso;
+
             if (globalMetaPeso.getTipoMeta() == 0) {
                 tipoPeso = "kg";
             } else {
                 tipoPeso = "lb";
             }
-            String paramTiempo;
+
             if (globalMetaPeso.getTipoTiempo() == 0) {
                 paramTiempo = "dia(s)";
             } else {
                 paramTiempo = "semana(s)";
             }
+            valuePeso = Integer.valueOf(globalMetaPeso.getPesoActual());
+            valueObjetivo = Integer.valueOf(globalMetaPeso.getPesoObjetivo()) ;
+            tiempoObjetivo = Integer.valueOf(globalMetaPeso.getTiempoMeta()) ;
+            stringBuilder = globalMetaPeso.getRetaAmigos();
+            stringBuilderEquipo = globalMetaPeso.getEquipoAmigos();
+            if (valuePeso > 0){
+                valuePeso = globalMetaPeso.getPesoActual()+1;
+                _input_pesoActual.setText("Peso actual " + valuePeso + " " + tipoPeso);
+            }
+            if (valueObjetivo > 0 ){
+                valueObjetivo = globalMetaPeso.getPesoObjetivo()+1;
+                _input_objetivo.setText("Mi objetio " + valueObjetivo + " " + tipoPeso);
+            }
+            if (tiempoObjetivo > 0 ){
+                tiempoObjetivo = globalMetaPeso.getTiempoMeta()+ 1;
+                _input_tiempoMeta.setText(" Tiempo para lograrlo " + tiempoObjetivo + " " + paramTiempo);
+            }
+            if (stringBuilder!=null) {
+                _input_retaAmigos.setText("Reta lista! ");
+            }
+            if (stringBuilderEquipo != null) {
+                _input_armaEquipo.setText("Equipo listo!");
+            }
 
-
-
-            int valuePeso = Integer.valueOf(globalMetaPeso.getPesoActual()) + 1;
-            int valueObjetivo = Integer.valueOf(globalMetaPeso.getPesoObjetivo()) + 1;
-            int tiempoObjetivo = Integer.valueOf(globalMetaPeso.getTiempoMeta()) + 1;
-            _input_pesoActual.setText("Peso actual " + valuePeso + " " + tipoPeso);
-            _input_objetivo.setText("Mi objetio " + valueObjetivo + " " + tipoPeso);
-            _input_tiempoMeta.setText(" Tiempo para lograrlo " + tiempoObjetivo + " " + paramTiempo);
-            StringBuilder stringBuilder = globalMetaPeso.getRetaAmigos();
-            Log.e(TAG,"stringbuilder"+ stringBuilder);
 
         }
-        _input_pesoActual.setTypeface(tf);
+     /*   _input_pesoActual.setTypeface(tf);
         _input_objetivo.setTypeface(tf);
         _input_tiempoMeta.setTypeface(tf);
         _input_retaAmigos.setTypeface(tf);
         _input_armaEquipo.setTypeface(tf);
-        _input_privacidad.setTypeface(tf);
+        _input_privacidad.setTypeface(tf);*/
         final Bundle args = new Bundle();
 
         _input_pesoActual.setOnClickListener(new View.OnClickListener() {
@@ -169,7 +189,8 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
         _input_retaAmigos.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                final Fragment fragment = new ArmarEquipo();
+                //final Fragment fragment = new ArmarEquipo();
+                final Fragment fragment = new Tab_Bitrubians();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_NONE);
                 args.putInt("tipo",1);
@@ -184,7 +205,7 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
             @Override
             public void onClick(View v) {
 
-                final Fragment fragment = new ArmarEquipo();
+                final Fragment fragment = new Tab_Bitrubians();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_NONE);
                 args.putInt("tipo",0);
@@ -205,6 +226,12 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
             @Override
             public void onClick(View v) {
                 Toast.makeText(getActivity(), "Cancelar Meta", Toast.LENGTH_SHORT).show();
+                final Fragment fragment = new FragmentListMetas();
+                FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_NONE);
+                FT.replace(R.id.fragment_tipoMetas, fragment);
+                FT.addToBackStack(null);
+                FT.commit();
             }
         });
 
@@ -213,6 +240,8 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
             public void onClick(View v) {
 
                 // TODO  aqui guardamos la meta // saltamos a la vista con slide
+                String valores = "peso actual  " + valuePeso + " peso Objetivo "+ valueObjetivo + " escala en "+tipoPeso +" tiempo "+tiempoObjetivo+"Mi reta : "+stringBuilder+" equipo :"+ stringBuilderEquipo;
+                Toast.makeText(getContext(),"valores "+ valores,Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(), MetaDetalle.class);
                 startActivity(intent);
@@ -222,14 +251,9 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
         return rootView;
     }
 
-
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
-
     }
-
-
-
     public void showPrivacidad() {
 
         final Dialog d = new Dialog(getActivity(),R.style.DialogTheme);
@@ -263,7 +287,6 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
                         break;
                 }
                 globalMetaPeso.setTipoPrivacidad(intPrivacidad);
-
                 _input_privacidad.setText(" Privacidad " + arrayDatos[np.getValue()]); //set the value to textview
 
                 d.dismiss();
