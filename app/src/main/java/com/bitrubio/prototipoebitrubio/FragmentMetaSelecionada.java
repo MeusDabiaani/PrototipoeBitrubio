@@ -113,7 +113,7 @@ public class FragmentMetaSelecionada extends Fragment {
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
         if (savedInstanceState == null) {
             if (fragmentoSeleccionado == 1) {
-                mTitle.setText("Peso");
+                mTitle.setText(R.string.peso);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_peso));
                 Fragment fragment = new FragmentPeso();
@@ -123,7 +123,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 2) {
-                mTitle.setText("Alimentación");
+                mTitle.setText(R.string.alimentacion);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_alimentacion));
               /*  Fragment fragment = new FragmentPeso();
@@ -133,7 +133,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();*/
             }
             if (fragmentoSeleccionado == 3) {
-                mTitle.setText("Ejercicio");
+                mTitle.setText(R.string.ejercicio);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ejercicio));
                 Fragment fragment = new FragmentMetaEjercicio();
@@ -143,7 +143,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 4) {
-                mTitle.setText("Tomar agua");
+                mTitle.setText(R.string.tomar_agua);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_agua));
                 Fragment fragment = new FragmentMetaAgua();
@@ -153,7 +153,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 5) {
-                mTitle.setText("Sueño");
+                mTitle.setText(R.string.sueno);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_sueno));
                 Fragment fragment = new FragmentMetaSueno();
@@ -163,7 +163,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 6) {
-                mTitle.setText("Quitar vicios");
+                mTitle.setText(R.string.quitar_vicios);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_vicios));
                 Fragment fragment = new FragmentQuitarVicios();
@@ -174,7 +174,7 @@ public class FragmentMetaSelecionada extends Fragment {
             }
 
             if (fragmentoSeleccionado == 7) {
-                mTitle.setText("Ayudar");
+                mTitle.setText(R.string.ayudar);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ayudar));
                 Fragment fragment = new FragmentAyudar();
@@ -184,7 +184,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 8) {
-                mTitle.setText("Desarrollarme");
+                mTitle.setText(R.string.desarrollarme);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_desarrollarme));
                 Fragment fragment = new FragmentAyudar();
@@ -194,7 +194,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 9) {
-                mTitle.setText("Reflexionar");
+                mTitle.setText(R.string.reflexionar);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_reflexionar));
                 Fragment fragment = new FragmentAyudar();
@@ -204,7 +204,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 10) {
-                mTitle.setText("Divertirme");
+                mTitle.setText(R.string.divertirme);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.divertirme));
                 Fragment fragment = new FragmentAyudar();
@@ -214,7 +214,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 11) {
-                mTitle.setText("Estar con otros");
+                mTitle.setText(R.string.estar_otros);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_otros));
                 Fragment fragment = new FragmentAyudar();
@@ -226,7 +226,7 @@ public class FragmentMetaSelecionada extends Fragment {
 
 
             if (fragmentoSeleccionado == 12) {
-                mTitle.setText("Medicamentos");
+                mTitle.setText(R.string.medicamentos);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_medicamentos));
                 Fragment fragment = new FragmentDetMedicamento();
@@ -236,7 +236,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 13) {
-                mTitle.setText("Laboratorios");
+                mTitle.setText(R.string.laboratorios);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_laboratorios));
                 Fragment fragment = new FragmentDetMedicamento();
@@ -246,7 +246,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 14) {
-                mTitle.setText("Niveles");
+                mTitle.setText(R.string.niveles);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_terapias));
                 Fragment fragment = new FragmentDetMedicamento();
@@ -256,7 +256,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 FT.commit();
             }
             if (fragmentoSeleccionado == 15) {
-                mTitle.setText("Auto Chequeo");
+                mTitle.setText(R.string.auto_chequeo);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
                 _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_chequeo));
                 Fragment fragment = new FragmentDetMedicamento();

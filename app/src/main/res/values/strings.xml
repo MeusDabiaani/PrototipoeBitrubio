@@ -243,6 +243,20 @@
     <string name="alimentos">Alimenos</string>
     <string name="videojuego">Videojuegos</string>
     <string name="cel">Celular</string>
+    <string name="alimentacion">Alimentación</string>
+    <string name="ejercicio">Ejercicio</string>
+    <string name="tomar_agua">Tomar agua</string>
+    <string name="sueno">Sueño</string>
+    <string name="quitar_vicios">Quitar vicios</string>
+    <string name="ayudar">Ayudar</string>
+    <string name="desarrollarme">Desarrollarme</string>
+    <string name="reflexionar">Reflexionar</string>
+    <string name="divertirme">Divertirme</string>
+    <string name="estar_otros">Estar con otros</string>
+    <string name="medicamentos">Medicamentos</string>
+    <string name="laboratorios">Laboratorios</string>
+    <string name="niveles">Niveles</string>
+    <string name="auto_chequeo">Auto Chequeo</string>
 
 </resources>
 
