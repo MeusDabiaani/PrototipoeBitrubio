@@ -3,7 +3,6 @@ package com.bitrubio.prototipoebitrubio;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -15,6 +14,7 @@ import java.util.List;
 
 /**
  * Created by Orion on 28/07/2016.
+ * clase para agregar campos dinamicos
  */
 public class AgregaCampo  {
     Typeface tf;

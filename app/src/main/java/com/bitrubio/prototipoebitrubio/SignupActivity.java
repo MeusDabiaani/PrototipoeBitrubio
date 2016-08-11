@@ -141,6 +141,7 @@ public class SignupActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
         ButterKnife.bind(this);
@@ -204,6 +205,7 @@ public class SignupActivity extends AppCompatActivity {
                 dialogFragment.show(fm, "Terminos y politica de privacidad");
             }
         });
+
         calender = Calendar.getInstance();
         final CheckBox rd_mujer, rd_hombre;
         rd_hombre = (CheckBox) findViewById(R.id.rad_hombre);
@@ -331,10 +333,6 @@ public class SignupActivity extends AppCompatActivity {
                 }
             }
         });
-
-
-
-
 
         _checkNo.setTypeface(tf);
         _checkOrganos.setTypeface(tf);

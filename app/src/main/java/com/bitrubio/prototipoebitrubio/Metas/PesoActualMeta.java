@@ -106,8 +106,6 @@ public class PesoActualMeta extends Fragment {
                 args.putInt("position", 1);
                 fragment.setArguments(args);
                 FT.commit();
-
-
                 globalMetaPeso.setTipoMeta(varSeleccion);
                 globalMetaPeso.setPesoActual(var1);
                 globalMetaPeso.setPesoObjetivo(var2);

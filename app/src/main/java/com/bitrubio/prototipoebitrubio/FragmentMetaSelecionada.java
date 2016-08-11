@@ -2,6 +2,7 @@ package com.bitrubio.prototipoebitrubio;
 
 import android.app.AlertDialog;
 import android.graphics.Typeface;
+import android.nfc.Tag;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentTransaction;
@@ -25,9 +26,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.ListAdapter;
 import android.widget.TextView;
 
+import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaAgua;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaEjercicio;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaSueno;
@@ -62,7 +66,8 @@ public class FragmentMetaSelecionada extends Fragment {
     ImageView _btn_foto;
     public byte[] byteArray;
     String ba1;
-    public static String URL = "http://www.meustech.com:8080/bitrubio/movil/subeFoto.php";
+    ConectaServidor servidor ;
+    public static String URL = "subeFoto.php";
     String idUsuario;
     private String TAG = getClass().getSimpleName();
     ProgressDialog pd;
@@ -87,6 +92,9 @@ public class FragmentMetaSelecionada extends Fragment {
         fragmentoSeleccionado = bundle.getInt("position", 0);
         tipoMeta = bundle.getInt("tipoMeta", 0);
 
+        URL = servidor.getUrl()+URL;
+
+        Log.e(TAG,"url"+URL);
 
         if (tipoMeta == 1) {
             view = inflater.inflate(R.layout.fragment_meta_peso, container, false);
@@ -267,43 +275,73 @@ public class FragmentMetaSelecionada extends Fragment {
 
 
     public void guardaFoto() {
+
+        //_btnfoto Perfil
+        final Item[] items = {new Item("Seleccionar de tu galería", R.drawable.ic_tu_galeria),
+                new Item("Captura una foto nueva", R.drawable.ic_camara_simple)
+        };
+//        final CharSequence[] items = {"Captura una foto nueva","Seleccionar de tu galería"};
+
+        final ListAdapter adapter = new ArrayAdapter<Item>(
+                getContext(),
+                android.R.layout.select_dialog_item,
+                android.R.id.text1, items) {
+
+            public View getView(int position, View convertView, ViewGroup parent) {
+                //Use super class to create the View
+                View v = super.getView(position, convertView, parent);
+                TextView tv = (TextView) v.findViewById(android.R.id.text1);
+                tv.setTextSize(16);
+                tv.setTypeface(tf);
+                tv.setTextColor(getResources().getColor(R.color.textColorPrimary));
+                //Put the image on the TextView
+                tv.setCompoundDrawablesWithIntrinsicBounds(items[position].icon, 0, 0, 0);
+                //Add margin between image and text (support various screen densities)
+                int dp5 = (int) (5 * getResources().getDisplayMetrics().density + 0.5f);
+                tv.setCompoundDrawablePadding(dp5);
+
+                return v;
+            }
+        };
+
         _btn_foto.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
-                final CharSequence[] items = {"Tomar Foto", "Seleccionar de tu biblioteca", "Cancelar"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.AppTheme_Dark_Dialog);
-                builder.setTitle("Agregar Foto");
-                builder.setIcon(R.drawable.ic_subir_foto);
-                builder.setItems(items, new DialogInterface.OnClickListener() {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.DialogTheme);
+
+                builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+
                     @Override
-                    public void onClick(DialogInterface dialog, int item) {
-                        if (items[item].equals("Tomar Foto")) {
+                    public void onClick(DialogInterface dialog, int position) {
+
+                        if (items[position].text.equals("Captura una foto nueva")) {
+                            Log.e(TAG, "item-1 CLICK " + items[position]);
                             Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
                             startActivityForResult(intent, 1);
 
-                        } else if (items[item].equals("Seleccionar de tu biblioteca")) {
-                            Intent intent = null;
-
+                        } else if (items[position].text.equals("Seleccionar de tu galería")) {
+                            Log.e(TAG, "item-2 CLICK " + items[position]);
+                            Intent intent ;
                             if (Build.VERSION.SDK_INT < 19) {
                                 // android jelly bean 4.3
                                 intent = new Intent();
                                 intent.setAction(Intent.ACTION_GET_CONTENT);
-
                             } else {
                                 // andoid 4.4 o superioir
                                 intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
                                 intent.addCategory(Intent.CATEGORY_OPENABLE);
                             }
                             intent.setType("image/*");
-                            startActivityForResult(
-                                    Intent.createChooser(intent, "Seleciona foto"), 2);
-                        } else if (items[item].equals("Cancelar")) {
-                            dialog.dismiss();
+                            startActivityForResult(Intent.createChooser(intent, "Seleciona foto"), 2);
                         }
                     }
                 });
-                builder.show();
+                builder.setCancelable(false);
+                AlertDialog dialog = builder.create();
+                dialog.show();
+                dialog.setCanceledOnTouchOutside(true);
             }
         });
     }
