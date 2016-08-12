@@ -410,10 +410,7 @@ public class SignupActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
-
-
 
     // muestra el el fragmento con el calendario
     private void showDatePicker() {
@@ -425,8 +422,6 @@ public class SignupActivity extends AppCompatActivity {
         date.setArguments(args);
         date.setCallBack(ondate);
         date.show(getSupportFragmentManager(), "Date Picker");
-
-
 
     }
     protected void hideKeyboard(View view) {
@@ -485,6 +480,7 @@ public class SignupActivity extends AppCompatActivity {
             }
             year_new = year;
             input_fechaNac.setText(String.valueOf(dayOfMonth) + "/" + mes + "/" + String.valueOf(year));
+
              //fecha_nacimiento = String.valueOf(year) + "-" + monthOfYear + 1 + "-" + String.valueOf(dayOfMonth);
 
 
@@ -544,18 +540,19 @@ public class SignupActivity extends AppCompatActivity {
             datosPost.add(new BasicNameValuePair("terminos", String.valueOf(condiciones)));
             datosPost.add(new BasicNameValuePair("codigoAmigo", codigo));
             ServiceHandler jsonParser = new ServiceHandler();
+           // Log.e(TAG,"url "+URL);
             String json = jsonParser.makeServiceCall(URL, ServiceHandler.POST, datosPost);
 
             try {
                 JSONObject Obj = new JSONObject(json);
-                Log.e(TAG, "Obj " + Obj);
+              //  Log.e(TAG, "Obj " + Obj);
                 JSONArray datosUser = Obj.getJSONArray("registro");
-                Log.e(TAG, "datosUser " + datosUser);
+              //  Log.e(TAG, "datosUser " + datosUser);
 
                 for (int i = 0; i < datosUser.length(); i++) {
                     JSONObject datosObj = datosUser.getJSONObject(i);
                     String error = datosObj.getString("success");
-                    Log.e(TAG, "error success" + error);
+
                     if (error.equals("2") ) {
                         userData.add(new Bitrubian(0,"0", "0", "0", "2", "0"));
                     }else if(error.equals("3")){

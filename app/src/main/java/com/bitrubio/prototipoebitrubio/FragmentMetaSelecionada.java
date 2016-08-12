@@ -1,8 +1,9 @@
 package com.bitrubio.prototipoebitrubio;
 
 import android.app.AlertDialog;
+import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.nfc.Tag;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentTransaction;
@@ -32,18 +33,22 @@ import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
+import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaAgua;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaEjercicio;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaSueno;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentQuitarVicios;
 
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.DatagramPacket;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,8 +67,10 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 public class FragmentMetaSelecionada extends Fragment {
     @Bind(R.id.image_foto)
     ImageView _image_foto;
+
     @Bind(R.id.btn_foto)
     ImageView _btn_foto;
+
     public byte[] byteArray;
     String ba1;
     ConectaServidor servidor ;
@@ -78,7 +85,7 @@ public class FragmentMetaSelecionada extends Fragment {
     Typeface tf;
     Toolbar toolbar;
     int selecionPeso, pesoActual, pesoObjetivo;
-
+    SessionManager session;
     public FragmentMetaSelecionada() {
     }
 
@@ -93,6 +100,11 @@ public class FragmentMetaSelecionada extends Fragment {
         tipoMeta = bundle.getInt("tipoMeta", 0);
 
         URL = servidor.getUrl()+URL;
+        session = new SessionManager(getContext().getApplicationContext());
+        session.checkLogin();
+        // get user data from session
+        HashMap<String, String> user = session.getUserDetails();
+        idUsuario = user.get(SessionManager.KEY_IDUSER);
 
         Log.e(TAG,"url"+URL);
 
@@ -104,18 +116,20 @@ public class FragmentMetaSelecionada extends Fragment {
             view = inflater.inflate(R.layout.fragment_meta_enfermedad, container, false);
         }
 
-        _btn_foto = (ImageView) view.findViewById(R.id.btn_foto);
+        _image_foto = (ImageView) view.findViewById(R.id.btn_foto);
         toolbar = (Toolbar) getActivity().findViewById(R.id.toolbar);
         TextView mTitle = (TextView) toolbar.findViewById(R.id.txt_titleToolbar);
         mTitle.setTextSize(16);
         mTitle.setTypeface(tf);
         ButterKnife.bind(this, view);
+
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
+
         if (savedInstanceState == null) {
             if (fragmentoSeleccionado == 1) {
                 mTitle.setText(R.string.peso);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_peso));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_peso));
                 Fragment fragment = new FragmentPeso();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -125,17 +139,13 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 2) {
                 mTitle.setText(R.string.alimentacion);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_alimentacion));
-              /*  Fragment fragment = new FragmentPeso();
-                FT = getFragmentManager().beginTransaction();
-                FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-                FT.add(R.id.fragment_detalle_metas, fragment);
-                FT.commit();*/
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_alimentacion));
+
             }
             if (fragmentoSeleccionado == 3) {
                 mTitle.setText(R.string.ejercicio);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ejercicio));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ejercicio));
                 Fragment fragment = new FragmentMetaEjercicio();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -145,7 +155,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 4) {
                 mTitle.setText(R.string.tomar_agua);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_agua));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_agua));
                 Fragment fragment = new FragmentMetaAgua();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -155,7 +165,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 5) {
                 mTitle.setText(R.string.sueno);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_sueno));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_sueno));
                 Fragment fragment = new FragmentMetaSueno();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -165,7 +175,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 6) {
                 mTitle.setText(R.string.quitar_vicios);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_vicios));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_vicios));
                 Fragment fragment = new FragmentQuitarVicios();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -176,7 +186,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 7) {
                 mTitle.setText(R.string.ayudar);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ayudar));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_ayudar));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -186,7 +196,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 8) {
                 mTitle.setText(R.string.desarrollarme);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_desarrollarme));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_desarrollarme));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -196,7 +206,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 9) {
                 mTitle.setText(R.string.reflexionar);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_reflexionar));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_reflexionar));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -206,7 +216,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 10) {
                 mTitle.setText(R.string.divertirme);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.divertirme));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.divertirme));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -216,7 +226,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 11) {
                 mTitle.setText(R.string.estar_otros);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoNaranja));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_otros));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_otros));
                 Fragment fragment = new FragmentAyudar();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -228,7 +238,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 12) {
                 mTitle.setText(R.string.medicamentos);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_medicamentos));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_medicamentos));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -238,7 +248,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 13) {
                 mTitle.setText(R.string.laboratorios);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_laboratorios));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_laboratorios));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -248,7 +258,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 14) {
                 mTitle.setText(R.string.niveles);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_terapias));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_terapias));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -258,7 +268,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (fragmentoSeleccionado == 15) {
                 mTitle.setText(R.string.auto_chequeo);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.solidoRojo));
-                _btn_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_chequeo));
+                _image_foto.setImageDrawable(getResources().getDrawable(R.drawable.fondo_chequeo));
                 Fragment fragment = new FragmentDetMedicamento();
                 FT = getFragmentManager().beginTransaction();
                 FT.setTransition(android.app.FragmentTransaction.TRANSIT_FRAGMENT_FADE);
@@ -280,8 +290,6 @@ public class FragmentMetaSelecionada extends Fragment {
         final Item[] items = {new Item("Seleccionar de tu galería", R.drawable.ic_tu_galeria),
                 new Item("Captura una foto nueva", R.drawable.ic_camara_simple)
         };
-//        final CharSequence[] items = {"Captura una foto nueva","Seleccionar de tu galería"};
-
         final ListAdapter adapter = new ArrayAdapter<Item>(
                 getContext(),
                 android.R.layout.select_dialog_item,
@@ -308,42 +316,50 @@ public class FragmentMetaSelecionada extends Fragment {
 
             @Override
             public void onClick(View v) {
-
-                AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.DialogTheme);
-
-                builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int position) {
-
-                        if (items[position].text.equals("Captura una foto nueva")) {
-                            Log.e(TAG, "item-1 CLICK " + items[position]);
-                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            startActivityForResult(intent, 1);
-
-                        } else if (items[position].text.equals("Seleccionar de tu galería")) {
-                            Log.e(TAG, "item-2 CLICK " + items[position]);
-                            Intent intent ;
-                            if (Build.VERSION.SDK_INT < 19) {
-                                // android jelly bean 4.3
-                                intent = new Intent();
-                                intent.setAction(Intent.ACTION_GET_CONTENT);
-                            } else {
-                                // andoid 4.4 o superioir
-                                intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                            }
-                            intent.setType("image/*");
-                            startActivityForResult(Intent.createChooser(intent, "Seleciona foto"), 2);
-                        }
-                    }
-                });
-                builder.setCancelable(false);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                dialog.setCanceledOnTouchOutside(true);
+                showDialogCamara(adapter,items);
             }
         });
+
+        _image_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogCamara(adapter,items);
+            }
+        });
+    }
+
+    public  void showDialogCamara (ListAdapter adapter, final Item[] items){
+        AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.DialogTheme);
+
+        builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int position) {
+
+                if (items[position].text.equals("Captura una foto nueva")) {
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, 1);
+
+                } else if (items[position].text.equals("Seleccionar de tu galería")) {
+                    Intent intent ;
+                    if (Build.VERSION.SDK_INT < 19) {
+                        // android jelly bean 4.3
+                        intent = new Intent();
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                    } else {
+                        // andoid 4.4 o superioir
+                        intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                        intent.addCategory(Intent.CATEGORY_OPENABLE);
+                    }
+                    intent.setType("image/*");
+                    startActivityForResult(Intent.createChooser(intent, "Seleciona foto"), 2);
+                }
+            }
+        });
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(true);
     }
 
     @Override
@@ -353,60 +369,76 @@ public class FragmentMetaSelecionada extends Fragment {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
+                Log.e(TAG,"Ancho original Foto "+ thumbnail.getWidth());
+                Log.e(TAG,"Alto original Foto "+thumbnail.getHeight());
+
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.JPEG, 90, bytes);
+                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+
                 File destination = new File(Environment.getExternalStorageDirectory(),
                         System.currentTimeMillis() + ".jpg");
+                Log.e(TAG,"archivo foto  "+ destination);
                 FileOutputStream fo;
                 try {
                     destination.createNewFile();
                     fo = new FileOutputStream(destination);
+                    Log.e(TAG,"fo  : "+fo);
                     fo.write(bytes.toByteArray());
                     fo.close();
+
+                    byteArray = bytes.toByteArray();
+                    ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                    new uploadToServer().execute();
+
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
                 _image_foto.setImageBitmap(thumbnail);
-                guardarImagen(redimensionarImagenMaximo(thumbnail, 90, 90));
+
             }
         }
         if (requestCode == 2) {
             if (resultCode == RESULT_OK) {
+                Uri uri = data.getData();
+
+                Log.e(TAG,"uri"+uri);
+                try {
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
+                    Log.e(TAG,"galeria  ancho original Foto "+ bitmap .getWidth());
+                    Log.e(TAG,"galeria alto original Foto "+bitmap .getHeight());
+                  //  Bitmap newBitmap = redimensionarImagenMaximo(bitmap,512,756);
+
+                    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 10, bytes);
+                  //  bitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, false);//This is only if u want to set the image size.
+                    byteArray = bytes.toByteArray();
+                    ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                    new uploadToServer().execute();
+
+                   // guardarImagen(bitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
                 _image_foto.setImageURI(data.getData());
                 //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
                 _image_foto.setTag(data.getData());
                 imagen = ((BitmapDrawable) _image_foto.getDrawable()).getBitmap();
-                guardarImagen(redimensionarImagenMaximo(imagen, 100, 100));
+
             }
         }
 
     }
-
     private String guardarImagen(Bitmap imagen) {
-        InputStream inputStream = null;
-        try {
-            inputStream = getActivity().getAssets().open("imagen.png");
-            imagen = BitmapFactory.decodeStream(inputStream);
-
-        } catch (IOException io) {
-            io.printStackTrace();
-        } finally {
-            if (inputStream != null)
-                try {
-                    inputStream.close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-        }
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 90, stream);
         byteArray = stream.toByteArray();
-
         ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
         new uploadToServer().execute();
+
         try {
             FileOutputStream outputStream = getActivity().getApplicationContext().openFileOutput("imagen.png", Context.MODE_PRIVATE);
             outputStream.write(byteArray);
@@ -423,44 +455,48 @@ public class FragmentMetaSelecionada extends Fragment {
     public class uploadToServer extends AsyncTask<Void, Void, String> {
         protected void onPreExecute() {
             super.onPreExecute();
-            pd = new ProgressDialog(getActivity());
+            pd = new ProgressDialog(getActivity(),R.style.DialogTheme);
             pd.setMessage("Subiendo Imagen!");
             pd.show();
         }
 
         @Override
         protected String doInBackground(Void... params) {
+            Log.e(TAG,"Url  "+URL);
 
+            Log.e(TAG,"rutaGuardada  "+" fotoMeta_" + idUsuario + ".jpg");
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("base64", ba1));
-            nameValuePairs.add(new BasicNameValuePair("ImageName", "" + idUsuario + ".jpg"));
+            nameValuePairs.add(new BasicNameValuePair("ImageName", "fotoMeta_" + idUsuario + ".jpg"));
             try {
                 HttpClient httpclient = new DefaultHttpClient();
                 HttpPost httppost = new HttpPost(URL);
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 HttpResponse response = httpclient.execute(httppost);
                 String st = EntityUtils.toString(response.getEntity());
-                Log.e(TAG, "response " + st);
             } catch (Exception e) {
                 e.printStackTrace();
             }
             return null;
-
         }
-
         protected void onPostExecute(String result) {
             super.onPostExecute(result);
             pd.hide();
             pd.dismiss();
         }
     }
-
     public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
+        Log.e(TAG,"Ancho original Foto "+ mBitmap.getWidth());
+        Log.e(TAG,"Alto original Foto "+mBitmap.getHeight());
         //Redimensionamos
         int width = mBitmap.getWidth();
         int height = mBitmap.getHeight();
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeigth) / height;
+
+        Log.e(TAG,"Ancho nuevo "+ scaleWidth);
+        Log.e(TAG,"Alto nuevo "+scaleHeight);
+
         // create a matrix for the manipulation
         Matrix matrix = new Matrix();
         // resize the bit map
@@ -468,4 +504,5 @@ public class FragmentMetaSelecionada extends Fragment {
         // recreate the new Bitmap
         return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
     }
+
 }

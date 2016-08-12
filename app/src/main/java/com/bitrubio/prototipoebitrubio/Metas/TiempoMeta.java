@@ -20,6 +20,8 @@ import com.bitrubio.prototipoebitrubio.R;
 
 /**
  * Created by Orion on 25/07/2016.
+ * fragment para crear tiempo meta
+ *
  */
 public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelected , HorizontalPicker.OnItemClicked {
     String TAG = getClass().getName();
