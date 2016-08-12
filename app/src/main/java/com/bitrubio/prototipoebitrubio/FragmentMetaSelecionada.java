@@ -380,6 +380,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 Log.e(TAG,"archivo foto  "+ destination);
                 FileOutputStream fo;
                 try {
+
                     destination.createNewFile();
                     fo = new FileOutputStream(destination);
                     Log.e(TAG,"fo  : "+fo);
@@ -405,10 +406,26 @@ public class FragmentMetaSelecionada extends Fragment {
 
                 Log.e(TAG,"uri"+uri);
                 try {
+                    Bitmap newBitmap = null;
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
                     Log.e(TAG,"galeria  ancho original Foto "+ bitmap .getWidth());
                     Log.e(TAG,"galeria alto original Foto "+bitmap .getHeight());
-                  //  Bitmap newBitmap = redimensionarImagenMaximo(bitmap,512,756);
+                    if( bitmap.getWidth() > bitmap.getHeight()){
+                         newBitmap = redimensionarImagenMaximo(bitmap,bitmap .getWidth()-(float) (bitmap .getWidth()*0.5), bitmap .getHeight()-(float) (bitmap .getHeight()*0.5));
+                        Log.e(TAG,"uno ");
+                        Log.e(TAG,"deco with "+ newBitmap .getWidth());
+                        Log.e(TAG,"deco height "+newBitmap.getHeight());
+                        _image_foto.setImageBitmap(newBitmap);
+                        _image_foto.setRotation(90);
+                    }else{
+                         newBitmap = redimensionarImagenMaximo(bitmap, bitmap .getHeight()/3,bitmap .getWidth()/3);
+                        Log.e(TAG,"dos ");
+                        Log.e(TAG,"deco with "+ newBitmap .getWidth());
+                        Log.e(TAG,"deco height  "+newBitmap.getHeight());
+                        _image_foto.setImageBitmap(newBitmap);
+
+                    }
+
 
                     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                     bitmap.compress(Bitmap.CompressFormat.JPEG, 10, bytes);
@@ -422,10 +439,10 @@ public class FragmentMetaSelecionada extends Fragment {
                     e.printStackTrace();
                 }
 
-                _image_foto.setImageURI(data.getData());
+             /*   _image_foto.setImageURI(data.getData());
                 //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
-                _image_foto.setTag(data.getData());
-                imagen = ((BitmapDrawable) _image_foto.getDrawable()).getBitmap();
+                _image_foto.setTag(data.getData());*/
+
 
             }
         }
@@ -486,17 +503,11 @@ public class FragmentMetaSelecionada extends Fragment {
         }
     }
     public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
-        Log.e(TAG,"Ancho original Foto "+ mBitmap.getWidth());
-        Log.e(TAG,"Alto original Foto "+mBitmap.getHeight());
         //Redimensionamos
         int width = mBitmap.getWidth();
         int height = mBitmap.getHeight();
         float scaleWidth = ((float) newWidth) / width;
         float scaleHeight = ((float) newHeigth) / height;
-
-        Log.e(TAG,"Ancho nuevo "+ scaleWidth);
-        Log.e(TAG,"Alto nuevo "+scaleHeight);
-
         // create a matrix for the manipulation
         Matrix matrix = new Matrix();
         // resize the bit map
