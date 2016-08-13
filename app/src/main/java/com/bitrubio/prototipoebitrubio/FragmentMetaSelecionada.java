@@ -3,6 +3,7 @@ package com.bitrubio.prototipoebitrubio;
 import android.app.AlertDialog;
 import android.content.res.Resources;
 import android.graphics.Typeface;
+import android.media.ExifInterface;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
 
@@ -377,6 +378,7 @@ public class FragmentMetaSelecionada extends Fragment {
 
                 File destination = new File(Environment.getExternalStorageDirectory(),
                         System.currentTimeMillis() + ".jpg");
+
                 Log.e(TAG,"archivo foto  "+ destination);
                 FileOutputStream fo;
                 try {
@@ -405,7 +407,9 @@ public class FragmentMetaSelecionada extends Fragment {
                 Uri uri = data.getData();
 
                 Log.e(TAG,"uri"+uri);
+
                 try {
+
                     Bitmap newBitmap = null;
                     Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
                     Log.e(TAG,"galeria  ancho original Foto "+ bitmap .getWidth());
@@ -423,6 +427,7 @@ public class FragmentMetaSelecionada extends Fragment {
                         Log.e(TAG,"deco with "+ newBitmap .getWidth());
                         Log.e(TAG,"deco height  "+newBitmap.getHeight());
                         _image_foto.setImageBitmap(newBitmap);
+                        _image_foto.setRotation(90);
 
                     }
 

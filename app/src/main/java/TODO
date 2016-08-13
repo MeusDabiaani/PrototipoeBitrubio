@@ -44,3 +44,19 @@ YO
 
 xml -  row_campo_edit , layout_extra_seguros
 
+
+pendientes 13 de agosto
+
+cortar la cdena de texto de nombre de contactos
+revisar layout metas peso , encima boton sobre hprizontal picker
+no se ve botn slide para borrar amigos
+revisar marginBoton de tab_expertos , corta el texto de recycler view , tab_familiares , tab_amigos esta bien
+tab_expertos revisar margin_botton ,
+texto de hoy me siento se corta en el telefono de cristian
+back para salir de selecionar galeria es lento
+gira la imgane en el yo a la izquierda
+
+ya completar el perfl general con los datos de xml guardado
+nose ve el texto del boton de agragr expero en profile_expertos
+boton mi agenda se detiene la aplicacion
+se congela en ver perfil , recycler view
