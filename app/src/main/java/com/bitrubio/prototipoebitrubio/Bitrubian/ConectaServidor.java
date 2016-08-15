@@ -11,7 +11,7 @@ public class ConectaServidor  {
         super();
 
     }
-    public static String getUrl() {
+    public String getUrl() {
         return Url = "http://meustech.com/bitrubio/movil/";
     }
 }

@@ -98,9 +98,7 @@ public class FragmentMetaSelecionada extends Fragment {
     SessionManager session;
     public FragmentMetaSelecionada() {
     }
-    private static final String[] CONTENT_ORIENTATION = new String[] {
-            MediaStore.Images.ImageColumns.ORIENTATION
-    };
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
