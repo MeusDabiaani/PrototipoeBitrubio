@@ -72,6 +72,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 
 /**
  * Created by Orion on 27/04/2016.
+ * muestra el frgamento seleccionado desde las lista de metas
  */
 public class FragmentMetaSelecionada extends Fragment {
     private static final int ROTATION_DEGREES = 90;
@@ -379,28 +380,28 @@ public class FragmentMetaSelecionada extends Fragment {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-                ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+                if (thumbnail != null) {
+                    ByteArrayOutputStream bytes = new ByteArrayOutputStream();
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
-                File destination = new File(Environment.getExternalStorageDirectory(),
-                        System.currentTimeMillis() + ".jpg");
-                FileOutputStream fo;
-                try {
-                    destination.createNewFile();
-                    fo = new FileOutputStream(destination);
-                    fo.write(bytes.toByteArray());
-                    fo.close();
+                    File destination = new File(Environment.getExternalStorageDirectory(),
+                            System.currentTimeMillis() + ".jpg");
+                    FileOutputStream fo;
+                    try {
+                        destination.createNewFile();
+                        fo = new FileOutputStream(destination);
+                        fo.write(bytes.toByteArray());
+                        fo.close();
 
-                    byteArray = bytes.toByteArray();
-                    ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
-                    new uploadToServer().execute();
+                        byteArray = bytes.toByteArray();
+                        ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
+                        new uploadToServer().execute();
 
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    _image_foto.setImageBitmap(thumbnail);
                 }
-                _image_foto.setImageBitmap(thumbnail);
 
             }
         }
@@ -408,7 +409,7 @@ public class FragmentMetaSelecionada extends Fragment {
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
                 try {
-                    Bitmap newBitmap = null;
+                    Bitmap newBitmap ;
                     newBitmap =  new AjustaImagen(getActivity(),_image_foto,uri).ajustarSize50();
                     new AjustaImagen(getActivity(),_image_foto,uri).rotateImagen();
                     _image_foto.setImageBitmap(newBitmap);
@@ -436,7 +437,7 @@ public class FragmentMetaSelecionada extends Fragment {
         @Override
         protected String doInBackground(Void... params) {
 
-            ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+            ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
             nameValuePairs.add(new BasicNameValuePair("base64", ba1));
             nameValuePairs.add(new BasicNameValuePair("ImageName", "fotoMeta_" + idUsuario + ".jpg"));
             try {

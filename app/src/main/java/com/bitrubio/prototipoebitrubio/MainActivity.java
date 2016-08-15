@@ -266,7 +266,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         metasList.add(new Metas(2, R.drawable.ic_bienestar, "Bienestar"));
         metasList.add(new Metas(3, R.drawable.ic_enfermedad, "Enfermedad"));
         // arrayList MENSAJES
-        mensajeList = new ArrayList<Mensajes>();
+        mensajeList = new ArrayList<>();
         mensajeList.add(new Mensajes(1, "Roberto Martinez", "along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities", " 1 min", "4"));
         mensajeList.add(new Mensajes(2, "Alejandro Gonzales", "I tried a scaleType of fitCenter and centerCrop ", "1 hr", "2"));
         mensajeList.add(new Mensajes(3, "Vanessa Hernandez", "mensaje mensaje 3", "1.30 hr", "6"));
@@ -672,11 +672,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                guardarImagen(thumbnail);
-                guardarImagenLocal(thumbnail);
-                _image_foto.setImageBitmap(thumbnail);
+                if (thumbnail != null) {
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    guardarImagen(thumbnail);
+                    guardarImagenLocal(thumbnail);
+                    _image_foto.setImageBitmap(thumbnail);
+                }
             }
         }
         if (requestCode == 2) {
@@ -684,7 +686,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Uri uri= data.getData();
 
                 try {
-                    Bitmap newBitmap = null;
+                    Bitmap newBitmap ;
                     newBitmap =  new AjustaImagen(getBaseContext(),_image_foto,uri).ajustarSize50();
                     new AjustaImagen(getBaseContext(),_image_foto,uri).rotateImagen();
                     _image_foto.setImageURI(data.getData());
@@ -707,12 +709,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                guardarImagenFondo(thumbnail);
-                imgFondo.setImageBitmap(thumbnail);
-                imgFondoNueva.setImageBitmap(thumbnail);
-
+                if (thumbnail != null) {
+                    ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                    thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, stream);
+                    guardarImagenFondo(thumbnail);
+                    imgFondo.setImageBitmap(thumbnail);
+                    imgFondoNueva.setImageBitmap(thumbnail);
+                }
             }
         }
         if (requestCode == 4) {
@@ -738,16 +741,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byteArray = stream.toByteArray();
-        File destination = new File(Environment.getExternalStorageDirectory(), "imagenFondo.jpg");
-        FileOutputStream outputStream;
+
         try {
-            destination.createNewFile();
+            File destination = new File(Environment.getExternalStorageDirectory(), "imagenFondo.jpg");
+            FileOutputStream outputStream;
+            //destination.createNewFile();
             outputStream = new FileOutputStream(destination);
             outputStream.write(byteArray);
             outputStream.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
+
         } catch (IOException e2) {
             e2.printStackTrace();
         }
@@ -770,17 +773,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // gurda la imagen en Sdcard local
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        File destination = new File(Environment.getExternalStorageDirectory(), "imagen.jpg");
-        FileOutputStream fo;
+
         try {
+            File destination = new File(Environment.getExternalStorageDirectory(), "imagen.jpg");
+            FileOutputStream fo;
             //guardamos la imagen en el telefono
-            destination.createNewFile();
+            //destination.createNewFile();
             fo = new FileOutputStream(destination);
             fo.write(bytes.toByteArray());
             fo.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -1019,8 +1021,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mValue.setGravity(Gravity.BOTTOM | Gravity.CENTER);
                 mValue.setTextColor(getResources().getColor(R.color.textColorPrimary));
 
-                mValue.setText(metasList.get(metas).getTitulo().toString());
-
+                mValue.setText(metasList.get(metas).getTitulo());
                 childLayout.addView(mValue, 0);
                 childLayout.addView(bt_metas[metas], 0);
                 linearLayout.addView(childLayout);
@@ -1082,13 +1083,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ObjectAnimator flip = ObjectAnimator.ofFloat(_txtSiento, "rotationX", 0f, 360f);
             flip.setDuration(1300);
             flip.start();
-        } else {
+        } /*else {
             dirX = true;
-
             ObjectAnimator flip = ObjectAnimator.ofFloat(_txtSiento, "rotationX", 360f, 0f);
             flip.setDuration(1300);
             flip.start();
-        }
+        }*/
 
     }
 
