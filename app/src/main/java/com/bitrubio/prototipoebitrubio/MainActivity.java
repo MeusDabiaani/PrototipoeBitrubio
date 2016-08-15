@@ -3,6 +3,7 @@ package com.bitrubio.prototipoebitrubio;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -69,6 +70,7 @@ import com.bitrubio.prototipoebitrubio.MenuLateral.Premium;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Promociones;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Tarjeta;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
+import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.squareup.picasso.Picasso;
 
@@ -679,15 +681,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (requestCode == 2) {
             if (resultCode == RESULT_OK) {
+                Uri uri= data.getData();
+
+                try {
+                    Bitmap newBitmap = null;
+                    newBitmap =  new AjustaImagen(getBaseContext(),_image_foto,uri).ajustarSize50();
+                    new AjustaImagen(getBaseContext(),_image_foto,uri).rotateImagen();
+                    _image_foto.setImageURI(data.getData());
+                    //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
+                    _image_foto.setImageBitmap(newBitmap);
+                    //Bitmap imagen = ((BitmapDrawable) _image_foto.getDrawable()).getBitmap();
+                    //guardar imagen en el servidor
+                    guardarImagen(newBitmap);
+                    guardarImagenLocal(newBitmap);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
 
 
-                _image_foto.setImageURI(data.getData());
-                //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
-                _image_foto.setTag(data.getData());
-                Bitmap imagen = ((BitmapDrawable) _image_foto.getDrawable()).getBitmap();
-                //guardar imagen en el servidor
-                guardarImagen(imagen);
-                guardarImagenLocal(imagen);
             }
 
         }
@@ -745,13 +756,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String guardarImagen(Bitmap imagen) {
         //Guarda la imagen en  el servidor
+        Log.e(TAG,"guarda imgen ");
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byteArray = stream.toByteArray();
         ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
-        subeImagenFondo = new AsyncTaskFondo(getBaseContext(), URL, ba1, idUsuario);
-        // new uploadToServer().execute();
-
+        subeImagenFondo = new AsyncTaskFondo(this, URL, ba1, idUsuario);
+        subeImagenFondo.execute();
         return null;
     }
 

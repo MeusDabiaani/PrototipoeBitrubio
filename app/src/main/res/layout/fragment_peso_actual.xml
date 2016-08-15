@@ -20,6 +20,7 @@
             android:text="@string/tiempo_meta"
             android:textColor="@color/textColorPrimary"
             android:textSize="16sp" />
+
         <com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton
             android:id="@+id/segmented"
             android:layout_width="190dp"
@@ -34,14 +35,14 @@
             app:gradientColorSelectedStart="@color/iron"
             app:strokeColor="@color/iron"
             app:strokeWidth="1dip"
-            app:textStyle="@style/TextViewStyleSegmentButton"/>
+            app:textStyle="@style/TextViewStyleSegmentButton" />
 
     </LinearLayout>
 
     <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
         android:layout_below="@id/lnr_segment"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
         android:orientation="vertical">
 
         <RelativeLayout
@@ -51,23 +52,28 @@
 
             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                 android:id="@+id/txt_peso_actual"
+                style="@style/MyTextViewAvenir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="@string/peso_actual"
-                style="@style/MyTextViewAvenir"/>
+                android:text="@string/peso_actual" />
+
             <ImageView
-                android:layout_below="@id/txt_peso_actual"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-50dp"
+                android:layout_below="@id/txt_peso_actual"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/bascula" />
 
             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
                 android:id="@+id/np1"
                 android:layout_width="155dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_peso_actual"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="45dp"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -75,10 +81,7 @@
                 android:textColor="@color/textColorhint"
                 android:textSize="35sp"
                 app:dividerSize="10dp"
-                app:sideItems="1"
-                android:layout_marginTop="40dp"
-                android:layout_below="@+id/txt_peso_actual"
-                android:layout_centerHorizontal="true" />
+                app:sideItems="1" />
         </RelativeLayout>
 
         <RelativeLayout
@@ -89,22 +92,28 @@
 
             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                 android:id="@+id/txt_peso_objetivo"
+                style="@style/MyTextViewAvenir"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:gravity="center"
-                android:text="@string/peso_objetivo"
-                style="@style/MyTextViewAvenir"/>
+                android:text="@string/peso_objetivo" />
+
             <ImageView
-                android:layout_below="@id/txt_peso_objetivo"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="-50dp"
+                android:layout_below="@id/txt_peso_objetivo"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/bascula" />
+
             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker
                 android:id="@+id/np2"
                 android:layout_width="155dp"
                 android:layout_height="wrap_content"
+                android:layout_below="@+id/txt_peso_objetivo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="55dp"
                 android:ellipsize="marquee"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
@@ -112,22 +121,24 @@
                 android:textColor="@color/textColorhint"
                 android:textSize="35sp"
                 app:dividerSize="10dp"
-                app:sideItems="1"
-                android:layout_marginTop="40dp"
-                android:layout_below="@+id/txt_peso_objetivo"
-                android:layout_centerHorizontal="true" />
+                app:sideItems="1" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/btn_aceptar"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginBottom="5dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+
+                android:background="@drawable/aceptar" />
         </RelativeLayout>
     </LinearLayout>
-
-
-    <ImageButton
-        android:id="@+id/btn_aceptar"
-        android:layout_width="56dp"
-        android:layout_height="56dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="30dp"
-        android:background="@drawable/aceptar" />
 
 
 </RelativeLayout>

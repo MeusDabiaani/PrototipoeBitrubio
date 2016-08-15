@@ -1,10 +1,14 @@
 package com.bitrubio.prototipoebitrubio;
 
+import android.annotation.TargetApi;
 import android.app.AlertDialog;
+import android.content.ContentResolver;
 import android.content.res.Resources;
+import android.database.Cursor;
 import android.graphics.Typeface;
 import android.media.ExifInterface;
 import android.net.Uri;
+import android.provider.DocumentsContract;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentTransaction;
@@ -39,6 +43,10 @@ import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaAgua;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaEjercicio;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaSueno;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentQuitarVicios;
+import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
+import com.bitrubio.prototipoebitrubio.Util.DocumentExifTransformation;
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Transformation;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -66,6 +74,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
  * Created by Orion on 27/04/2016.
  */
 public class FragmentMetaSelecionada extends Fragment {
+    private static final int ROTATION_DEGREES = 90;
     @Bind(R.id.image_foto)
     ImageView _image_foto;
 
@@ -89,7 +98,9 @@ public class FragmentMetaSelecionada extends Fragment {
     SessionManager session;
     public FragmentMetaSelecionada() {
     }
-
+    private static final String[] CONTENT_ORIENTATION = new String[] {
+            MediaStore.Images.ImageColumns.ORIENTATION
+    };
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, final Bundle savedInstanceState) {
@@ -99,13 +110,13 @@ public class FragmentMetaSelecionada extends Fragment {
         Log.w(TAG, "Clase selecionada : " + TAG);
         fragmentoSeleccionado = bundle.getInt("position", 0);
         tipoMeta = bundle.getInt("tipoMeta", 0);
-
         URL = servidor.getUrl()+URL;
         session = new SessionManager(getContext().getApplicationContext());
         session.checkLogin();
         // get user data from session
         HashMap<String, String> user = session.getUserDetails();
         idUsuario = user.get(SessionManager.KEY_IDUSER);
+
 
         Log.e(TAG,"url"+URL);
 
@@ -370,22 +381,15 @@ public class FragmentMetaSelecionada extends Fragment {
         if (requestCode == 1) {
             if (resultCode == RESULT_OK) {
                 Bitmap thumbnail = (Bitmap) data.getExtras().get("data");
-                Log.e(TAG,"Ancho original Foto "+ thumbnail.getWidth());
-                Log.e(TAG,"Alto original Foto "+thumbnail.getHeight());
-
                 ByteArrayOutputStream bytes = new ByteArrayOutputStream();
                 thumbnail.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
 
                 File destination = new File(Environment.getExternalStorageDirectory(),
                         System.currentTimeMillis() + ".jpg");
-
-                Log.e(TAG,"archivo foto  "+ destination);
                 FileOutputStream fo;
                 try {
-
                     destination.createNewFile();
                     fo = new FileOutputStream(destination);
-                    Log.e(TAG,"fo  : "+fo);
                     fo.write(bytes.toByteArray());
                     fo.close();
 
@@ -402,76 +406,25 @@ public class FragmentMetaSelecionada extends Fragment {
 
             }
         }
-        if (requestCode == 2) {
+        if (requestCode == 2) { // foto tomada de la galeria
             if (resultCode == RESULT_OK) {
                 Uri uri = data.getData();
-
-                Log.e(TAG,"uri"+uri);
-
                 try {
-
                     Bitmap newBitmap = null;
-                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), uri);
-                    Log.e(TAG,"galeria  ancho original Foto "+ bitmap .getWidth());
-                    Log.e(TAG,"galeria alto original Foto "+bitmap .getHeight());
-                    if( bitmap.getWidth() > bitmap.getHeight()){
-                         newBitmap = redimensionarImagenMaximo(bitmap,bitmap .getWidth()-(float) (bitmap .getWidth()*0.5), bitmap .getHeight()-(float) (bitmap .getHeight()*0.5));
-                        Log.e(TAG,"uno ");
-                        Log.e(TAG,"deco with "+ newBitmap .getWidth());
-                        Log.e(TAG,"deco height "+newBitmap.getHeight());
-                        _image_foto.setImageBitmap(newBitmap);
-                        _image_foto.setRotation(90);
-                    }else{
-                         newBitmap = redimensionarImagenMaximo(bitmap, bitmap .getHeight()/3,bitmap .getWidth()/3);
-                        Log.e(TAG,"dos ");
-                        Log.e(TAG,"deco with "+ newBitmap .getWidth());
-                        Log.e(TAG,"deco height  "+newBitmap.getHeight());
-                        _image_foto.setImageBitmap(newBitmap);
-                        _image_foto.setRotation(90);
-
-                    }
-
-
+                    newBitmap =  new AjustaImagen(getActivity(),_image_foto,uri).ajustarSize50();
+                    new AjustaImagen(getActivity(),_image_foto,uri).rotateImagen();
+                    _image_foto.setImageBitmap(newBitmap);
                     ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 10, bytes);
-                  //  bitmap = Bitmap.createScaledBitmap(bitmap, 100, 100, false);//This is only if u want to set the image size.
+                    newBitmap.compress(Bitmap.CompressFormat.JPEG, 10, bytes);
                     byteArray = bytes.toByteArray();
                     ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
                     new uploadToServer().execute();
-
-                   // guardarImagen(bitmap);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-
-             /*   _image_foto.setImageURI(data.getData());
-                //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
-                _image_foto.setTag(data.getData());*/
-
-
             }
         }
 
-    }
-    private String guardarImagen(Bitmap imagen) {
-
-        ByteArrayOutputStream stream = new ByteArrayOutputStream();
-        imagen.compress(Bitmap.CompressFormat.JPEG, 90, stream);
-        byteArray = stream.toByteArray();
-        ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
-        new uploadToServer().execute();
-
-        try {
-            FileOutputStream outputStream = getActivity().getApplicationContext().openFileOutput("imagen.png", Context.MODE_PRIVATE);
-            outputStream.write(byteArray);
-            outputStream.close();
-
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e2) {
-            e2.printStackTrace();
-        }
-        return null;
     }
 
     public class uploadToServer extends AsyncTask<Void, Void, String> {
@@ -484,9 +437,7 @@ public class FragmentMetaSelecionada extends Fragment {
 
         @Override
         protected String doInBackground(Void... params) {
-            Log.e(TAG,"Url  "+URL);
 
-            Log.e(TAG,"rutaGuardada  "+" fotoMeta_" + idUsuario + ".jpg");
             ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
             nameValuePairs.add(new BasicNameValuePair("base64", ba1));
             nameValuePairs.add(new BasicNameValuePair("ImageName", "fotoMeta_" + idUsuario + ".jpg"));
@@ -496,6 +447,7 @@ public class FragmentMetaSelecionada extends Fragment {
                 httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
                 HttpResponse response = httpclient.execute(httppost);
                 String st = EntityUtils.toString(response.getEntity());
+                Log.e(TAG,"st " +st );
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -507,18 +459,4 @@ public class FragmentMetaSelecionada extends Fragment {
             pd.dismiss();
         }
     }
-    public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
-        //Redimensionamos
-        int width = mBitmap.getWidth();
-        int height = mBitmap.getHeight();
-        float scaleWidth = ((float) newWidth) / width;
-        float scaleHeight = ((float) newHeigth) / height;
-        // create a matrix for the manipulation
-        Matrix matrix = new Matrix();
-        // resize the bit map
-        matrix.postScale(scaleWidth, scaleHeight);
-        // recreate the new Bitmap
-        return Bitmap.createBitmap(mBitmap, 0, 0, width, height, matrix, false);
-    }
-
 }

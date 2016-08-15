@@ -28,13 +28,14 @@
 
             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                 android:id="@+id/txt_siento"
-                android:layout_width="160dp"
+                android:layout_width="wrap_content"
                 android:layout_height="32dp"
                 android:layout_marginRight="24dp"
                 android:background="@drawable/btn_transparente_borde_blanco"
                 android:clickable="true"
                 android:gravity="center"
-                android:padding="2dp"
+                android:paddingLeft="4dp"
+                android:paddingRight="4dp"
                 android:text="Hoy me siento.."
                 android:textColor="@color/white"
                 android:textSize="16sp"

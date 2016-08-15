@@ -40,8 +40,8 @@
             android:layout_marginLeft="2dp"
             android:layout_centerVertical="true"
             android:src="@drawable/foto_alimentos"
+            android:rotation="@null"
             app:border_color="@color/white"
-            android:padding="0dp"
             app:border_width="1dp" />
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -94,7 +94,7 @@
             android:id="@+id/pager_detalle_metas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="0.5"
+            android:layout_weight="1"
             android:background="@color/white"
             android:textAllCaps="false">
 
