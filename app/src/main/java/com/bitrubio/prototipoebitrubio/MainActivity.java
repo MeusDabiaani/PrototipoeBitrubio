@@ -481,7 +481,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 horizontalScrollView.scrollTo(300, 0);
             }
         });
-
+/*
         waitTimer = new CountDownTimer(90000, 4000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -494,7 +494,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             }
-        }.start();
+        }.start();*/
 
     }
 

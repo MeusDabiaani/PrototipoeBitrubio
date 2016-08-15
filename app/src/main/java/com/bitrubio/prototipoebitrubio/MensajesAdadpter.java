@@ -89,7 +89,7 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
         Log.e(TAG,"id"+data.get(position).getIdContacto());
         String ruta = UrlServer+"fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
 
-        Picasso.with(context).load(ruta).error(R.drawable.ic_sin_foto).into(holder.getImgUser());
+        Picasso.with(context).load(ruta).error(R.drawable.ic_sin_foto).resize(90,90).into(holder.getImgUser());
         final String _idContacto;
         _idContacto = registros.getIdContacto();
         holder.getTxt_personName().setText(registros.getNommbre());
