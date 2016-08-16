@@ -33,6 +33,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
@@ -82,10 +83,15 @@ public class FragmentMetaSelecionada extends Fragment {
     @Bind(R.id.btn_foto)
     ImageView _btn_foto;
 
+/*    @Bind(R.id.edit_nomMeta)
+    EditText edit_nomMeta;*/
+
+    String stNombreMeta;
+
     public byte[] byteArray;
     String ba1;
     ConectaServidor servidor ;
-    public static String URL = "subeFoto.php";
+    public  String URL = "subeFoto.php";
     String idUsuario;
     private String TAG = getClass().getSimpleName();
     ProgressDialog pd;
@@ -109,6 +115,7 @@ public class FragmentMetaSelecionada extends Fragment {
         Log.w(TAG, "Clase selecionada : " + TAG);
         fragmentoSeleccionado = bundle.getInt("position", 0);
         tipoMeta = bundle.getInt("tipoMeta", 0);
+        servidor = new ConectaServidor();
         URL = servidor.getUrl()+URL;
         session = new SessionManager(getContext().getApplicationContext());
         session.checkLogin();
@@ -134,9 +141,14 @@ public class FragmentMetaSelecionada extends Fragment {
         mTitle.setTypeface(tf);
         ButterKnife.bind(this, view);
 
+
+
+
+
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
 
         if (savedInstanceState == null) {
+            final Bundle args = new Bundle();
             if (fragmentoSeleccionado == 1) {
                 mTitle.setText(R.string.peso);
                 mTitle.setBackgroundColor(getResources().getColor(R.color.letraVerde1));

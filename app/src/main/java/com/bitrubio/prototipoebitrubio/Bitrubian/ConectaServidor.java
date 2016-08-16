@@ -7,10 +7,7 @@ package com.bitrubio.prototipoebitrubio.Bitrubian;
 public class ConectaServidor  {
 
     static String Url;
-    public ConectaServidor() {
-        super();
 
-    }
     public String getUrl() {
         return Url = "http://meustech.com/bitrubio/movil/";
     }

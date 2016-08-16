@@ -9,7 +9,8 @@ public class GlobalMetaPeso {
 
     private static GlobalMetaPeso instance;
 
-
+    private String nombre;
+    private int idfoto;
     private int tipoMeta;
     private int pesoActual;
     private int pesoObjetivo;
@@ -26,6 +27,21 @@ public class GlobalMetaPeso {
         GlobalMetaPeso.instance = intance;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public int getIdfoto() {
+        return idfoto;
+    }
+
+    public void setIdfoto(int idfoto) {
+        this.idfoto = idfoto;
+    }
 
     public StringBuilder getRetaAmigos() {
         return retaAmigos;

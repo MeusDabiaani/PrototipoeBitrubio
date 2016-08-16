@@ -42,7 +42,6 @@ public class AsyncTaskFondo extends AsyncTask<Void, Void, String> {
         this.URL= url;
         this.base64 = ba1;
         this.idUsuario = idUser;
-
     }
 
     protected void onPreExecute() {
@@ -64,7 +63,6 @@ public class AsyncTaskFondo extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        servidor = new ConectaServidor();
         ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
         nameValuePairs.add(new BasicNameValuePair("base64", base64));
         nameValuePairs.add(new BasicNameValuePair("ImageName", idUsuario + ".jpg"));

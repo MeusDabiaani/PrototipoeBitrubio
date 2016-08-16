@@ -13,8 +13,6 @@
         android:layout_height="110dp"
         android:background="@color/letraVerde1"
         android:orientation="horizontal">
-
-
         <LinearLayout
             android:layout_marginTop="80dp"
             android:layout_width="match_parent"
@@ -30,7 +28,7 @@
         android:id="@+id/relativeLayout2"
         android:layout_width="110dp"
         android:layout_height="110dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="30dp"
         android:paddingLeft="10dp">
 
         <de.hdodenhof.circleimageview.CircleImageView
@@ -54,36 +52,6 @@
             android:background="@drawable/ic_subir_foto" />
 
     </RelativeLayout>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/fondo_bity"
-        android:layout_centerHorizontal="true"
-        android:gravity="center"
-        android:orientation="horizontal">
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center">
-
-            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
-                android:id="@+id/edit_nomMeta"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="16sp"
-                android:layout_centerHorizontal="true"
-                android:hint="@string/nombra_tu_meta"
-                android:textColorHint="@color/textColorhint"
-                app:font="avenir-light.ttf"
-                android:textStyle="italic">
-
-            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir>
-        </RelativeLayout>
-    </LinearLayout>
-
-
     <RelativeLayout
         android:id="@+id/fragment_detalle_metas"
         android:layout_width="match_parent"

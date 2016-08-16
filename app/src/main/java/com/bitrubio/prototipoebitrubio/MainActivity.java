@@ -271,6 +271,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
+        new AsyntasckMensajes().execute();
         seccionBotones();
         //busca foto deafault
         File fileSDcard = Environment.getExternalStorageDirectory();
@@ -466,7 +467,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 horizontalScrollView.scrollTo(300, 0);
             }
         });
-        waitTimer = new CountDownTimer(90000, 4000) {
+
+
+       /* waitTimer = new CountDownTimer(90000, 4000) {
             @Override
             public void onTick(long millisUntilFinished) {
 
@@ -478,10 +481,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             }
-        }.start();
+        }.start();*/
 
     }
-
 
     public void linksApp(NavigationView nvgView) {
 
@@ -673,10 +675,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Bitmap newBitmap;
                     newBitmap = new AjustaImagen(getBaseContext(), _image_foto, uri).ajustarSize50();
                     new AjustaImagen(getBaseContext(), _image_foto, uri).rotateImagen();
-                    _image_foto.setImageURI(data.getData());
+                    Log.e(TAG,"newBitmap"+ newBitmap);
+                    //_image_foto.setImageURI(data.getData());
                     //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
                     _image_foto.setImageBitmap(newBitmap);
-                    //Bitmap imagen = ((BitmapDrawable) _image_foto.getDrawable()).getBitmap();
                     //guardar imagen en el servidor
                     guardarImagen(newBitmap);
                     guardarImagenLocal(newBitmap);
@@ -757,12 +759,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         // gurda la imagen en Sdcard local
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
+        Log.e(TAG,"guarda Imagen Local");
 
         try {
             File destination = new File(Environment.getExternalStorageDirectory(), "imagen.jpg");
             FileOutputStream fo;
             //guardamos la imagen en el telefono
-            //destination.createNewFile();
+            destination.createNewFile();
             fo = new FileOutputStream(destination);
             fo.write(bytes.toByteArray());
             fo.close();
@@ -820,19 +823,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 findViewById(R.id.action_helpBeety).setVisibility(View.VISIBLE);
                 imgFondoNueva.setBackground(null);
                 mContainerView.addView(oldView);
-
-
+/*
                 newView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         Log.d(TAG, "onTouch  " + "");
-                      /*  if (newView!=null) {
+                      *//*  if (newView!=null) {
                             mContainerView.removeView(newView);
                             return true;
-                        }*/
+                        }*//*
                         return false;
                     }
-                });
+                });*/
 
             }
         });
@@ -895,8 +897,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _txtSiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // new AsyntasckMensajes().execute();
-                // showEditDialog();
+
+                 showEditDialog();
             }
         });
         lnr_miPerfil.setOnClickListener(new View.OnClickListener() {
@@ -1066,12 +1068,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             ObjectAnimator flip = ObjectAnimator.ofFloat(_txtSiento, "rotationX", 0f, 360f);
             flip.setDuration(1300);
             flip.start();
-        } /*else {
+        } else {
             dirX = true;
             ObjectAnimator flip = ObjectAnimator.ofFloat(_txtSiento, "rotationX", 360f, 0f);
             flip.setDuration(1300);
             flip.start();
-        }*/
+        }
 
     }
 
@@ -1086,12 +1088,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        new AsyntasckMensajes().execute();
-
-    }
 
     class AsyntasckMensajes extends AsyncTask<String, Void, MensajesAdadpter> {
         ProgressDialog progressDialog;
@@ -1101,7 +1097,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             super.onPreExecute();
             progressDialog = new ProgressDialog(MainActivity.this, R.style.AppTheme_Dark_Dialog);
             progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-            progressDialog.setMessage("");
+            progressDialog.setMessage("cargando datos..");
             progressDialog.setProgress(0);
             progressDialog.setMax(100);
             progressDialog.show();
