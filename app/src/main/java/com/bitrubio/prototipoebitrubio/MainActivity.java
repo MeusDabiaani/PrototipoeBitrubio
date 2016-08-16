@@ -3,9 +3,9 @@ package com.bitrubio.prototipoebitrubio;
 import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
@@ -14,6 +14,7 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
@@ -76,7 +77,6 @@ import com.squareup.picasso.Picasso;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -265,28 +265,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         metasList.add(new Metas(1, R.drawable.ic_fisico, "Salud"));
         metasList.add(new Metas(2, R.drawable.ic_bienestar, "Bienestar"));
         metasList.add(new Metas(3, R.drawable.ic_enfermedad, "Enfermedad"));
-        // arrayList MENSAJES
-        mensajeList = new ArrayList<>();
-        mensajeList.add(new Mensajes(1, "Roberto Martinez", "along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities", " 1 min", "4"));
-        mensajeList.add(new Mensajes(2, "Alejandro Gonzales", "I tried a scaleType of fitCenter and centerCrop ", "1 hr", "2"));
-        mensajeList.add(new Mensajes(3, "Vanessa Hernandez", "mensaje mensaje 3", "1.30 hr", "6"));
-        mensajeList.add(new Mensajes(4, "Sara Reyes", "I tried a scaleType ", "1 mes", "5"));
-        mensajeList.add(new Mensajes(5, "Gustavo Lopez", "Lorem ipsum dolor sit amet, augue enim velit fusce vivamus, aliquam viverra a vestibulum tempus orci, pellentesque vitae luctus quis a amet. Elit elit euismod elementum. Vitae etiam amet ultricies. Lacinia nec quam lectus blandit. Leo dictum nascetur aliquam est. Nec eros lectus lacinia, proin sagittis montes suspendisse est, fuga maecenas, nulla quis sit eu. Occaecat non amet elit diam, lorem diam mauris, donec sit sodales laoreet in tellus, mattis aliquam id, adipiscing metus. Lectus dictum fusce massa morbi, vestibulum at pede sed ut id, cras viverra, libero at aenean quis eget. Id ullamcorper, ipsum eget erat felis faucibus etiam habitasse. ", "28 dias", "4"));
-        mensajeList.add(new Mensajes(6, "Erik Garcia", "mensaje mensaje mensaje 6", "2 semanas", "12"));
-        mensajeList.add(new Mensajes(7, "Alberto Chavez", "mensaje mensaje mensaje 7", "8 dias", "13"));
-
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_home);
         mRecyclerView.setHasFixedSize(true);
 
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
-        mAdapter = new MensajesAdadpter(mensajeList, this);
-        mAdapter.setHasStableIds(true);
-        mRecyclerView.setAdapter(mAdapter);
-
         seccionBotones();
-        // showEditDialog();
         //busca foto deafault
         File fileSDcard = Environment.getExternalStorageDirectory();
         File fileFotoPerfil = new File(fileSDcard, "imagen.jpg");
@@ -366,7 +351,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         } else if (items[position].text.equals("Seleccionar de tu galería")) {
 
-                            Intent intent ;
+                            Intent intent;
                             if (Build.VERSION.SDK_INT < 19) {
                                 // android jelly bean 4.3
                                 intent = new Intent();
@@ -405,10 +390,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                         } else if (items[position].text.equals("Seleccionar de tu galería")) {
                             Log.e(TAG, "item-2 CLICK " + items[position]);
-                            Intent intent ;
+                            Intent intent;
                             if (Build.VERSION.SDK_INT < 19) {
                                 // android jelly bean 4.3
-                               intent = new Intent();
+                                intent = new Intent();
                                 intent.setAction(Intent.ACTION_GET_CONTENT);
                             } else {
                                 // andoid 4.4 o superioir
@@ -481,7 +466,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 horizontalScrollView.scrollTo(300, 0);
             }
         });
-/*
         waitTimer = new CountDownTimer(90000, 4000) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -494,7 +478,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
             }
-        }.start();*/
+        }.start();
 
     }
 
@@ -683,12 +667,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         if (requestCode == 2) {
             if (resultCode == RESULT_OK) {
-                Uri uri= data.getData();
+                Uri uri = data.getData();
 
                 try {
-                    Bitmap newBitmap ;
-                    newBitmap =  new AjustaImagen(getBaseContext(),_image_foto,uri).ajustarSize50();
-                    new AjustaImagen(getBaseContext(),_image_foto,uri).rotateImagen();
+                    Bitmap newBitmap;
+                    newBitmap = new AjustaImagen(getBaseContext(), _image_foto, uri).ajustarSize50();
+                    new AjustaImagen(getBaseContext(), _image_foto, uri).rotateImagen();
                     _image_foto.setImageURI(data.getData());
                     //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
                     _image_foto.setImageBitmap(newBitmap);
@@ -759,7 +743,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private String guardarImagen(Bitmap imagen) {
         //Guarda la imagen en  el servidor
-        Log.e(TAG,"guarda imgen ");
+        Log.e(TAG, "guarda imgen ");
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byteArray = stream.toByteArray();
@@ -838,8 +822,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mContainerView.addView(oldView);
 
 
-
-                newView.setOnTouchListener( new View.OnTouchListener(){
+                newView.setOnTouchListener(new View.OnTouchListener() {
                     @Override
                     public boolean onTouch(View v, MotionEvent event) {
                         Log.d(TAG, "onTouch  " + "");
@@ -912,8 +895,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _txtSiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                showEditDialog();
+                // new AsyntasckMensajes().execute();
+                // showEditDialog();
             }
         });
         lnr_miPerfil.setOnClickListener(new View.OnClickListener() {
@@ -1005,10 +988,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
                 int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 75, getResources().getDisplayMetrics());
                 bt_metas[metas].setLayoutParams(new LinearLayout.LayoutParams(width, height, Gravity.CENTER_HORIZONTAL));
-                if (metasList.get(metas).getId() < 0){
+                if (metasList.get(metas).getId() < 0) {
                     bt_metas[metas].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_circle_white));
                     bt_metas[metas].setImageResource(metasList.get(metas).getImagen());
-                }else{
+                } else {
                     bt_metas[metas].setBackgroundDrawable(getResources().getDrawable(metasList.get(metas).getImagen()));
                 }
                 bt_metas[metas].setId(metasList.get(metas).getId());
@@ -1101,5 +1084,53 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     void onItemsLoadComplete() {
         mSwipeRefreshLayout.setRefreshing(false);
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        new AsyntasckMensajes().execute();
+
+    }
+
+    class AsyntasckMensajes extends AsyncTask<String, Void, MensajesAdadpter> {
+        ProgressDialog progressDialog;
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+            progressDialog = new ProgressDialog(MainActivity.this, R.style.AppTheme_Dark_Dialog);
+            progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+            progressDialog.setMessage("");
+            progressDialog.setProgress(0);
+            progressDialog.setMax(100);
+            progressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(MensajesAdadpter s) {
+            super.onPostExecute(s);
+            progressDialog.hide();
+            progressDialog.dismiss();
+        }
+
+        @Override
+        protected MensajesAdadpter doInBackground(String... params) {
+            mensajeList = new ArrayList<>();
+            mensajeList.add(new Mensajes(1, "Roberto Martinez", "along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities", " 1 min", "4"));
+            mensajeList.add(new Mensajes(2, "Alejandro Gonzales", "I tried a scaleType of fitCenter and centerCrop ", "1 hr", "2"));
+            mensajeList.add(new Mensajes(3, "Vanessa Hernandez", "mensaje mensaje 3", "1.30 hr", "6"));
+            mensajeList.add(new Mensajes(4, "Sara Reyes", "I tried a scaleType ", "1 mes", "5"));
+            mensajeList.add(new Mensajes(5, "Gustavo Lopez", "Lorem ipsum dolor sit amet, augue enim velit fusce vivamus, aliquam viverra a vestibulum tempus orci, pellentesque vitae luctus quis a amet. Elit elit euismod elementum. Vitae etiam amet ultricies. Lacinia nec quam lectus blandit. Leo dictum nascetur aliquam est. Nec eros lectus lacinia, proin sagittis montes suspendisse est, fuga maecenas, nulla quis sit eu. Occaecat non amet elit diam, lorem diam mauris, donec sit sodales laoreet in tellus, mattis aliquam id, adipiscing metus. Lectus dictum fusce massa morbi, vestibulum at pede sed ut id, cras viverra, libero at aenean quis eget. Id ullamcorper, ipsum eget erat felis faucibus etiam habitasse. ", "28 dias", "4"));
+            mensajeList.add(new Mensajes(6, "Erik Garcia", "mensaje mensaje mensaje 6", "2 semanas", "12"));
+            mensajeList.add(new Mensajes(7, "Alberto Chavez", "mensaje mensaje mensaje 7", "8 dias", "13"));
+            mAdapter = new MensajesAdadpter(mensajeList, getBaseContext());
+            mAdapter.setHasStableIds(true);
+
+            mRecyclerView.setAdapter(mAdapter);
+
+
+            return mAdapter;
+        }
     }
 }
