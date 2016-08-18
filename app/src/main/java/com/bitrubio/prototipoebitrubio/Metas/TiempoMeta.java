@@ -81,8 +81,7 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
             // First button is selected
             buttons.setPushedButtonIndex(0);
         }
-        // Some example click handlers. Note the click won't get executed
-        // if the segmented button is already selected (dark blue)
+
         buttons.setOnClickListener(new SegmentedButton.OnClickListenerSegmentedButton() {
             @Override
             public void onClick(int index) {

@@ -34,6 +34,10 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 29/02/2016.
+ * Muestras los tabs con las seciones:
+ * completar el perfil medico del ususario
+ * lista de consulta medicas
+ * lista de parametros para parametros de busqueda de expertos o medicos
  */
 public class CompletaPerfilActivity extends AppCompatActivity{
     private ViewPager pager;
@@ -82,7 +86,7 @@ public class CompletaPerfilActivity extends AppCompatActivity{
         tabs.setupWithViewPager(pager);
         tabs.setTabTextColors(getResources().getColor(R.color.textColorPrimary),getResources().getColor(R.color.colorAccent));
         tabs.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
-
+        // set typografia en el texto de los tabs
         ViewGroup vg = (ViewGroup) tabs.getChildAt(0);
         int tabsCount = vg.getChildCount();
         for (int j = 0; j < tabsCount; j++) {
@@ -111,10 +115,7 @@ public class CompletaPerfilActivity extends AppCompatActivity{
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
-  /*      if (id == R.id.action_helpBeety) {
-            findViewById(R.id.action_helpBeety).setVisibility(View.GONE);
-        }*/
+
         return super.onOptionsItemSelected(item);
     }
 

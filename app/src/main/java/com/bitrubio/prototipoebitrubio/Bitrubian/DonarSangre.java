@@ -24,6 +24,11 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+/**
+ * Created by Orion on 04/07/2016.
+ * clase para mostrar la ubicacion de los cemtros de donacion
+ */
+//TODO hay que hacer el backend para poder localizar los centros de donacion de sangre
 public class DonarSangre extends FragmentActivity implements OnMapReadyCallback,LocationListener,GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
 
     LocationRequest mLocationRequest;

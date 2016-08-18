@@ -2,26 +2,21 @@ package com.bitrubio.prototipoebitrubio.Metas;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.nfc.Tag;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.AmigosAdapter;
-import com.bitrubio.prototipoebitrubio.Bitrubian.ComentarioActivity;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileActivity;
 import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
 import com.bitrubio.prototipoebitrubio.FragmentMetaSelecionada;
@@ -135,7 +130,7 @@ public class Tab_Bitrubians extends Fragment {
                     Comunidad planet = listAmigos.getItem(i);
                     if (planet.isChecked())
                     {
-                        stringBuilder.append(comunidadList.get(i).getId()+",");
+                        stringBuilder.append(comunidadList.get(i).getId());
 
                     }
                 }

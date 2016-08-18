@@ -9,11 +9,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * Created by Orion on 29/07/2016.

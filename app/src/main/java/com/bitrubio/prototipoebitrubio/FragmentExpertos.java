@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Experto;
+import com.bitrubio.prototipoebitrubio.Entidades.Experto;
 
 import java.util.ArrayList;
 

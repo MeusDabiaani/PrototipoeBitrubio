@@ -168,6 +168,7 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
                             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
@@ -180,11 +181,16 @@
                                 android:text="@string/reta_amigos"
                                 android:textColor="@color/textColorPrimary" />
 
-                            <ImageView
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                                 android:id="@+id/img_reta"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/flecha_derecha" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/flecha_derecha"
+                                style="@style/MyTextViewAvenir"
+                                android:textColor="@color/letraVerde1"
+                                />
+
+
                         </LinearLayout>
                         <LinearLayout
                             android:id="@+id/lnr_img_reta"
@@ -219,11 +225,13 @@
                                 android:text="@string/armar_equipo"
                                 android:textColor="@color/textColorPrimary" />
 
-                            <ImageView
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                                 android:id="@+id/img_apoyo"
-                                android:layout_width="30dp"
-                                android:layout_height="30dp"
-                                android:src="@drawable/flecha_derecha" />
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/flecha_derecha"
+                                style="@style/MyTextViewAvenir"
+                                android:textColor="@color/letraVerde1"/>
 
                         </LinearLayout>
 

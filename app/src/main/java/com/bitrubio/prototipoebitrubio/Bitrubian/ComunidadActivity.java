@@ -56,6 +56,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 19/01/2016.
+ * Muetra la vista y tab de la seccion de comunidad
  */
 public class ComunidadActivity extends AppCompatActivity {
     String TAG = getClass().getSimpleName();

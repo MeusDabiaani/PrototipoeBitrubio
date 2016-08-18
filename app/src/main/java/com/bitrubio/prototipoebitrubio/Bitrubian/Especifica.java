@@ -16,7 +16,10 @@ import butterknife.Bind;
 
 /**
  * Created by Orion on 12/07/2016.
+ * agrega la vista para especificar el tipo de procedimiento medico necesita un bitrubian
  */
+
+//TODO hay que hacer una SearchView para buscar medicamentos Front y backend
 public class Especifica extends AppCompatActivity {
     Toolbar toolbar;
 

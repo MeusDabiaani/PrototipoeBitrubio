@@ -10,6 +10,7 @@ import com.bitrubio.prototipoebitrubio.Tab_datos_servicios;
 
 /**
  * Created by Orion on 27/06/2016.
+ * adaptadpr slide seccion farmacia
  */
 public class AdapterPagerFarmacia extends FragmentStatePagerAdapter{
     CharSequence Titles[];

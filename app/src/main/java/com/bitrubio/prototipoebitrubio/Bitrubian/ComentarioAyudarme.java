@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 import butterknife.Bind;
 /**
  * Created by Orion on 12/07/2016.
+ * crea la vista para agregar una vista de comentario el registro de subastas
  */
 public class ComentarioAyudarme extends AppCompatActivity {
     Toolbar toolbar;
@@ -30,7 +31,6 @@ public class ComentarioAyudarme extends AppCompatActivity {
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 onBackPressed();
             }
         });

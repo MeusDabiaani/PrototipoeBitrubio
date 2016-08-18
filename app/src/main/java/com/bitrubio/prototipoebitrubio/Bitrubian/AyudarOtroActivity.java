@@ -9,6 +9,7 @@ import com.bitrubio.prototipoebitrubio.R;
 
 /**
  * Created by Orion on 26/02/2016.
+ * esta clase debe solicitar ayuda para otro no bitrubian
  */
 public class AyudarOtroActivity extends AppCompatActivity {
     Toolbar toolbar;

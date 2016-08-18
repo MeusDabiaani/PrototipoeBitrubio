@@ -88,12 +88,16 @@ public class ServiciosActivity extends AppCompatActivity {
         String nameSession = user.get(SessionManager.KEY_NAME);
         String apeSession = user.get(SessionManager.KEY_APE);
         idUsuario = user.get(SessionManager.KEY_IDUSER);
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout_servicios);
         ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawer.setDrawerListener(toogle);
         toogle.syncState();
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         menuLateral();
+
         ImageView imagePerfil = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imagePerfil);
         TextView nombreSession = (TextView) navigationView.getHeaderView(0).findViewById(R.id.nombreSession);
         nombreSession.setText(nameSession + " " + apeSession);
@@ -105,6 +109,8 @@ public class ServiciosActivity extends AppCompatActivity {
 
             }
         });
+
+
         File fileSDcard = Environment.getExternalStorageDirectory();
         File fileFotoPerfil = new File(fileSDcard, "imagen.jpg");
         if (fileFotoPerfil.exists()) {

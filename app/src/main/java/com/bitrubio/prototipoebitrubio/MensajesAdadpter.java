@@ -107,8 +107,6 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
 
     }
 
-
-
     @Override
     public int getItemCount() {
         return data.size();

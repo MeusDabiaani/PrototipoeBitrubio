@@ -17,6 +17,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Orion on 04/07/2016.
+ * adaptador del recyclerView del carrito de compras
  */
 public class CarritoMedicamentoAdapter extends RecyclerView.Adapter<CarritoMedicamentoAdapter.ViewHolder> {
     private ArrayList<Medicamento> data;

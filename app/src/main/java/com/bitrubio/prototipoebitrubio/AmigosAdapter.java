@@ -1,24 +1,18 @@
 package com.bitrubio.prototipoebitrubio;
 
-import android.app.Activity;
 import android.content.Context;
-import android.nfc.Tag;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Created by Orion on 26/05/2016.

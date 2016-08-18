@@ -21,11 +21,11 @@ public class AdapterPagerDatos extends FragmentStatePagerAdapter {
     public Fragment getItem(int position) {
 
         switch (position) {
-            case 0:  //  TAB posicion 1 para todas las pantallas
+            case 0:  //  TAB completa perfil
                 return new Tab_datos_generales();
-            case 1: //  TAB posicion 2 para todas las pantallas
+            case 1: //  TAB consultas medicas
                 return new Tab_datos_medicos();
-            case 2: //  TAB posicion 2 para todas las pantallas
+            case 2: //  TAB paramtros de busqueda para expertos -  medicos
                 return new Tab_datos_servicios();
             default:
                 return new Tab_datos_generales();

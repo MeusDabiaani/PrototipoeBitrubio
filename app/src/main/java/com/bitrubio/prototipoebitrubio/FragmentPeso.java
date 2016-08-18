@@ -48,6 +48,7 @@ import org.json.JSONObject;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -99,10 +100,10 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     ImageButton _btn_cancelar;
 
     @Bind(R.id.img_reta)
-    ImageView imgReata;
+    TextView imgReta;
 
     @Bind(R.id.img_apoyo)
-    ImageView imgApoyo;
+    TextView imgApoyo;
 
     LinearLayout lnr_img_reta;
 
@@ -113,6 +114,7 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     int valuePeso, valueObjetivo, tiempoObjetivo;
     String tipoPeso, paramTiempo;
     StringBuilder stringBuilder;
+
     StringBuilder stringBuilderEquipo;
     String stNombreMeta;
 
@@ -123,6 +125,8 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     private String success;
     String TAG = getClass().getSimpleName();
     ArrayList<NameValuePair> arrayList;
+
+
 
     public FragmentPeso() {
 
@@ -146,6 +150,7 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
         final Bundle args = new Bundle();
 
         String nombre = args.getString("nombreMeta","");
+
         Log.e(TAG,"nombre Meta "+ nombre);
         if (globalMetaPeso != null) {
 
@@ -180,7 +185,9 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
                 _resp_tiempo.setText(tiempoObjetivo + " " + paramTiempo);
             }
             if (stringBuilder != null) {
-                _input_retaAmigos.setText("Reta lista! "+stringBuilder);
+
+                imgReta.setText(stringBuilder.length() + "Personas en tu reta ");
+
             }
             if (stringBuilderEquipo != null) {
                 _input_armaEquipo.setText("Equipo listo! "+stringBuilderEquipo);
@@ -190,7 +197,27 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
 
         }
         stNombreMeta = edit_nombreMeta.getText().toString();
+        imgReta.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
 
+                FragmentManager fm = getFragmentManager();
+                MuestraReta dialog = new MuestraReta();
+                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogTheme);
+                dialog.show(fm, "titulo");
+            }
+        });
+        imgApoyo.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                FragmentManager fm = getFragmentManager();
+                MuestraReta dialog = new MuestraReta();
+                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogTheme);
+                dialog.show(fm, "titulo");
+
+            }
+        });
         _input_pesoActual.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -279,22 +306,8 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
             }
         });
 
-        imgApoyo.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
 
-                FragmentManager fm = getFragmentManager();
-                MuestraReta dialog = new MuestraReta();
-                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogTheme);
-                dialog.show(fm, "titulo");
-            }
-        });
-        imgReata.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
 
-            }
-        });
         _btn_guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -54,10 +54,10 @@ import butterknife.ButterKnife;
  * Created by Orion on 29/02/2016.
  */
 public class Tab_datos_generales extends Fragment implements NumberPicker.OnValueChangeListener {
+
     private String TAG = getClass().getName();
     RelativeLayout lnr_seguro_vida;
     LinearLayout lnr_expand_generales, lnr_expand_fisicos, lnr_expand_seguros, lnr_expand_alergias, lnr_expand_embarazo, lnr_expand_segMedico, lnr_expandOtroSeguro, lnr_extraSeguro;
-
     LinearLayout lnr_header_generales, lnr_header_fisicos, lnr_header_seguros, lnr_header_alergias, lnr_header_embarazo, lnr_cirugias_previas;
     ValueAnimator mAnimator, mAnimatorFisico, mAnimatorSeguro, mAnimatorAlergias, manimatorEmbarazo, mAnimatorOtroSeguro;
 
@@ -239,13 +239,19 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
         layout = (ViewGroup) v.findViewById(R.id.completa_formulario);
         lnr_edit_peso = (LinearLayout) v.findViewById(R.id.lnr_edite_peso);
         perfilManager = new DatosPerfilManager(getContext());
+        // controla todos los elementos que se desplegan
         controlesDesplegables(v);
+        // controloa los toggle button de la seccion fisica
         toggleDatosFisicos(v);
+        // controla checkBox datos
         checkBoxDatosFisicos(v);
+        //inicializa todos los campos
         inicializarCampos(v);
+        // crea y agrega campos dinamicos
         agregarCampos(v);
+        // recupera la informacion guardada en el archivo de preferemcias
         leeArchivoPerfil(v);
-
+        // guarda los datos registrados por cada seccion
         guardaDatos();
         return v;
     }
@@ -284,10 +290,8 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
                 //   String tipoSanguineo = spinnerTipoSangreListener(v);
                 estatura = edit_estatura.getText().toString();
                 peso = edit_peso.getText().toString();
-
                 String vacunas = "viruela";
                 String cirugias = "cirugias";
-
                 perfilManager.insertDatosB(tipo_sanguineo, estatura, peso, sexualidad, vacunas, diabetes,
                         hipertension, cancer, otro_ant, String.valueOf(arrayPadecimientos), cirugias,
                         String.valueOf(arrayPadecimientosPrev), embarazada, semanas_emb, alergias, sustancias, ambientes, ejercicio, fuma, alcohol, drogas);
@@ -457,7 +461,7 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
             }
         });
     }
-
+     // muestra el dialog para peso y estatura  con el pikercon el layout que se requiera
     private void showDialog(String title, int dialog_layout, final TextView textViewSalida, final String stringSalida,
                             int maxValue, int minValue, int mediumValue, final String[] arreglo) {
 
@@ -498,7 +502,7 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
     @Override
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
     }
-
+    // muestra el picker con los tipos de sangre
     private void showMyPiker(int dialog_layout, final TextView textViewSalida, final String stringSalida, int minValue, final String[] arreglo) {
         final Dialog d = new Dialog(getActivity(), R.style.DialogTheme);
         d.setContentView(dialog_layout);
@@ -521,7 +525,7 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
         });
         d.show();
     }
-
+    // setea eñ color y la tipografia de la letra dentro del los number pickers
     public static boolean setNumberPickerTextColor(NumberPicker numberPicker, int color, Typeface tf, int textS) {
         final int count = numberPicker.getChildCount();
         for (int i = 0; i < count; i++) {
@@ -555,7 +559,7 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
         }
         return false;
     }
-
+        // setea el color que divide los picker
     private void setDividerColor(NumberPicker picker) {
         java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
         for (java.lang.reflect.Field pf : pickerFields) {
@@ -574,7 +578,7 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
             }
         }
     }
-
+// muestra el datepcker persolnalizado
     private void showDatePicker() {
         DatePickerFragment date = new DatePickerFragment();
         Calendar calender = Calendar.getInstance();
@@ -1669,7 +1673,7 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
         });
 
     }
-
+   //  expandir - contraer -  Valueanimator son usados para hacer despliegue de las secciones solo pasando el id de linearlayout que se quiere contraer.
     private void expandir(LinearLayout lnr) {
         //set Visible
         lnr.setVisibility(View.VISIBLE);

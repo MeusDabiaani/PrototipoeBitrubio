@@ -6,13 +6,8 @@ import android.annotation.SuppressLint;
 import android.annotation.TargetApi;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Typeface;
-import android.inputmethodservice.Keyboard;
 import android.os.Build;
-import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,15 +16,11 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
-import com.bitrubio.prototipoebitrubio.Bitrubian.ComunidadActivity;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 /**

@@ -9,6 +9,7 @@ import com.bitrubio.prototipoebitrubio.R;
 
 /**
  * Created by Orion on 26/02/2016.
+ * esta clase debe ejecutar la llamada de ayuda
  */
 public class AlertaLlamandoActivity extends AppCompatActivity{
     Toolbar toolbar;

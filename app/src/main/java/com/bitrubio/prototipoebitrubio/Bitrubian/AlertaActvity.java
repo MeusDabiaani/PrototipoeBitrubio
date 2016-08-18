@@ -20,11 +20,16 @@ import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.IntroActivity;
 import com.bitrubio.prototipoebitrubio.MainActivity;
+import com.bitrubio.prototipoebitrubio.MenuLateral.Ayuda;
+import com.bitrubio.prototipoebitrubio.MenuLateral.Premium;
+import com.bitrubio.prototipoebitrubio.MenuLateral.Promociones;
+import com.bitrubio.prototipoebitrubio.MenuLateral.Tarjeta;
 import com.bitrubio.prototipoebitrubio.R;
 import com.bitrubio.prototipoebitrubio.SignupActivity;
 import com.squareup.picasso.Picasso;
@@ -39,8 +44,9 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 20/01/2016.
+ * alerta
  */
-public class AlertaActvity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class AlertaActvity extends AppCompatActivity {
     Toolbar toolbar;
 
     @Bind(R.id.btn_cancel_alerta)
@@ -49,19 +55,30 @@ public class AlertaActvity extends AppCompatActivity implements NavigationView.O
     @Bind(R.id.btn_ayudar_otro)
     Button _btn_ayudar_otro;
 
-
     @Bind(R.id.txt_Alerta)
     TextView txt_time;
+
     CountDownTimer waitTimer;
     SessionManager session;
+
     Bitmap myBitmap = null;
     String idUsuario;
+
+
+
+    NavigationView navigationView;
+    DrawerLayout drawer;
+    LinearLayout lnr_premium, lnr_agenda, lnr_tarjeta, lnr_promociones, lnr_facturas, lnr_configuracion, lnr_ayuda;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_alerta);
-        session = new SessionManager(getApplicationContext());
+        session = new SessionManager(getBaseContext());
         toolbar=(Toolbar) findViewById(R.id.toolbar);
+        setTitle("");
+        toolbar.setNavigationIcon(R.drawable.ic_menu_new);
+        setSupportActionBar(toolbar);
         ButterKnife.bind(this);
 
         session.checkLogin();
@@ -86,15 +103,13 @@ public class AlertaActvity extends AppCompatActivity implements NavigationView.O
             }
         }.start();
 
-
-        setSupportActionBar(toolbar);
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-        navigationView.setNavigationItemSelectedListener(this);
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        menuLateral();
         ImageView imagePerfil = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imagePerfil);
         TextView nombreSession = (TextView) navigationView.getHeaderView(0).findViewById(R.id.nombreSession);
         nombreSession.setText(nameSession + " " + apeSession);
@@ -119,8 +134,6 @@ public class AlertaActvity extends AppCompatActivity implements NavigationView.O
                     .error(R.drawable.ic_sin_foto)
                     .into(imagePerfil);
         }
-        seccionBotones();
-
 
     }
 
@@ -153,47 +166,73 @@ public class AlertaActvity extends AppCompatActivity implements NavigationView.O
         }
         return super.onOptionsItemSelected(item);
     }
-    @SuppressWarnings("StatementWithEmptyBody")
-    @Override
-    public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
-        int id = item.getItemId();
 
-        if (id == R.id.nav_tarjeta) {
-            //Toast.makeText(this, "Actividad 1", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_promociones) {
-            //Toast.makeText(this,"Actividad 2",Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_ayuda) {
-            //Toast.makeText(this,"Actividad 3 ",Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_configuracion) {
-            //Toast.makeText(this,"Actividad 4",Toast.LENGTH_SHORT).show();
-        }
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        drawer.closeDrawer(GravityCompat.START);
-        item.setActionView(null);
-        return true;
-    }
-    public void seccionBotones(){
 
-        _btnCancelarAlerta1.setOnClickListener(new View.OnClickListener() {
+    //metodos para setear los titulos del navigationdrawer
+    public void menuLateral(){
+
+        lnr_premium = (LinearLayout) navigationView.findViewById(R.id.nav_premium);
+        lnr_agenda = (LinearLayout) navigationView.findViewById(R.id.nav_agenda);
+        lnr_tarjeta = (LinearLayout) navigationView.findViewById(R.id.nav_tarjeta);
+        lnr_facturas = (LinearLayout) navigationView.findViewById(R.id.nav_facturas);
+        lnr_promociones = (LinearLayout) navigationView.findViewById(R.id.nav_promociones);
+        lnr_configuracion = (LinearLayout) navigationView.findViewById(R.id.nav_configuracion);
+        lnr_ayuda = (LinearLayout) navigationView.findViewById(R.id.nav_ayuda);
+
+        lnr_premium.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-              //  Toast.makeText(getBaseContext(), "Cancelar Alarma", Toast.LENGTH_SHORT).show();
-                waitTimer.cancel();
-                Intent intent = new Intent(AlertaActvity.this,MainActivity.class);
-                startActivity(intent);
-
+                drawer.closeDrawers();
+                Intent intent_premium = new Intent(AlertaActvity.this, Premium.class);
+                intent_premium.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_premium);
             }
         });
-        _btn_ayudar_otro.setOnClickListener(new View.OnClickListener(){
+        lnr_agenda.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                waitTimer.cancel();
-                Intent intent = new Intent(AlertaActvity.this,AyudarOtroActivity.class);
-                startActivity(intent);
+                drawer.closeDrawers();
             }
         });
-
+        lnr_tarjeta.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawers();
+                Intent intent_tarjeta = new Intent(AlertaActvity.this, Tarjeta.class);
+                intent_tarjeta.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_tarjeta);
+            }
+        });
+        lnr_promociones.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawers();
+                Intent intent_promociones = new Intent(AlertaActvity.this, Promociones.class);
+                intent_promociones.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_promociones);
+            }
+        });
+        lnr_facturas.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawers();
+            }
+        });
+        lnr_configuracion.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawers();
+            }
+        });
+        lnr_ayuda.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                drawer.closeDrawers();
+                Intent intent_ayuda = new Intent(AlertaActvity.this, Ayuda.class);
+                intent_ayuda.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
+                startActivity(intent_ayuda);
+            }
+        });
     }
 
 }

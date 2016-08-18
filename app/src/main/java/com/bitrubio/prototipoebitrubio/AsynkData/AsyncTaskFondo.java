@@ -31,9 +31,7 @@ public class AsyncTaskFondo extends AsyncTask<Void, Void, String> {
     String TAG = getClass().getName();
     Activity context;
     ProgressDialog pDialog ;
-
     String URL;
-    ConectaServidor servidor;
     String base64;
     String idUsuario;
 
@@ -67,7 +65,7 @@ public class AsyncTaskFondo extends AsyncTask<Void, Void, String> {
         nameValuePairs.add(new BasicNameValuePair("base64", base64));
         nameValuePairs.add(new BasicNameValuePair("ImageName", idUsuario + ".jpg"));
 
-        Log.e(TAG, "URL " + URL);
+        Log.e(TAG, "url_fondo : " + URL);
         try {
 
             HttpClient httpclient = new DefaultHttpClient();

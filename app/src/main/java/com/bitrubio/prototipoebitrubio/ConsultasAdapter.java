@@ -3,12 +3,8 @@ package com.bitrubio.prototipoebitrubio;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v4.content.res.TypedArrayUtils;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +13,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Experto;
+import com.bitrubio.prototipoebitrubio.Entidades.Experto;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileExpertosActivity;
 import com.squareup.picasso.Picasso;
-
-import android.graphics.drawable.Drawable;
 
 import java.util.ArrayList;
 

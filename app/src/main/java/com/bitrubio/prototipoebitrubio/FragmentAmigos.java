@@ -14,9 +14,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ContactoAdapter;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
 
 import java.util.ArrayList;
 import java.util.List;

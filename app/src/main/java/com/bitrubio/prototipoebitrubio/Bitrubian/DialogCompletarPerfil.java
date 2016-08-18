@@ -17,6 +17,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 21/07/2016.
+ * Muetra el dialog con el aviso que debe completar el perfil medico
  */
 public class DialogCompletarPerfil extends DialogFragment{
     @Bind(R.id.btn_cancelarPop)
@@ -32,7 +33,7 @@ public class DialogCompletarPerfil extends DialogFragment{
         ButterKnife.bind(this,view);
                return view;
     }
-
+// TODO crear proceso si estan completos los campos del perfil merdico , si aceptar ir al perfil medico
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);

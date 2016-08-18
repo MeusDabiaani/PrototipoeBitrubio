@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 26/07/2016.
+ * selecciona el tipo de acceso y vista de los comentarios  y regresa el valor seleccionada ala actividad anterior
  */
 public class ComentarioOpciones extends AppCompatActivity {
 
@@ -28,7 +29,9 @@ public class ComentarioOpciones extends AppCompatActivity {
 
     @Bind(R.id.rd_publico)
     CheckBox chkPublico;
+
     Bundle bundle ;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,13 +49,10 @@ public class ComentarioOpciones extends AppCompatActivity {
                     chkPorra.setChecked(false);
                     chkComunidad.setChecked(false);
                     chkPublico.setChecked(false);
-
                     bundle.putInt("tipocomentario",1);
                     intentBack.putExtras(bundle);
                     startActivity(intentBack);
-
                 }
-
             }
         });
         chkPorra.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
@@ -98,6 +98,4 @@ public class ComentarioOpciones extends AppCompatActivity {
             }
         });
     }
-
-
 }

@@ -15,9 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.Bitrubian.ComentarioActivity;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileActivity;
-import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
 

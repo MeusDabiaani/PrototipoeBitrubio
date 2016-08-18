@@ -1,15 +1,47 @@
-pendientes 13 de agosto 2016
+Bitrubio  apk
+MainActivity - YO
 
-cortar la cdena de texto de nombre de contactos
-revisar layout metas peso , encima boton sobre horizontal picker
-// no se ve boton slide para borrar amigos
-revisar marginBoton de tab_expertos , corta el texto de recycler view , tab_familiares , tab_amigos esta bien
-tab_expertos revisar margin_botton ,
-texto de hoy me siento se corta en el telefono de cristian
-back para salir de selecionar galeria es lento
-gira la imgane en el yo a la izquierda
+-Falta sincronizar el recyclerview que carga los mensajes con el servidor
+-metas falta dar de alta cada meta en el servidor y despues reflejarlos en la aplicacion
+-Falta reflejar el porcentaje del archivo de preferencias que se crea eb DatosPerfilManager.java
+-Falta hacer back para poder postear comentario personales.
+-Falta crear un MenuContextual para la opcion de compartir sobre cada post
+-pantalal de mi perfil social desde el menu lateral
 
-ya completar el perfl general con los datos de xml guardado
-nose ve el texto del boton de agragr expero en profile_expertos
-boton mi agenda se detiene la aplicacion
-se congela en ver perfil , recycler view
+SubPantalla
+    * CompletaPerfilActivity - Mi perfil 100%
+        -EL tab_datos_generales hay que guardar y reflejar los datos del archivo de preferencias
+        -el tab_datos_medicos hay que crear SearchView para buscar las cosnultas,
+        y hacer el backen de la lista de consultas
+        -El tab_datos_servicios hay que hacer el backen de esa lista, son preferencias pero se guardaran
+        en el servidor
+
+
+
+ComunidadActivity - Comunidad
+
+-Hay que eliminar la seccion "Dependientes" ya no la lleva
+-Tab de Familiares falta conectar para ver lista - quitar  o buscar con el servidor (BACKEND)
+-Tab Amigos falta conectar con el servidor para ver-quitar-buscar  un amigo (BACKEND)
+-Falta agregar proceso para postear desde estas dos secciones
+
+AlarmaActivity - Emergencia
+-no esta complemente definida la vista en la aplicacion
+-Falta detonar las alertas a los numeros seleccionados como red de apoyo
+-Grabar Video,Gps,audio y subir a Servidor (Backend y front)
+
+ExpertosActivity - Consultas
+
+- Falta ligar con el servidor las lista de exoertos y buscar
+- quitar tab de patrocinadores
+- no hay coaches y patrocinadores
+- falta hacer la vista searView para la busqueda de los expertod (Front y backend)
+
+ServiciosActivity - Servicios
+
+- solo habra seccion Donacion hay q quitar Farmacia y Subastas
+- en donacion hay que plantear las vistas para solo la donacion de sangre
+- atender y solicitar peticione de donaciones de sangre
+
+
+

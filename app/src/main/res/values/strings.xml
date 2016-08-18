@@ -5,7 +5,6 @@
     <string name="navigation_drawer_close">Close navigation </string>
     <string name="facebook_app_id">521714811337632</string>
     <string name="action_settings">Configuración</string>
-    
     <!-- Drawer Menu  -->
     <string name="drawer_tarjeta">Tarjeta</string>
     <string name="drawer_promociones">Promociones</string>
@@ -257,6 +256,6 @@
     <string name="laboratorios">Laboratorios</string>
     <string name="niveles">Niveles</string>
     <string name="auto_chequeo">Auto Chequeo</string>
-
+    <string name="alerta">Alerta</string>
 </resources>
 

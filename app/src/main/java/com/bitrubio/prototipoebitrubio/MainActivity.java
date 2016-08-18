@@ -19,6 +19,8 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
@@ -40,7 +42,6 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -72,6 +73,7 @@ import com.bitrubio.prototipoebitrubio.MenuLateral.Promociones;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Tarjeta;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
+import com.google.android.gms.wearable.MessageApi;
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.squareup.picasso.Picasso;
 
@@ -79,11 +81,21 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cz.msebera.android.httpclient.HttpResponse;
+import cz.msebera.android.httpclient.NameValuePair;
+import cz.msebera.android.httpclient.client.HttpClient;
+import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
+import cz.msebera.android.httpclient.client.methods.HttpPost;
+import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
+import cz.msebera.android.httpclient.message.BasicNameValuePair;
+import cz.msebera.android.httpclient.util.EntityUtils;
 
 import static android.widget.LinearLayout.VERTICAL;
 
@@ -124,7 +136,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private ArrayList<Metas> metasList;
     HorizontalScrollView horizontalScrollView;
-    NavigationView navView;
 
     TextView _txtSiento;
     TextView txt_porcentaje;
@@ -140,7 +151,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     RelativeLayout oldView, newView;
 
-    public static String URL = "subeFoto.php";
+    public static String URL = "";
+    public static String Ruta = "subeFoto.php";
     public byte[] byteArray;
     String ba1;
     SwipeRefreshLayout mSwipeRefreshLayout;
@@ -151,9 +163,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     RelativeLayout lnr_miPerfil, rl_foto;
     Toast toast = null;
     RelativeLayout rl_fondo;
+    //**** estas variables sin usar son prueba para crear un menucontextual - esta comentado
     View menuLayout;
     ArcLayout arcLayout;
     View fab;
+    //**************
     Typeface tf;
     FragmentTransaction FT;
     Bitmap myBitmap;
@@ -161,6 +175,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ConectaServidor servidor;
     AsyncTaskFondo subeImagenFondo;
     CountDownTimer waitTimer;
+    Handler handler;
 
     /**/
     @SuppressLint("WrongViewCast")
@@ -172,25 +187,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ButterKnife.bind(this);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitle("");
-        // toolbar.setNavigationIcon(getResources().getDrawable(R.drawable.ic_menu_new));
         setSupportActionBar(toolbar);
 
-        session = new SessionManager(getApplicationContext());
+        //obtengo la ruta del servidor para subir la foto de perfil
         servidor = new ConectaServidor();
-
-        URL = servidor.getUrl() + URL;
-
+        URL = servidor.getUrl() + Ruta;
         tf = Typeface.createFromAsset(getAssets(), "fonts/avenir-light.ttf");
-
         _btncerrarBity = (ImageView) findViewById(R.id.btn_cerrar_bity);
-
         mContainerView = (RelativeLayout) findViewById(R.id.container);
         _btncomentario = (ImageView) findViewById(R.id.img_comentario);
 
+        // inicializo la vista con la capa de la imagen de fondo
         oldView = (RelativeLayout) LayoutInflater.from(this).inflate(
                 R.layout.linear_background_main, mContainerView, false);
         linear_bity = (LinearLayout) oldView.findViewById(R.id.linear_bity);
         rl_foto = (RelativeLayout) oldView.findViewById(R.id.rl_foto);
+        // inicializo  la vista con la capa que muestra a bity
         newView = (RelativeLayout) LayoutInflater.from(this).inflate(
                 R.layout.linear_bity_contenido, mContainerView, false);
 
@@ -201,41 +213,40 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         txt_elije_meta = (TextView) findViewById(R.id.elije_tu_meta);
         txt_mi_perfil = (TextView) oldView.findViewById(R.id.txt_miperfil);
 
-
+        // agrego la primera vista al contenedor principal
         mContainerView.addView(oldView);
-
+        // controles para la foto perfil de la primera capa
         _btnfoto = (ImageView) oldView.findViewById(R.id.btn_foto);
         _image_foto = (ImageView) oldView.findViewById(R.id.image_foto);
         lnr_miPerfil = (RelativeLayout) oldView.findViewById(R.id.lnr_miperfil);
-
-
         rl_fondo = (RelativeLayout) oldView.findViewById(R.id.rl_fondo);
         imgFondo = (ImageView) oldView.findViewById(R.id.img_fondo);
-        imgFondoNueva = (ImageView) newView.findViewById(R.id.img_fondo_new);
 
+        imgFondoNueva = (ImageView) newView.findViewById(R.id.img_fondo_new);
         imgFondo.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.fondo_optimo, null));
         imgFondoNueva.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.fondo_optimo, null));
+        //verifico si la vriable de session existe
+        session = new SessionManager(getApplicationContext());
         session.checkLogin();
-        // get user data from session
+        // obtengo los datos del usuario
         HashMap<String, String> user = session.getUserDetails();
         String nameSession = user.get(SessionManager.KEY_NAME);
         String apeSession = user.get(SessionManager.KEY_APE);
         idUsuario = user.get(SessionManager.KEY_IDUSER);
 
+        // menu lateral
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_main);
         final ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
 
         drawer.setDrawerListener(toggle);
         toggle.syncState();
-
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        //controles en el menu (foto , perfil y links a redes sociales )
         imagePerfil = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imagePerfil);
         TextView nombreSession = (TextView) navigationView.getHeaderView(0).findViewById(R.id.nombreSession);
         nombreSession.setText(nameSession + " " + apeSession);
-
         RelativeLayout rlMiPerfil = (RelativeLayout) navigationView.getHeaderView(0).findViewById(R.id.rl_miPerfil);
-
         rlMiPerfil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -244,12 +255,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 startActivity(intent);
             }
         });
-
-
         txt_condiciones = (TextView) navigationView.findViewById(R.id.terminos_condiciones);
-
         linksApp(navigationView);
-
         TextView cerrarSession = (TextView) findViewById(R.id.cerrarSession);
         cerrarSession.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,32 +268,30 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         metasList = new ArrayList<>();
         metasList.add(new Metas(-1, R.drawable.foto_alimentos, "Quitar vicios"));
         metasList.add(new Metas(-2, R.drawable.img_medicamento, "Auto chequeo"));
-
         metasList.add(new Metas(1, R.drawable.ic_fisico, "Salud"));
         metasList.add(new Metas(2, R.drawable.ic_bienestar, "Bienestar"));
         metasList.add(new Metas(3, R.drawable.ic_enfermedad, "Enfermedad"));
+        // recycler Mensajes
+        mensajeList = new ArrayList<>();
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_home);
         mRecyclerView.setHasFixedSize(true);
-
         mLayoutManager = new LinearLayoutManager(this);
         mRecyclerView.setLayoutManager(mLayoutManager);
-
+        mAdapter = new MensajesAdadpter(mensajeList, MainActivity.this);
+        mAdapter.setHasStableIds(true);
+        mRecyclerView.setAdapter(mAdapter);
         new AsyntasckMensajes().execute();
+        // botones de la barra inferior
         seccionBotones();
         //busca foto deafault
         File fileSDcard = Environment.getExternalStorageDirectory();
         File fileFotoPerfil = new File(fileSDcard, "imagen.jpg");
         final File fileFotoFondo = new File(fileSDcard, "imagenFondo.jpg");
-
         if (fileFotoPerfil.exists() && !fileFotoPerfil.isDirectory()) {
-
             myBitmap = BitmapFactory.decodeFile(fileFotoPerfil.getAbsolutePath());
             _image_foto.setImageBitmap(myBitmap);
             imagePerfil.setImageBitmap(myBitmap);
-
-
         } else {
-
             Picasso.with(this)
                     .load(servidor.getUrl() + "fotosPerfil/" + idUsuario + ".jpg")
                     .placeholder(R.drawable.ic_sin_foto)
@@ -306,12 +311,83 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         } else {
             imgFondo.setBackground(getResources().getDrawable(R.drawable.fondo_optimo));
         }
+        _btnfoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+            showDialogTomaFoto();
+
+            }
+        });
+        rl_foto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showDialogTomaFoto();
+            }
+        });
+        // seteamos los titulos del menu lateral
+        //setTitleMenu();
+        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                // Refresh items
+                refreshItems();
+            }
+        });
+        //cabiamos l aimagen de fondo de la aplicacion
+        RelativeLayout relative_fondoBity = (RelativeLayout) oldView.findViewById(R.id.rl_fondo);
+        relative_fondoBity.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FragmentManager manager = getSupportFragmentManager();
+                Cambiafondo dialog = new Cambiafondo();
+                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogTheme);
+                dialog.show(manager, "titulo");
+                //FragmentManager dialogPaisaje = getFragmentManager();
+            }
+        });
+        // inicializa las opciones del menu lateral
+        lnr_nav_premium = (LinearLayout) findViewById(R.id.nav_premium);
+        lnr_nav_premium.setOnClickListener(this);
+        lnr_nav_agenda = (LinearLayout) findViewById(R.id.nav_agenda);
+        lnr_nav_agenda.setOnClickListener(this);
+        lnr_nav_tarjeta = (LinearLayout) findViewById(R.id.nav_tarjeta);
+        lnr_nav_tarjeta.setOnClickListener(this);
+        lnr_nav_promociones = (LinearLayout) findViewById(R.id.nav_promociones);
+        lnr_nav_promociones.setOnClickListener(this);
+        lnr_nav_facturas = (LinearLayout) findViewById(R.id.nav_facturas);
+        lnr_nav_facturas.setOnClickListener(this);
+        lnr_nav_configuracion = (LinearLayout) findViewById(R.id.nav_configuracion);
+        lnr_nav_configuracion.setOnClickListener(this);
+        lnr_nav_ayuda = (LinearLayout) findViewById(R.id.nav_ayuda);
+        lnr_nav_ayuda.setOnClickListener(this);
+        txt_condiciones = (TextView) findViewById(R.id.terminos_condiciones);
+        txt_condiciones.setOnClickListener(this);
+        _btnHome.setBackground(getResources().getDrawable(R.drawable.ic_yo_b));
+        // inicialiaza el scrollhorizontal
+        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.hsv_metas);
+        // botones para el scrollhorizontal
+        _btnLeft.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                horizontalScrollView.scrollTo(0, 0);
+            }
+        });
+        _btnRight.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                horizontalScrollView.scrollTo(300, 0);
+            }
+        });
+
+    }
+    // dialog para capturar foto o tomarla de la galeria
+    public void showDialogTomaFoto(){
+        // armo los elementos para crear la vista del dialog para tomar la foto
         //_btnfoto Perfil
         final Item[] items = {new Item("Seleccionar de tu galería", R.drawable.ic_tu_galeria),
                 new Item("Captura una foto nueva", R.drawable.ic_camara_simple)
         };
-//        final CharSequence[] items = {"Captura una foto nueva","Seleccionar de tu galería"};
-
         final ListAdapter adapter = new ArrayAdapter<Item>(
                 this,
                 android.R.layout.select_dialog_item,
@@ -333,160 +409,60 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 return v;
             }
         };
-        _btnfoto.setOnClickListener(new View.OnClickListener() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.DialogTheme);
+
+        builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+
             @Override
-            public void onClick(View v) {
-                //Creamos el Intent para llamar a la Camara
-                // final CharSequence[] items = {"Captura una foto nueva", "Seleccionar de tu galería", "Cancelar"};
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.DialogTheme);
+            public void onClick(DialogInterface dialog, int position) {
 
-                builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
+                if (items[position].text.equals("Captura una foto nueva")) {
+                    Log.e(TAG, "item-1 CLICK " + items[position]);
+                    Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    startActivityForResult(intent, 1);
 
-                    @Override
-                    public void onClick(DialogInterface dialog, int position) {
-
-                        if (items[position].text.equals("Captura una foto nueva")) {
-
-                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            startActivityForResult(intent, 1);
-
-                        } else if (items[position].text.equals("Seleccionar de tu galería")) {
-
-                            Intent intent;
-                            if (Build.VERSION.SDK_INT < 19) {
-                                // android jelly bean 4.3
-                                intent = new Intent();
-                                intent.setAction(Intent.ACTION_GET_CONTENT);
-                            } else {
-                                // andoid 4.4 o superioir
-                                intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                            }
-                            intent.setType("image/*");
-                            startActivityForResult(Intent.createChooser(intent, "Seleciona foto"), 2);
-                        }
+                } else if (items[position].text.equals("Seleccionar de tu galería")) {
+                    Log.e(TAG, "item-2 CLICK " + items[position]);
+                    Intent intent;
+                    if (Build.VERSION.SDK_INT < 19) {
+                        // android jelly bean 4.3
+                        intent = new Intent();
+                        intent.setAction(Intent.ACTION_GET_CONTENT);
+                    } else {
+                        // andoid 4.4 o superioir
+                        intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                        intent.addCategory(Intent.CATEGORY_OPENABLE);
                     }
-                });
-                builder.setCancelable(false);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                dialog.setCanceledOnTouchOutside(true);
-
+                    intent.setType("image/*");
+                    startActivityForResult(Intent.createChooser(intent, "Seleciona foto"), 2);
+                }
             }
         });
-        rl_foto.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this, R.style.DialogTheme);
+        builder.setCancelable(false);
+        AlertDialog dialog = builder.create();
+        dialog.show();
+        dialog.setCanceledOnTouchOutside(true);
+    }
 
-                builder.setAdapter(adapter, new DialogInterface.OnClickListener() {
-
-                    @Override
-                    public void onClick(DialogInterface dialog, int position) {
-
-                        if (items[position].text.equals("Captura una foto nueva")) {
-                            Log.e(TAG, "item-1 CLICK " + items[position]);
-                            Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                            startActivityForResult(intent, 1);
-
-                        } else if (items[position].text.equals("Seleccionar de tu galería")) {
-                            Log.e(TAG, "item-2 CLICK " + items[position]);
-                            Intent intent;
-                            if (Build.VERSION.SDK_INT < 19) {
-                                // android jelly bean 4.3
-                                intent = new Intent();
-                                intent.setAction(Intent.ACTION_GET_CONTENT);
-                            } else {
-                                // andoid 4.4 o superioir
-                                intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-                                intent.addCategory(Intent.CATEGORY_OPENABLE);
-                            }
-                            intent.setType("image/*");
-                            startActivityForResult(Intent.createChooser(intent, "Seleciona foto"), 2);
-                        }
-                    }
-                });
-                builder.setCancelable(false);
-                AlertDialog dialog = builder.create();
-                dialog.show();
-                dialog.setCanceledOnTouchOutside(true);
-            }
-        });
-        // seteamos los titulos del menu lateral
-        //setTitleMenu();
-        mSwipeRefreshLayout = (SwipeRefreshLayout) findViewById(R.id.swipeRefreshLayout);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                // Refresh items
-                refreshItems();
-            }
-        });
-        //cabiamos el fondo
-        RelativeLayout relative_fondoBity = (RelativeLayout) oldView.findViewById(R.id.rl_fondo);
-        relative_fondoBity.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager manager = getSupportFragmentManager();
-                Cambiafondo dialog = new Cambiafondo();
-                dialog.setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogTheme);
-                dialog.show(manager, "titulo");
-                //FragmentManager dialogPaisaje = getFragmentManager();
-            }
-        });
-
-        lnr_nav_premium = (LinearLayout) findViewById(R.id.nav_premium);
-        lnr_nav_premium.setOnClickListener(this);
-        lnr_nav_agenda = (LinearLayout) findViewById(R.id.nav_agenda);
-        lnr_nav_agenda.setOnClickListener(this);
-        lnr_nav_tarjeta = (LinearLayout) findViewById(R.id.nav_tarjeta);
-        lnr_nav_tarjeta.setOnClickListener(this);
-        lnr_nav_promociones = (LinearLayout) findViewById(R.id.nav_promociones);
-        lnr_nav_promociones.setOnClickListener(this);
-        lnr_nav_facturas = (LinearLayout) findViewById(R.id.nav_facturas);
-        lnr_nav_facturas.setOnClickListener(this);
-        lnr_nav_configuracion = (LinearLayout) findViewById(R.id.nav_configuracion);
-        lnr_nav_configuracion.setOnClickListener(this);
-        lnr_nav_ayuda = (LinearLayout) findViewById(R.id.nav_ayuda);
-        lnr_nav_ayuda.setOnClickListener(this);
-        txt_condiciones = (TextView) findViewById(R.id.terminos_condiciones);
-        txt_condiciones.setOnClickListener(this);
-        _btnHome.setBackground(getResources().getDrawable(R.drawable.ic_yo_b));
-
-        horizontalScrollView = (HorizontalScrollView) findViewById(R.id.hsv_metas);
-
-        _btnLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                horizontalScrollView.scrollTo(0, 0);
-            }
-        });
-        _btnRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                horizontalScrollView.scrollTo(300, 0);
-            }
-        });
-
-
-       /* waitTimer = new CountDownTimer(90000, 4000) {
+    @Override
+    protected void onResume() {
+        super.onResume();
+        // giramos el textview de hoy me siento
+        waitTimer = new CountDownTimer(90000, 4000) {
             @Override
             public void onTick(long millisUntilFinished) {
-
-                turn();
+                turn(1300);
             }
 
             @Override
             public void onFinish() {
-
-
             }
-        }.start();*/
+        }.start();
+
 
     }
-
+    // intents para los botonoes de las redes sociales en el menu lateral
     public void linksApp(NavigationView nvgView) {
-
         ImageView imgFacebook = (ImageView) nvgView.findViewById(R.id.img_facebook);
         ImageView imgTwitter = (ImageView) nvgView.findViewById(R.id.img_twitter);
         ImageView imgYoutube = (ImageView) nvgView.findViewById(R.id.img_youtube);
@@ -545,11 +521,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         int id = v.getId();
         switch (id) {
+            // click para los botones del menu lateral
             case R.id.nav_premium:
                 Intent intent_prueba = new Intent(MainActivity.this, Premium.class);
                 intent_prueba.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 intent_prueba.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
                 startActivity(intent_prueba);
                 //Your Operation
                 break;
@@ -599,7 +575,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
         }
-
+        // click para los botonoes de las metas principañes
         for (int metas = 0; metas < metasList.size(); metas++) {
             if (metasList.get(metas).getId() > 0) {
                 if (v.getId() == metasList.get(metas).getId()) {
@@ -625,6 +601,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     }
                 }
             }
+
+            // click para las metas ya creadas
             if (metasList.get(metas).getId() < 0) {
                 if (v.getId() != metasList.get(metas).getId()) {
 
@@ -640,7 +618,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
-
+// dialog terminos y condiciones
     public void showTerminos() {
         Bundle args = new Bundle();
         android.app.FragmentManager fm = getFragmentManager();
@@ -651,7 +629,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dialogFragment.show(fm, "Terminos y politica de privacidad");
 
     }
-
+   // captura las acciones para cambio de foto perfil y cambio de fondo
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
 
@@ -675,7 +653,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     Bitmap newBitmap;
                     newBitmap = new AjustaImagen(getBaseContext(), _image_foto, uri).ajustarSize50();
                     new AjustaImagen(getBaseContext(), _image_foto, uri).rotateImagen();
-                    Log.e(TAG,"newBitmap"+ newBitmap);
+                    Log.e(TAG, "newBitmap" + newBitmap);
                     //_image_foto.setImageURI(data.getData());
                     //utilizamos el atrbuti tag para almacenar la uri al archivo seleccionado
                     _image_foto.setImageBitmap(newBitmap);
@@ -715,19 +693,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Drawable dr = new BitmapDrawable(imagen);
                 imgFondo.setBackgroundDrawable(dr);
                 imgFondoNueva.setBackgroundDrawable(dr);
-
             }
-
         }
-
-
     }
 
     private String guardarImagenFondo(Bitmap imagen) {
+        // guarda la imagen de fondo el edispostivo
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byteArray = stream.toByteArray();
-
         try {
             File destination = new File(Environment.getExternalStorageDirectory(), "imagenFondo.jpg");
             FileOutputStream outputStream;
@@ -735,14 +709,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             outputStream = new FileOutputStream(destination);
             outputStream.write(byteArray);
             outputStream.close();
-
-
         } catch (IOException e2) {
             e2.printStackTrace();
         }
         return null;
     }
-
     private String guardarImagen(Bitmap imagen) {
         //Guarda la imagen en  el servidor
         Log.e(TAG, "guarda imgen ");
@@ -750,16 +721,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, stream);
         byteArray = stream.toByteArray();
         ba1 = Base64.encodeToString(byteArray, Base64.DEFAULT);
+        Log.e(TAG, "url antes" + URL);
         subeImagenFondo = new AsyncTaskFondo(this, URL, ba1, idUsuario);
         subeImagenFondo.execute();
         return null;
     }
-
     private void guardarImagenLocal(Bitmap imagen) {
         // gurda la imagen en Sdcard local
         ByteArrayOutputStream bytes = new ByteArrayOutputStream();
         imagen.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        Log.e(TAG,"guarda Imagen Local");
+        Log.e(TAG, "guarda Imagen Local");
 
         try {
             File destination = new File(Environment.getExternalStorageDirectory(), "imagen.jpg");
@@ -793,7 +764,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -801,7 +771,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_helpBeety) {
             findViewById(R.id.action_helpBeety).setVisibility(View.GONE);
             addItem();
@@ -823,25 +792,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 findViewById(R.id.action_helpBeety).setVisibility(View.VISIBLE);
                 imgFondoNueva.setBackground(null);
                 mContainerView.addView(oldView);
-/*
-                newView.setOnTouchListener(new View.OnTouchListener() {
-                    @Override
-                    public boolean onTouch(View v, MotionEvent event) {
-                        Log.d(TAG, "onTouch  " + "");
-                      *//*  if (newView!=null) {
-                            mContainerView.removeView(newView);
-                            return true;
-                        }*//*
-                        return false;
-                    }
-                });*/
 
             }
         });
 
         mContainerView.addView(newView);
     }
-
+    // botones  de menu inferior
     @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
     public void seccionBotones() {
 
@@ -849,7 +806,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _btnHome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Toast.makeText(getBaseContext(), "HOME", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, MainActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 overridePendingTransition(0, 0);
@@ -859,17 +815,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _btnComunidad.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Toast.makeText(getBaseContext(), "Comunidad", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ComunidadActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
             }
         });
-
         _btnAlerta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Toast.makeText(getBaseContext(), "Alerta", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, AlertaActvity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -878,7 +831,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _btnExpertos.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Toast.makeText(getBaseContext(), "Expertos", Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent(MainActivity.this, ExpertosActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
@@ -890,15 +842,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Intent intent = new Intent(MainActivity.this, ServiciosActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                 startActivity(intent);
-                //  Toast.makeText(getBaseContext(), "Servicios", Toast.LENGTH_SHORT).show();
-
             }
         });
         _txtSiento.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                 showEditDialog();
+                showEditDialog();
             }
         });
         lnr_miPerfil.setOnClickListener(new View.OnClickListener() {
@@ -918,10 +868,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     @Override
                     public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                         if (!isChecked) {
-                            //Toast.makeText(MainActivity.this, "chek", Toast.LENGTH_SHORT).show();
                             editContraseña.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                         } else {
-                            // Toast.makeText(MainActivity.this, "nochek", Toast.LENGTH_SHORT).show();
                             editContraseña.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
                         }
                     }
@@ -929,16 +877,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
                 ImageButton btnConfirmar = (ImageButton) dialog.findViewById(R.id.btn_confirmarContraseña);
-
                 btnConfirmar.setOnClickListener(new View.OnClickListener() {
                     String confirmarContraseña = null;
 
                     @Override
                     public void onClick(View v) {
-
-
                         confirmarContraseña = editContraseña.getText().toString();
-
                         if (confirmarContraseña.equals("")) {
                             Intent intent = new Intent(MainActivity.this, CompletaPerfilActivity.class);
                             startActivity(intent);
@@ -948,7 +892,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                         }
                     }
                 });
-
                 dialog.show();
 
             }
@@ -969,6 +912,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         });
 
+        // creamos las imagenes con las metas y las agregamos al horizontalView
         if (metasList.size() > 0) {
             ViewGroup linearLayout = (ViewGroup) findViewById(R.id.linear_metas);
 
@@ -978,23 +922,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
                 int marginLeft = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 22, getResources().getDisplayMetrics());
                 int marginRight = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics());
-
                 linearParams.setMargins(marginLeft, 0, marginRight, 0);
-
                 childLayout.setLayoutParams(linearParams);
                 childLayout.setGravity(Gravity.CENTER);
                 childLayout.setOrientation(VERTICAL);
-
-
                 bt_metas[metas] = new de.hdodenhof.circleimageview.CircleImageView(this);
                 int width = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 50, getResources().getDisplayMetrics());
                 int height = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 75, getResources().getDisplayMetrics());
                 bt_metas[metas].setLayoutParams(new LinearLayout.LayoutParams(width, height, Gravity.CENTER_HORIZONTAL));
                 if (metasList.get(metas).getId() < 0) {
-                    bt_metas[metas].setBackgroundDrawable(getResources().getDrawable(R.drawable.bg_circle_white));
+                    bt_metas[metas].setBackgroundDrawable(this.getResources().getDrawable(R.drawable.bg_circle_white));
                     bt_metas[metas].setImageResource(metasList.get(metas).getImagen());
                 } else {
-                    bt_metas[metas].setBackgroundDrawable(getResources().getDrawable(metasList.get(metas).getImagen()));
+                    bt_metas[metas].setBackgroundDrawable(this.getResources().getDrawable(metasList.get(metas).getImagen()));
                 }
                 bt_metas[metas].setId(metasList.get(metas).getId());
                 bt_metas[metas].setOnClickListener(this);
@@ -1004,7 +944,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mValue.setTextSize(14);
                 mValue.setTypeface(tf);
                 mValue.setGravity(Gravity.BOTTOM | Gravity.CENTER);
-                mValue.setTextColor(getResources().getColor(R.color.textColorPrimary));
+                mValue.setTextColor(this.getResources().getColor(R.color.textColorPrimary));
 
                 mValue.setText(metasList.get(metas).getTitulo());
                 childLayout.addView(mValue, 0);
@@ -1019,30 +959,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void setBackgroundFondo(int int_drawable) {
         imgFondo.setBackgroundDrawable(getResources().getDrawable(int_drawable));
     }
-
-    //Boton como me siento //
+    //Boton como me siento // Listener
     @Override
     public void setComomesiento(int comoMeSiento) {
         String sientoFisico = "Físicamente";
         int imgDrawable = 0;
         if (comoMeSiento == 0) {
-
             imgDrawable = R.drawable.ic_mal_blanco;
         } else if (comoMeSiento == 1) {
-
             imgDrawable = R.drawable.ic_regular_blanco;
         } else if (comoMeSiento == 2) {
-
             imgDrawable = R.drawable.ic_bien_blanco;
         }
-
-        _txtSiento.setCompoundDrawablesWithIntrinsicBounds(0, 0, imgDrawable, 0);
+        _txtSiento.setCompoundDrawablesWithIntrinsicBounds(0, 0,  imgDrawable, 0);
         _txtSiento.setCompoundDrawablePadding(1);
         _txtSiento.setText(sientoFisico);
-
-
     }
-
+    // Boton me siento Emocional // listener
     @Override
     public void setComomeSientoEmocional(int emocional) {
         String sientoEmcoional = "Emocionalmente";
@@ -1058,29 +991,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         _txtSiento.setCompoundDrawablePadding(1);
         _txtSiento.setText(sientoEmcoional);
 
-
     }
 
-    public void turn() {
+    public void turn(int tiempo) {
         if (dirX = true) {
             dirX = false;
 
             ObjectAnimator flip = ObjectAnimator.ofFloat(_txtSiento, "rotationX", 0f, 360f);
-            flip.setDuration(1300);
+            flip.setDuration(tiempo);
             flip.start();
         } else {
             dirX = true;
             ObjectAnimator flip = ObjectAnimator.ofFloat(_txtSiento, "rotationX", 360f, 0f);
-            flip.setDuration(1300);
+            flip.setDuration(tiempo);
             flip.start();
         }
-
     }
-
-
     /// swipe recyclerView ///
     void refreshItems() {
-
         onItemsLoadComplete();
     }
 
@@ -1088,8 +1016,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         mSwipeRefreshLayout.setRefreshing(false);
     }
 
-
-    class AsyntasckMensajes extends AsyncTask<String, Void, MensajesAdadpter> {
+    // asytask de mensajes post
+    class AsyntasckMensajes extends AsyncTask<Void, Void, Void> {
         ProgressDialog progressDialog;
 
         @Override
@@ -1102,17 +1030,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             progressDialog.setMax(100);
             progressDialog.show();
         }
-
         @Override
-        protected void onPostExecute(MensajesAdadpter s) {
+        protected void onPostExecute(Void s) {
             super.onPostExecute(s);
             progressDialog.hide();
             progressDialog.dismiss();
+            DatosRecyclerView();
+            mAdapter.notifyDataSetChanged();
         }
-
         @Override
-        protected MensajesAdadpter doInBackground(String... params) {
-            mensajeList = new ArrayList<>();
+        protected Void doInBackground(Void... params) {
             mensajeList.add(new Mensajes(1, "Roberto Martinez", "along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities along with a few variations of the drawable/image for different densities", " 1 min", "4"));
             mensajeList.add(new Mensajes(2, "Alejandro Gonzales", "I tried a scaleType of fitCenter and centerCrop ", "1 hr", "2"));
             mensajeList.add(new Mensajes(3, "Vanessa Hernandez", "mensaje mensaje 3", "1.30 hr", "6"));
@@ -1120,13 +1047,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             mensajeList.add(new Mensajes(5, "Gustavo Lopez", "Lorem ipsum dolor sit amet, augue enim velit fusce vivamus, aliquam viverra a vestibulum tempus orci, pellentesque vitae luctus quis a amet. Elit elit euismod elementum. Vitae etiam amet ultricies. Lacinia nec quam lectus blandit. Leo dictum nascetur aliquam est. Nec eros lectus lacinia, proin sagittis montes suspendisse est, fuga maecenas, nulla quis sit eu. Occaecat non amet elit diam, lorem diam mauris, donec sit sodales laoreet in tellus, mattis aliquam id, adipiscing metus. Lectus dictum fusce massa morbi, vestibulum at pede sed ut id, cras viverra, libero at aenean quis eget. Id ullamcorper, ipsum eget erat felis faucibus etiam habitasse. ", "28 dias", "4"));
             mensajeList.add(new Mensajes(6, "Erik Garcia", "mensaje mensaje mensaje 6", "2 semanas", "12"));
             mensajeList.add(new Mensajes(7, "Alberto Chavez", "mensaje mensaje mensaje 7", "8 dias", "13"));
-            mAdapter = new MensajesAdadpter(mensajeList, getBaseContext());
-            mAdapter.setHasStableIds(true);
-
-            mRecyclerView.setAdapter(mAdapter);
-
-
-            return mAdapter;
+            return null;
+        }
+        private void DatosRecyclerView() {
+            mensajeList = new ArrayList<Mensajes>();
+            for (int i = 0; i < mensajeList.size(); i++) {
+                mensajeList.add(new Mensajes(
+                        mensajeList.get(i).getId(),
+                        mensajeList.get(i).getNommbre(),
+                        mensajeList.get(i).getMensaje(),
+                        mensajeList.get(i).getFecha(),
+                        mensajeList.get(i).getIdContacto())
+                );
+            }// fin del for
         }
     }
 }

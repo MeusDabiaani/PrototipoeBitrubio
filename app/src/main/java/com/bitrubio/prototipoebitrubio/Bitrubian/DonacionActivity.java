@@ -14,7 +14,9 @@ import com.bitrubio.prototipoebitrubio.R;
 
 /**
  * Created by Orion on 04/07/2016.
+ * la clase muetra el fragmento fundacion dentro de la seccion Donacion de Servicios
  */
+
 public class DonacionActivity extends AppCompatActivity {
     Toolbar toolbar;
     SessionManager session;
