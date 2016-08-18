@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 08/01/2016.
+ * panatalla muestra contactos
  */
 public class SignupContactos extends Activity {
 

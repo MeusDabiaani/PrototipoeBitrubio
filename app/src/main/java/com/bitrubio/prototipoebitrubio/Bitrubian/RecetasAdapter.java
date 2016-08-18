@@ -9,17 +9,18 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Recetas;
 import com.bitrubio.prototipoebitrubio.R;
-import com.google.android.gms.vision.text.Line;
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
 /**
  * Created by Orion on 27/06/2016.
+ * adaptador de la lista de recetas
  */
+// TODO agregar back
 public class RecetasAdapter extends RecyclerView.Adapter<RecetasAdapter.ViewHolder>{
 
     private ArrayList<Recetas> data;

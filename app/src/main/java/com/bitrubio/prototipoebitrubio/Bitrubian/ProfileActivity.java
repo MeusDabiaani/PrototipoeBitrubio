@@ -11,31 +11,23 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
-import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
-import android.widget.CheckBox;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.CompletaPerfilActivity;
-import com.bitrubio.prototipoebitrubio.CustomTypefaceSpan;
 import com.bitrubio.prototipoebitrubio.DividerItemDecoration;
-import com.bitrubio.prototipoebitrubio.MainActivity;
+import com.bitrubio.prototipoebitrubio.Entidades.Mensajes;
 import com.bitrubio.prototipoebitrubio.MensajesAdadpter;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Ayuda;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Premium;
@@ -44,11 +36,7 @@ import com.bitrubio.prototipoebitrubio.MenuLateral.Tarjeta;
 import com.bitrubio.prototipoebitrubio.R;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -57,7 +45,11 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 03/03/2016.
+ * Muetra la vista del perfil. de un bitrubian
+ *
  */
+//TODO esta vista debera completarse con los click sobre los elementos de la pantalla asi como mostrar
+    // mostrar los post con perfil publico
 public class ProfileActivity extends AppCompatActivity {
     private RecyclerView mRecyclerView;
     private MensajesAdadpter mAdapter;
@@ -236,7 +228,7 @@ public class ProfileActivity extends AppCompatActivity {
 
             }
         });
-
+        // TODO Conectar BD
         mensajeList = new ArrayList<Mensajes>();
         mensajeList.add(new Mensajes(1, "Roberto Martinez", "I tried a scaleType of fitCenter and centerCrop (along with a few variations of the drawable/image for different densities) and it worked!", " 1 min","2"));
         mensajeList.add(new Mensajes(2,"Ale Gonzales", "I tried a scaleType of fitCenter and centerCrop (along with a few variations of the drawable/image for different densities) and it worked! ", "1 hr","3"));

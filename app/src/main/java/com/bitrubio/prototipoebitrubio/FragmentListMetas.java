@@ -34,7 +34,6 @@ public class FragmentListMetas extends Fragment {
     ArrayList<Metas> metas;
     int tipoMetas;
     Toolbar toolbar;
-
     Context context;
 
     public FragmentListMetas() {
@@ -55,7 +54,9 @@ public class FragmentListMetas extends Fragment {
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
         Bundle bundle = this.getArguments();
         tipoMetas= bundle.getInt("tipometas", 0);
-
+/**
+ *  Manejamos agregamos las metas a un array para poder verla
+ */
         metas = new ArrayList<>();
         if(tipoMetas==1) {
             mTitle.setText(getResources().getString(R.string.metasFisicas));
@@ -87,6 +88,7 @@ public class FragmentListMetas extends Fragment {
         mAdapter = new TipoMetasAdapter(metas, getActivity());
         mAdapter.setHasStableIds(true);
         mRecyclerView.setAdapter(mAdapter);
+
         mAdapter.SetOnItemClickListener(new TipoMetasAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int idmetas) {

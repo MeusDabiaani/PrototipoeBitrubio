@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Consultas;
 import com.bitrubio.prototipoebitrubio.Entidades.Experto;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileExpertosActivity;
 import com.squareup.picasso.Picasso;
@@ -24,6 +25,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 14/06/2016.
+ * adaptador para las consultas
  *
  */
 public class ConsultasAdapter extends RecyclerView.Adapter<ConsultasAdapter.ViewHolder> {

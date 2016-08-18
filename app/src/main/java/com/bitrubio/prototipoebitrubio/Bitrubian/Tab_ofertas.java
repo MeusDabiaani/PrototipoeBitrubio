@@ -11,7 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bitrubio.prototipoebitrubio.Anuncios;
+import com.bitrubio.prototipoebitrubio.Entidades.Anuncios;
 import com.bitrubio.prototipoebitrubio.PromocionesAdapter;
 import com.bitrubio.prototipoebitrubio.R;
 
@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Orion on 04/07/2016.
+ * tab con la vista de la lista de ofertas
  */
 public class Tab_ofertas extends Fragment {
     Toolbar toolbar;

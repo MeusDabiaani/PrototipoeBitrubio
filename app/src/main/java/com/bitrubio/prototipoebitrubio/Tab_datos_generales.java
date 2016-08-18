@@ -52,6 +52,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 29/02/2016.
+ * tab de datos generales dentro del perfil
  */
 public class Tab_datos_generales extends Fragment implements NumberPicker.OnValueChangeListener {
 
@@ -256,6 +257,9 @@ public class Tab_datos_generales extends Fragment implements NumberPicker.OnValu
         return v;
     }
 
+    /**
+     * guarda los datos de la primera seccion (datos generales)
+     */
     private void guardaDatos() {
         // guarda los datos generales
         img_aceptarG.setOnClickListener(new View.OnClickListener() {

@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 23/06/2016.
+ * dilog para cambiar el color de las tarjetas
  */
 public class DialogColor extends DialogFragment  {
 

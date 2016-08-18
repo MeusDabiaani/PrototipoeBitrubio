@@ -17,8 +17,9 @@ import butterknife.ButterKnife;
 import butterknife.Bind;
 /**
  * Created by Orion on 06/07/2016.
+ * Fragemento vista
  */
-public class FragmentHomeFundacion extends Fragment {
+public class FragmentDonacion extends Fragment {
 
     @Bind(R.id.btn_donar)
     Button btnDonar;
@@ -28,7 +29,7 @@ public class FragmentHomeFundacion extends Fragment {
 
     View view ;
     FragmentTransaction FT;
-    public FragmentHomeFundacion() {
+    public FragmentDonacion() {
     }
 
     @Nullable

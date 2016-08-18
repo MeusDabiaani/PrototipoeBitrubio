@@ -47,6 +47,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 27/01/2016.
+ * Carga la lsita de servicios disponibles
  */
 public class ServiciosActivity extends AppCompatActivity {
     private String TAG = "ServicisoActivity";
@@ -81,7 +82,7 @@ public class ServiciosActivity extends AppCompatActivity {
         setTitle("");
         toolbar.setNavigationIcon(R.drawable.ic_menu_new);
         setSupportActionBar(toolbar);
-
+        servidor = new ConectaServidor();
         session.checkLogin();
         // get user data from session
         HashMap<String, String> user = session.getUserDetails();

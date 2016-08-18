@@ -18,6 +18,7 @@ import butterknife.Bind;
 
 /**
  * Created by Orion on 22/06/2016.
+ * dialog para preguntar la contraseña al entrar en el perfil
  */
 public class DialogCodigo extends DialogFragment {
 

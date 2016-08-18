@@ -2,14 +2,13 @@ package com.bitrubio.prototipoebitrubio;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.LinearLayoutManager;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
+import com.bitrubio.prototipoebitrubio.Entidades.Mensajes;
 
 import java.util.ArrayList;
 
@@ -30,6 +29,12 @@ public class FragmentDetalle_Fisico extends Fragment {
         cargaRecyclerView(view);
         return view;
     }
+
+    /**
+     *
+     * @param view
+     * arma el recycler view de esta vista
+     */
 
     private void cargaRecyclerView(View view) {
         mensajeList = new ArrayList<Mensajes>();

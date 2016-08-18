@@ -2,9 +2,7 @@ package com.bitrubio.prototipoebitrubio;
 
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.helper.ItemTouchHelper;
@@ -14,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Servicios;
+import com.bitrubio.prototipoebitrubio.Entidades.Servicios;
 import com.bitrubio.prototipoebitrubio.HelperRecyclerView.OnStartDragListener;
 import com.bitrubio.prototipoebitrubio.HelperRecyclerView.SimpleItemTouchHelperCallback;
 
@@ -22,8 +20,6 @@ import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-
-import static com.bitrubio.prototipoebitrubio.ServiciosListaAdapter.*;
 
 
 /**

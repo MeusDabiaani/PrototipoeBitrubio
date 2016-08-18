@@ -23,6 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Consultas;
+
 import java.util.ArrayList;
 
 /**

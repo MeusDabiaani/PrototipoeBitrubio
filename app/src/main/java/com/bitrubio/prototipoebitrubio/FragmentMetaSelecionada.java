@@ -1,25 +1,15 @@
 package com.bitrubio.prototipoebitrubio;
 
-import android.annotation.TargetApi;
 import android.app.AlertDialog;
-import android.content.ContentResolver;
-import android.content.res.Resources;
-import android.database.Cursor;
 import android.graphics.Typeface;
-import android.media.ExifInterface;
 import android.net.Uri;
-import android.provider.DocumentsContract;
 import android.support.v4.app.Fragment;
 
 import android.support.v4.app.FragmentTransaction;
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.graphics.drawable.BitmapDrawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -33,30 +23,23 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.TextView;
 
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
+import com.bitrubio.prototipoebitrubio.Entidades.Item;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaAgua;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaEjercicio;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentMetaSueno;
 import com.bitrubio.prototipoebitrubio.Metas.FragmentQuitarVicios;
 import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
-import com.bitrubio.prototipoebitrubio.Util.DocumentExifTransformation;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Transformation;
 
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.DatagramPacket;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -307,6 +290,9 @@ public class FragmentMetaSelecionada extends Fragment {
     }
 
 
+    /**
+     *  crea los elementos para el dialog de selecion de camara o galeria
+      */
     public void guardaFoto() {
 
         //_btnfoto Perfil
@@ -351,6 +337,12 @@ public class FragmentMetaSelecionada extends Fragment {
         });
     }
 
+    /**
+     *
+      * @param adapter
+     * @param items
+     * muetsra los el dialog de seleccion de imagen
+     */
     public  void showDialogCamara (ListAdapter adapter, final Item[] items){
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity(), R.style.DialogTheme);
 
@@ -386,6 +378,9 @@ public class FragmentMetaSelecionada extends Fragment {
     }
 
     @Override
+    /**
+     * recivo los datos si es imagen o foto
+      */
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -438,6 +433,9 @@ public class FragmentMetaSelecionada extends Fragment {
 
     }
 
+    /**
+     * sube la foto ala servidor
+     */
     public class uploadToServer extends AsyncTask<Void, Void, String> {
         protected void onPreExecute() {
             super.onPreExecute();

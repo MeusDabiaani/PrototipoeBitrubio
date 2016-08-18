@@ -16,6 +16,8 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Productos;
+
 import java.util.ArrayList;
 
 import butterknife.ButterKnife;

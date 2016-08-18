@@ -9,7 +9,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.bitrubio.prototipoebitrubio.Entidades.Subastas;
 import com.bitrubio.prototipoebitrubio.R;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 05/07/2016.
+ * adaptador de la vista de als subastas
  */
 public class SubastasAdapter extends RecyclerView.Adapter<SubastasAdapter.ViewHolder> {
     private ArrayList<Subastas> data;

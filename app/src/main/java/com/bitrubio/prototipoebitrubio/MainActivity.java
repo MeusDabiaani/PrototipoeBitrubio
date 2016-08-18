@@ -20,7 +20,6 @@ import android.os.Bundle;
 import android.os.CountDownTimer;
 import android.os.Environment;
 import android.os.Handler;
-import android.os.Message;
 import android.provider.MediaStore;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.DialogFragment;
@@ -63,7 +62,8 @@ import com.bitrubio.prototipoebitrubio.Bitrubian.ComentarioActivity;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ComunidadActivity;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ExpertosActivity;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
+import com.bitrubio.prototipoebitrubio.Entidades.Item;
+import com.bitrubio.prototipoebitrubio.Entidades.Mensajes;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ServiciosActivity;
 import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
 import com.bitrubio.prototipoebitrubio.Entidades.Metas;
@@ -73,7 +73,6 @@ import com.bitrubio.prototipoebitrubio.MenuLateral.Promociones;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Tarjeta;
 import com.bitrubio.prototipoebitrubio.Metas.TiempoMeta;
 import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
-import com.google.android.gms.wearable.MessageApi;
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.squareup.picasso.Picasso;
 
@@ -81,21 +80,11 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
 import java.util.ArrayList;
 import java.util.HashMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
-import cz.msebera.android.httpclient.HttpResponse;
-import cz.msebera.android.httpclient.NameValuePair;
-import cz.msebera.android.httpclient.client.HttpClient;
-import cz.msebera.android.httpclient.client.entity.UrlEncodedFormEntity;
-import cz.msebera.android.httpclient.client.methods.HttpPost;
-import cz.msebera.android.httpclient.impl.client.DefaultHttpClient;
-import cz.msebera.android.httpclient.message.BasicNameValuePair;
-import cz.msebera.android.httpclient.util.EntityUtils;
 
 import static android.widget.LinearLayout.VERTICAL;
 
@@ -619,10 +608,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 // dialog terminos y condiciones
+
+    /**
+     *  Show terminos
+      */
     public void showTerminos() {
         Bundle args = new Bundle();
         android.app.FragmentManager fm = getFragmentManager();
-        MyDialogFragment dialogFragment = new MyDialogFragment();
+        DialogTerminosCondiciones dialogFragment = new DialogTerminosCondiciones();
         dialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE, R.style.DialogTheme);
         args.putInt("value", 1);
         dialogFragment.setArguments(args);
@@ -693,10 +686,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Drawable dr = new BitmapDrawable(imagen);
                 imgFondo.setBackgroundDrawable(dr);
                 imgFondoNueva.setBackgroundDrawable(dr);
+
             }
         }
+
+        
     }
 
+    /**
+     *
+      * @param imagen
+     *  @return null
+     *  guarda  una imagen de fondo
+     */
     private String guardarImagenFondo(Bitmap imagen) {
         // guarda la imagen de fondo el edispostivo
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
@@ -714,6 +716,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
         return null;
     }
+
+    /**
+     *
+     * @param imagen
+     * @return null
+     * guarda la imagen del perfil
+     */
     private String guardarImagen(Bitmap imagen) {
         //Guarda la imagen en  el servidor
         Log.e(TAG, "guarda imgen ");
@@ -961,6 +970,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
     //Boton como me siento // Listener
     @Override
+    /**
+     *
+     *
+      */
     public void setComomesiento(int comoMeSiento) {
         String sientoFisico = "Físicamente";
         int imgDrawable = 0;

@@ -21,11 +21,11 @@ import butterknife.Bind;
 
 /**
  * Created by Orion on 11/07/2016.
+ * pantalla seccion Premium para pargar por otra persona
  */
 public class PagarPersona extends AppCompatActivity {
     Toolbar toolbar;
     Typeface tf;
-
     @Bind(R.id.pagar)
     Button btnPagar;
     

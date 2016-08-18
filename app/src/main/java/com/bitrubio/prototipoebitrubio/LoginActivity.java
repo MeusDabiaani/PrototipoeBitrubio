@@ -39,6 +39,7 @@ import cz.msebera.android.httpclient.message.BasicNameValuePair;
 
 /**
  * Created by Mario on 16/12/2015.
+ * pantalla de logeo
  */
 public class LoginActivity extends AppCompatActivity {
 
@@ -141,11 +142,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     *
+     * @param drawable
+     * @return
+     * convierte una drawable a un bitmap
+     */
     public static Bitmap drawableToBitmap (Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable)drawable).getBitmap();
         }
-
         int width = drawable.getIntrinsicWidth();
         width = width > 0 ? width : 1;
         int height = drawable.getIntrinsicHeight();
@@ -157,6 +164,15 @@ public class LoginActivity extends AppCompatActivity {
         drawable.draw(canvas);
         return bitmap;
     }
+
+    /**
+     *
+     * @param mBitmap
+     * @param newWidth
+     * @param newHeigth
+     * @return
+     * ajustamos la imagen para usarla en el fondo
+     */
     public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
         //Redimensionamos
         int width = mBitmap.getWidth();
@@ -199,6 +215,11 @@ public class LoginActivity extends AppCompatActivity {
         //this.finish();
     }
 
+    /**
+     *
+     * @return
+     * valida email,password
+     */
     public boolean validate() {
         boolean valid = true;
         email = _emailText.getText().toString();
@@ -223,6 +244,9 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
+    /**
+     * recupero y agrega los datos del usuario ala session
+     */
     private void DatosUsuario() {
 
         // podemos usar estos valores como session dentro de la aplicacion
@@ -234,9 +258,7 @@ public class LoginActivity extends AppCompatActivity {
             _iduserDB = userData.get(i).getIdUsuario().toString();
 
         }
-
         //Log.e(TAG, "sucess :" + _successDB);
-
         if (_successDB.equals("1")) {
 
             session.createLoginSession(_nombreBD, _apePatBD, _mailDB, _successDB,_iduserDB);

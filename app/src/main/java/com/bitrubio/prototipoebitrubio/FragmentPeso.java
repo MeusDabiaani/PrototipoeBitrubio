@@ -326,6 +326,9 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
     public void onValueChange(NumberPicker picker, int oldVal, int newVal) {
     }
 
+    /**
+     * muestra el dialog con la opcion deprivacidad
+      */
     public void showPrivacidad() {
 
         final Dialog d = new Dialog(getActivity(), R.style.DialogTheme);
@@ -368,7 +371,16 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
 
     }
 
-    // metodo para setar lo valores del piker
+
+    /**
+     *
+     * @param numberPicker
+     * @param color
+     * @param tf
+     * @param textS
+     * @return
+     * seteta los elementos de los number pikers
+     */
     public boolean setNumberPickerTextColor(NumberPicker numberPicker, int color, Typeface tf, int textS) {
         final int count = numberPicker.getChildCount();
         for (int i = 0; i < count; i++) {
@@ -406,6 +418,11 @@ public class FragmentPeso extends Fragment implements NumberPicker.OnValueChange
         return false;
     }
 
+    /**
+     *
+     * @param picker
+     * setea el color de la linea dividir en el piker
+     */
     private void setDividerColor(NumberPicker picker) {
         java.lang.reflect.Field[] pickerFields = NumberPicker.class.getDeclaredFields();
         for (java.lang.reflect.Field pf : pickerFields) {

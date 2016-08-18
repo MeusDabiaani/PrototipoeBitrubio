@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.Bind;
 /**
  * Created by Orion on 23/06/2016.
+ * Muetra la viasta pra crear agregagar nuevas tarjetas
  */
 public class NuevaTarjeta extends AppCompatActivity implements DialogColor.CambiaColorListener{
     CardView cardView;

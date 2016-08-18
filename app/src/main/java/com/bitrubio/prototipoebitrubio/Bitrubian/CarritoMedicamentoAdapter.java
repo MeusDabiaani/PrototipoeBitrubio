@@ -7,9 +7,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.CarritoAdapter;
+import com.bitrubio.prototipoebitrubio.Entidades.Medicamento;
 import com.bitrubio.prototipoebitrubio.R;
 import com.squareup.picasso.Picasso;
 

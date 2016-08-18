@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 import butterknife.Bind;
 /**
  * Created by Orion on 06/07/2016.
+ * muestra la clase donar
  */
 public class QuieroDonar extends AppCompatActivity {
     Toolbar toolbar;

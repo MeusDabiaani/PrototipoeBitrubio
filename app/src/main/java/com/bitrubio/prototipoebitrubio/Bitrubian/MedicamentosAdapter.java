@@ -9,6 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Medicamento;
 import com.bitrubio.prototipoebitrubio.R;
 import com.squareup.picasso.Picasso;
 
@@ -16,6 +17,8 @@ import java.util.ArrayList;
 
 /**
  * Created by Orion on 01/07/2016.
+ * adaptador para la lista de medicamentos
+ *
  */
 public class MedicamentosAdapter extends RecyclerView.Adapter<MedicamentosAdapter.ViewHolder>{
     private ArrayList<Medicamento> data;

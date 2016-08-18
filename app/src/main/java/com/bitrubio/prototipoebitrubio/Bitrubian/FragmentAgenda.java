@@ -12,7 +12,9 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 22/06/2016.
+ * fragemnt para  agregar  la agenda medica
  */
+// TODO  falta crear el calendario vista y backend
 public class FragmentAgenda extends Fragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Ofertas;
 import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
@@ -17,6 +18,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 05/07/2016.
+ * Fragment con los datos de los las ofertas
  */
 public class FragmentSubastas extends Fragment{
 
@@ -30,7 +32,9 @@ public class FragmentSubastas extends Fragment{
         View view = inflater.inflate(R.layout.fragment_subastas_lista,container,false);
         ButterKnife.bind(this,view);
         int drawable[] = {R.drawable.doctor_2, R.drawable.doctor_1, R.drawable.doctor_3};
+
         String referencias[] = {"Dra.Alejandra Carrera López","Dr.Agustín Romo Jiménez"};
+
         ofertasList = new ArrayList<>();
         ofertasList.add(new Ofertas(1,drawable[0],"Ximena Olvera Rubio","Cirujana Estética",
                 "27/jul/2016",

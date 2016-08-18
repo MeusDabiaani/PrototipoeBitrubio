@@ -6,7 +6,6 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.PixelFormat;
 import android.graphics.Typeface;
 import android.media.MediaPlayer;
 import android.net.Uri;
@@ -14,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.View;
 import android.widget.Button;
@@ -30,6 +28,7 @@ import butterknife.Bind;
 
 /**
  * Created by Mario on 17/12/2015.
+ * pantalla con el video de incio y presentacion
  */
 public class IntroActivity extends AppCompatActivity implements SurfaceHolder.Callback {
     private static String TAG = "IntroActivity";
@@ -64,7 +63,7 @@ public class IntroActivity extends AppCompatActivity implements SurfaceHolder.Ca
             public void onClick(View v) {
                     Bundle args = new  Bundle();
                     android.app.FragmentManager fm = getFragmentManager();
-                    MyDialogFragment dialogFragment = new MyDialogFragment();
+                    DialogTerminosCondiciones dialogFragment = new DialogTerminosCondiciones();
                     dialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.DialogTheme);
                     args.putInt("value",1);
                     dialogFragment.setArguments(args);
@@ -150,6 +149,10 @@ public class IntroActivity extends AppCompatActivity implements SurfaceHolder.Ca
     public void surfaceDestroyed(SurfaceHolder holder) {
 
     }
+
+    /**
+     * si el video ya fue visto guardamo el estatus
+     */
     public void guardarConfiguracion()
     {
         SharedPreferences preferencias = getSharedPreferences("Login_User", Context.MODE_PRIVATE);

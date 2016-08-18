@@ -1,4 +1,4 @@
-package com.bitrubio.prototipoebitrubio;
+package com.bitrubio.prototipoebitrubio.Entidades;
 
 /**
  * Created by Orion on 14/06/2016.

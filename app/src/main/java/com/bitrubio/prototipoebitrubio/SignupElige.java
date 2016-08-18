@@ -22,6 +22,7 @@ import org.w3c.dom.Text;
 
 /**
  * Created by Mario on 02/02/2016.
+ * panatalla eleije que quieres hacer primero
  */
 
 public class SignupElige extends AppCompatActivity {

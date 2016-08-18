@@ -1,4 +1,4 @@
-package com.bitrubio.prototipoebitrubio.Bitrubian;
+package com.bitrubio.prototipoebitrubio.Entidades;
 
 /**
  * Created by Mario on 11/01/2016.

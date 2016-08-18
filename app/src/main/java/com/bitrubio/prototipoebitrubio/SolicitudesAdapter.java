@@ -25,6 +25,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Orion on 25/05/2016.
+ * adapatador de solicitudes pendientes
  */
 public class SolicitudesAdapter extends ArrayAdapter<Comunidad> {
     private final Context context;
@@ -186,7 +187,7 @@ public class SolicitudesAdapter extends ArrayAdapter<Comunidad> {
 
 
     }
-
+    /*expandir, colapsar , slideanimator sirven para abrir y cerrar las aoppciones */
     private void expandir(LinearLayout lnr) {
         //set Visible
         lnr.setVisibility(View.VISIBLE);

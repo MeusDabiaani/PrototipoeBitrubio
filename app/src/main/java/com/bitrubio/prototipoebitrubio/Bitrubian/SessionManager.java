@@ -12,7 +12,10 @@ import java.util.HashMap;
 
 /**
  * Created by Orion on 11/03/2016.
+ * maneja el inicio de sesion dentro de la aplicacion
  */
+
+
 public class SessionManager {
     // Shared Preferences
     SharedPreferences pref;

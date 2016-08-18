@@ -58,8 +58,18 @@ public class FragmentFamiliares extends Fragment {
         comunidadList.add(new Comunidad(8, "Alberto Rodriguez", 1));
         comunidadList.add(new Comunidad(9, "Vanessa Hernandez", 2));
         comunidadList.add(new Comunidad(10, "Marisol Jimenez", 1));
+        listViewAmigo(rootView);
 
-        listViewAmigos = (ListView) rootView.findViewById(R.id.list_amigos);
+        return rootView;
+    }
+
+    /**
+     *
+      * @param view
+     * arma la lista de amigos
+     */
+    public void listViewAmigo(View view ){
+        listViewAmigos = (ListView) view.findViewById(R.id.list_amigos);
         listAmigos = new AmigosAdapter(getActivity(), comunidadList,0);
         listViewAmigos.setAdapter(listAmigos);
 
@@ -88,9 +98,7 @@ public class FragmentFamiliares extends Fragment {
             listViewAmigos.setNestedScrollingEnabled(true);
 
         }
-        return rootView;
     }
-
     private TextView setTypeAndSize(TextView txt) {
         txt.setTextSize(17);
         txt.setTypeface(tf);

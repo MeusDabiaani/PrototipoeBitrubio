@@ -16,7 +16,9 @@ import android.widget.Button;
 import android.graphics.Paint;
 /**
  * Created by Orion on 20/06/2016.
+ * vista del fragmentto principal expertos
  */
+//TODO falta crear Back
 public class FragmentInfoExperto extends Fragment {
     @Bind(R.id.txt_descripcion)
     TextView txtDescripcion;

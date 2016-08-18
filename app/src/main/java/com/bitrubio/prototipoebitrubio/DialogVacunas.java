@@ -28,6 +28,7 @@ import butterknife.Bind;
 
 /**
  * Created by Orion on 13/07/2016.
+ * Dialog muetsra lista de vacunas
  */
 public class DialogVacunas extends DialogFragment {
 

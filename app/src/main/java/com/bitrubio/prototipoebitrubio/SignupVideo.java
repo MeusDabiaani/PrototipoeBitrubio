@@ -32,6 +32,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 08/01/2016.
+ * carga el video de introiducioon ala aplicacion
  */
 public class SignupVideo extends Activity implements SurfaceHolder.Callback {
     private String TAG = "VideoSignup";
@@ -105,6 +106,9 @@ public class SignupVideo extends Activity implements SurfaceHolder.Callback {
 
     }
 
+    /**
+     * inicializa el video
+     */
     public void inicializaVideo() {
         uriPath = "android.resource://com.bitrubio.prototipoebitrubio/" + R.raw.bitrubio_family;
         uri = Uri.parse(uriPath);

@@ -14,10 +14,13 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.EditText;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Productos;
+
 import java.util.ArrayList;
 
 /**
  * Created by Orion on 22/06/2016.
+ * adaptador para el carrito de compras
  */
 public class CarritoAdapter extends RecyclerView.Adapter<CarritoAdapter.ViewHolder>{
     private ArrayList<Productos> data;

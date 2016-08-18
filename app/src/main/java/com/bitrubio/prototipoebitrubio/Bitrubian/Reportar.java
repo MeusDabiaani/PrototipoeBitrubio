@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 07/06/2016.
+ * Vista para reportar un bitrubian
  */
 public class Reportar extends AppCompatActivity {
 

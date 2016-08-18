@@ -8,7 +8,10 @@ import android.view.ViewGroup;
 
 /**
  * Created by Orion on 26/02/2016.
+ * fragmento patrocinadadores
+ *
  */
+// TODO QUITAR Temporal
 public class FragmentPatrocinadores extends Fragment {
 
     @Override

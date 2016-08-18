@@ -38,6 +38,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 04/07/2016.
+ * fragment registro - alta de susbtas
  */
 public class Tab_regSubastas extends Fragment {
     ValueAnimator mAnimator;
@@ -423,7 +424,6 @@ public class Tab_regSubastas extends Fragment {
 
             txtFecha.setText(getResources().getString(R.string.reg_pregunta4) + " " + String.valueOf(dayOfMonth) + "/" + mes + "/" + String.valueOf(year));
             //fecha_nacimiento = String.valueOf(year) + "-" + monthOfYear + 1 + "-" + String.valueOf(dayOfMonth);
-
 
         }
     };

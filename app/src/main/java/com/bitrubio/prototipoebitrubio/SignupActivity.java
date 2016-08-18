@@ -178,7 +178,7 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 android.app.FragmentManager fm = getFragmentManager();
-                MyDialogFragment dialogFragment = new MyDialogFragment();
+                DialogTerminosCondiciones dialogFragment = new DialogTerminosCondiciones();
                 dialogFragment.show(fm, "Terminos y politica de privacidad");
             }
         });
@@ -677,7 +677,7 @@ public class SignupActivity extends AppCompatActivity {
     }
     private void showTerminos() {
         android.app.FragmentManager fm = getFragmentManager();
-        MyDialogFragment dialogFragment = new MyDialogFragment();
+        DialogTerminosCondiciones dialogFragment = new DialogTerminosCondiciones();
         dialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.DialogTheme);
         dialogFragment.show(fm, "Terminos y politica de privacidad");
     }

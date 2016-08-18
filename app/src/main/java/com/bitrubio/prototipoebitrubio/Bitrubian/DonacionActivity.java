@@ -44,7 +44,7 @@ public class DonacionActivity extends AppCompatActivity {
         if (savedInstanceState == null) {
             Bundle args = new Bundle();
             args.putInt("mView", 1);
-            FragmentHomeFundacion fragment = new FragmentHomeFundacion();
+            FragmentDonacion fragment = new FragmentDonacion();
             FT = getSupportFragmentManager().beginTransaction();
             FT.add(R.id.rel_contenedor, fragment);
             fragment.setArguments(args);

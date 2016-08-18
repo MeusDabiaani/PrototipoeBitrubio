@@ -9,12 +9,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Subastas;
 import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
 
 /**
  * Created by Orion on 04/07/2016.
+ * vista del tab subastas
  */
 public class Tab_misSubastas extends Fragment {
 
@@ -29,7 +31,9 @@ public class Tab_misSubastas extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.tab_mis_subastas,container,false);
         int drawable[] = {R.drawable.img_subastas, R.drawable.img_subastas, R.drawable.img_subastas};
+
         subastas = new ArrayList<>();
+
         subastas.add(new Subastas(1,2,
                 "Operación de naríz","Cirugia estetica","12/06/2016","10",
                 "Tengo problemas para respirar y ronco mucho, ya probé de todo pero es inutil.",

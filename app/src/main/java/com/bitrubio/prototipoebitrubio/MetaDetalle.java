@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 06/06/2016.
+ * muestra el detalle de una meta creada
  */
 public class MetaDetalle  extends AppCompatActivity{
     private ViewMetasPagerAdapter metasAdapter;

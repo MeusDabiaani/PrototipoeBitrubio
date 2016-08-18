@@ -11,6 +11,7 @@ import com.github.mikephil.charting.utils.Utils;
 
 /**
  * Created by Orion on 02/06/2016.
+ * genera las marcas numericas en las graficas
  */
 public class MyMarkerView extends MarkerView {
 
