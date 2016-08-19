@@ -26,7 +26,7 @@
             android:baselineAligned="false">
 
 
-            <LinearLayout
+          <!--  <LinearLayout
                 android:layout_width="75dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -46,7 +46,7 @@
                     android:text="Dependientes"
                     style="@style/MyTextViewAvenir"
                     android:textColor="@color/white" />
-            </LinearLayout>
+            </LinearLayout>-->
 
             <LinearLayout
                 android:layout_width="75dp"

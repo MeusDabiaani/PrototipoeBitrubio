@@ -65,7 +65,7 @@ public class ServiciosActivity extends AppCompatActivity {
     ImageButton _btnServicios;
     SessionManager session;
     Bitmap myBitmap = null;
-    CardView carViewFarmacia, cardViewSubastas, cardViewDonacion;
+    CardView  cardViewDonacion;
     NavigationView navigationView;
     DrawerLayout drawer;
     LinearLayout lnr_premium, lnr_agenda, lnr_tarjeta, lnr_promociones, lnr_facturas, lnr_configuracion, lnr_ayuda;
@@ -127,7 +127,7 @@ public class ServiciosActivity extends AppCompatActivity {
 
         seccionBotones();
 
-        carViewFarmacia = (CardView) findViewById(R.id.card_view_farmacia);
+   /*     carViewFarmacia = (CardView) findViewById(R.id.card_view_farmacia);
         carViewFarmacia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -143,7 +143,7 @@ public class ServiciosActivity extends AppCompatActivity {
                 Intent intentSubasta = new Intent(ServiciosActivity.this, SubastasActivity.class);
                 startActivity(intentSubasta);
             }
-        });
+        });*/
         cardViewDonacion = (CardView) findViewById(R.id.card_view_donacion);
         cardViewDonacion.setOnClickListener(new View.OnClickListener() {
             @Override

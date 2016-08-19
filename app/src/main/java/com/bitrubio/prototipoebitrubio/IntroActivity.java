@@ -104,7 +104,7 @@ public class IntroActivity extends AppCompatActivity implements SurfaceHolder.Ca
                 }
             });
             guardarConfiguracion();
-           videoback();
+
         }
     }
     public void videoback(){
@@ -123,7 +123,6 @@ public class IntroActivity extends AppCompatActivity implements SurfaceHolder.Ca
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-
               videoback();
             }
         },0);

@@ -62,8 +62,8 @@ public class ComunidadActivity extends AppCompatActivity {
     String TAG = getClass().getSimpleName();
     Toolbar toolbar;
     //botonoes superiores
-    @Bind(R.id.btn_comunidad_dependientes)
-    ImageButton _btnDependientes;
+    /*@Bind(R.id.btn_comunidad_dependientes)
+    ImageButton _btnDependientes;*/
     @Bind(R.id.btn_comunidad_familiares)
     ImageButton _btnFamiliares;
     @Bind(R.id.btn_comunidad_amigos)
@@ -148,15 +148,14 @@ public class ComunidadActivity extends AppCompatActivity {
                 session.logoutUser();
             }
         });
+        _btnFamiliares.setBackground(getResources().getDrawable(R.drawable.comunidad_familiares_on));
 
-        _btnDependientes.setBackground(getResources().getDrawable(R.drawable.comunidad_dependientes_on));
-
-        Fragment fragment = new FragmentDependientes();
+        Fragment fragment = new FragmentFamiliares();
         FT = getFragmentManager().beginTransaction();
         FT.add(R.id.fragment_container_comunidad, fragment);
         FT.commit();
 
-        _btnDependientes.setOnClickListener(new View.OnClickListener() {
+     /*   _btnDependientes.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
@@ -170,13 +169,13 @@ public class ComunidadActivity extends AppCompatActivity {
                 FT.commit();
             }
         });
-
+*/
         _btnFamiliares.setOnClickListener(new View.OnClickListener() {
             @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onClick(View v) {
                 _btnFamiliares.setBackground(getResources().getDrawable(R.drawable.comunidad_familiares_on));
-                _btnDependientes.setBackground(getResources().getDrawable(R.drawable.comunidad_dependientes_off));
+               // _btnDependientes.setBackground(getResources().getDrawable(R.drawable.comunidad_dependientes_off));
                 _btnAmigos.setBackground(getResources().getDrawable(R.drawable.comunidad_amigos_off));
                 final Fragment fragmentFamiliares = new FragmentFamiliares();
                 FT = getFragmentManager().beginTransaction();
@@ -193,7 +192,7 @@ public class ComunidadActivity extends AppCompatActivity {
             public void onClick(View v) {
                 _btnAmigos.setBackground(getResources().getDrawable(R.drawable.comunidad_amigos_on));
                 _btnFamiliares.setBackground(getResources().getDrawable(R.drawable.comunidad_familiares_off));
-                _btnDependientes.setBackground(getResources().getDrawable(R.drawable.comunidad_dependientes_off));
+                //_btnDependientes.setBackground(getResources().getDrawable(R.drawable.comunidad_dependientes_off));
                 //_btnAmigos.setPressed(true);
                 final Fragment fragmentAmigos = new FragmentAmigos();
                 FT = getFragmentManager().beginTransaction();

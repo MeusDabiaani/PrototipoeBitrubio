@@ -25,6 +25,7 @@ import com.bitrubio.prototipoebitrubio.AsynkData.ServiceHandler;
 import com.bitrubio.prototipoebitrubio.Entidades.Bitrubian;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
+import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,16 +108,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         lnr_textura = (LinearLayout) findViewById(R.id.lnr_textura);
-        Bitmap bit_textura = null ;
+/*        Bitmap bit_textura = null ;
         bit_textura = redimensionarImagenMaximo(drawableToBitmap(getResources().getDrawable(R.drawable.textura)),90,90);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bit_textura);
-        lnr_textura.setBackground(ob);
-
-
+        lnr_textura.setBackground(ob);*/
         lnr_textura.setBackground(getResources().getDrawable(R.drawable.textura));
-
-            //getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-
         ButterKnife.bind(this);
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "fonts/avenir-light.ttf");
