@@ -38,9 +38,7 @@
             app:textStyle="@style/TextViewStyleSegmentButton"
             app:strokeColor="@color/iron"
             app:strokeWidth="1dip"
-            app:cornerRadius="20dip"
-
-            />
+            app:cornerRadius="20dip" />
     </LinearLayout>
     <RelativeLayout
         android:id="@+id/img_fondo"

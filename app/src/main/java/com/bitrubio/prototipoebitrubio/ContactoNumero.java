@@ -23,6 +23,7 @@ import android.widget.Toast;
 
 /**
  * Created by Orion on 05/05/2016.
+ * carga el dialgo con los numero de cada contacto
  */
 public class ContactoNumero extends DialogFragment {
     private String numeros[];

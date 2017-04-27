@@ -11,6 +11,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 20/07/2016.
+ * dialog de aviso opcional para tu medico
  */
 public class DialogOpcional extends DialogFragment{
 

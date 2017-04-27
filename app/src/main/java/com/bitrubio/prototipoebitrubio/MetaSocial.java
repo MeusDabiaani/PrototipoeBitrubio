@@ -20,7 +20,9 @@ import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
 
 /**
  * Created by Orion on 29/04/2016.
+ * actividad principal de las metas sociales
  */
+
 public class MetaSocial extends AppCompatActivity {
 
     private String TAG = getClass().getName();

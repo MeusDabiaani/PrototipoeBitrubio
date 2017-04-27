@@ -5,7 +5,7 @@
     android:id="@+id/coordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.bitrubio.prototipoebitrubio.MainActivity">
+    tools:context="com.bitrubio.prototipoebitrubio.Bitrubian.AlertaActvity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,10 +33,21 @@
                     android:layout_height="?attr/actionBarSize"
                     android:background="@color/colorAccent"
                     android:minHeight="?attr/actionBarSize"
-                    android:theme="@style/ThemeOverlay.AppCompat.Light"
+                    android:navigationIcon="@drawable/ic_menu_new"
                     app:layout_collapseMode="pin"
-                    app:layout_scrollFlags="scroll|enterAlways"
-                    app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+                    app:layout_scrollFlags="scroll|enterAlways">
+
+                    <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                        android:id="@+id/txt_titleToolbar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/alerta"
+                        android:textColor="@color/white"
+                        android:textSize="16sp"
+                        app:font="avenir-light.ttf" />
+                    
+                </android.support.v7.widget.Toolbar>
 
             </LinearLayout>
         </android.support.design.widget.CollapsingToolbarLayout>

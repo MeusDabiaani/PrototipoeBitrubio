@@ -17,6 +17,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 21/07/2016.
+ * Muetra el dialog con la confirmacion que mostrar la informacion del perfil medico  ocn los medicos en las subastas.
  */
 public class DialogAvisoPerfil extends DialogFragment{
     @Bind(R.id.btnEntendido)

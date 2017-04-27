@@ -17,7 +17,7 @@ import android.widget.LinearLayout;
 /**
  * Created by Orion on 16/04/2016.
  */
-public class MyDialogFragment extends DialogFragment {
+public class DialogTerminosCondiciones extends DialogFragment {
     Typeface tf;
     @Bind(R.id.txt_term1)
     TextView txtTermino1;

@@ -22,7 +22,9 @@ import java.util.ArrayList;
 
 /**
  * Created by Orion on 24/06/2016.
+ * Muetsras la vista para selecionar la tarjeta que se usara para pagar
  */
+// TODO falta backend
 public class PagarCompra extends AppCompatActivity {
     RecyclerView mRecyclerView;
     TarjetasAdapter mAdaper;

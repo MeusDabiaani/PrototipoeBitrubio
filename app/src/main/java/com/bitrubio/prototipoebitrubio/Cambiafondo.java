@@ -47,6 +47,7 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 
 /**
  * Created by Orion on 06/05/2016.
+ * dialog fragment para cambiar el fondo de la pantalla
  */
 public class Cambiafondo extends DialogFragment implements View.OnClickListener{
 
@@ -121,6 +122,8 @@ public class Cambiafondo extends DialogFragment implements View.OnClickListener{
         title_dialog.setText("Elije una imagen");
         title_dialog.setTextSize(16);
 
+
+        // agrega las imagenes de default para cambiar el fondo de la palicacion
         for (int x = 1; x<5 ;x++) {
             LinearLayout childLayout = new LinearLayout(getActivity());
             LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1);
@@ -145,12 +148,8 @@ public class Cambiafondo extends DialogFragment implements View.OnClickListener{
             picture.setOnClickListener(this);
             childLayout.addView(picture);
             linearLayout.addView(childLayout);
-
-
         }
     }
-
-
 
     @Override
     public void onClick(View v) {

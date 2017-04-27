@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 06/06/2016.
+ * muestra el resultado de una meta ya completa
  */
 public class MetaResultado extends AppCompatActivity {
     Toolbar toolbar;
@@ -39,6 +40,7 @@ public class MetaResultado extends AppCompatActivity {
     @Bind(R.id.edit_privacidad)
     TextView _input_privacidad;
     Typeface tf;
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {

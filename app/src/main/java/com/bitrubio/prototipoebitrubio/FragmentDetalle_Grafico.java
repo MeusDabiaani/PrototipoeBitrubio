@@ -6,16 +6,12 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.SeekBar;
-import android.widget.TextView;
 import android.util.Log;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
+
 import com.github.mikephil.charting.animation.Easing;
 import com.github.mikephil.charting.charts.LineChart;
 import com.github.mikephil.charting.components.Legend;
@@ -36,6 +32,7 @@ import java.util.ArrayList;
 
 /**
  * Created by Orion on 02/06/2016.
+ * arma las graficas para los resultados de las metas
  */
 public class FragmentDetalle_Grafico extends Fragment implements OnChartGestureListener,OnChartValueSelectedListener {
 
@@ -46,6 +43,7 @@ public class FragmentDetalle_Grafico extends Fragment implements OnChartGestureL
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.meta_fisic_det_2,container,false);
         tf = Typeface.createFromAsset(getActivity().getAssets(), "fonts/avenir-light.ttf");
+
         mChart = (LineChart) view.findViewById(R.id.chart1);
         mChart.setOnChartGestureListener(this);
         mChart.setOnChartValueSelectedListener(this);
@@ -84,6 +82,13 @@ public class FragmentDetalle_Grafico extends Fragment implements OnChartGestureL
         mChart.getAxisRight().setEnabled(false);
         return view;
     }
+
+    /**
+     *
+     * @param count
+     * @param range
+     * setea los datos para graficar
+     */
     private void setData(int count, float range) { // count = x(dias) , rango = y(kg)
         ArrayList<String> xVals = new ArrayList<String>();
         for (int i = 0; i < count; i++) {

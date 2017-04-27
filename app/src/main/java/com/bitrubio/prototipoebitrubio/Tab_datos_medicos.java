@@ -3,7 +3,6 @@ package com.bitrubio.prototipoebitrubio;
 import android.animation.Animator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Build;
@@ -11,14 +10,12 @@ import android.os.Bundle;
 import android.os.IBinder;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -26,8 +23,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Experto;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
+import com.bitrubio.prototipoebitrubio.Entidades.Consultas;
 
 import java.util.ArrayList;
 

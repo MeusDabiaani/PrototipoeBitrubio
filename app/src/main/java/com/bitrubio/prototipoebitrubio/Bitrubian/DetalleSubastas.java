@@ -18,6 +18,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 05/07/2016.
+ * carga el fragmento subastas
  */
 public class DetalleSubastas  extends AppCompatActivity{
 

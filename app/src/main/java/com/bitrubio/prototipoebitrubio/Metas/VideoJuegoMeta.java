@@ -13,10 +13,8 @@ import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker;
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton;
-import com.bitrubio.prototipoebitrubio.FragmentMetaPeso;
+import com.bitrubio.prototipoebitrubio.FragmentMetaSelecionada;
 import com.bitrubio.prototipoebitrubio.R;
-
-import butterknife.OnItemClick;
 
 /**
  * Created by Orion on 03/08/2016.
@@ -77,7 +75,7 @@ public class VideoJuegoMeta extends Fragment implements HorizontalPicker.OnItemC
 
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
                 Bundle args = new Bundle();
-                final Fragment fragment = new FragmentMetaPeso();
+                final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);

@@ -16,7 +16,9 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 21/06/2016.
+ * Muestra el fragmento con los detalles del experto
  */
+//TODO falta cerar el backend para recuperar la info del experto
 public class FragmentDetalleExperto extends Fragment{
     Typeface tf;
     @Bind(R.id.txt_descripcion)
@@ -39,6 +41,7 @@ public class FragmentDetalleExperto extends Fragment{
 
     @Nullable
     @Override
+
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView =  inflater.inflate(R.layout.layout_expero_detalle, container, false);
         ButterKnife.bind(this,rootView);

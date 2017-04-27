@@ -14,7 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Servicios;
+import com.bitrubio.prototipoebitrubio.Entidades.Servicios;
 import com.bitrubio.prototipoebitrubio.HelperRecyclerView.ItemTouchHelperAdapter;
 import com.bitrubio.prototipoebitrubio.HelperRecyclerView.ItemTouchHelperViewHolder;
 import com.bitrubio.prototipoebitrubio.HelperRecyclerView.OnStartDragListener;

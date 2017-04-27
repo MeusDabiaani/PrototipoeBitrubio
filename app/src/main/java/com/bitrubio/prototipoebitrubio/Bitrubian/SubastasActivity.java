@@ -16,6 +16,7 @@ import com.bitrubio.prototipoebitrubio.R;
 
 /**
  * Created by Orion on 04/07/2016.
+ * Vsita principal de la seccion de subastas
  */
 public class SubastasActivity extends AppCompatActivity{
     Toolbar toolbar;

@@ -11,7 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Experto;
+import com.bitrubio.prototipoebitrubio.Entidades.Experto;
 
 import java.util.ArrayList;
 
@@ -42,8 +42,11 @@ public class FragmentExpertos extends Fragment {
         expertoList.add(new Experto(6,"Ximena Olvera","Ciudad de Mexico","Cardiologo","553455661",12));
         expertoList.add(new Experto(7,"Roberto Medrano","Ciudad de Mexico","Medicina General","553455661",2));
         expertoList.add(new Experto(8,"Alicia Gonzales","Ciudad de Mexico","Pediatria","553455661",4));
-
-        mRecyclerView = (RecyclerView) rootView.findViewById(R.id.recycler_expertos);
+        armaRecyclerView(rootView);
+        return rootView;
+    }
+    public void armaRecyclerView(View v){
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.recycler_expertos);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(mLayoutManager);
@@ -55,6 +58,6 @@ public class FragmentExpertos extends Fragment {
         mRecyclerView.addItemDecoration(
                 new DividerItemDecoration(getActivity(), DividerItemDecoration.VERTICAL_LIST));
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-        return rootView;
+
     }
 }

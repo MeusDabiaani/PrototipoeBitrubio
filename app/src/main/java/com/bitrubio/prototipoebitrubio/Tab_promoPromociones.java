@@ -10,7 +10,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Experto;
+import com.bitrubio.prototipoebitrubio.Entidades.Anuncios;
 
 import java.util.ArrayList;
 

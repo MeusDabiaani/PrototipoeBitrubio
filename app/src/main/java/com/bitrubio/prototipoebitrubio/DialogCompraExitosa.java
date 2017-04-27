@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by Orion on 24/06/2016.
+ * dialog de compra existosa
  */
 public class DialogCompraExitosa extends DialogFragment {
     @Override

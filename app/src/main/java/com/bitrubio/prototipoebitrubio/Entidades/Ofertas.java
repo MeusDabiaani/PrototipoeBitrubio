@@ -1,4 +1,4 @@
-package com.bitrubio.prototipoebitrubio.Bitrubian;
+package com.bitrubio.prototipoebitrubio.Entidades;
 
 import java.lang.reflect.Array;
 

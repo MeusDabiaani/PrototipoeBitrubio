@@ -11,6 +11,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 01/06/2016.
+ * fvista par el detalle del medicamento
  */
 public class FragmentDetMedicamento extends Fragment  {
 

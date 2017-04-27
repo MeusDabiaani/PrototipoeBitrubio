@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 06/06/2016.
+ * muestra el detalle de una meta creada
  */
 public class MetaDetalle  extends AppCompatActivity{
     private ViewMetasPagerAdapter metasAdapter;
@@ -87,5 +88,15 @@ public class MetaDetalle  extends AppCompatActivity{
 
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        Intent intent = new Intent(getBaseContext(),MainActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(intent);
+
+
     }
 }

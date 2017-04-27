@@ -25,6 +25,7 @@ import butterknife.Bind;
 
 /**
  * Created by Orion on 12/07/2016.
+ * Muestra el detalle de las subasta ya creadas
  */
 public class DetalleCompletoSubasta extends AppCompatActivity {
     Toolbar toolbar;

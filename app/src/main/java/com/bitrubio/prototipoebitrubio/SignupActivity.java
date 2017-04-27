@@ -1,57 +1,38 @@
 package com.bitrubio.prototipoebitrubio;
 
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
-import android.app.Fragment;
-import android.app.FragmentTransaction;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.PorterDuff;
-import android.graphics.Rect;
 import android.graphics.Typeface;
-import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.DialogFragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.graphics.drawable.DrawableCompat;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.text.Editable;
-import android.text.Html;
-import android.text.TextPaint;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.AsynkData.ServiceHandler;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Bitrubian;
+import com.bitrubio.prototipoebitrubio.Entidades.Bitrubian;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
 import com.bitrubio.prototipoebitrubio.Entidades.DatosPerfilManager;
@@ -59,13 +40,9 @@ import com.bitrubio.prototipoebitrubio.Entidades.DatosPerfilManager;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.w3c.dom.Text;
 
-import java.lang.reflect.Field;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Locale;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -141,6 +118,7 @@ public class SignupActivity extends AppCompatActivity {
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
         ButterKnife.bind(this);
@@ -200,10 +178,11 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 android.app.FragmentManager fm = getFragmentManager();
-                MyDialogFragment dialogFragment = new MyDialogFragment();
+                DialogTerminosCondiciones dialogFragment = new DialogTerminosCondiciones();
                 dialogFragment.show(fm, "Terminos y politica de privacidad");
             }
         });
+
         calender = Calendar.getInstance();
         final CheckBox rd_mujer, rd_hombre;
         rd_hombre = (CheckBox) findViewById(R.id.rad_hombre);
@@ -332,10 +311,6 @@ public class SignupActivity extends AppCompatActivity {
             }
         });
 
-
-
-
-
         _checkNo.setTypeface(tf);
         _checkOrganos.setTypeface(tf);
         _checkSangre.setTypeface(tf);
@@ -412,10 +387,7 @@ public class SignupActivity extends AppCompatActivity {
                 return false;
             }
         });
-
     }
-
-
 
     // muestra el el fragmento con el calendario
     private void showDatePicker() {
@@ -427,8 +399,6 @@ public class SignupActivity extends AppCompatActivity {
         date.setArguments(args);
         date.setCallBack(ondate);
         date.show(getSupportFragmentManager(), "Date Picker");
-
-
 
     }
     protected void hideKeyboard(View view) {
@@ -487,6 +457,7 @@ public class SignupActivity extends AppCompatActivity {
             }
             year_new = year;
             input_fechaNac.setText(String.valueOf(dayOfMonth) + "/" + mes + "/" + String.valueOf(year));
+
              //fecha_nacimiento = String.valueOf(year) + "-" + monthOfYear + 1 + "-" + String.valueOf(dayOfMonth);
 
 
@@ -546,18 +517,19 @@ public class SignupActivity extends AppCompatActivity {
             datosPost.add(new BasicNameValuePair("terminos", String.valueOf(condiciones)));
             datosPost.add(new BasicNameValuePair("codigoAmigo", codigo));
             ServiceHandler jsonParser = new ServiceHandler();
+           // Log.e(TAG,"url "+URL);
             String json = jsonParser.makeServiceCall(URL, ServiceHandler.POST, datosPost);
 
             try {
                 JSONObject Obj = new JSONObject(json);
-                Log.e(TAG, "Obj " + Obj);
+              //  Log.e(TAG, "Obj " + Obj);
                 JSONArray datosUser = Obj.getJSONArray("registro");
-                Log.e(TAG, "datosUser " + datosUser);
+              //  Log.e(TAG, "datosUser " + datosUser);
 
                 for (int i = 0; i < datosUser.length(); i++) {
                     JSONObject datosObj = datosUser.getJSONObject(i);
                     String error = datosObj.getString("success");
-                    Log.e(TAG, "error success" + error);
+
                     if (error.equals("2") ) {
                         userData.add(new Bitrubian(0,"0", "0", "0", "2", "0"));
                     }else if(error.equals("3")){
@@ -705,7 +677,7 @@ public class SignupActivity extends AppCompatActivity {
     }
     private void showTerminos() {
         android.app.FragmentManager fm = getFragmentManager();
-        MyDialogFragment dialogFragment = new MyDialogFragment();
+        DialogTerminosCondiciones dialogFragment = new DialogTerminosCondiciones();
         dialogFragment.setStyle(DialogFragment.STYLE_NO_TITLE,R.style.DialogTheme);
         dialogFragment.show(fm, "Terminos y politica de privacidad");
     }

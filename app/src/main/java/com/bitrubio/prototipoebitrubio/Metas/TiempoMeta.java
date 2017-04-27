@@ -14,11 +14,14 @@ import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.HorizontalPicker;
 import com.bitrubio.prototipoebitrubio.ClasesExtendidas.SegmentedButton;
-import com.bitrubio.prototipoebitrubio.FragmentMetaPeso;
+import com.bitrubio.prototipoebitrubio.Entidades.GlobalMetaPeso;
+import com.bitrubio.prototipoebitrubio.FragmentMetaSelecionada;
 import com.bitrubio.prototipoebitrubio.R;
 
 /**
  * Created by Orion on 25/07/2016.
+ * fragment para crear tiempo meta
+ *
  */
 public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelected , HorizontalPicker.OnItemClicked {
     String TAG = getClass().getName();
@@ -28,7 +31,8 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
     FragmentTransaction FT;
     Toolbar toolbar;
     TextView txtSegment;
-    int miVar ;
+    int miVar ,tipoTiempo ;
+    GlobalMetaPeso globalMetaPeso;
 
     public static TiempoMeta newInstance (Bundle arguments){
         TiempoMeta fragment = new TiempoMeta();
@@ -44,10 +48,11 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.temporal_fisicos, container, false);
         txtSegment = (TextView) v.findViewById(R.id.txt_segment);
-        Bundle args =  this.getArguments();
+        globalMetaPeso = GlobalMetaPeso.getInstance();
+        Bundle args =  getArguments();
 
         if (args != null) {
-           miVar = args.getInt("tipo", 0);
+           miVar = args.getInt("tipo", 1);
         }
 
         final String[] array = {"1", "2","3","4","5","6","7","8","9","10", "11","12","13","14","15",
@@ -76,15 +81,16 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
             // First button is selected
             buttons.setPushedButtonIndex(0);
         }
-        // Some example click handlers. Note the click won't get executed
-        // if the segmented button is already selected (dark blue)
+
         buttons.setOnClickListener(new SegmentedButton.OnClickListenerSegmentedButton() {
             @Override
             public void onClick(int index) {
                 if (index == 0) {
-                    Toast.makeText(getActivity(), "opcion 1", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "opcion 1", Toast.LENGTH_SHORT).show();
+                    tipoTiempo = 0 ;
                 } else {
-                    Toast.makeText(getActivity(), "opcion 2", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "opcion 2", Toast.LENGTH_SHORT).show();
+                    tipoTiempo = 1 ;
                 }
             }
         });
@@ -92,18 +98,21 @@ public class TiempoMeta extends Fragment implements HorizontalPicker.OnItemSelec
             @Override
             public void onClick(View v) {
 
-
+                globalMetaPeso.setTiempoMeta(varSeleccion);
+                globalMetaPeso.setTipoTiempo(tipoTiempo);
 
                 //  // TODO: 02/08/2016 regresamos los valores para entrar a la alata dela meta peso 1,1
                 Bundle args = new Bundle();
-                final Fragment fragment = new FragmentMetaPeso();
+                final Fragment fragment = new FragmentMetaSelecionada();
                 FT = getFragmentManager().beginTransaction();
+                FT.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
                 FT.replace(R.id.fragment_tipoMetas, fragment);
                 FT.addToBackStack(null);
                 args.putInt("tipoMeta",1);
                 args.putInt("position", 1);
                 fragment.setArguments(args);
                 FT.commit();
+
 
 
             }

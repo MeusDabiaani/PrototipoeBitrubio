@@ -9,13 +9,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Medicamento;
 import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
 
 /**
  * Created by Orion on 04/07/2016.
+ * vuista del fragmento carrito para medicamentos
  */
+
 public class Tab_miCarrito extends Fragment {
 
     private RecyclerView mRecyclerView;

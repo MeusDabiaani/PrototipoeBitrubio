@@ -29,6 +29,8 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 02/03/2016.
+ * muestra los tipos de posteo que pueden existir
+ *
  */
 public class ComentarioActivity extends AppCompatActivity {
     Typeface tf;
@@ -81,16 +83,12 @@ public class ComentarioActivity extends AppCompatActivity {
         lnr_header_comentario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 Intent intentOpciones = new Intent(ComentarioActivity.this, ComentarioOpciones.class);
                 intentOpciones.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 startActivity(intentOpciones);
             }
         });
-
-
     }
-
     public void onBackPressed() {
         Intent myIntent = new Intent(ComentarioActivity.this, MainActivity.class);//goto whichever activity you want by clearing top of stack.
         myIntent.setFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);// clear top of stack

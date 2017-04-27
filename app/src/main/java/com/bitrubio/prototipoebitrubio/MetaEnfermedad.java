@@ -20,6 +20,7 @@ import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
 
 /**
  * Created by Orion on 29/04/2016.
+ * Actividad principal de las metas enfermedad
  */
 public class MetaEnfermedad extends AppCompatActivity{
     private String TAG = getClass().getName();

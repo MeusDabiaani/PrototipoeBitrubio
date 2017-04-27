@@ -36,6 +36,7 @@ import android.util.Log;
 import android.widget.LinearLayout;
 /**
  * Created by Orion on 26/04/2016.
+ * actividad principal de las metas fisicas
  */
 public class MetaFisica extends AppCompatActivity {
     private String TAG = getClass().getSimpleName();

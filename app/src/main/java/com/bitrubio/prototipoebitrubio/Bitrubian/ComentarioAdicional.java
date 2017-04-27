@@ -15,6 +15,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 12/07/2016.
+ * agrega la vista para un comentario extra de el formulario de registro de subastas
  */
 public class ComentarioAdicional extends AppCompatActivity {
     Toolbar toolbar;

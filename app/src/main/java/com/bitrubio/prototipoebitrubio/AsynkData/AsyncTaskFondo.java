@@ -25,28 +25,26 @@ import cz.msebera.android.httpclient.util.EntityUtils;
 
 /**
  * Created by Orion on 27/07/2016.
+ * asyntask sube foto perfil
  */
 public class AsyncTaskFondo extends AsyncTask<Void, Void, String> {
     String TAG = getClass().getName();
-    Context context;
+    Activity context;
     ProgressDialog pDialog ;
-
     String URL;
-    ConectaServidor servidor;
     String base64;
     String idUsuario;
 
-    public AsyncTaskFondo(Context ctx,String url, String ba1, String idUser) {
+    public AsyncTaskFondo(Activity ctx,String url, String ba1, String idUser) {
         context = ctx;
         this.URL= url;
         this.base64 = ba1;
         this.idUsuario = idUser;
-
     }
 
     protected void onPreExecute() {
         super.onPreExecute();
-        pDialog =  new ProgressDialog(context, R.style.AppTheme_Dark_Dialog); ;
+        pDialog =  new ProgressDialog(context, R.style.AppTheme_Dark_Dialog);
         CharSequence charSequence = "Subiendo imagen";
         pDialog.setMessage(charSequence);
         pDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
@@ -63,11 +61,11 @@ public class AsyncTaskFondo extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... params) {
-        servidor = new ConectaServidor();
-        ArrayList<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>();
+        ArrayList<NameValuePair> nameValuePairs = new ArrayList<>();
         nameValuePairs.add(new BasicNameValuePair("base64", base64));
         nameValuePairs.add(new BasicNameValuePair("ImageName", idUsuario + ".jpg"));
-        URL = servidor.getUrl() + URL;
+
+        Log.e(TAG, "url_fondo : " + URL);
         try {
 
             HttpClient httpclient = new DefaultHttpClient();

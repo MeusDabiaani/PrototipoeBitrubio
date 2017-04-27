@@ -14,20 +14,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.AsynkData.ServiceHandler;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Bitrubian;
+import com.bitrubio.prototipoebitrubio.Entidades.Bitrubian;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
 import com.bitrubio.prototipoebitrubio.Bitrubian.SessionManager;
+import com.bitrubio.prototipoebitrubio.Util.AjustaImagen;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +40,7 @@ import cz.msebera.android.httpclient.message.BasicNameValuePair;
 
 /**
  * Created by Mario on 16/12/2015.
+ * pantalla de logeo
  */
 public class LoginActivity extends AppCompatActivity {
 
@@ -109,16 +108,11 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         lnr_textura = (LinearLayout) findViewById(R.id.lnr_textura);
-        Bitmap bit_textura = null ;
+/*        Bitmap bit_textura = null ;
         bit_textura = redimensionarImagenMaximo(drawableToBitmap(getResources().getDrawable(R.drawable.textura)),90,90);
         BitmapDrawable ob = new BitmapDrawable(getResources(), bit_textura);
-        lnr_textura.setBackground(ob);
-
-
+        lnr_textura.setBackground(ob);*/
         lnr_textura.setBackground(getResources().getDrawable(R.drawable.textura));
-
-            //getWindow().setStatusBarColor(getResources().getColor(R.color.colorPrimaryDark));
-
         ButterKnife.bind(this);
         Typeface tf = Typeface.createFromAsset(getAssets(),
                 "fonts/avenir-light.ttf");
@@ -144,11 +138,17 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+    /**
+     *
+     * @param drawable
+     * @return
+     * convierte una drawable a un bitmap
+     */
     public static Bitmap drawableToBitmap (Drawable drawable) {
         if (drawable instanceof BitmapDrawable) {
             return ((BitmapDrawable)drawable).getBitmap();
         }
-
         int width = drawable.getIntrinsicWidth();
         width = width > 0 ? width : 1;
         int height = drawable.getIntrinsicHeight();
@@ -160,6 +160,15 @@ public class LoginActivity extends AppCompatActivity {
         drawable.draw(canvas);
         return bitmap;
     }
+
+    /**
+     *
+     * @param mBitmap
+     * @param newWidth
+     * @param newHeigth
+     * @return
+     * ajustamos la imagen para usarla en el fondo
+     */
     public Bitmap redimensionarImagenMaximo(Bitmap mBitmap, float newWidth, float newHeigth) {
         //Redimensionamos
         int width = mBitmap.getWidth();
@@ -202,6 +211,11 @@ public class LoginActivity extends AppCompatActivity {
         //this.finish();
     }
 
+    /**
+     *
+     * @return
+     * valida email,password
+     */
     public boolean validate() {
         boolean valid = true;
         email = _emailText.getText().toString();
@@ -226,6 +240,9 @@ public class LoginActivity extends AppCompatActivity {
         return valid;
     }
 
+    /**
+     * recupero y agrega los datos del usuario ala session
+     */
     private void DatosUsuario() {
 
         // podemos usar estos valores como session dentro de la aplicacion
@@ -237,9 +254,7 @@ public class LoginActivity extends AppCompatActivity {
             _iduserDB = userData.get(i).getIdUsuario().toString();
 
         }
-
         //Log.e(TAG, "sucess :" + _successDB);
-
         if (_successDB.equals("1")) {
 
             session.createLoginSession(_nombreBD, _apePatBD, _mailDB, _successDB,_iduserDB);

@@ -14,9 +14,8 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ContactoAdapter;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,6 +25,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 25/02/2016.
+ * fragmento amigos
  */
 public class FragmentAmigos extends Fragment {
     private ListView listViewSolicitudes;
@@ -88,52 +88,7 @@ public class FragmentAmigos extends Fragment {
 
         mRecyclerView.setAdapter(mSectionedAdapter);
 
-/*        listViewSolicitudes = (ListView) rootView.findViewById(R.id.list_soliciitudes);
-        listSolicitudes = new SolicitudesAdapter(getActivity(), comunidadList);
-        listViewSolicitudes.setAdapter(listSolicitudes);
 
-
-        listViewAmigos = (ListView) rootView.findViewById(R.id.list_amigos);
-        listAmigos = new AmigosAdapter(getActivity(), comunidadList);
-        listViewAmigos.setAdapter(listAmigos);
-
-        edit_comentrio.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), ComentarioActivity.class);
-                startActivity(intent);
-            }
-        });
-
-        listViewSolicitudes.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Toast.makeText(getActivity(), "myPos " + id, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                intent.putExtra("idContacto", "" + id);
-                intent.putExtra("varAmigo",0);
-                startActivity(intent);
-            }
-        });
-
-        listViewAmigos.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                Toast.makeText(getActivity(), "myPos " + id, Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getActivity(), ProfileActivity.class);
-                intent.putExtra("idContacto", "" + id);
-                intent.putExtra("varAmigo",1);
-                startActivity(intent);
-            }
-        });
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            listViewSolicitudes.setNestedScrollingEnabled(true);
-            listViewAmigos.setNestedScrollingEnabled(true);
-
-        }*/
         return rootView;
     }
     private int getLayoutManagerOrientation(int activityOrientation) {

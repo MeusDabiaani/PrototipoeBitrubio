@@ -15,9 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bitrubio.prototipoebitrubio.Bitrubian.ComentarioActivity;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Comunidad;
+import com.bitrubio.prototipoebitrubio.Entidades.Comunidad;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileActivity;
-import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
 
@@ -59,12 +58,19 @@ public class FragmentFamiliares extends Fragment {
         comunidadList.add(new Comunidad(8, "Alberto Rodriguez", 1));
         comunidadList.add(new Comunidad(9, "Vanessa Hernandez", 2));
         comunidadList.add(new Comunidad(10, "Marisol Jimenez", 1));
+        listViewAmigo(rootView);
 
+        return rootView;
+    }
 
-
-
-        listViewAmigos = (ListView) rootView.findViewById(R.id.list_amigos);
-        listAmigos = new AmigosAdapter(getActivity(), comunidadList);
+    /**
+     *
+      * @param view
+     * arma la lista de amigos
+     */
+    public void listViewAmigo(View view ){
+        listViewAmigos = (ListView) view.findViewById(R.id.list_amigos);
+        listAmigos = new AmigosAdapter(getActivity(), comunidadList,0);
         listViewAmigos.setAdapter(listAmigos);
 
         edit_comentrio.setOnClickListener(new View.OnClickListener() {
@@ -92,9 +98,7 @@ public class FragmentFamiliares extends Fragment {
             listViewAmigos.setNestedScrollingEnabled(true);
 
         }
-        return rootView;
     }
-
     private TextView setTypeAndSize(TextView txt) {
         txt.setTextSize(17);
         txt.setTypeface(tf);

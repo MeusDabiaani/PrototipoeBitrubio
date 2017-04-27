@@ -118,10 +118,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
-                android:text="Mi Perfil "
+                android:text="Datos personales "
                 android:textColor="@color/textColorPrimary"
                 android:textSize="16sp"
-                app:font="avenir-light.ttf" />
+                app:font="avenir-light.ttf"/>
 
             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                 android:id="@+id/txt_porcentaje"

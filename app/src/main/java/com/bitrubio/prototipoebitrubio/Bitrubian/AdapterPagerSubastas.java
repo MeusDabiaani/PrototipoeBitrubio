@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 
 /**
  * Created by Orion on 04/07/2016.
+ * adaptador seccion Servicios -  subastas
  */
 public class AdapterPagerSubastas extends FragmentStatePagerAdapter {
     CharSequence Titles[]; // This will Store the Titles of the Tabs which are Going to be passed when ViewPagerAdapter is created

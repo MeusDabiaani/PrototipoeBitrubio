@@ -64,15 +64,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
+
         android:orientation="vertical">
 
 
         <ListView
+            android:layout_weight="1"
             android:id="@+id/listview_amigos"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:clickable="true">
 
         </ListView>
+        <ImageView
+            android:id="@+id/img_aceptar"
+            android:layout_gravity="center"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:src="@drawable/aceptar"/>
     </LinearLayout>
+
+
 
 </LinearLayout>

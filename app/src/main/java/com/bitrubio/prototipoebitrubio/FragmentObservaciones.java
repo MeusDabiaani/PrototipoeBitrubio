@@ -13,7 +13,7 @@ import android.widget.TextView;
 /**
  * Created by Orion on 07/06/2016.
  */
-public class FragmentOnservaciones extends Fragment {
+public class FragmentObservaciones extends Fragment {
     Typeface tf;
     Toolbar toolbar;
     @Nullable

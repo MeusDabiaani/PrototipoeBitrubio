@@ -7,7 +7,6 @@ import android.graphics.Typeface;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
-import android.support.v4.view.LayoutInflaterCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +17,9 @@ import android.graphics.Paint;
 import java.util.ArrayList;
 import android.widget.RatingBar;
 import android.widget.RatingBar.OnRatingBarChangeListener;
+
+import com.bitrubio.prototipoebitrubio.Entidades.Anuncios;
+
 /**
  * Created by Orion on 09/06/2016.
  */

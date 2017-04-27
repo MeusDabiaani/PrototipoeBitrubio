@@ -67,7 +67,7 @@ public class DatosPerfilManager {
     public String VIGENCIA_VIDA ="vigencia_vida";
 
 
-
+//incializa los tipos de datos  todos los datos
     public HashMap<String, String> getDatosPerfil() {
         HashMap<String, String> datos = new HashMap<>();
         datos.put(NOMBRE, formulario.getString(NOMBRE, null));
@@ -115,7 +115,7 @@ public class DatosPerfilManager {
         datos.put(VIGENCIA_VIDA,formulario.getString(VIGENCIA_VIDA,null));
         return datos;
     }
-
+// guarda los datos de la la primera seccion
     public void insertDatosA(String nombre, String f_ape, String s_ape, String sexo, String fecha_nac,
                              String celular, String mail, String password, String donaciones, String sangre, String organos) {
 
@@ -132,7 +132,7 @@ public class DatosPerfilManager {
         editor.putString(ORGANOS, organos);
         editor.commit();
     }
-
+// guarda todos los datos de la parte fisica
     public void insertDatosB(String tipo_sanguineo, String estatura, String peso, String preferecnia_sex,
                              String vacunas, String diabetes, String hipertencion, String cancer, String otro_ant,
                              String padecimientos, String cirugias, String padecimientos_act, String embarazada,
@@ -162,6 +162,7 @@ public class DatosPerfilManager {
         editor.putString(DROGAS, drogas);
         editor.commit();
     }
+    // guarda todos los datos de la seccion de seguros
     public void insertDatosC(String segMedico,String imss,String isste,String popular,
                              String otroSeg,String compania , String poliza,String vigencia,
                              String segVida,String compVida,String polizaVida,String vigenciaVida){
@@ -179,6 +180,7 @@ public class DatosPerfilManager {
         editor.putString(VIGENCIA_VIDA,vigenciaVida);
         editor.commit();
     }
+
 
     public void editPadecimientoPrev(String  padPrev){
         editor.putString(PADECIMIENTOS_ACT,padPrev);

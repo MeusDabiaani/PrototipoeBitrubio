@@ -17,7 +17,6 @@ public class AdapterArmaEquipo extends FragmentStatePagerAdapter {
         this.Titles = mTitles;
         this.NumbOfTabs = mNumbOfTabsumb;
     }
-
     @Override
     public Fragment getItem(int position) {
         switch (position) {

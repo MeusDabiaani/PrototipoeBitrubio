@@ -4,24 +4,22 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.FragmentDetalle_A;
 import com.bitrubio.prototipoebitrubio.R;
 
 import butterknife.ButterKnife;
 import butterknife.Bind;
 /**
  * Created by Orion on 06/07/2016.
+ * Fragemento vista
  */
-public class FragmentHomeFundacion extends Fragment {
+public class FragmentDonacion extends Fragment {
 
     @Bind(R.id.btn_donar)
     Button btnDonar;
@@ -31,7 +29,7 @@ public class FragmentHomeFundacion extends Fragment {
 
     View view ;
     FragmentTransaction FT;
-    public FragmentHomeFundacion() {
+    public FragmentDonacion() {
     }
 
     @Nullable

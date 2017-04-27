@@ -4,10 +4,9 @@ import android.text.StaticLayout;
 
 /**
  * Created by Orion on 12/07/2016.
+ * Constants para mapear las subastas
  */
 public class Constantes {
-
-
     static String C_NOMBRE = "mNombre";
     static String C_ESPECIALIDAD = "mEspecialidad";
     static String C_FECHA = "mFechaPuja";

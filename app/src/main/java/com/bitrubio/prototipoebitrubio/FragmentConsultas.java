@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -88,7 +87,7 @@ public class FragmentConsultas extends Fragment {
         txtObservaciones.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Fragment fragment = new FragmentOnservaciones();
+                Fragment fragment = new FragmentObservaciones();
                 FT = getFragmentManager().beginTransaction();
                 FT.add(R.id.rel_contenedor, fragment);
                 FT.commit();

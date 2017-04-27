@@ -44,10 +44,21 @@
             android:hint="1"
             android:textSize="14sp"
             app:font="avenir-light.ttf"
-            android:layout_marginRight="12dp"
+            android:layout_marginRight="40dp"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
+
+        <android.support.v7.widget.AppCompatCheckBox
+            android:id="@+id/chk_bitrubian"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@drawable/radio_button"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/textColorPrimary" />
 
         <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
             android:id="@+id/txt_amigo_estado"

@@ -47,6 +47,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 27/01/2016.
+ * Carga la lsita de servicios disponibles
  */
 public class ServiciosActivity extends AppCompatActivity {
     private String TAG = "ServicisoActivity";
@@ -64,7 +65,7 @@ public class ServiciosActivity extends AppCompatActivity {
     ImageButton _btnServicios;
     SessionManager session;
     Bitmap myBitmap = null;
-    CardView carViewFarmacia, cardViewSubastas, cardViewDonacion;
+    CardView  cardViewDonacion;
     NavigationView navigationView;
     DrawerLayout drawer;
     LinearLayout lnr_premium, lnr_agenda, lnr_tarjeta, lnr_promociones, lnr_facturas, lnr_configuracion, lnr_ayuda;
@@ -81,19 +82,23 @@ public class ServiciosActivity extends AppCompatActivity {
         setTitle("");
         toolbar.setNavigationIcon(R.drawable.ic_menu_new);
         setSupportActionBar(toolbar);
-
+        servidor = new ConectaServidor();
         session.checkLogin();
         // get user data from session
         HashMap<String, String> user = session.getUserDetails();
         String nameSession = user.get(SessionManager.KEY_NAME);
         String apeSession = user.get(SessionManager.KEY_APE);
         idUsuario = user.get(SessionManager.KEY_IDUSER);
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout_servicios);
         ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+
         drawer.setDrawerListener(toogle);
         toogle.syncState();
+
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         menuLateral();
+
         ImageView imagePerfil = (ImageView) navigationView.getHeaderView(0).findViewById(R.id.imagePerfil);
         TextView nombreSession = (TextView) navigationView.getHeaderView(0).findViewById(R.id.nombreSession);
         nombreSession.setText(nameSession + " " + apeSession);
@@ -105,6 +110,8 @@ public class ServiciosActivity extends AppCompatActivity {
 
             }
         });
+
+
         File fileSDcard = Environment.getExternalStorageDirectory();
         File fileFotoPerfil = new File(fileSDcard, "imagen.jpg");
         if (fileFotoPerfil.exists()) {
@@ -120,7 +127,7 @@ public class ServiciosActivity extends AppCompatActivity {
 
         seccionBotones();
 
-        carViewFarmacia = (CardView) findViewById(R.id.card_view_farmacia);
+   /*     carViewFarmacia = (CardView) findViewById(R.id.card_view_farmacia);
         carViewFarmacia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -136,7 +143,7 @@ public class ServiciosActivity extends AppCompatActivity {
                 Intent intentSubasta = new Intent(ServiciosActivity.this, SubastasActivity.class);
                 startActivity(intentSubasta);
             }
-        });
+        });*/
         cardViewDonacion = (CardView) findViewById(R.id.card_view_donacion);
         cardViewDonacion.setOnClickListener(new View.OnClickListener() {
             @Override

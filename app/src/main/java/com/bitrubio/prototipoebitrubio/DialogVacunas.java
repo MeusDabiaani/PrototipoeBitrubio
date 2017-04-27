@@ -28,6 +28,7 @@ import butterknife.Bind;
 
 /**
  * Created by Orion on 13/07/2016.
+ * Dialog muetsra lista de vacunas
  */
 public class DialogVacunas extends DialogFragment {
 
@@ -99,7 +100,6 @@ public class DialogVacunas extends DialogFragment {
         });
         return view;
     }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -181,7 +181,6 @@ public class DialogVacunas extends DialogFragment {
 
         public VacunasArrayAdapter(Context context, List<Vacunas> planetList) {
             super(context, R.layout.simplerow_vacunas, R.id.rowTextView, planetList);
-            // Cache the LayoutInflate to avoid asking for a new one each time.
             inflater = LayoutInflater.from(context);
         }
 
@@ -210,9 +209,7 @@ public class DialogVacunas extends DialogFragment {
 
                         Log.e("tag", "checkbox" + cb);
                         Vacunas vacuna = (Vacunas) cb.getTag();
-
                         vacuna.setChecked(cb.isChecked());
-
 
                     }
                 });

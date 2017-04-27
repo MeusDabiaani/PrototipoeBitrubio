@@ -6,7 +6,6 @@ import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.graphics.Typeface;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.Environment;
@@ -15,31 +14,21 @@ import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.DefaultItemAnimator;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.text.Spannable;
-import android.text.SpannableString;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.SubMenu;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.CustomTypefaceSpan;
-import com.bitrubio.prototipoebitrubio.DividerItemDecoration;
+import com.bitrubio.prototipoebitrubio.Entidades.Experto;
 import com.bitrubio.prototipoebitrubio.ExpertosAdapter;
-import com.bitrubio.prototipoebitrubio.FragmentAmigos;
 import com.bitrubio.prototipoebitrubio.FragmentCoaches;
-import com.bitrubio.prototipoebitrubio.FragmentDependientes;
 import com.bitrubio.prototipoebitrubio.FragmentExpertos;
 import com.bitrubio.prototipoebitrubio.FragmentPatrocinadores;
-import com.bitrubio.prototipoebitrubio.IntroActivity;
 import com.bitrubio.prototipoebitrubio.MainActivity;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Ayuda;
 import com.bitrubio.prototipoebitrubio.MenuLateral.Premium;
@@ -50,8 +39,6 @@ import com.squareup.picasso.Picasso;
 
 
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -60,7 +47,9 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Mario on 27/01/2016.
+ * Muestra los fragmentos de la seccion expertos
  */
+//TODO falta crear el backend con la lista de medicos registrados , mas una Searchview para esa lista
 public class ExpertosActivity extends AppCompatActivity {
 
 

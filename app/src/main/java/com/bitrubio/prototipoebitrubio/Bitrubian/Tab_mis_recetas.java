@@ -3,7 +3,6 @@ package com.bitrubio.prototipoebitrubio.Bitrubian;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,14 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.bitrubio.prototipoebitrubio.DividerItemDecoration;
-import com.bitrubio.prototipoebitrubio.ExpertosAdapter;
+import com.bitrubio.prototipoebitrubio.Entidades.Recetas;
 import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
 
 /**
  * Created by Orion on 27/06/2016.
+ * tab con las lsita de la recetas
  */
 public class Tab_mis_recetas extends Fragment {
     Toolbar toolbar;

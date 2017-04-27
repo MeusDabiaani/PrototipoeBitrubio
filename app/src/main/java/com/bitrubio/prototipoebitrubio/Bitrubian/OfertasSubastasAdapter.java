@@ -1,8 +1,5 @@
 package com.bitrubio.prototipoebitrubio.Bitrubian;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,17 +8,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.bitrubio.prototipoebitrubio.ExpertosAdapter;
+import com.bitrubio.prototipoebitrubio.Entidades.Ofertas;
 import com.bitrubio.prototipoebitrubio.R;
 import com.squareup.picasso.Picasso;
-
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
@@ -30,6 +22,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 05/07/2016.
+ * adpatador para el recyclerview de las subatas
  */
 public class OfertasSubastasAdapter extends RecyclerView.Adapter<OfertasSubastasAdapter.ViewHolder> {
     private ArrayList<Ofertas> data;

@@ -37,8 +37,12 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 20/06/2016.
+ * Fragment ubicacion
  */
-public class FragmentUbicacion extends Fragment implements OnMapReadyCallback,LocationListener,GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener{
+public class FragmentUbicacion extends Fragment implements
+        OnMapReadyCallback,LocationListener,
+        GoogleApiClient.ConnectionCallbacks,
+        GoogleApiClient.OnConnectionFailedListener{
     LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
     LatLng latLng;
@@ -56,7 +60,6 @@ public class FragmentUbicacion extends Fragment implements OnMapReadyCallback,Lo
         mapFragment.getMapAsync(this);
         return rootView;
     }
-
     @Override
     public void onConnected(@Nullable Bundle bundle) {
         Toast.makeText(getContext(),"Conectado",Toast.LENGTH_SHORT).show();
@@ -72,13 +75,11 @@ public class FragmentUbicacion extends Fragment implements OnMapReadyCallback,Lo
             markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
             currLocationMarker = mGoogleMap.addMarker(markerOptions);
         }
-
         mLocationRequest = new LocationRequest();
         mLocationRequest.setInterval(5000); //5 seconds
         mLocationRequest.setFastestInterval(3000); //3 seconds
         mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
         //mLocationRequest.setSmallestDisplacement(0.1F); //1/10 meter
-
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
 
     }
@@ -112,7 +113,6 @@ public class FragmentUbicacion extends Fragment implements OnMapReadyCallback,Lo
     public void onConnectionFailed(@NonNull ConnectionResult connectionResult) {
         Toast.makeText(getContext(),"Coneccion fallida",Toast.LENGTH_SHORT).show();
     }
-
     @Override
     public void onMapReady(GoogleMap gMap) {
         mGoogleMap = gMap;

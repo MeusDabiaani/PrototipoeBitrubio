@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 
 /**
  * Created by Orion on 27/06/2016.
+ * Muestra la seccion de farmacia con sus tabs
  */
 public class FarmaciaActivity extends AppCompatActivity {
     private ViewPager pager;
@@ -68,6 +69,8 @@ public class FarmaciaActivity extends AppCompatActivity {
         tabs.setupWithViewPager(pager);
         tabs.setTabTextColors(getResources().getColor(R.color.textColorPrimary),getResources().getColor(R.color.colorAccent));
         tabs.setSelectedTabIndicatorColor(getResources().getColor(R.color.colorAccent));
+
+        // setea la tipogrfia para poder hacer pornerla en minusculas
         ViewGroup vg = (ViewGroup) tabs.getChildAt(0);
         int tabsCount = vg.getChildCount();
         for (int j = 0; j < tabsCount; j++) {

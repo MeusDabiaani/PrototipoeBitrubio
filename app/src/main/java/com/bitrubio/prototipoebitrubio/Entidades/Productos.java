@@ -1,4 +1,4 @@
-package com.bitrubio.prototipoebitrubio;
+package com.bitrubio.prototipoebitrubio.Entidades;
 
 import android.graphics.drawable.Drawable;
 

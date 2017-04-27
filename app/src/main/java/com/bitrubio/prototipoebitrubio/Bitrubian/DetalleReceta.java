@@ -1,6 +1,5 @@
 package com.bitrubio.prototipoebitrubio.Bitrubian;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -12,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.bitrubio.prototipoebitrubio.Entidades.Medicamento;
 import com.bitrubio.prototipoebitrubio.R;
 
 import java.util.ArrayList;
@@ -20,6 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.Bind;
 /**
  * Created by Orion on 01/07/2016.
+ * muetra los items que existen dentro de una receta
  */
 
 public class DetalleReceta extends AppCompatActivity {
@@ -59,6 +60,8 @@ public class DetalleReceta extends AppCompatActivity {
             }
         });
     }
+
+    // TODO debe hacerce el backend para obtener los Rows de los medicamnetos
     public void recyclerView(){
         int drawable[] = {R.drawable.promo_1,R.drawable.promo_2,R.drawable.promo_3};
         medicamentoList = new ArrayList<>();
@@ -87,8 +90,6 @@ public class DetalleReceta extends AppCompatActivity {
         mAdapter.setHasStableIds(true);
         mRecyclerView.setAdapter(mAdapter);
 
-        //TODO row_detalle_receta
-        //TODO recycler_detalle_recetas
 
     }
     @Override

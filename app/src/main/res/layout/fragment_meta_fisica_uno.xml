@@ -9,6 +9,33 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/fondo_bity"
+        android:layout_marginLeft="130dp"
+        android:layout_marginRight="6dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir
+                android:id="@+id/edit_nomMeta"
+                style="@style/MyEditTextAvenir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:hint="@string/nombra_tu_meta"
+                android:singleLine="true"
+                android:textSize="16sp">
+
+            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.EditTextAvenir>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:orientation="vertical">
@@ -36,48 +63,32 @@
                         android:layout_marginTop="16dp"
                         android:orientation="vertical">
 
-                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
-                            android:id="@+id/txt_peso_actual"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginTop="6dp"
-                            android:hint="@string/peso_actual"
-                            android:textColor="@color/letraVerde1"
-                            style="@style/MyTextViewAvenir" />
+                            android:orientation="horizontal">
 
-                        <View style="@style/MyView" />
-                    </LinearLayout>
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_peso_actual"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:layout_weight="1"
+                                android:text="@string/peso_actual"
+                                android:textColor="@color/textColorPrimary" />
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:orientation="vertical">
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_resp_peso_actual"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="6dp"
+                                android:hint="@string/kilos"
+                                android:textColor="@color/letraVerde1" />
 
-                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
-                            android:id="@+id/edit_objetivo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/peso_objetivo"
-                            android:textColor="@color/letraVerde1"
-                            style="@style/MyTextViewAvenir" />
+                        </LinearLayout>
 
-                        <View style="@style/MyView" />
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:orientation="vertical">
-
-                        <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
-                            android:id="@+id/edit_tiempo"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:hint="@string/tiempo_meta"
-                            android:textColor="@color/letraVerde1"
-                            style="@style/MyTextViewAvenir" />
 
                         <View style="@style/MyView" />
                     </LinearLayout>
@@ -91,19 +102,103 @@
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:gravity="center_horizontal"
+                            android:orientation="horizontal">
+
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/edit_objetivo"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/peso_objetivo"
+                                android:textColor="@color/textColorPrimary" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_resp_peso_objetivo"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/kilos"
+                                android:textColor="@color/letraVerde1" />
+
+                        </LinearLayout>
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/edit_tiempo"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="@string/tiempo_meta"
+                                android:textColor="@color/textColorPrimary" />
+
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_resp_tiempo"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:hint="@string/dia"
+                                android:textColor="@color/letraVerde1" />
+                        </LinearLayout>
+
+                        <View style="@style/MyView" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="30dp"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center_vertical"
                             android:orientation="horizontal">
 
                             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                                 android:id="@+id/edit_retarAmigos"
-                                android:layout_width="match_parent"
+                                style="@style/MyTextViewAvenir"
+                                android:layout_gravity="left"
+                                android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:hint="@string/reta_amigos"
-                                android:textColor="@color/letraVerde1"
-                                style="@style/MyTextViewAvenir" />
+                                android:text="@string/reta_amigos"
+                                android:textColor="@color/textColorPrimary" />
 
-                            <ImageView style="@style/MyView" />
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/img_reta"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/flecha_derecha"
+                                style="@style/MyTextViewAvenir"
+                                android:textColor="@color/letraVerde1"
+                                />
+
+
+                        </LinearLayout>
+                        <LinearLayout
+                            android:id="@+id/lnr_img_reta"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+
+
                         </LinearLayout>
 
                         <View style="@style/MyView" />
@@ -123,14 +218,21 @@
 
                             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                                 android:id="@+id/txt_armarEquipo"
+                                style="@style/MyTextViewAvenir"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:hint="@string/armar_equipo"
-                                android:textColor="@color/letraVerde1"
-                                style="@style/MyTextViewAvenir" />
+                                android:text="@string/armar_equipo"
+                                android:textColor="@color/textColorPrimary" />
 
-                            <ImageView style="@style/MyView" />
+                            <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/img_apoyo"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:drawableRight="@drawable/flecha_derecha"
+                                style="@style/MyTextViewAvenir"
+                                android:textColor="@color/letraVerde1"/>
+
                         </LinearLayout>
 
                         <View style="@style/MyView" />
@@ -148,25 +250,24 @@
                             android:gravity="center_horizontal"
                             android:orientation="horizontal">
 
+
                             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
                                 android:id="@+id/edit_privacidad"
+                                style="@style/MyTextViewAvenir"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_weight="1"
-                                android:hint="@string/estatus_privacidad"
-                                android:textColor="@color/letraVerde1"
-                                style="@style/MyTextViewAvenir" />
+                                android:text="@string/estatus_privacidad"
+                                android:textColor="@color/textColorPrimary" />
 
                             <com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir
+                                android:id="@+id/txt_resp_privacidad"
+                                style="@style/MyTextViewAvenir"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Público"
-                                android:textColor="@color/colorAccent"
-                                style="@style/MyTextViewAvenir">
+                                android:text="@string/estatus_privacidad"
+                                android:textColor="@color/letraVerde1" />
 
-                            </com.bitrubio.prototipoebitrubio.ClasesExtendidas.TexviewAvenir>
-
-                            <ImageView style="@style/MyView" />
                         </LinearLayout>
 
                         <View style="@style/MyView" />

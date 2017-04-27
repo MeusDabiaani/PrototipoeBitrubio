@@ -6,45 +6,31 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.net.Uri;
-import android.support.v4.app.BundleCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.ContextMenu;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AnticipateInterpolator;
 import android.view.animation.OvershootInterpolator;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.MediaController;
 import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
 import com.bitrubio.prototipoebitrubio.Bitrubian.ConectaServidor;
-import com.bitrubio.prototipoebitrubio.Bitrubian.Mensajes;
+import com.bitrubio.prototipoebitrubio.Entidades.Mensajes;
 import com.bitrubio.prototipoebitrubio.Bitrubian.ProfileActivity;
 import com.ogaclejapan.arclayout.ArcLayout;
 import com.squareup.picasso.Picasso;
 
-import org.w3c.dom.Text;
-
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by Mario on 11/01/2016.
+ * adapatador de los post
  */
 public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.ViewHolder>  {
     private ArrayList<Mensajes> data;
@@ -86,10 +72,9 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
         servidor = new ConectaServidor();
         String UrlServer = servidor.getUrl();
         //String ruta = "http://www.meustech.com:8080/bitrubio/movil/fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
-        Log.e(TAG,"id"+data.get(position).getIdContacto());
+        //Log.e(TAG,"id"+data.get(position).getIdContacto());
         String ruta = UrlServer+"fotosPerfil/" + data.get(position).getIdContacto() + ".jpg";
-
-        Picasso.with(context).load(ruta).error(R.drawable.ic_sin_foto).into(holder.getImgUser());
+        Picasso.with(context).load(ruta).error(R.drawable.ic_sin_foto).resize(90,90).into(holder.getImgUser());
         final String _idContacto;
         _idContacto = registros.getIdContacto();
         holder.getTxt_personName().setText(registros.getNommbre());
@@ -107,8 +92,6 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
 
 
     }
-
-
 
     @Override
     public int getItemCount() {
@@ -184,11 +167,12 @@ public class MensajesAdadpter extends RecyclerView.Adapter<MensajesAdadpter.View
             });
 
         }
+        /*** los metodos showtoast, onfabclick,showMenu,hideMenu,createShowItemAnimator,createHideItemAnimator
+         * serian la muestra de como hacer el menu contextual */
         private void showToast(Button btn) {
             if (toast != null) {
                 toast.cancel();
             }
-
             String text = "Clicked: " + btn.getText();
             toast = Toast.makeText(context, text, Toast.LENGTH_SHORT);
             toast.show();

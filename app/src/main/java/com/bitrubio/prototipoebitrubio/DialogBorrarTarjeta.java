@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 /**
  * Created by Orion on 25/07/2016.
+ * dialog para preguntar la si desea borrar la tarjeta
  */
 public class DialogBorrarTarjeta extends DialogFragment {
 
