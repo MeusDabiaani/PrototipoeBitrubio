@@ -303,7 +303,7 @@ public class LoginActivity extends AppCompatActivity {
             //  Agregamos el servicio para la conexion por http
             ServiceHandler jsonPArser = new ServiceHandler();
             // mandamos los datos por metodo post
-            Json = jsonPArser.makeServiceCall(servidor.getUrl()+URL, ServiceHandler.POST, data);
+/*            Json = jsonPArser.makeServiceCall(servidor.getUrl()+URL, ServiceHandler.POST, data);
 
             try {
                 JSONObject jsonObject = new JSONObject(Json);
@@ -331,7 +331,8 @@ public class LoginActivity extends AppCompatActivity {
             } catch (JSONException e) {
                 e.printStackTrace();
 
-            }
+            }*/
+            userData.add(new Bitrubian(1,"Mario ","Hernandez","jamriohv@gmail.com","1","1"));
             return null;
         }
     }

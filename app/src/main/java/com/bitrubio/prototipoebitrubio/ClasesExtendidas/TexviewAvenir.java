@@ -13,7 +13,7 @@ import com.bitrubio.prototipoebitrubio.R;
 /**
  * Created by Orion on 22/06/2016.
  */
-public class TexviewAvenir extends TextView {
+public class TexviewAvenir extends android.support.v7.widget.AppCompatTextView {
     Typeface myTypeface ;
     public TexviewAvenir(Context context) {
         super(context);

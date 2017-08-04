@@ -70,8 +70,7 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
         }
 
     }
-
-    // This method return the Number of tabs for the tabs Strip
+// This method return the Number of tabs for the tabs Strip
     @Override
     public int getCount() {
         return NumbOfTabs;

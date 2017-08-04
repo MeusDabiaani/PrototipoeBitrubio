@@ -79,7 +79,7 @@ public class CompletaPerfilActivity extends AppCompatActivity{
 
         pager = (ViewPager) findViewById(R.id.pager_datos);
         pager.setAdapter(adapter);
-        pager.setCurrentItem(0);
+        pager.setCurrentItem(1);
         // Assiging the Sliding Tab Layout View
         tabs = (TabLayout) findViewById(R.id.tabs_completa_datos);
 
